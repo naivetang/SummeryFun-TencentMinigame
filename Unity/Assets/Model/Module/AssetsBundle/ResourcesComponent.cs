@@ -424,7 +424,87 @@ namespace ETModel
 			this.bundles[assetBundleName] = abInfo;
 		}
 
-		public string DebugString()
+        #region 图集文件
+
+        private Dictionary<string, UnityEngine.Object[]> atlasDic = new Dictionary<string, UnityEngine.Object[]>();//图集的集合
+
+        //Sprite _sprite = LoadAtlasSprite("common/game/CommPackAltas","sprite");
+
+        /// <summary>
+        /// 加载图集上的一个精灵
+        /// </summary>
+        /// <param name="_spriteAtlasPath"></param>
+        /// <param name="_spriteName"></param>
+        /// <returns></returns>
+        public Sprite LoadAtlasSprite(string _spriteAtlasPath, string _spriteName)
+        {
+            Sprite _sprite = FindSpriteFormBuffer(_spriteAtlasPath, _spriteName);
+            if (_sprite == null)
+            {
+                UnityEngine.Object[] _atlas = Resources.LoadAll(_spriteAtlasPath);
+                this.atlasDic.Add(_spriteAtlasPath, _atlas);
+                _sprite = SpriteFormAtlas(_atlas, _spriteName);
+            }
+            return _sprite;
+        }
+        
+        /// <summary>
+        /// 删除图集缓存
+        /// </summary>
+        /// <param name="_spriteAtlasPath"></param>
+        public void DeleteAtlas(string _spriteAtlasPath)
+        {
+            if (this.atlasDic.ContainsKey(_spriteAtlasPath))
+            {
+                this.atlasDic.Remove(_spriteAtlasPath);
+            }
+        }
+        
+        /// <summary>
+        /// 从缓存中查找图集，并找出sprite
+        /// </summary>
+        /// <param name="_spriteAtlasPath"></param>
+        /// <param name="_spriteName"></param>
+        /// <returns></returns>
+        private Sprite FindSpriteFormBuffer(string _spriteAtlasPath, string _spriteName)
+        {
+            if (this.atlasDic.ContainsKey(_spriteAtlasPath))
+            {
+                UnityEngine.Object[] _atlas = this.atlasDic[_spriteAtlasPath];
+                Sprite _sprite = SpriteFormAtlas(_atlas, _spriteName);
+                return _sprite;
+            }
+            return null;
+        }
+        
+        /// <summary>
+        /// 从图集中，并找出sprite
+        /// </summary>
+        /// <param name="_atlas"></param>
+        /// <param name="_spriteName"></param>
+        /// <returns></returns>
+        private Sprite SpriteFormAtlas(UnityEngine.Object[] _atlas, string _spriteName)
+        {
+            for (int i = 0; i < _atlas.Length; i++)
+            {
+                if (_atlas[i] is Sprite)
+                {
+                    if (_atlas[i].name == _spriteName)
+                    {
+                        return (Sprite)_atlas[i];
+                    }
+                }
+            }
+            Debug.LogWarning("图片名:" + _spriteName + ";在图集中找不到");
+            return null;
+        }
+
+        #endregion
+
+
+
+
+        public string DebugString()
 		{
 			StringBuilder sb = new StringBuilder();
 			foreach (ABInfo abInfo in this.bundles.Values)

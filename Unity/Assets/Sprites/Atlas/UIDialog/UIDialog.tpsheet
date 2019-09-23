@@ -1,0 +1,17 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# http://www.codeandweb.com/texturepacker/unity
+#
+# $TexturePacker:SmartUpdate:0384ff83d2b08a7d9cb5272c052aef12:034d4a4375f983174bb15f97aa24bc4d:b79aab3c6a89e6081d7ae89c3131ee41$
+#
+:format=40300
+:texture=UIDialog.png
+:size=256x256
+:pivotpoints=enabled
+:borders=enabled
+
+UI-chatbarbg1;1;166;92;89; 0.5;0.5; 19;23;14;37
+UI-chatbarbg2;1;77;92;87; 0.5;0.5; 0;0;0;0; 6;92;22;48;0;44;0;0;22;0;87;92;87; 4;2;4;5;2;3;4;1;2;5;0;1;5
+UI-chatbarbg3;95;166;92;89; 0.5;0.5; 23;23;22;35

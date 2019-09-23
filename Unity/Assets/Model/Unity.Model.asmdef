@@ -2,7 +2,8 @@
     "name": "Unity.Model",
     "references": [
         "Unity.ThirdParty",
-        "Unity.Demigiant"
+        "Unity.Demigiant",
+        "spine-unity"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [],

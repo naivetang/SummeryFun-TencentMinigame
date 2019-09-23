@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace ETModel
 {
@@ -39,6 +40,7 @@ namespace ETModel
 
     public class UnitMoveComponent : Component
     {
+        [SerializeField]
         private MoveDir _moveDir = MoveDir.Stop;
 
         private float _moveSpeed = 0.8f;
@@ -52,34 +54,34 @@ namespace ETModel
             AddListener();
         }
 
-        public void Update()
-        {
-            switch (_moveDir)
-            {
-                case MoveDir.Up:
-                    _playerTransform.Translate(new Vector3(0, this._moveSpeed * Time.deltaTime, 0));
-                    break;
-                case MoveDir.Down:
-                    _playerTransform.Translate(new Vector3(0, -this._moveSpeed * Time.deltaTime, 0));
-                    break;
-                case MoveDir.Left:
-                    _playerTransform.Translate(new Vector3(-this._moveSpeed * Time.deltaTime, 0, 0));
-                    break;
-                case MoveDir.Right:
-                    _playerTransform.Translate(new Vector3(this._moveSpeed * Time.deltaTime, 0, 0));
-                    break;
-                case MoveDir.LeftUp:
-                    break;
-                case MoveDir.RightUp:
-                    break;
-                case MoveDir.LeftDown:
-                    break;
-                case MoveDir.RightDown:
-                    break;
-                case MoveDir.Stop:
-                    break;
-            }
-        }
+        // public void Update()
+        // {
+        //     switch (_moveDir)
+        //     {
+        //         case MoveDir.Up:
+        //             _playerTransform.Translate(new Vector3(0, this._moveSpeed * Time.deltaTime, 0));
+        //             break;
+        //         case MoveDir.Down:
+        //             _playerTransform.Translate(new Vector3(0, -this._moveSpeed * Time.deltaTime, 0));
+        //             break;
+        //         case MoveDir.Left:
+        //             _playerTransform.Translate(new Vector3(-this._moveSpeed * Time.deltaTime, 0, 0));
+        //             break;
+        //         case MoveDir.Right:
+        //             _playerTransform.Translate(new Vector3(this._moveSpeed * Time.deltaTime, 0, 0));
+        //             break;
+        //         case MoveDir.LeftUp:
+        //             break;
+        //         case MoveDir.RightUp:
+        //             break;
+        //         case MoveDir.LeftDown:
+        //             break;
+        //         case MoveDir.RightDown:
+        //             break;
+        //         case MoveDir.Stop:
+        //             break;
+        //     }
+        // }
 
         public void FixedUpdate()
         {
@@ -111,6 +113,11 @@ namespace ETModel
                     break;
                 case MoveDir.Stop:
                     break;
+            }
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                this.RemoveListener();
             }
         }
 

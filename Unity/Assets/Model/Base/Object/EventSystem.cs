@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
+using UnityEngine;
 
 namespace ETModel
 {
@@ -147,6 +148,7 @@ namespace ETModel
 
 		public void RegisterEvent(string eventId, IEvent e)
 		{
+			// Debug.Log("注册事件 ： " + eventId);
 			if (!this.allEvents.ContainsKey(eventId))
 			{
 				this.allEvents.Add(eventId, new List<IEvent>());
@@ -156,6 +158,8 @@ namespace ETModel
 
         public void UnRegisterEvent(string eventId, IEvent e)
         {
+	        // Debug.Log("卸载事件 ： " + eventId);
+	        
             if (!this.allEvents.ContainsKey(eventId))
             {
                 Log.Error($"未注册事件:{eventId}");

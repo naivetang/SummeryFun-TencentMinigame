@@ -229,7 +229,7 @@ namespace ETModel
 
             if (this._joystickState == JoystickState.Drag)
             {
-                if (this._dragAngle > -22.5 && this._dragAngle < 22.5)
+                if (this._dragAngle > 67.5 && this._dragAngle < 112.5)
                 {
                     dir = MoveDir.Right;
                 }
@@ -237,15 +237,15 @@ namespace ETModel
                 {
                     dir = MoveDir.RightUp;
                 }
-                else if (this._dragAngle > 67.5 && this._dragAngle < 112.5)
+                else if (this._dragAngle > -22.5 && this._dragAngle < 22.5)
                 {
                     dir = MoveDir.Up;
                 }
-                else if (this._dragAngle > 112.5 && this._dragAngle < 157.5)
+                else if (this._dragAngle > -67.5 && this._dragAngle < -22.5)
                 {
                     dir = MoveDir.LeftUp;
                 }
-                else if (this._dragAngle > 157.5 || this._dragAngle < -157.5)
+                else if (this._dragAngle > -112.5 && this._dragAngle < -67.5)
                 {
                     dir = MoveDir.Left;
                 }
@@ -253,11 +253,11 @@ namespace ETModel
                 {
                     dir = MoveDir.LeftDown;
                 }
-                else if (this._dragAngle > -112.5 && this._dragAngle < -67.5)
+                else if (this._dragAngle > 157.5 || this._dragAngle < -157.5)
                 {
                     dir = MoveDir.Down;
                 }
-                else if (this._dragAngle > -67.5 && this._dragAngle < -22.5)
+                else if (this._dragAngle > 112.5 && this._dragAngle < 157.5)
                 {
                     dir = MoveDir.RightDown;
                 }
@@ -334,10 +334,15 @@ namespace ETModel
         /// </summary>
         void DragState()
         {
+            // 相对于摇杆中心位置
             Vector3 mouseLocalPosition = GetMouseLocalPosition(this._dragStick.transform);
 
+            // Log.Debug($"鼠标位置( {mouseLocalPosition.x},{mouseLocalPosition.y} )," +
+            //     $"stickBG位置( {this._stickBG.transform.localPosition.x} , {this._stickBG.transform.localPosition.y} )" +
+            //     $"角度 : {this._dragAngle}");
+
             //鼠标与摇杆的距离
-            float distance = Vector3.Distance(mouseLocalPosition, this._stickBG.transform.localPosition);
+            float distance = Vector3.Distance(mouseLocalPosition, Vector3.zero);
 
 
             //设置杆的位置
@@ -362,11 +367,18 @@ namespace ETModel
             if (distance > this._showDirection)
             {
                 this._arrow.gameObject.SetActive(true);
+                
+                
 
                 //获取鼠标位置与摇杆的角度
-                this._dragAngle = Math.Atan2((mouseLocalPosition.y - this._stickBG.transform.localPosition.y), (mouseLocalPosition.x - this._arrow.transform.localPosition.x)) * 180 / Math.PI;
+                this._dragAngle = Math.Atan2((mouseLocalPosition.x), (mouseLocalPosition.y)) * 180 / Math.PI;
+
+                // Log.Debug($"鼠标位置( {mouseLocalPosition.x},{mouseLocalPosition.y} )," +
+                //     $"stickBG位置( {this._stickBG.transform.localPosition.x} , {this._stickBG.transform.localPosition.y} )" +
+                //     $"角度 : {this._dragAngle}");
 
                 //Log.Debug("角度 ： " + this._dragAngle);
+                //Log.Debug("角度 ： " + Math.Atan2(3,4) * 180/Math.PI);
                 
                 this._arrow.transform.eulerAngles = new Vector3(0, 0, (float)this._dragAngle);
 
