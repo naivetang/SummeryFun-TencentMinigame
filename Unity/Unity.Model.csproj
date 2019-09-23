@@ -308,6 +308,8 @@
     <Compile Include="Assets\Model\Module\Config\IConfig.cs" />
     <Compile Include="Assets\Model\Module\Demo\AnimatorComponent.cs" />
     <Compile Include="Assets\Model\Module\Demo\CameraComponent.cs" />
+    <Compile Include="Assets\Model\Module\Demo\Config\Dialog.cs" />
+    <Compile Include="Assets\Model\Module\Demo\Config\Role.cs" />
     <Compile Include="Assets\Model\Module\Demo\Config\UnitConfig.cs" />
     <Compile Include="Assets\Model\Module\Demo\MoveComponent.cs" />
     <Compile Include="Assets\Model\Module\Demo\Player.cs" />
@@ -756,6 +758,9 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
+    <Reference Include="TexturePackerImporter">
+      <HintPath>D:/Github/SummerFun/Unity/Assets/codeandweb.com/Editor/TexturePackerImporter.dll</HintPath>
+    </Reference>
     <Reference Include="DemiLib">
       <HintPath>D:/Github/SummerFun/Unity/Assets/Demigiant/DemiLib/Core/DemiLib.dll</HintPath>
     </Reference>
@@ -809,9 +814,6 @@
     </Reference>
     <Reference Include="NPOI.OpenXmlFormats">
       <HintPath>D:/Github/SummerFun/Unity/Assets/Plugins/Editor/npoi/NPOI.OpenXmlFormats.dll</HintPath>
-    </Reference>
-    <Reference Include="TexturePackerImporter">
-      <HintPath>D:/Github/SummerFun/Unity/Assets/codeandweb.com/Editor/TexturePackerImporter.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>D:/Program Files/Unity2018.3.6f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
