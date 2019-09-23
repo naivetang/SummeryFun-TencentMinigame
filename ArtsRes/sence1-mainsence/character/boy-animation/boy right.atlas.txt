@@ -1,0 +1,55 @@
+
+boy right.png
+size: 120,290
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bag
+  rotate: false
+  xy: 68, 191
+  size: 50, 97
+  orig: 52, 100
+  offset: 1, 2
+  index: -1
+body
+  rotate: false
+  xy: 2, 26
+  size: 54, 101
+  orig: 56, 103
+  offset: 1, 1
+  index: -1
+head
+  rotate: false
+  xy: 64, 141
+  size: 47, 48
+  orig: 49, 50
+  offset: 1, 1
+  index: -1
+l-arm
+  rotate: true
+  xy: 2, 129
+  size: 67, 60
+  orig: 69, 62
+  offset: 1, 1
+  index: -1
+l-leg
+  rotate: false
+  xy: 58, 33
+  size: 55, 94
+  orig: 58, 96
+  offset: 1, 1
+  index: -1
+r-arm
+  rotate: true
+  xy: 58, 2
+  size: 29, 44
+  orig: 31, 49
+  offset: 1, 2
+  index: -1
+r-leg
+  rotate: false
+  xy: 2, 198
+  size: 64, 90
+  orig: 66, 92
+  offset: 1, 1
+  index: -1
