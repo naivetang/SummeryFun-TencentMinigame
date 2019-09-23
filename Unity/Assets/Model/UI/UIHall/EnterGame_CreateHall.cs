@@ -11,7 +11,9 @@ namespace ETModel
     {
         public override void Run()
         {
-            UIFactory.Create<UIHallComponent>(ViewLayer.UIMainLayer, UIType.UIHall).Coroutine();
+            //UIFactory.Create<UIHallComponent>(ViewLayer.UIMainLayer, UIType.UIHall).Coroutine();
+
+            UIFactory.Create<UIStartComponent>(ViewLayer.UIFullScreenLayer, UIType.UIStart).Coroutine();
         }
     }
 }

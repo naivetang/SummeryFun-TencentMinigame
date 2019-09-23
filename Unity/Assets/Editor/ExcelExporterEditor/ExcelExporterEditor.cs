@@ -62,7 +62,7 @@ public class ExcelExporterEditor : EditorWindow
 				ExportAll(clientPath);
 				
 				ExportAllClass(@"./Assets/Model/Module/Demo/Config", "namespace ETModel\n{\n");
-				ExportAllClass(@"./Assets/Hotfix/Module/Demo/Config", "using ETModel;\n\nnamespace ETHotfix\n{\n");
+				//ExportAllClass(@"./Assets/Hotfix/Module/Demo/Config", "using ETModel;\n\nnamespace ETHotfix\n{\n");
 				
 				Log.Info($"导出客户端配置完成!");
 			}
@@ -70,6 +70,10 @@ public class ExcelExporterEditor : EditorWindow
 			if (GUILayout.Button("导出服务端配置"))
 			{
 				this.isClient = false;
+                
+                Log.Info("暂不需要服务器表格，结束");
+                
+                return;
 				
 				ExportAll(ServerConfigPath);
 				

@@ -58,19 +58,51 @@ namespace ETModel
 		private void Update()
 		{
 			OneThreadSynchronizationContext.Instance.Update();
-			Game.Hotfix.Update?.Invoke();
-			Game.EventSystem.Update();
+            
+            try
+            {
+                Game.Hotfix.Update?.Invoke();
+                Game.EventSystem.Update();
+            }
+            catch (Exception e)
+            {
+                Log.Error(e);
+            }
+            
+			
 		}
 
 		private void LateUpdate()
-		{
-			Game.Hotfix.LateUpdate?.Invoke();
-			Game.EventSystem.LateUpdate();
+        {
+            
+
+            try
+            {
+                Game.Hotfix.LateUpdate?.Invoke();
+                Game.EventSystem.LateUpdate();
+            }
+            catch (Exception e)
+            {
+                Log.Error(e);
+            }
+            
+			
 		}
 
         private void FixedUpdate()
         {
-            Game.EventSystem.FixedUpdate();
+            
+            try
+            {
+                Game.EventSystem.FixedUpdate();
+
+            }
+            catch (Exception e)
+            {
+                Log.Error(e);
+            }
+            
+            
         }
         
         

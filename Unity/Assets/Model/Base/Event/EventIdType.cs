@@ -36,5 +36,10 @@
 		public const string TriggerAera = "TriggerAera";
 		
 		public const string WaterDropMiddleTouch = "WaterDropMiddleTouch";
+        
+        
+		public const string StartGame = "StartGame";
+        
+        
 	}
 }

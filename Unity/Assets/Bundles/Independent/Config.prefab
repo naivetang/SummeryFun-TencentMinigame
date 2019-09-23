@@ -44,7 +44,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data:
-  - key: BuffConfig
-    gameObject: {fileID: 4900000, guid: 0f3540faabf2b7e4c83e81cb7ba6a096, type: 3}
+  - key: DialogConfig
+    gameObject: {fileID: 4900000, guid: 2e3407535cc0fb9418a3c343b509c670, type: 3}
+  - key: GlobalProto
+    gameObject: {fileID: 4900000, guid: 78f3a209a7b81ec46a196b52eea7e541, type: 3}
+  - key: RoleConfig
+    gameObject: {fileID: 4900000, guid: 5e08fb6d2a14e754cba6240e88ecf99f, type: 3}
   - key: UnitConfig
     gameObject: {fileID: 4900000, guid: c245c7dda13b3ad43b2278925e922899, type: 3}

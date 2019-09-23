@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using NPOI.SS.Formula.Functions;
 
 namespace ETModel
 {
@@ -87,6 +88,13 @@ namespace ETModel
 
 			return configCategory.TryGet(id);
 		}
+
+        public T Get<T>(int id) where T : class
+        {
+            Type t = typeof (Type);
+
+            return this.Get(t, id) as T;
+        }
 
 		public IConfig TryGet(Type type, int id)
 		{

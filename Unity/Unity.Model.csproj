@@ -308,8 +308,8 @@
     <Compile Include="Assets\Model\Module\Config\IConfig.cs" />
     <Compile Include="Assets\Model\Module\Demo\AnimatorComponent.cs" />
     <Compile Include="Assets\Model\Module\Demo\CameraComponent.cs" />
-    <Compile Include="Assets\Model\Module\Demo\Config\Dialog.cs" />
-    <Compile Include="Assets\Model\Module\Demo\Config\Role.cs" />
+    <Compile Include="Assets\Model\Module\Demo\Config\DialogConfig.cs" />
+    <Compile Include="Assets\Model\Module\Demo\Config\RoleConfig.cs" />
     <Compile Include="Assets\Model\Module\Demo\Config\UnitConfig.cs" />
     <Compile Include="Assets\Model\Module\Demo\MoveComponent.cs" />
     <Compile Include="Assets\Model\Module\Demo\Player.cs" />
@@ -504,6 +504,7 @@
     <Compile Include="Assets\Model\MonoScripts\JoyStick.cs" />
     <Compile Include="Assets\Model\MonoScripts\NonDrawingGraphic.cs" />
     <Compile Include="Assets\Model\MonoScripts\PlayerAnimation.cs" />
+    <Compile Include="Assets\Model\MonoScripts\RoleUnit.cs" />
     <Compile Include="Assets\Model\MonoScripts\TriggerArea.cs" />
     <Compile Include="Assets\Model\Other\AppType.cs" />
     <Compile Include="Assets\Model\Other\Define.cs" />
@@ -523,6 +524,7 @@
     <Compile Include="Assets\Model\UI\UIHall\UIHallComponent.cs" />
     <Compile Include="Assets\Model\UI\UIMain\UIMainComponent.cs" />
     <Compile Include="Assets\Model\UI\UIManager.cs" />
+    <Compile Include="Assets\Model\UI\UIStart\UIStartComponent.cs" />
     <Compile Include="Assets\Model\Utils\ISingleton.cs" />
     <Compile Include="Assets\Model\Utils\Singleton.cs" />
     <Compile Include="Assets\Model\Utils\SingletonMono.cs" />

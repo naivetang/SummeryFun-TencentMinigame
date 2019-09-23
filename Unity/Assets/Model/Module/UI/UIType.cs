@@ -16,6 +16,11 @@ namespace ETModel
         /// 蜻蜓
         /// </summary>
 	    public const string UIDragonfly = "UIDragonfly";
+        
+        /// <summary>
+        /// 开始、回忆、设置
+        /// </summary>
+	    public const string UIStart = "UIStart";
 
 
         
