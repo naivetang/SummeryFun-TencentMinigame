@@ -1,0 +1,48 @@
+
+tree anima.png
+size: 598,305
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1-1
+  rotate: true
+  xy: 274, 172
+  size: 131, 255
+  orig: 131, 255
+  offset: 0, 0
+  index: -1
+1-2
+  rotate: true
+  xy: 403, 2
+  size: 168, 99
+  orig: 170, 101
+  offset: 1, 1
+  index: -1
+1-3
+  rotate: false
+  xy: 531, 155
+  size: 64, 148
+  orig: 66, 151
+  offset: 1, 1
+  index: -1
+2
+  rotate: true
+  xy: 504, 26
+  size: 127, 92
+  orig: 127, 92
+  offset: 0, 0
+  index: -1
+3
+  rotate: true
+  xy: 274, 16
+  size: 154, 127
+  orig: 224, 260
+  offset: 70, 133
+  index: -1
+图层 0
+  rotate: false
+  xy: 2, 15
+  size: 270, 288
+  orig: 272, 290
+  offset: 1, 1
+  index: -1

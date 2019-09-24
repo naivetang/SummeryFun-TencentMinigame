@@ -1,0 +1,64 @@
+{
+"skeleton": {
+	"hash": "hzOo8L7BW8MIeTJxH9MfBu4/7Ek",
+	"spine": "3.8.72",
+	"x": -238.48,
+	"y": -3.33,
+	"width": 520,
+	"height": 298,
+	"images": "./images/",
+	"audio": "F:/-Minigame/minigame/animation project/startanimisence/book anim"
+},
+"bones": [
+	{ "name": "root" },
+	{ "name": "bone", "parent": "root", "length": 269.18, "rotation": 90.21, "x": 8.01, "y": -16.46 },
+	{ "name": "cover", "parent": "bone", "length": 218.08, "rotation": 99.65, "x": 188.68, "y": 4.17 },
+	{ "name": "page1", "parent": "bone", "length": 211.62, "rotation": 92.03, "x": 196.39, "y": -10.89 }
+],
+"slots": [
+	{ "name": "book", "bone": "root", "attachment": "book" },
+	{ "name": "cover", "bone": "cover", "attachment": "cover" },
+	{ "name": "page1", "bone": "page1", "attachment": "page1" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"page1": {
+				"page1": { "x": 100.25, "y": 12.89, "rotation": 177.77, "width": 274, "height": 263 }
+			},
+			"book": {
+				"book": { "x": 23.02, "y": 139.17, "width": 517, "height": 285 }
+			},
+			"cover": {
+				"cover": { "x": 101.1, "y": 14.43, "rotation": 170.14, "width": 289, "height": 268 }
+			}
+		}
+	}
+],
+"animations": {
+	"animation": {
+		"bones": {
+			"cover": {
+				"shear": [
+					{ "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.3667, "x": 3.52, "curve": 0.545, "c3": 0.789, "c4": 0.64 },
+					{ "time": 0.9667, "x": 0.54, "curve": 0.338, "c2": 0.38, "c3": 0.521 },
+					{ "time": 1.2667, "x": 1.23, "curve": 0.25, "c3": 0.482, "c4": 1.36 },
+					{ "time": 1.7333, "curve": "stepped" },
+					{ "time": 2.2667 }
+				]
+			},
+			"page1": {
+				"shear": [
+					{ "time": 0.1667, "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.7667, "x": 7.08, "curve": 0.545, "c3": 0.789, "c4": 0.64 },
+					{ "time": 1.2667, "x": 0.54, "curve": 0.338, "c2": 0.38, "c3": 0.521 },
+					{ "time": 1.5333, "x": 1.23, "curve": 0.25, "c3": 0.482, "c4": 1.36 },
+					{ "time": 2 }
+				]
+			}
+		}
+	}
+}
+}
