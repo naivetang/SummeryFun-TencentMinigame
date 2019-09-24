@@ -26,7 +26,11 @@ namespace ETModel
 
         private MoveDir _moveDir = MoveDir.Stop;
 
-        private SkeletonAnimation _animation;
+        //private SkeletonAnimation _animation;
+
+
+        private SkeletonGraphic _animation;
+
 
         private int _trackIndex = 0;
 
@@ -36,7 +40,9 @@ namespace ETModel
 
         void Start()
         {
-            this._animation = this.GetComponent<SkeletonAnimation>();
+            //this._animation = this.GetComponent<SkeletonAnimation>();
+
+            this._animation = this.GetComponent<SkeletonGraphic>();
 
             if (this._animation == null)
             {
@@ -147,7 +153,7 @@ namespace ETModel
             if (this._animation.skeletonDataAsset == data)
             {
                 if(!this._animation.AnimationState.GetCurrent(this._trackIndex).Animation.Name.Equals(this._walkAnimation))
-                    this._animation.state.SetAnimation(_trackIndex, this._walkAnimation, true);
+                    this._animation.AnimationState.SetAnimation(_trackIndex, this._walkAnimation, true);
 
                 return;
 
@@ -157,7 +163,7 @@ namespace ETModel
             
             this._animation.Initialize(true);
 
-            this._animation.state.SetAnimation(_trackIndex, this._walkAnimation, true);
+            this._animation.AnimationState.SetAnimation(_trackIndex, this._walkAnimation, true);
         }
 
         private void OnDisable()

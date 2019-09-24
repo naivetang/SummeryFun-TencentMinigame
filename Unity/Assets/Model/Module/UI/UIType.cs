@@ -26,6 +26,12 @@ namespace ETModel
         /// 引导关、蜻蜓关
         /// </summary>
 	    public const string UIGuideScene = "UIGuideScene";
+        
+        
+        /// <summary>
+        /// CG界面
+        /// </summary>
+	    public const string UICG = "UICG";
 
 
         

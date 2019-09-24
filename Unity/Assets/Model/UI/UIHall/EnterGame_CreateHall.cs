@@ -15,7 +15,9 @@ namespace ETModel
 
             //UIFactory.Create<UIStartComponent>(ViewLayer.UIFullScreenLayer, UIType.UIStart).Coroutine();
 
-            UIFactory.Create<UIGuideSceneComponent>(ViewLayer.UIFullScreenLayer, UIType.UIGuideScene).Coroutine();
+            //UIFactory.Create<UIGuideSceneComponent>(ViewLayer.UIFullScreenLayer, UIType.UIGuideScene).Coroutine();
+
+            UIFactory.Create<UICGComponent>(ViewLayer.UIFullScreenLayer, UIType.UICG).Coroutine();
         }
     }
 }

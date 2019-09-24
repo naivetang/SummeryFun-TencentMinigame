@@ -518,12 +518,15 @@
     <Compile Include="Assets\Model\Other\ReferenceCollector.cs" />
     <Compile Include="Assets\Model\UI\Test\UILogDepth.cs" />
     <Compile Include="Assets\Model\UI\UIBase.cs" />
+    <Compile Include="Assets\Model\UI\UICG\UICGBind.cs" />
+    <Compile Include="Assets\Model\UI\UICG\UICGComponent.cs" />
     <Compile Include="Assets\Model\UI\UIDialog\UIDialogComponent.cs" />
     <Compile Include="Assets\Model\UI\UIDragonfly\UIDragonflyComponent.cs" />
     <Compile Include="Assets\Model\UI\UIFactory.cs" />
     <Compile Include="Assets\Model\UI\UIFrame\UIDepth.cs" />
     <Compile Include="Assets\Model\UI\UIFrame\UIMultImage.cs" />
     <Compile Include="Assets\Model\UI\UIFrame\UINextButton.cs" />
+    <Compile Include="Assets\Model\UI\UIFrame\UIVirticalText.cs" />
     <Compile Include="Assets\Model\UI\UIGuidScene\UIGuideSceneComponent.cs" />
     <Compile Include="Assets\Model\UI\UIHall\EnterGame_CreateHall.cs" />
     <Compile Include="Assets\Model\UI\UIHall\UIHallComponent.cs" />

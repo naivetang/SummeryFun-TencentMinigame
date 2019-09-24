@@ -1,0 +1,27 @@
+
+bookanim.png
+size: 1050,291
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+book
+  rotate: false
+  xy: 2, 7
+  size: 515, 282
+  orig: 517, 285
+  offset: 1, 2
+  index: -1
+cover
+  rotate: true
+  xy: 519, 2
+  size: 287, 266
+  orig: 289, 268
+  offset: 1, 1
+  index: -1
+page1
+  rotate: true
+  xy: 787, 18
+  size: 271, 261
+  orig: 274, 263
+  offset: 2, 1
+  index: -1
