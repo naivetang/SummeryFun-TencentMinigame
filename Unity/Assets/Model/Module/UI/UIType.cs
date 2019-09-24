@@ -21,6 +21,11 @@ namespace ETModel
         /// 开始、回忆、设置
         /// </summary>
 	    public const string UIStart = "UIStart";
+        
+        /// <summary>
+        /// 引导关、蜻蜓关
+        /// </summary>
+	    public const string UIGuideScene = "UIGuideScene";
 
 
         

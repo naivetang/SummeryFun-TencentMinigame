@@ -506,6 +506,8 @@
     <Compile Include="Assets\Model\MonoScripts\PlayerAnimation.cs" />
     <Compile Include="Assets\Model\MonoScripts\RoleUnit.cs" />
     <Compile Include="Assets\Model\MonoScripts\TriggerArea.cs" />
+    <Compile Include="Assets\Model\MonoScripts\UIColliderTrigger.cs" />
+    <Compile Include="Assets\Model\MonoScripts\UIDragable.cs" />
     <Compile Include="Assets\Model\Other\AppType.cs" />
     <Compile Include="Assets\Model\Other\Define.cs" />
     <Compile Include="Assets\Model\Other\GizmosDebug.cs" />
@@ -520,6 +522,9 @@
     <Compile Include="Assets\Model\UI\UIDragonfly\UIDragonflyComponent.cs" />
     <Compile Include="Assets\Model\UI\UIFactory.cs" />
     <Compile Include="Assets\Model\UI\UIFrame\UIDepth.cs" />
+    <Compile Include="Assets\Model\UI\UIFrame\UIMultImage.cs" />
+    <Compile Include="Assets\Model\UI\UIFrame\UINextButton.cs" />
+    <Compile Include="Assets\Model\UI\UIGuidScene\UIGuideSceneComponent.cs" />
     <Compile Include="Assets\Model\UI\UIHall\EnterGame_CreateHall.cs" />
     <Compile Include="Assets\Model\UI\UIHall\UIHallComponent.cs" />
     <Compile Include="Assets\Model\UI\UIMain\UIMainComponent.cs" />

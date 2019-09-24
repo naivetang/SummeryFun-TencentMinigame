@@ -118,6 +118,8 @@
     <Compile Include="Assets\Editor\RsyncEditor\RsyncEditor.cs" />
     <Compile Include="Assets\Editor\ServerCommandLineEditor\ServerCommandLineEditor.cs" />
     <Compile Include="Assets\Editor\ServerManagerEditor\ServerManagerEditor.cs" />
+    <Compile Include="Assets\Editor\UIFrame\UIMultImageEditor.cs" />
+    <Compile Include="Assets\Editor\UIFrame\UINextButtonEditor.cs" />
     <None Include="Assets\Editor\AstarPathfindingProject\EditorAssets\Materials\Navmesh.cginc" />
     <None Include="Assets\Editor\AstarPathfindingProject\EditorAssets\Materials\Navmesh.shader" />
     <None Include="Assets\Editor\Unity.Editor.asmdef" />
