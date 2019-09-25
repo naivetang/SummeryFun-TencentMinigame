@@ -146,8 +146,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spacing: 1.19
-  waitTime: 2
-  duration: 2
+  waitTime: 1
+  duration: 1
 --- !u!1 &639493368
 GameObject:
   m_ObjectHideFlags: 0
@@ -886,7 +886,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -392, y: 255.6}
+  m_AnchoredPosition: {x: -434, y: 255.6}
   m_SizeDelta: {x: 643.8, y: 1129.6}
   m_Pivot: {x: 0.40439808, y: 0.40248373}
 --- !u!222 &7450572757028679526
@@ -1266,7 +1266,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -218, y: 255.6}
+  m_AnchoredPosition: {x: -184, y: 255.6}
   m_SizeDelta: {x: 643.8, y: 1129.6}
   m_Pivot: {x: 0.40439808, y: 0.40248373}
 --- !u!222 &934339178389985968
@@ -1487,6 +1487,8 @@ MonoBehaviour:
     gameObject: {fileID: 4440228717831976620}
   - key: mainbg
     gameObject: {fileID: 746150207228863273}
+  - key: scene0
+    gameObject: {fileID: 8300000, guid: 5bdecae005c5cc143acd42d05302c633, type: 3}
 --- !u!114 &5364662958234004264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1705,6 +1707,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 168302294574784657, guid: f086cf120917fc74e8977df5b69387fe,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4927090200772756234, guid: f086cf120917fc74e8977df5b69387fe,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7531098712662581914, guid: f086cf120917fc74e8977df5b69387fe,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1820,21 +1832,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 2.7
       objectReference: {fileID: 0}
-    - target: {fileID: 4927090200772756234, guid: f086cf120917fc74e8977df5b69387fe,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 168302294574784657, guid: f086cf120917fc74e8977df5b69387fe,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7040453756412596609, guid: f086cf120917fc74e8977df5b69387fe,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 6611604312216079522, guid: f086cf120917fc74e8977df5b69387fe,
         type: 3}
       propertyPath: startingAnimation
@@ -1844,6 +1841,11 @@ PrefabInstance:
         type: 3}
       propertyPath: startingLoop
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7040453756412596609, guid: f086cf120917fc74e8977df5b69387fe,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f086cf120917fc74e8977df5b69387fe, type: 3}
