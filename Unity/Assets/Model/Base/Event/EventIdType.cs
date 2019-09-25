@@ -39,7 +39,11 @@
         
         
 		public const string StartGame = "StartGame";
+
+
+        public const string CGFinish = "CGFinish";
         
-        
-	}
+        public const string CGToHallFinish = "CGToHallFinish";
+
+    }
 }

@@ -8,6 +8,7 @@ using UnityEngine;
 namespace ETModel
 {
 	[BsonIgnoreExtraElements]
+    //[HideInHierarchy]
 	public abstract class Component : Object, IDisposable
 	{
 		[BsonIgnore]

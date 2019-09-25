@@ -29,5 +29,28 @@ namespace ETModel
 
             return ui;
         }
+
+        public static async ETTask<UIBase> Create<T,P>(ViewLayer layer, string prefabName, P p) where T : Component, new()
+        {
+            await ETTask.CompletedTask;
+
+            ResourcesComponent resourcesComponent = Game.Scene.GetComponent<ResourcesComponent>();
+
+            resourcesComponent.LoadBundle(prefabName.StringToAB());
+
+            GameObject bundleGameObject = (GameObject)resourcesComponent.GetAsset(prefabName.StringToAB(), prefabName);
+
+            GameObject gameObject = UnityEngine.Object.Instantiate(bundleGameObject);
+
+            UIBase ui = ComponentFactory.Create<UIBase, ViewLayer, string, GameObject>(layer, prefabName, gameObject);
+
+            ui.AddComponent<T, P>(p);
+            
+            //ui.AddComponent(typeof(T));
+
+            Game.Scene.GetComponent<UIComponent>().AddUI(ui);
+
+            return ui;
+        }
     }
 }

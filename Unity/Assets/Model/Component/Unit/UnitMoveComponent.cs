@@ -43,7 +43,7 @@ namespace ETModel
         [SerializeField]
         private MoveDir _moveDir = MoveDir.Stop;
 
-        private float _moveSpeed = 0.8f;
+        private float _moveSpeed = 30f;
 
         private Transform _playerTransform;
         
@@ -89,6 +89,7 @@ namespace ETModel
             {
                 case MoveDir.Up:
                     _playerTransform.Translate(new Vector3(0, this._moveSpeed * Time.deltaTime, 0));
+                    //Log.Info($"player position : {this._playerTransform.position},local :{this._playerTransform.localPosition}");
                     break;
                 case MoveDir.Down:
                     _playerTransform.Translate(new Vector3(0, -this._moveSpeed * Time.deltaTime, 0));
@@ -115,10 +116,10 @@ namespace ETModel
                     break;
             }
 
-            if (Input.GetMouseButtonDown(0))
-            {
-                this.RemoveListener();
-            }
+            // if (Input.GetMouseButtonDown(0))
+            // {
+            //     this.RemoveListener();
+            // }
         }
 
         private void AddListener()

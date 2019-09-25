@@ -26,6 +26,7 @@ namespace ETModel
         private GameObject three;
 
         private GameObject BG;
+        private GameObject MainBG;
         
         private Text oneText;
 
@@ -46,13 +47,15 @@ namespace ETModel
             this.three = rc.Get<GameObject>("three");
 
             this.BG = rc.Get<GameObject>("BG");
+            
+            this.MainBG = rc.Get<GameObject>("mainbg");
 
             this.player = rc.Get<GameObject>("Player");
-
-            if (this.player != null)
-            {
-                Log.Debug("player");
-            }
+            //
+            // if (this.player != null)
+            // {
+            //     Log.Debug("player");
+            // }
 
             //this.oneText = rc.Get<GameObject>("OneText").GetComponent<Text>();
 
@@ -108,7 +111,7 @@ namespace ETModel
 
             var timerComponent = Game.Scene.GetComponent<TimerComponent>();
 
-            await timerComponent.WaitAsync((long)(this.bind.FirstPaintStaryTime * 1000));
+            await timerComponent.WaitAsync((long)(this.bind.SecondPaintStaryTime * 1000));
 
             // 隐藏
             this.two.GetComponent<CanvasGroup>().DOFade(0f, 1f).OnComplete(() =>
@@ -121,16 +124,21 @@ namespace ETModel
 
         async ETVoid PlayThreeAnimation()
         {
-
             this.three.SetActive(true);
+            
+            var timerComponent = Game.Scene.GetComponent<TimerComponent>();
+
+            await timerComponent.WaitAsync((long) (0.1 * 1000));
+            
+            // 先向下走
+            Game.EventSystem.Run(EventIdType.MoveDirChange, MoveDir.Down);
+            
 
             this.three.GetComponent<CanvasGroup>().DOFade(1f, 1f);
 
-            var timerComponent = Game.Scene.GetComponent<TimerComponent>();
+            await timerComponent.WaitAsync((long)(this.bind.ThreePaintStaryTime * 1000));
 
-            await timerComponent.WaitAsync((long)(this.bind.FirstPaintStaryTime * 1000));
-            
-            
+            //Game.EventSystem.Run(EventIdType.MoveDirChange, MoveDir.Up);
 
             // // 隐藏
             // this.three.GetComponent<CanvasGroup>().DOFade(0f, 1f).OnComplete(() =>
@@ -138,6 +146,27 @@ namespace ETModel
             //     // 隐藏完之后播第二个
             //     this.PlayTwoAnimation().Coroutine();
             // });
+            
+            this.ThreeAnimationComplte();
+        }
+
+
+        void ThreeAnimationComplte()
+        {
+            // CG完成，main场景从上往下出场，4s
+            Game.EventSystem.Run(EventIdType.CGFinish, player);
+            
+            // 让主角有向上走的动画
+            Game.EventSystem.Run(EventIdType.MoveDirChange, MoveDir.Up);
+            
+            this.MainBG.GetComponent<CanvasGroup>().DOFade(1,4);
+
+            this.player.transform.DOScale(Vector3.one, 4).OnComplete(this.Close);
+        }
+
+        void Close()
+        {
+            //Game.Scene.GetComponent<UIComponent>().RemoveUI(UIType.UICG);
         }
     }
 }

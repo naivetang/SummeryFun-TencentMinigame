@@ -10,7 +10,9 @@ namespace ETModel
         
         
         
-	    public const string UIHall = "UIHall";
+	    public const string UIMap = "UIMap";
+        
+	    public const string UIMain = "UIMain";
         
         /// <summary>
         /// 蜻蜓

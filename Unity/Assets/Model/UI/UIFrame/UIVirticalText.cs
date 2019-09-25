@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
@@ -16,7 +17,9 @@ namespace ETModel
         [Tooltip("字和字之间的距离")]
         public float spacing = 1;
 
-        public float duration = 4f;
+        public float waitTime = 0f;
+        
+        public float duration = 3f;
 
 
         private float lineSpacing = 1;
@@ -113,15 +116,47 @@ namespace ETModel
             if (!Application.isPlaying)
                 return;
             
+
             Text text = this.GetComponent<Text>();
         
-            string t = text.text;
-
-            Log.Info(t);
+            string str = text.text;
 
             text.text = "";
-        
-            text.DOText(t, duration, true, ScrambleMode.None, null).SetEase(Ease.Linear);
+
+            this.ShowText(str).Coroutine();
+            
+            
+        }
+
+        async ETVoid ShowText(string str)
+        {
+            Text text = this.GetComponent<Text>();
+            
+            TimerComponent timerComponent = Game.Scene.GetComponent<TimerComponent>();
+
+            // 等到时间
+            await timerComponent.WaitAsync((long) (this.waitTime * 1000));
+
+            text.DOText(str, duration, true, ScrambleMode.None, null).SetEase(Ease.Linear);
+
+            // string pattern = @"[^0-9]+";
+            //
+            // string timeStr = Regex.Replace(str, pattern, "@");
+            //
+            // string[] timeArr = timeStr.Split('@');
+            //
+            // foreach (string s in timeArr)
+            // {
+            //     
+            // }
+            //
+            // //Log.Info(str);
+            //
+            // //string  str.Split('@);
+            //
+            // Text text = this.GetComponent<Text>();
+            //
+            // text.DOText(str, duration, true, ScrambleMode.None, null).SetEase(Ease.Linear);
         }
         //
         // protected override void OnDisable()

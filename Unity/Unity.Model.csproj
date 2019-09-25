@@ -141,6 +141,7 @@
     <Compile Include="Assets\Model\Component\GlobalConfigComponent.cs" />
     <Compile Include="Assets\Model\Component\SceneChangeComponent.cs" />
     <Compile Include="Assets\Model\Component\TimerComponent.cs" />
+    <Compile Include="Assets\Model\Component\Unit\UnitCameraFollowComponent.cs" />
     <Compile Include="Assets\Model\Component\Unit\UnitMoveComponent.cs" />
     <Compile Include="Assets\Model\Component\Unit\UnitTriggerComponent.cs" />
     <Compile Include="Assets\Model\Entity\Game.cs" />
@@ -520,6 +521,7 @@
     <Compile Include="Assets\Model\UI\UIBase.cs" />
     <Compile Include="Assets\Model\UI\UICG\UICGBind.cs" />
     <Compile Include="Assets\Model\UI\UICG\UICGComponent.cs" />
+    <Compile Include="Assets\Model\UI\UICG\UICGEventHandler.cs" />
     <Compile Include="Assets\Model\UI\UIDialog\UIDialogComponent.cs" />
     <Compile Include="Assets\Model\UI\UIDragonfly\UIDragonflyComponent.cs" />
     <Compile Include="Assets\Model\UI\UIFactory.cs" />
@@ -528,10 +530,10 @@
     <Compile Include="Assets\Model\UI\UIFrame\UINextButton.cs" />
     <Compile Include="Assets\Model\UI\UIFrame\UIVirticalText.cs" />
     <Compile Include="Assets\Model\UI\UIGuidScene\UIGuideSceneComponent.cs" />
-    <Compile Include="Assets\Model\UI\UIHall\EnterGame_CreateHall.cs" />
-    <Compile Include="Assets\Model\UI\UIHall\UIHallComponent.cs" />
     <Compile Include="Assets\Model\UI\UIMain\UIMainComponent.cs" />
     <Compile Include="Assets\Model\UI\UIManager.cs" />
+    <Compile Include="Assets\Model\UI\UIMap\EnterGame_CreateMap.cs" />
+    <Compile Include="Assets\Model\UI\UIMap\UIMapComponent.cs" />
     <Compile Include="Assets\Model\UI\UIStart\UIStartComponent.cs" />
     <Compile Include="Assets\Model\Utils\ISingleton.cs" />
     <Compile Include="Assets\Model\Utils\Singleton.cs" />
