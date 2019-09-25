@@ -32,9 +32,9 @@ namespace ETEditor
 	{
 		private readonly Dictionary<string, BundleInfo> dictionary = new Dictionary<string, BundleInfo>();
 
-		private PlatformType platformType;
-		private bool isBuildExe;
-		private bool isContainAB;
+		private PlatformType platformType = PlatformType.Android;
+		private bool isBuildExe = true;
+		private bool isContainAB = true;
 		private BuildType buildType;
 		private BuildOptions buildOptions = BuildOptions.AllowDebugging | BuildOptions.Development;
 		private BuildAssetBundleOptions buildAssetBundleOptions = BuildAssetBundleOptions.None;
@@ -48,14 +48,14 @@ namespace ETEditor
 		private void OnGUI() 
 		{
 			this.platformType = (PlatformType)EditorGUILayout.EnumPopup(platformType);
-			this.isBuildExe = EditorGUILayout.Toggle("是否打包EXE: ", this.isBuildExe);
-			this.isContainAB = EditorGUILayout.Toggle("是否同将资源打进EXE: ", this.isContainAB);
+			this.isBuildExe = EditorGUILayout.Toggle("是否打包: ", this.isBuildExe);
+			this.isContainAB = EditorGUILayout.Toggle("是否打资源: ", this.isContainAB);
 			this.buildType = (BuildType)EditorGUILayout.EnumPopup("BuildType: ", this.buildType);
 			
 			switch (buildType)
 			{
 				case BuildType.Development:
-					this.buildOptions = BuildOptions.Development | BuildOptions.AutoRunPlayer | BuildOptions.ConnectWithProfiler | BuildOptions.AllowDebugging;
+					this.buildOptions = BuildOptions.Development  | BuildOptions.ConnectWithProfiler | BuildOptions.AllowDebugging ;
 					break;
 				case BuildType.Release:
 					this.buildOptions = BuildOptions.None;
