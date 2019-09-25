@@ -1,0 +1,27 @@
+
+bud anim idle.png
+size: 155,96
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+l1
+  rotate: false
+  xy: 123, 55
+  size: 30, 39
+  orig: 32, 41
+  offset: 1, 1
+  index: -1
+l2
+  rotate: false
+  xy: 123, 8
+  size: 23, 45
+  orig: 25, 47
+  offset: 1, 1
+  index: -1
+stem
+  rotate: true
+  xy: 2, 2
+  size: 92, 119
+  orig: 97, 148
+  offset: 5, 0
+  index: -1
