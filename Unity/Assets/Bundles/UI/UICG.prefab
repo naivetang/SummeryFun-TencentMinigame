@@ -1487,8 +1487,6 @@ MonoBehaviour:
     gameObject: {fileID: 4440228717831976620}
   - key: mainbg
     gameObject: {fileID: 746150207228863273}
-  - key: scene0
-    gameObject: {fileID: 8300000, guid: 5bdecae005c5cc143acd42d05302c633, type: 3}
 --- !u!114 &5364662958234004264
 MonoBehaviour:
   m_ObjectHideFlags: 0
