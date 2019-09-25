@@ -39,6 +39,8 @@
         
         
 		public const string StartGame = "StartGame";
+        
+		public const string EnterCG = "EnterCG";
 
 
         public const string CGFinish = "CGFinish";

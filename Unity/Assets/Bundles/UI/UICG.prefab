@@ -1498,9 +1498,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1be7fc10ca7bd340bce53fdbafbdff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FirstPaintStaryTime: 15
-  SecondPaintStaryTime: 5
-  ThreePaintStaryTime: 5
+  FirstPaintStaryTime: 4
+  SecondPaintStaryTime: 2
+  ThreePaintStaryTime: 2
 --- !u!1 &8783436060490326461
 GameObject:
   m_ObjectHideFlags: 0

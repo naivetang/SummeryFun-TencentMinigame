@@ -103,7 +103,9 @@ namespace ETModel
 
             this.GetParent<UIBase>().GameObject.GetComponent<CanvasGroup>().DOFade(0, 1f).OnComplete(() =>
             {
-                Game.EventSystem.Run(EventIdType.StartGame);
+                Game.EventSystem.Run(EventIdType.EnterCG);
+                
+                this.Close();
             });
 
         }
@@ -157,7 +159,10 @@ namespace ETModel
             this.loginCom.SetActive(true);
         }
 
-
+        void Close()
+        {
+            Game.Scene.GetComponent<UIComponent>().RemoveUI(UIType.UIStart);
+        }
 
     }
 }
