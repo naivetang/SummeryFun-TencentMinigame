@@ -79,9 +79,6 @@ namespace ETModel
 
 #if UNITY_EDITOR
 
-
-
-
         void UpdateDepth()
         {
             //Log.Debug("sortOrder : " + this.parentCanvas.sortingOrder);
@@ -152,7 +149,7 @@ namespace ETModel
         {
             this.UpdateDepth();
         }
-
-    }
 #endif
+    }
+
 }
