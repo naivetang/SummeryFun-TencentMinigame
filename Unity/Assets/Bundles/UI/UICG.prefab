@@ -49,7 +49,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 34112360}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -146,8 +146,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spacing: 1.19
-  waitTime: 0
-  duration: 4
+  waitTime: 2
+  duration: 2
 --- !u!1 &639493368
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,7 +563,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1431374415}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -944,8 +944,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spacing: 1.19
-  waitTime: 0
-  duration: 4
+  waitTime: 4
+  duration: 1
 --- !u!1 &1335616533601469229
 GameObject:
   m_ObjectHideFlags: 0
@@ -981,7 +981,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -211, y: 493}
+  m_AnchoredPosition: {x: -207, y: 493}
   m_SizeDelta: {x: 416.1, y: 599.9}
   m_Pivot: {x: 0.40439808, y: 0.40248373}
 --- !u!222 &6125970432387292416
@@ -1039,8 +1039,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spacing: 1.18
-  waitTime: 3
-  duration: 1
+  waitTime: 7
+  duration: 4
 --- !u!1 &2406290650003009333
 GameObject:
   m_ObjectHideFlags: 0
@@ -1076,7 +1076,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -67, y: 493}
+  m_AnchoredPosition: {x: 3, y: 493}
   m_SizeDelta: {x: 416.1, y: 599.9}
   m_Pivot: {x: 0.40439808, y: 0.40248373}
 --- !u!222 &6288141799811384892
@@ -1135,7 +1135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spacing: 1.18
   waitTime: 0
-  duration: 1
+  duration: 4
 --- !u!1 &3131301892592620450
 GameObject:
   m_ObjectHideFlags: 0
@@ -1171,7 +1171,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -298, y: 493}
+  m_AnchoredPosition: {x: -316, y: 493}
   m_SizeDelta: {x: 416.1, y: 599.9}
   m_Pivot: {x: 0.40439808, y: 0.40248373}
 --- !u!222 &72982218073271217
@@ -1229,8 +1229,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spacing: 1.18
-  waitTime: 5
-  duration: 1
+  waitTime: 11
+  duration: 4
 --- !u!1 &7323921367006874007
 GameObject:
   m_ObjectHideFlags: 0
@@ -1324,8 +1324,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spacing: 1.19
-  waitTime: 0
-  duration: 4
+  waitTime: 1
+  duration: 1
 --- !u!1 &7348516261994860450
 GameObject:
   m_ObjectHideFlags: 0
@@ -1361,7 +1361,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -133, y: 493}
+  m_AnchoredPosition: {x: -100, y: 493}
   m_SizeDelta: {x: 416.1, y: 599.9}
   m_Pivot: {x: 0.40439808, y: 0.40248373}
 --- !u!222 &5318484068590588944
@@ -1419,8 +1419,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spacing: 1.18
-  waitTime: 1.5
-  duration: 1
+  waitTime: 4
+  duration: 4
 --- !u!1 &7653247907899497346
 GameObject:
   m_ObjectHideFlags: 0
@@ -1432,6 +1432,7 @@ GameObject:
   - component: {fileID: 6988787161685911440}
   - component: {fileID: 2780464778471814036}
   - component: {fileID: 5364662958234004264}
+  - component: {fileID: 7564033238320150802}
   m_Layer: 5
   m_Name: UICG
   m_TagString: Untagged
@@ -1498,9 +1499,105 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1be7fc10ca7bd340bce53fdbafbdff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FirstPaintStaryTime: 4
-  SecondPaintStaryTime: 2
-  ThreePaintStaryTime: 2
+  FirstPaintStaryTime: 16
+  SecondPaintStaryTime: 7
+  ThreePaintStaryTime: 8
+--- !u!82 &7564033238320150802
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7653247907899497346}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 5bdecae005c5cc143acd42d05302c633, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &8783436060490326461
 GameObject:
   m_ObjectHideFlags: 0
@@ -1594,8 +1691,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spacing: 1.19
-  waitTime: 0
-  duration: 4
+  waitTime: 2
+  duration: 2
 --- !u!1001 &1417258771930201152
 PrefabInstance:
   m_ObjectHideFlags: 0
