@@ -1,0 +1,42 @@
+ManifestFileVersion: 0
+CRC: 1198546879
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: a60c92913f24d9f1b8aad7521cf037dd
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: d6dcee4e4579a8b2eb85eed0e5048640
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 50
+  Script: {instanceID: 0}
+- Class: 61
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 2ad711e146183564788308385c5aaf09, type: 3}
+- Class: 114
+  Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: -98529514, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f41ed456050f5d041bcc9df44ebbeebe, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 51001988feba8fe40853d02871a6580b, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 502d8cafd6a5a0447ab1db9a24cdcb10, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+Assets:
+- Assets/Bundles/UI/UIGuideScene.prefab
+Dependencies: []

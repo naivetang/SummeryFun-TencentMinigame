@@ -1,0 +1,43 @@
+ManifestFileVersion: 0
+CRC: 1955069510
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: map.unity3d
+      Dependencies: {}
+    Info_1:
+      Name: config.unity3d
+      Dependencies: {}
+    Info_2:
+      Name: code.unity3d
+      Dependencies: {}
+    Info_3:
+      Name: uilogin.unity3d
+      Dependencies: {}
+    Info_4:
+      Name: unit.unity3d
+      Dependencies: {}
+    Info_5:
+      Name: uilobby.unity3d
+      Dependencies: {}
+    Info_6:
+      Name: uiroot.unity3d
+      Dependencies: {}
+    Info_7:
+      Name: uidragonfly.unity3d
+      Dependencies: {}
+    Info_8:
+      Name: uistart.unity3d
+      Dependencies: {}
+    Info_9:
+      Name: uiguidescene.unity3d
+      Dependencies: {}
+    Info_10:
+      Name: uicg.unity3d
+      Dependencies: {}
+    Info_11:
+      Name: uimap.unity3d
+      Dependencies: {}
+    Info_12:
+      Name: uimain.unity3d
+      Dependencies: {}
