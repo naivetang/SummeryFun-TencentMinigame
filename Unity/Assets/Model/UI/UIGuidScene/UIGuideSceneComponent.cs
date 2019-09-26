@@ -34,6 +34,21 @@ namespace ETModel
 
         private Vector3 zhuziInitPos;
 
+        private GameObject successShuiDiAnimation;
+
+        private GameObject rightDropWater;
+
+        private GameObject guideEndAnimation;
+
+        private GameObject xiaomiaoAniamtion;
+
+        private GameObject gamesence3;
+        
+        
+        private GameObject drawsence2;
+
+        private GameObject context;
+
         public void Awake()
         {
             ReferenceCollector rc = this.GetParent<UIBase>().GameObject.GetComponent<ReferenceCollector>();
@@ -49,10 +64,32 @@ namespace ETModel
             this.zhuzi = rc.Get<GameObject>("DragZhuzi");
 
             this.ZhuziAnimation = rc.Get<GameObject>("ZhuziAnimation");
+
+            this.successShuiDiAnimation = rc.Get<GameObject>("SuccessShuidiAnimation");
+
+            this.successShuiDiAnimation.SetActive(false);
             
             this.ZhuziAnimation.SetActive(false);
 
             this.zhuziInitPos = this.zhuzi.transform.position;
+
+            this.rightDropWater = rc.Get<GameObject>("WaterDropRight");
+
+            this.guideEndAnimation = rc.Get<GameObject>("GuideEndAnimation");
+            
+            this.guideEndAnimation.SetActive(false);
+
+            this.xiaomiaoAniamtion = rc.Get<GameObject>("xiaomiaoAniamtion");
+
+            this.gamesence3 = rc.Get<GameObject>("gamesence3");
+            
+            this.gamesence3.SetActive(false);
+            
+            this.drawsence2 = rc.Get<GameObject>("drawsence2");
+            
+            this.drawsence2.SetActive(false);
+
+            this.context = rc.Get<GameObject>("Context");
             
             this.Init();
         }
@@ -216,7 +253,144 @@ namespace ETModel
 
                 this.zhuzi.GetComponent<Image>().raycastTarget = false;
             }
+            
+            
+            Game.EventSystem.RegisterEvent(EventIdType.WaterDropRightFinish, new EventProxy(WaterDropRightFinish));
+            
+            //this.successShuiDiAnimation.SetActive(true);
+            
+            
         }
+
+        // 右侧水滴停止播放，开始播放浇水动画
+        void WaterDropRightFinish(List<object> obj)
+        {
+            Log.Info("开始滴水到小苗上 1 次");
+            
+            this.rightDropWater.SetActive(false);
+            
+            this.successShuiDiAnimation.SetActive(true);
+            
+            this.PlayXiaoMiaoGrowUp().Coroutine();
+        }
+
+        
+        /// <summary>
+        /// 小苗开始成长
+        /// </summary>
+        /// <returns></returns>
+        async ETVoid PlayXiaoMiaoGrowUp()
+        {
+            TimerComponent timerComponent = Game.Scene.GetComponent<TimerComponent>();
+            
+            float leng = this.successShuiDiAnimation.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.length;
+            
+            // 等水滴浇灌两次
+            await timerComponent.WaitAsync((long)(leng * 1 * 1000));
+            
+            Log.Info(" 开始小苗成长动画 ");
+            
+            // 小苗隐藏
+            this.xiaomiaoAniamtion.SetActive(false);
+            
+            // 小苗成长动画
+            this.guideEndAnimation.SetActive(true);
+            
+            float endAnimaLeng =  this.guideEndAnimation.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.length;
+            
+            //await timerComponent.WaitAsync((long)(endAnimaLeng * 1000));
+            
+            
+            // 
+            gamesence3.SetActive(true);
+            
+            this.gamesence3.GetComponent<CanvasGroup>().alpha = 0f;
+
+            // 第18帧渐变到40%
+            
+            float jianbianTime = 18f / 104 * endAnimaLeng;
+            
+            Log.Info(" 墙角开始复现到40% ");
+            
+            this.gamesence3.GetComponent<CanvasGroup>().DOFade(0.4f, jianbianTime);
+
+            await timerComponent.WaitAsync((long) (jianbianTime * 1000));
+            
+            // 第19帧到96帧不变
+            
+            Log.Info(" 墙角保持在40% ");
+
+            jianbianTime = (96f - 19f) / 104 * endAnimaLeng;
+            
+            // 等待结束动画到96帧
+            await timerComponent.WaitAsync((long) (jianbianTime * 1000));
+
+            
+            Log.Info(" 墙角开始复现到100% ");
+            
+            jianbianTime = (115f - 96f) / 104 * endAnimaLeng;
+            
+            this.gamesence3.GetComponent<CanvasGroup>().DOFade(1f, jianbianTime);
+            
+            // 等待动画结束
+            await timerComponent.WaitAsync((long) (jianbianTime * 1000));
+            
+            // EndAnimation 结束
+            
+            Log.Info(" 出现结束图画 ");
+            
+            // 出画
+            this.drawsence2.SetActive(true);
+
+            this.drawsence2.GetComponent<CanvasGroup>().alpha = 0;
+
+            this.drawsence2.GetComponent<CanvasGroup>().DOFade(1, 1);
+
+            await timerComponent.WaitAsync(1 * 1000);
+            
+            // 图画完全显示出来
+            
+            this.CloseOtherDrawScene();
+            
+            await timerComponent.WaitAsync(1 * 1000);
+            
+            // 装进书里面
+            
+            this.CollectToBook().Coroutine();
+        }
+
+        void CloseOtherDrawScene()
+        {
+            this.context.SetActive(false);
+            
+            this.guideEndAnimation.SetActive(false);
+            
+            this.gamesence3.SetActive(false);
+            
+            this.successShuiDiAnimation.SetActive(false);
+
+            this.zhuzi.SetActive(false);
+
+            //this.
+        }
+
+        async ETVoid CollectToBook()
+        {
+            UIBase com = UIFactory.Create<UIBookComponent>(ViewLayer.UIPopupLayer, UIType.UIBook).Result;
+            
+            com.GetComponent<UIBookComponent>().AddImageGo(this.drawsence2);
+
+            
+            this.Close();
+            
+        }
+
+        void Close()
+        {
+            this.drawsence2 = null;
+            Game.Scene.GetComponent<UIComponent>().RemoveUI(UIType.UIGuideScene);
+        }
+        
 
         void SolveFaild()
         {
@@ -253,6 +427,10 @@ namespace ETModel
 
             
             animator.Play("ZhuziAnimation",0,this.GetNormalizedTime());
+
+            
+            
+            this.Restart().Coroutine();
             
             //AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
 
@@ -265,6 +443,23 @@ namespace ETModel
             AnimatorClipInfo stateinfo = animator.GetCurrentAnimatorClipInfo(0)[0];
 
             stateinfo.clip.frameRate = 10;
+        }
+
+        async ETVoid Restart()
+        {
+            TimerComponent timerComponent = Game.Scene.GetComponent<TimerComponent>();
+
+            await timerComponent.WaitAsync((long) (1 * 1000));
+
+            this.ZhuziAnimation.GetComponent<CanvasGroup>().DOFade(0, 1f).OnComplete(() =>
+            {
+                this.ZhuziAnimation.SetActive(false);
+                this.ZhuziAnimation.GetComponent<CanvasGroup>().alpha = 1;
+
+                this.zhuzi.transform.localPosition = this.zhuziInitPos;
+                
+                this.zhuzi.SetActive(true);
+            });
         }
 
         /// <summary>

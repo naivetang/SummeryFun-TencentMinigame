@@ -34,6 +34,9 @@ namespace ETModel
         /// CG界面
         /// </summary>
 	    public const string UICG = "UICG";
+        
+        
+	    public const string UIBook = "UIBook";
 
 
         
