@@ -41,6 +41,12 @@ namespace ETModel
                 Game.Scene.GetComponent<ResourcesComponent>().LoadBundle("config.unity3d");
 				Game.Scene.AddComponent<ConfigComponent>();
 				Game.Scene.GetComponent<ResourcesComponent>().UnloadBundle("config.unity3d");
+
+                //  windowName映射到window对应的UI类
+                Game.Scene.AddComponent<WindowComponent>();
+                
+                Game.Scene.AddComponent<TriggerAreaBtnComponent>();
+                
 				//Game.Scene.AddComponent<OpcodeTypeComponent>();
 				//Game.Scene.AddComponent<MessageDispatcherComponent>();
 

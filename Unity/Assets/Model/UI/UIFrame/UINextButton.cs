@@ -16,8 +16,6 @@ namespace ETModel
         [SerializeField]
         private float pressScale = 1.2f;
 
-        public int a;
-
         private float _targetScale = 1f;
 
         private Vector3 _originScale;
@@ -43,6 +41,7 @@ namespace ETModel
             base.OnPointerClick(eventData);
             
             this.PlayZoomAnimation();
+            
             
         }
 

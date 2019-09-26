@@ -40,6 +40,7 @@ namespace ETModel
 
         private GameObject _context;
         
+        
         public void Awake(GameObject player)
         {
             ReferenceCollector rc = this.GetParent<UIBase>().GameObject.GetComponent<ReferenceCollector>();

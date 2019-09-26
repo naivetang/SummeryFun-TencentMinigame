@@ -6,6 +6,28 @@ namespace ETModel
     {
         [SerializeField]
         private int _triggerId;
+
+        [SerializeField]
+        private GameObject _TriggerBtn;
+
+        void Start()
+        {
+            TriggerAreaConfig  config= Game.Scene.GetComponent<ConfigComponent>().Get(typeof (TriggerAreaConfig), this._triggerId) as TriggerAreaConfig;
+
+            if (config == null || this._TriggerBtn == null)
+            {
+                Log.Error("conf or btn is nuill");
+
+                return;
+            }
+            
+            
+            TriggerAreaBtn btn = ComponentFactory.Create<TriggerAreaBtn,GameObject, TriggerAreaConfig>(this._TriggerBtn, config);
+
+            TriggerAreaBtnComponent.Instance.Add(btn);
+            
+            btn.GameObject.SetActive(false);
+        }
         
         void OnTriggerEnter2D(Collider2D other)
         {

@@ -48,7 +48,9 @@ MonoBehaviour:
     gameObject: {fileID: 4900000, guid: 2e3407535cc0fb9418a3c343b509c670, type: 3}
   - key: GlobalProto
     gameObject: {fileID: 4900000, guid: 78f3a209a7b81ec46a196b52eea7e541, type: 3}
-  - key: RoleConfig
-    gameObject: {fileID: 4900000, guid: 5e08fb6d2a14e754cba6240e88ecf99f, type: 3}
   - key: UnitConfig
     gameObject: {fileID: 4900000, guid: c245c7dda13b3ad43b2278925e922899, type: 3}
+  - key: RoleConfig
+    gameObject: {fileID: 4900000, guid: 5e08fb6d2a14e754cba6240e88ecf99f, type: 3}
+  - key: TriggerAreaConfig
+    gameObject: {fileID: 4900000, guid: 3c84730f2f2fd484e9d6a523eb8c48ec, type: 3}

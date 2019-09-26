@@ -40,6 +40,13 @@ namespace ETModel
 
         private GameObject _context;
 
+        private TriggerAreaConfig _currenArea;
+
+        /// <summary>
+        /// 引导关入口
+        /// </summary>
+        //private Button _yinDaoBtn;
+
         public void Awake()
         {
             ReferenceCollector rc = this.GetParent<UIBase>().GameObject.GetComponent<ReferenceCollector>();
@@ -47,6 +54,10 @@ namespace ETModel
             _joyStick = rc.Get<GameObject>("JoyStick");
 
             _actionBtn = rc.Get<GameObject>("ActionBtn");
+
+            //this._yinDaoBtn = rc.Get<GameObject>("YinDaoBtn").GetComponent<UINextButton>();
+            
+            //this._yinDaoBtn.gameObject.SetActive(false);
 
             _actionBtn.SetActive(false);
 
@@ -113,16 +124,70 @@ namespace ETModel
             Game.EventSystem.UnRegisterEvent(EventIdType.CGToHallFinish, new EventProxy(ShowByAnimation));
         }
 
+        
+        // 区域触发事件
         private void TriggerArea(List<object> obj)
         {
             string action = obj[0] as string;
             int triggerId = (int)obj[1];
 
-            if (triggerId == 1 && action.Equals("Enter"))
+            // 进入
+            
+            if (action.Equals("Enter"))
+            {
                 this._actionBtn.SetActive(true);
 
-            if (triggerId == 1 && action.Equals("Exit"))
+                this._currenArea = Game.Scene.GetComponent<ConfigComponent>().Get(typeof (TriggerAreaConfig), triggerId) as TriggerAreaConfig;
+                
+                
+                
+                if(this._currenArea == null)
+                    Log.Error("不存在触发区域id：" + triggerId);
+                else
+                {
+                    Log.Info("进入事件区域,id：" + this._currenArea.Id);
+                }
+
+                if (!string.IsNullOrEmpty(this._currenArea.EventName))
+                {
+                    Log.Info("事件名：" + this._currenArea.EventName);
+                }
+                
+                SolveQiPao(true);
+            }
+
+            // 退出
+
+            if (action.Equals("Exit"))
+            {
                 this._actionBtn.SetActive(false);
+
+                SolveQiPao(false);
+                
+                this._currenArea = null;
+            }
+                
+        }
+
+        private void SolveQiPao(bool isEnter)
+        {
+            TriggerAreaBtn btn = TriggerAreaBtnComponent.Instance.Get(this._currenArea.Id);
+
+            if (btn == null)
+            {
+                Log.Error("不存在区域 id : " + this._currenArea.Id);
+                return;
+            }
+            // 进入
+            if (isEnter)
+            {
+                btn.GameObject.SetActive(true);
+            }
+            // 退出
+            else
+            {
+                btn.GameObject.SetActive(false);
+            }
         }
         
 

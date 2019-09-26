@@ -150,7 +150,7 @@
             <key>datafile</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename></filename>
+                <filename>../../Assets/Sprites/Atlas/UIDialog/UIDialog.tpsheet</filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -198,9 +198,53 @@
             <true/>
         </struct>
         <key>individualSpriteSettings</key>
-        <map type="IndividualSpriteSettingsMap"/>
+        <map type="IndividualSpriteSettingsMap">
+            <key type="filename">UI-chatbarbg1.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <true/>
+                <key>scale9Borders</key>
+                <rect>19,14,50,38</rect>
+                <key>scale9Paddings</key>
+                <rect>23,22,46,45</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">UI-chatbarbg2.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>23,22,46,43</rect>
+                <key>scale9Paddings</key>
+                <rect>23,22,46,43</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">UI-chatbarbg3.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <true/>
+                <key>scale9Borders</key>
+                <rect>23,22,46,32</rect>
+                <key>scale9Paddings</key>
+                <rect>23,22,46,45</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+        </map>
         <key>fileList</key>
-        <array/>
+        <array>
+            <filename>UI-chatbarbg1.png</filename>
+            <filename>UI-chatbarbg2.png</filename>
+            <filename>UI-chatbarbg3.png</filename>
+        </array>
         <key>ignoreFileList</key>
         <array/>
         <key>replaceList</key>
