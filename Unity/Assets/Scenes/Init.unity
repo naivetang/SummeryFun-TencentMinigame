@@ -734,5 +734,25 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 430898146270857341, guid: ac0da4a728c42ac49a22a73f5afc3c2a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -579
+      objectReference: {fileID: 0}
+    - target: {fileID: 4352054757662374569, guid: ac0da4a728c42ac49a22a73f5afc3c2a,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 4352054757662374569, guid: ac0da4a728c42ac49a22a73f5afc3c2a,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3046067272017722775, guid: ac0da4a728c42ac49a22a73f5afc3c2a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac0da4a728c42ac49a22a73f5afc3c2a, type: 3}
