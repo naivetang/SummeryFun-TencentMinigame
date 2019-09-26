@@ -83,6 +83,18 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!225 &8053730727937644566
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 246639730601246332}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &399260804602132035
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,8 +287,8 @@ GameObject:
   - component: {fileID: 4764179959315343006}
   - component: {fileID: 4836205923563577558}
   - component: {fileID: 8027504413825425316}
-  - component: {fileID: 4352054757662374569}
   - component: {fileID: 8729577077002739078}
+  - component: {fileID: 6947972546791647155}
   m_Layer: 5
   m_Name: DragZhuzi
   m_TagString: Untagged
@@ -333,7 +345,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -349,27 +361,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 203.3, y: 164.05}
   m_EdgeRadius: 0
---- !u!50 &4352054757662374569
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1341813258793869600}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!114 &8729577077002739078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -399,6 +390,27 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!50 &6947972546791647155
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341813258793869600}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &1649633651972373442
 GameObject:
   m_ObjectHideFlags: 0
@@ -1279,15 +1291,15 @@ PrefabInstance:
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26510a5bbbd5a054896ec9c20b5859a6, type: 3}
---- !u!224 &8521635190941028351 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7200329454012542542, guid: 26510a5bbbd5a054896ec9c20b5859a6,
-    type: 3}
-  m_PrefabInstance: {fileID: 1562286671057199537}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &246639730601246332 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1639986412613607373, guid: 26510a5bbbd5a054896ec9c20b5859a6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1562286671057199537}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &8521635190941028351 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7200329454012542542, guid: 26510a5bbbd5a054896ec9c20b5859a6,
     type: 3}
   m_PrefabInstance: {fileID: 1562286671057199537}
   m_PrefabAsset: {fileID: 0}
