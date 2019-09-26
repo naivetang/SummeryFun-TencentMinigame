@@ -37,6 +37,7 @@ namespace ETModel
         private readonly string _idleAnimation = "idle";
         private readonly string _walkAnimation = "walk";
 
+        private AudioSource audio;
 
         void Start()
         {
@@ -49,7 +50,8 @@ namespace ETModel
                 Log.Error("不存在组件SkeletonAnimation");
                 return;
             }
-            
+
+            this.audio = this.GetComponent<AudioSource>();
             
             this._animation.skeletonDataAsset = this._upSkeletonData;
 
@@ -96,11 +98,16 @@ namespace ETModel
                 Log.Error("不存在动画数据");
             }
             
+            this.audio.enabled = true;
+            
             switch (dir)
             {
+                        
                 case MoveDir.Stop:
                     
                     state.SetAnimation(_trackIndex, this._idleAnimation, true);
+
+                    this.audio.enabled = false;
                     
                     break;
 
