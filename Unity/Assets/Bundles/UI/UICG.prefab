@@ -1501,7 +1501,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FirstPaintStaryTime: 16
   SecondPaintStaryTime: 7
-  ThreePaintStaryTime: 6
+  ThreePaintStaryTime: 4
 --- !u!82 &7564033238320150802
 AudioSource:
   m_ObjectHideFlags: 0
