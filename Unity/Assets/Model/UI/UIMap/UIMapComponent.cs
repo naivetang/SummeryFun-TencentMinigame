@@ -72,6 +72,8 @@ namespace ETModel
         void PlayUpToDownAnimation()
         {
 
+            
+            
             this.GetParent<UIBase>().GameObject.transform.DOLocalMoveY(0, 4f).SetEase(Ease.Linear).OnComplete(this.AnimationComplte);
             
             

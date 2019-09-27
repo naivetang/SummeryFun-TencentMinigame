@@ -71,5 +71,17 @@
         /// 触发了 Dialog 
         /// </summary>
         public const string DialogAera = "DialogAera";
+        
+        /// <summary>
+        /// 结束一个对话
+        /// </summary>
+        public const string CompleteDialog = "CompleteDialog";
+        
+        public const string ShowJoystic = "ShowJoystic";
+        
+        
+        
+        
+        //public const string DialogAera = "DialogAera";
     }
 }

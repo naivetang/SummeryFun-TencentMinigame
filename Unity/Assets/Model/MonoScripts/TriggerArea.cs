@@ -24,6 +24,8 @@ namespace ETModel
             
             TriggerAreaBtn btn = ComponentFactory.Create<TriggerAreaBtn,GameObject, TriggerAreaConfig>(this._TriggerBtn, config);
 
+            btn.TriggerArea = this.gameObject;
+            
             TriggerAreaBtnComponent.Instance.Add(btn);
             
             btn.GameObject.SetActive(false);

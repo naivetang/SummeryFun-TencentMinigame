@@ -256,6 +256,8 @@ namespace ETModel
         {
             Log.Info("解题成功");
 
+
+            Game.EventSystem.Run(EventIdType.ShowJoystic);
             
             // 发送事件，完成任务
             Game.EventSystem.Run<int>(EventIdType.CompleteTask,this.triggerId);

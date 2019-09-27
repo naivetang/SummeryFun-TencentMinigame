@@ -114,6 +114,8 @@ namespace ETModel
         private EventProxy showByAnimationProxy;
         
         private EventProxy bookStateProxy;
+
+        private EventProxy ShowJoystic;
         private void AddListener()
         {
             _actionBtn.GetComponent<Button>().onClick.AddListener(() =>
@@ -128,13 +130,17 @@ namespace ETModel
             Game.EventSystem.RegisterEvent(EventIdType.TriggerAera, this.triggerAreaProxy);
             
             
-            showByAnimationProxy =  new EventProxy(ShowByAnimation);
+            showByAnimationProxy =  new EventProxy(this.ShowJoyStickByAnimation);
             
-            Game.EventSystem.RegisterEvent(EventIdType.CGToHallFinish, showByAnimationProxy);
+            //Game.EventSystem.RegisterEvent(EventIdType.CGToHallFinish, showByAnimationProxy);
          
             bookStateProxy = new EventProxy(UpdateBookState);
             
             Game.EventSystem.RegisterEvent(EventIdType.BookState, bookStateProxy);
+            
+            ShowJoystic = new EventProxy(this.ShowJoyStickByAnimation);
+            
+            Game.EventSystem.RegisterEvent(EventIdType.ShowJoystic, ShowJoystic);
         }
 
         void BookBtnOnClick()
@@ -142,8 +148,14 @@ namespace ETModel
             Game.EventSystem.Run(EventIdType.OpenBook, 0);
         }
         
-        private void ShowByAnimation(List<object> obj)
+        /// <summary>
+        /// 摇杆显示出来
+        /// </summary>
+        /// <param name="obj"></param>
+        private void ShowJoyStickByAnimation(List<object> obj)
         {
+
+            //return;
             this._context.GetComponent<CanvasGroup>().DOFade(1, 1);
         }
         
@@ -160,7 +172,7 @@ namespace ETModel
         {
             Game.EventSystem.UnRegisterEvent(EventIdType.TriggerAera, triggerAreaProxy);
             Game.EventSystem.UnRegisterEvent(EventIdType.CGToHallFinish, showByAnimationProxy);
-            Game.EventSystem.UnRegisterEvent(EventIdType.CGToHallFinish, bookStateProxy);
+            Game.EventSystem.UnRegisterEvent(EventIdType.BookState, bookStateProxy);
         }
 
         

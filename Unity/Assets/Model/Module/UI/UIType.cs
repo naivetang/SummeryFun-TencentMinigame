@@ -36,9 +36,11 @@ namespace ETModel
 	    public const string UICG = "UICG";
         
         
-	    public const string UIBook = "UIBook";
+        public const string UIBook = "UIBook";
 
 
+        
+        public const string UIShaddockScene = "UIShaddockScene";
         
     }
 }

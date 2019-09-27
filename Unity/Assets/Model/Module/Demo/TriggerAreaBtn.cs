@@ -21,6 +21,8 @@ namespace ETModel
     [HideInHierarchy]
     public sealed class TriggerAreaBtn : Entity
     {
+        public GameObject TriggerArea;
+        
         public TriggerAreaConfig config { get; set; }
 
 

@@ -16,6 +16,11 @@ namespace ETModel
     [HideInHierarchy]
     public class UIMainDialogComponent: Component
     {
+
+        /// <summary>
+        /// 对话组开始的id
+        /// </summary>
+        private int beginDialogId;
         /// <summary>
         /// 当前对话组id
         /// </summary>
@@ -73,6 +78,10 @@ namespace ETModel
         {
             if (this.currentDialogId == -1)
             {
+                Log.Info("结束对话");
+                
+                Game.EventSystem.Run(EventIdType.CompleteDialog, this.beginDialogId);
+                
                 this.GameObject.SetActive(false);
             }
         }
@@ -104,6 +113,8 @@ namespace ETModel
             {
                 Log.Info("进入对话区域，id ： " + dialogId);
 
+                beginDialogId = dialogId;
+                
                 currentDialogId = dialogId;
 
                 this.GameObject.SetActive(true);

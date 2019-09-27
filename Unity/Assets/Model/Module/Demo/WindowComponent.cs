@@ -29,6 +29,8 @@ namespace ETModel
             Instance = this;
             
             RegistWindowCom(UIType.UIGuideScene, typeof(UIGuideSceneComponent));
+            
+            RegistWindowCom(UIType.UIShaddockScene, typeof(UIShaddockSceneComponent));
         }
 
         public Type GetWindowCom(string str)
