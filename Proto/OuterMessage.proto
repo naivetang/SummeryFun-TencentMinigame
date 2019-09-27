@@ -2,6 +2,7 @@ syntax = "proto3";
 package ETModel;
 
 enum ErrorCode {
+	SUCCEED = 0;
 	LOGIN_PASSWORD_WRONG = 1001;
 	LOGIN_NOT_REGISTERED = 1002;
 }
