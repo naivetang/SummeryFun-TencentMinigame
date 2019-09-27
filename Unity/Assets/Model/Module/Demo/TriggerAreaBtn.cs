@@ -45,7 +45,7 @@ namespace ETModel
             {
                 btn.onClick.AddListener(() =>
                 {
-                    UIFactory.CreateByTrigger(ViewLayer.UIPopupLayer, this.config.ShowWindow).Coroutine();
+                    UIFactory.CreateByTrigger(ViewLayer.UIFullScreenLayer, this.config.ShowWindow).Coroutine();
                 });
             }
         }

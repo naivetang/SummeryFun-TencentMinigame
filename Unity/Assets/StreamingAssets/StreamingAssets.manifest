@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 3328843601
+CRC: 1266894441
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -40,4 +40,7 @@ AssetBundleManifest:
       Dependencies: {}
     Info_12:
       Name: uimain.unity3d
+      Dependencies: {}
+    Info_13:
+      Name: uibook.unity3d
       Dependencies: {}

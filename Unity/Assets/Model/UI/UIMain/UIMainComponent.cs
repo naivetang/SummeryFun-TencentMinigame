@@ -33,7 +33,8 @@ namespace ETModel
         /// </summary>
         private GameObject _dialogBtn;
 
-
+        private GameObject _book;
+        
         //private GameObject _player;
 
         //private GameObject _bg;
@@ -41,6 +42,8 @@ namespace ETModel
         private GameObject _context;
 
         private TriggerAreaConfig _currenArea;
+        
+        
 
         /// <summary>
         /// 引导关入口
@@ -54,6 +57,8 @@ namespace ETModel
             _joyStick = rc.Get<GameObject>("JoyStick");
 
             _actionBtn = rc.Get<GameObject>("ActionBtn");
+            
+            this._book = rc.Get<GameObject>("Book");
 
             //this._yinDaoBtn = rc.Get<GameObject>("YinDaoBtn").GetComponent<UINextButton>();
             
@@ -63,6 +68,8 @@ namespace ETModel
 
             _dialogBtn = rc.Get<GameObject>("DialogBtn");
             this._context = rc.Get<GameObject>("Context");
+
+            this._context.GetComponent<CanvasGroup>().alpha = 0;
 
             _dialogBtn.SetActive(false);
 
@@ -188,6 +195,11 @@ namespace ETModel
             {
                 btn.GameObject.SetActive(false);
             }
+        }
+
+        public Vector2 GetBookPositon()
+        {
+            return this._book.transform.position;
         }
         
 

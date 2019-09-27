@@ -525,6 +525,7 @@
     <Compile Include="Assets\Model\MonoScripts\TriggerArea.cs" />
     <Compile Include="Assets\Model\MonoScripts\UIColliderTrigger.cs" />
     <Compile Include="Assets\Model\MonoScripts\UIDragable.cs" />
+    <Compile Include="Assets\Model\MonoScripts\UIPointHandler.cs" />
     <Compile Include="Assets\Model\Other\AppType.cs" />
     <Compile Include="Assets\Model\Other\Define.cs" />
     <Compile Include="Assets\Model\Other\GizmosDebug.cs" />
@@ -533,6 +534,7 @@
     <Compile Include="Assets\Model\Other\MonoStaticMethod.cs" />
     <Compile Include="Assets\Model\Other\MotionType.cs" />
     <Compile Include="Assets\Model\Other\ReferenceCollector.cs" />
+    <Compile Include="Assets\Model\UI\Test\AnchorTest.cs" />
     <Compile Include="Assets\Model\UI\Test\UILogDepth.cs" />
     <Compile Include="Assets\Model\UI\UIBase.cs" />
     <Compile Include="Assets\Model\UI\UIBook\UIBookComponent.cs" />
@@ -547,6 +549,7 @@
     <Compile Include="Assets\Model\UI\UIFrame\UINextButton.cs" />
     <Compile Include="Assets\Model\UI\UIFrame\UIVirticalText.cs" />
     <Compile Include="Assets\Model\UI\UIGuidScene\UIGuideSceneComponent.cs" />
+    <Compile Include="Assets\Model\UI\UIGuidScene\UIGuideXiaomiaoComponent.cs" />
     <Compile Include="Assets\Model\UI\UIMain\UIMainComponent.cs" />
     <Compile Include="Assets\Model\UI\UIManager.cs" />
     <Compile Include="Assets\Model\UI\UIMap\EnterGame_CreateMap.cs" />

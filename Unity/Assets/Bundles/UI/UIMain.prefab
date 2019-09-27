@@ -207,7 +207,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8321402678874754645}
   m_Layer: 5
-  m_Name: PictureAlbum
+  m_Name: Book
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -507,7 +507,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4907700211105299331}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -784,6 +784,8 @@ MonoBehaviour:
     gameObject: {fileID: 5506170788725152351}
   - key: Context
     gameObject: {fileID: 4907700211105299331}
+  - key: Book
+    gameObject: {fileID: 1157196482342241029}
 --- !u!1 &7157150148868281742
 GameObject:
   m_ObjectHideFlags: 0
