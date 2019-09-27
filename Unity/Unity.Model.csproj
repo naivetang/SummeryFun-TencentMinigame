@@ -549,6 +549,7 @@
     <Compile Include="Assets\Model\UI\UIFrame\UINextButton.cs" />
     <Compile Include="Assets\Model\UI\UIFrame\UIVirticalText.cs" />
     <Compile Include="Assets\Model\UI\UIGuidScene\UIGuideSceneComponent.cs" />
+    <Compile Include="Assets\Model\UI\UIGuidScene\UIGuideXiaomiaoBind.cs" />
     <Compile Include="Assets\Model\UI\UIGuidScene\UIGuideXiaomiaoComponent.cs" />
     <Compile Include="Assets\Model\UI\UIMain\UIMainComponent.cs" />
     <Compile Include="Assets\Model\UI\UIManager.cs" />
