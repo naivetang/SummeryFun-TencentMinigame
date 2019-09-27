@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3585937882436825901}
   - component: {fileID: 7652616735329588471}
+  - component: {fileID: 697093687124078240}
   m_Layer: 5
   m_Name: UIDialog
   m_TagString: Untagged
@@ -52,6 +53,18 @@ MonoBehaviour:
   data:
   - key: TextContext
     gameObject: {fileID: 5138308425847622667}
+--- !u!114 &697093687124078240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986684182952096226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dabdc7bbd8144584b2b64921269de8a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2438847683725440177
 GameObject:
   m_ObjectHideFlags: 0

@@ -64,6 +64,12 @@
         /// 书本的打开 关闭状态
         /// </summary>
         public const string BookState = "BookState";
+        
+        
 
+        /// <summary>
+        /// 触发了 Dialog 
+        /// </summary>
+        public const string DialogAera = "DialogAera";
     }
 }

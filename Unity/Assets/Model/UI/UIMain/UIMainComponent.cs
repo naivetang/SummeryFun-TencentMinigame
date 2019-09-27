@@ -42,9 +42,10 @@ namespace ETModel
         private GameObject _context;
 
         private TriggerAreaConfig _currenArea;
-        
-        
 
+
+
+        private UIMainDialogComponent _mainDialogComponent;
         /// <summary>
         /// 引导关入口
         /// </summary>
@@ -72,6 +73,8 @@ namespace ETModel
             this._context.GetComponent<CanvasGroup>().alpha = 0;
 
             _dialogBtn.SetActive(false);
+
+            _mainDialogComponent = ComponentFactory.Create<UIMainDialogComponent, GameObject>(this._dialogBtn);
 
             //_player = rc.Get<GameObject>("Player");
 
@@ -236,6 +239,8 @@ namespace ETModel
         public override void Dispose()
         {
             base.Dispose();
+            
+            _mainDialogComponent .Dispose();
             RemoveListener();
         }
     }

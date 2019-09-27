@@ -122,9 +122,12 @@ namespace ETModel
             // }
         }
 
+        private EventProxy moveDirChangeProxt;
+        
         private void AddListener()
         {
-            Game.EventSystem.RegisterEvent(EventIdType.MoveDirChange, new EventProxy(MoveDirChange));
+            moveDirChangeProxt = new EventProxy(MoveDirChange);
+            Game.EventSystem.RegisterEvent(EventIdType.MoveDirChange, this.moveDirChangeProxt);
         }
 
         private void MoveDirChange(List<object> obj)
@@ -143,7 +146,7 @@ namespace ETModel
 
         private void RemoveListener()
         {
-            Game.EventSystem.UnRegisterEvent(EventIdType.MoveDirChange, new EventProxy(MoveDirChange));
+            Game.EventSystem.UnRegisterEvent(EventIdType.MoveDirChange, this.moveDirChangeProxt);
         }
 
 

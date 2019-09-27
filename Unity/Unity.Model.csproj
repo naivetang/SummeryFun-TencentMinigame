@@ -518,6 +518,8 @@
     <Compile Include="Assets\Model\Module\UI\UIFactoryAttribute.cs" />
     <Compile Include="Assets\Model\Module\UI\UIType.cs" />
     <Compile Include="Assets\Model\MonoScripts\AnimationEvent.cs" />
+    <Compile Include="Assets\Model\MonoScripts\DialogArea.cs" />
+    <Compile Include="Assets\Model\MonoScripts\DialogTextCtl.cs" />
     <Compile Include="Assets\Model\MonoScripts\JoyStick.cs" />
     <Compile Include="Assets\Model\MonoScripts\NonDrawingGraphic.cs" />
     <Compile Include="Assets\Model\MonoScripts\PlayerAnimation.cs" />
@@ -553,6 +555,7 @@
     <Compile Include="Assets\Model\UI\UIGuidScene\UIGuideXiaomiaoBind.cs" />
     <Compile Include="Assets\Model\UI\UIGuidScene\UIGuideXiaomiaoComponent.cs" />
     <Compile Include="Assets\Model\UI\UIMain\UIMainComponent.cs" />
+    <Compile Include="Assets\Model\UI\UIMain\UIMainDialogComponent.cs" />
     <Compile Include="Assets\Model\UI\UIManager.cs" />
     <Compile Include="Assets\Model\UI\UIMap\EnterGame_CreateMap.cs" />
     <Compile Include="Assets\Model\UI\UIMap\UIMapComponent.cs" />

@@ -11,5 +11,6 @@ namespace ETModel
 		public int NextId;
 		public int RoleId;
 		public string Text;
+		public float ShowTime;
 	}
 }
