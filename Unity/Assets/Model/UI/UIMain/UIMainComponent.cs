@@ -69,6 +69,8 @@ namespace ETModel
 
             _dialogBtn = rc.Get<GameObject>("DialogBtn");
             this._context = rc.Get<GameObject>("Context");
+            
+            this._context.SetActive(false);
 
             this._context.GetComponent<CanvasGroup>().alpha = 0;
 
@@ -154,7 +156,7 @@ namespace ETModel
         /// <param name="obj"></param>
         private void ShowJoyStickByAnimation(List<object> obj)
         {
-
+            this._context.SetActive(true);
             //return;
             this._context.GetComponent<CanvasGroup>().DOFade(1, 1);
         }
