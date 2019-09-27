@@ -538,6 +538,7 @@
     <Compile Include="Assets\Model\UI\Test\UILogDepth.cs" />
     <Compile Include="Assets\Model\UI\UIBase.cs" />
     <Compile Include="Assets\Model\UI\UIBook\UIBookComponent.cs" />
+    <Compile Include="Assets\Model\UI\UIBook\UIBookEventHandler.cs" />
     <Compile Include="Assets\Model\UI\UICG\UICGBind.cs" />
     <Compile Include="Assets\Model\UI\UICG\UICGComponent.cs" />
     <Compile Include="Assets\Model\UI\UICG\UICGEventHandler.cs" />

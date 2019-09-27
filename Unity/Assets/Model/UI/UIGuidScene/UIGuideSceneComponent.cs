@@ -57,6 +57,9 @@ namespace ETModel
         private GameObject xiaomiao;
 
         private UIGuideXiaomiaoComponent xiaomiaoComponent;
+
+        // 进入的对应的区域事件
+        private int triggerId = 3001;
         
         public void Awake()
         {
@@ -253,6 +256,10 @@ namespace ETModel
         {
             Log.Info("解题成功");
 
+            
+            // 发送事件，完成任务
+            Game.EventSystem.Run<int>(EventIdType.CompleteTask,this.triggerId);
+            
             {
                 var multImage = this.hine2.GetComponent<UIMultImage>();
 

@@ -11,5 +11,6 @@ namespace ETModel
 		public string EventName;
 		public string ShowWindow;
 		public string UIType;
+		public int BookIndex;
 	}
 }

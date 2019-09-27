@@ -49,7 +49,21 @@
         
         public const string WaterDropRightFinish = "WaterDropRightFinish";
         
+        /// <summary>
+        /// 完成任务
+        /// </summary>
+        public const string CompleteTask = "CompleteTask";
         
+        /// <summary>
+        /// 打开书本第几页
+        /// </summary>
+        public const string OpenBook = "OpenBook";
+        
+        
+        /// <summary>
+        /// 书本的打开 关闭状态
+        /// </summary>
+        public const string BookState = "BookState";
 
     }
 }

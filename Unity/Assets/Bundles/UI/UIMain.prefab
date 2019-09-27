@@ -206,6 +206,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8321402678874754645}
+  - component: {fileID: 2058344304434597840}
+  - component: {fileID: 7914252706650333615}
+  - component: {fileID: 1873110299625780571}
+  - component: {fileID: 7237351214347694324}
   m_Layer: 5
   m_Name: Book
   m_TagString: Untagged
@@ -224,8 +228,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 7679074145461497705}
   - {fileID: 6633662948603125648}
+  - {fileID: 7679074145461497705}
   m_Father: {fileID: 5960141247711292477}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -234,6 +238,87 @@ RectTransform:
   m_AnchoredPosition: {x: 489, y: 762}
   m_SizeDelta: {x: 185.9, y: 158.2}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2058344304434597840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157196482342241029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38ddb9993c437ef48a946012486233ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 0}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  pressScale: 1.2
+--- !u!222 &7914252706650333615
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157196482342241029}
+  m_CullTransparentMesh: 0
+--- !u!114 &1873110299625780571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157196482342241029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64544088011f47809c940e5042e39908, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+--- !u!114 &7237351214347694324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157196482342241029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502d8cafd6a5a0447ab1db9a24cdcb10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data:
+  - key: book
+    gameObject: {fileID: 5592104182428554758}
 --- !u!1 &3435758401446904401
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,7 +331,7 @@ GameObject:
   - component: {fileID: 5114846871342270629}
   - component: {fileID: 2196133471698789313}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: bg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -264,12 +349,12 @@ RectTransform:
   m_LocalScale: {x: 1.44, y: 1.44, z: 1}
   m_Children: []
   m_Father: {fileID: 8321402678874754645}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.500044, y: -35}
-  m_SizeDelta: {x: 117, y: 60}
+  m_AnchoredPosition: {x: -17.5, y: -50}
+  m_SizeDelta: {x: 157, y: 73}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5114846871342270629
 CanvasRenderer:
@@ -595,9 +680,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7679074145461497705}
   - component: {fileID: 6933545541683879304}
-  - component: {fileID: 2310654487791095375}
+  - component: {fileID: 249778520814906638}
   m_Layer: 5
-  m_Name: Image
+  m_Name: book
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -610,16 +695,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5592104182428554758}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.44, y: 1.44, z: 1}
   m_Children: []
   m_Father: {fileID: 8321402678874754645}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.0000269413, y: 0.000011444092}
   m_SizeDelta: {x: 122, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6933545541683879304
@@ -630,7 +715,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5592104182428554758}
   m_CullTransparentMesh: 0
---- !u!114 &2310654487791095375
+--- !u!114 &249778520814906638
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -639,7 +724,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5592104182428554758}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: f41ed456050f5d041bcc9df44ebbeebe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -652,13 +737,18 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: b5069e1363cf5b848be003520f746c19, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+  nativeSize: 0
+  needMask: 0
+  sprites:
+  - {fileID: 21300000, guid: b5069e1363cf5b848be003520f746c19, type: 3}
+  - {fileID: 21300000, guid: 1f0314ce042f9d0499f07e73023eff16, type: 3}
 --- !u!1 &7157150147996704919
 GameObject:
   m_ObjectHideFlags: 0

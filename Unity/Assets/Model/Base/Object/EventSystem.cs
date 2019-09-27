@@ -158,6 +158,12 @@ namespace ETModel
 
         public void UnRegisterEvent(string eventId, IEvent e)
         {
+	        if (e == null)
+	        {
+		        Log.Error("e is null, eventId = " + eventId);
+		        return;
+	        }
+	        
 	        // Debug.Log("卸载事件 ： " + eventId);
 	        
             if (!this.allEvents.ContainsKey(eventId))

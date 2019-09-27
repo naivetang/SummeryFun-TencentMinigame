@@ -107,28 +107,57 @@ namespace ETModel
         // }
 
 
+        private EventProxy triggerAreaProxy;
+        private EventProxy showByAnimationProxy;
+        
+        private EventProxy bookStateProxy;
         private void AddListener()
         {
-            Game.EventSystem.RegisterEvent(EventIdType.TriggerAera, new EventProxy(TriggerArea));
-
             _actionBtn.GetComponent<Button>().onClick.AddListener(() =>
             {
                 UIFactory.Create<UIDragonflyComponent>(ViewLayer.UIFullScreenLayer, UIType.UIDragonfly).Coroutine();
             });
             
-            Game.EventSystem.RegisterEvent(EventIdType.CGToHallFinish, new EventProxy(this.ShowByAnimation));
+            _book.GetComponent<Button>().onClick.AddListener(this.BookBtnOnClick);
+            
+            triggerAreaProxy = new EventProxy(TriggerArea);
+            
+            Game.EventSystem.RegisterEvent(EventIdType.TriggerAera, this.triggerAreaProxy);
+            
+            
+            showByAnimationProxy =  new EventProxy(ShowByAnimation);
+            
+            Game.EventSystem.RegisterEvent(EventIdType.CGToHallFinish, showByAnimationProxy);
+         
+            bookStateProxy = new EventProxy(UpdateBookState);
+            
+            Game.EventSystem.RegisterEvent(EventIdType.BookState, bookStateProxy);
         }
 
+        void BookBtnOnClick()
+        {
+            Game.EventSystem.Run(EventIdType.OpenBook, 0);
+        }
+        
         private void ShowByAnimation(List<object> obj)
         {
             this._context.GetComponent<CanvasGroup>().DOFade(1, 1);
         }
         
+        private void UpdateBookState(List<object> obj)
+        {
+            bool state = (bool)obj[0];
+
+            UIMultImage multImage = this._book.GetComponent<ReferenceCollector>().Get<GameObject>("book").GetComponent<UIMultImage>();
+            
+            multImage.SetSprite(state ? 1 : 0);
+        }
 
         private void RemoveListener()
         {
-            Game.EventSystem.UnRegisterEvent(EventIdType.TriggerAera, new EventProxy(TriggerArea));
-            Game.EventSystem.UnRegisterEvent(EventIdType.CGToHallFinish, new EventProxy(ShowByAnimation));
+            Game.EventSystem.UnRegisterEvent(EventIdType.TriggerAera, triggerAreaProxy);
+            Game.EventSystem.UnRegisterEvent(EventIdType.CGToHallFinish, showByAnimationProxy);
+            Game.EventSystem.UnRegisterEvent(EventIdType.CGToHallFinish, bookStateProxy);
         }
 
         
@@ -142,7 +171,7 @@ namespace ETModel
             
             if (action.Equals("Enter"))
             {
-                this._actionBtn.SetActive(true);
+                // this._actionBtn.SetActive(true);
 
                 this._currenArea = Game.Scene.GetComponent<ConfigComponent>().Get(typeof (TriggerAreaConfig), triggerId) as TriggerAreaConfig;
                 
@@ -188,12 +217,12 @@ namespace ETModel
             // 进入
             if (isEnter)
             {
-                btn.GameObject.SetActive(true);
+                btn.Show();
             }
             // 退出
             else
             {
-                btn.GameObject.SetActive(false);
+                btn.Hide();
             }
         }
 

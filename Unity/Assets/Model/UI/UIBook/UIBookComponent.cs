@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using DG.Tweening;
 using DG.Tweening.Core.Easing;
 using UnityEngine;
@@ -22,14 +23,30 @@ namespace ETModel
 
         private Vector2 endPos = new Vector2(66,23);
 
+        private GameObject image;
 
         private AnimationCurve easeCurve;
 
-        private GameObject image;
+        private GameObject pictures;
 
+        private Text indexText;
+
+        private Button PreBtn;
+        
+        private Button NextBtn;
+
+        private int currentPage = 0;
+
+        //public static List<bool> hadOpenPage = new List<bool>(20){true};
+        public static List<bool> hadOpenPage = new List<bool>(new bool[20]);
+
+
+        private string[] indexArr = new[] { "零", "壹", "贰", "叁", "肆", "伍", "六", "七", "八", "九", "十", "", "", "", "", "" };
         
         public void Awake()
         {
+            hadOpenPage[0] = true;
+            
             ReferenceCollector rc = this.GetParent<UIBase>().GameObject.GetComponent<ReferenceCollector>();
 
             this.context = rc.Get<GameObject>("Context");
@@ -38,7 +55,14 @@ namespace ETModel
 
             this.closeBtn = rc.Get<GameObject>("CloseBtn");
             
-
+            this.pictures = rc.Get<GameObject>("Pictures");
+            
+            this.indexText = rc.Get<GameObject>("index").GetComponent<Text>();
+            
+            this.PreBtn = rc.Get<GameObject>("Pre").GetComponent<Button>();
+            
+            this.NextBtn = rc.Get<GameObject>("Next").GetComponent<Button>();
+            
             DOTweenAnimation animation = context.GetComponent<DOTweenAnimation>();
             
             easeCurve = animation.easeCurve;
@@ -46,11 +70,126 @@ namespace ETModel
             this.closeBtn.GetComponent<Button>().onClick.AddListener(this.CloseBtnOnClick);
 
             this.closeBtn.SetActive(false);
+            
+            this.pictures.SetActive(false);
             //this.animation = this.context.GetComponent<DOTweenAnimation>();
+            
+            this.Opened();
         }
+
+
+        void Opened()
+        {
+            Game.EventSystem.Run(EventIdType.BookState, true);
+        }
+        
+
+        public void ShowPicture(int index)
+        {
+            this.currentPage = index;
+            
+            this.pictures.SetActive(true);
+            
+            UIMultImage uiMultImage = this.pictures.GetComponent<UIMultImage>();
+            
+            uiMultImage.SetSprite(index);
+
+            this.indexText.text = this.indexArr[index];
+
+            CanvasGroup canvasGroup = this.GetParent<UIBase>().GameObject.GetComponent<CanvasGroup>();
+
+            canvasGroup.alpha = 0;
+
+            canvasGroup.DOFade(1, 0.5f).OnComplete(() =>
+            {
+                this.closeBtn.SetActive(true);
+
+
+                
+                {
+                    this.PreBtn.onClick.AddListener(this.PreBtnOnClick);
+                    this.NextBtn.onClick.AddListener(this.NextBtnOnClick);
+                }
+                
+                
+            });
+
+            if (this.OpendPages() <= 1)
+            {
+                this.PreBtn.gameObject.SetActive(false);
+                this.NextBtn.gameObject.SetActive(false);
+            }
+            
+            
+        }
+
+        int OpendPages()
+        {
+            int count = 0;
+            foreach (bool b in hadOpenPage)
+            {
+                if (b)
+                    ++count;
+            }
+
+            return count;
+        }
+
+        void PreBtnOnClick()
+        {
+            for (int i = this.currentPage - 1; i >= 0; i--)
+            {
+                if (hadOpenPage[i])
+                {
+                    this.currentPage = i;
+                    
+                    this.CutPage().Coroutine();
+                    
+                    break;
+                }
+            }
+        }
+        
+        void NextBtnOnClick()
+        {
+            for (int i = this.currentPage + 1; i < hadOpenPage.Count; i++)
+            {
+                if (hadOpenPage[i])
+                {
+                    this.currentPage = i;
+                    
+                    this.CutPage().Coroutine();
+                    
+                    break;
+                }
+            }
+        }
+
+        /// <summary>
+        /// 切页
+        /// </summary>
+        async ETVoid CutPage()
+        {
+            UIMultImage uiMultImage = this.pictures.GetComponent<UIMultImage>();
+            
+            uiMultImage.SetSprite(this.currentPage);
+            
+            this.indexText.text = this.indexArr[this.currentPage];
+
+            // CanvasGroup canvasGroup = uiMultImage.GetComponent<CanvasGroup>();
+            //
+            // // 0.6f内消失
+            // canvasGroup.DOFade(0, 0.6f).OnComplete(() =>
+            // {
+            //     uiMultImage.SetSprite(this.currentPage);
+            // });
+        }
+        
+       
 
         public void AddImageGo(GameObject image)
         {
+            
             this.image = image;
             if (image == null)
             {
@@ -146,7 +285,16 @@ namespace ETModel
 
         async ETVoid Close(Vector2 vector2)
         {
+
             UnityEngine.GameObject uiBoook =  this.GetParent<UIBase>().GameObject;
+
+            uiBoook.GetComponent<CanvasGroup>().DOFade(0f, 0.8f).OnComplete(() =>
+            {
+                Game.Scene.GetComponent<UIComponent>().RemoveUI(UIType.UIBook);
+            });
+            
+            return;
+            uiBoook =  this.GetParent<UIBase>().GameObject;
 
             uiBoook.transform.DOMove(vector2, 1f);
 
@@ -156,9 +304,16 @@ namespace ETModel
             });
         }
 
+        void Closed()
+        {
+            Game.EventSystem.Run(EventIdType.BookState, false);
+        }
+
         public override void Dispose()
         {
             base.Dispose();
+            
+            this.Closed();
         }
     }
 }
