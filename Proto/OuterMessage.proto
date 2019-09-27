@@ -1,6 +1,26 @@
 syntax = "proto3";
 package ETModel;
 
+enum ErrorCode {
+	LOGIN_PASSWORD_WRONG = 1001;
+	LOGIN_NOT_REGISTERED = 1002;
+}
+
+message LoginReq // IRequest
+{
+	int32 RpcId = 90;
+	string	Account	 = 1;	// 帐号
+	string	Password = 2;	// 密码
+}
+
+message LoginRsp // IResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+}
+
+
 message C2M_TestRequest // IActorLocationRequest
 {
 	int32 RpcId = 90;
