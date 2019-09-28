@@ -60,7 +60,7 @@ namespace ETModel
             
             while (true)
             {
-                if (playerTransform.localPosition.x < -336f)
+                if (playerTransform.localPosition.x < -300f)
                     break;
 
                 await timer.WaitAsync((long) (0.2f * 1000));
@@ -70,7 +70,7 @@ namespace ETModel
             
             while (true)
             {
-                if (playerTransform.localPosition.y > -625.75f)
+                if (playerTransform.localPosition.y > -662f)
                     break;
 
                 await timer.WaitAsync((long) (0.2f * 1000));
