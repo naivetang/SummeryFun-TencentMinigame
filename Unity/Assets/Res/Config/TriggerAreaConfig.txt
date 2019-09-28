@@ -1,1 +1,2 @@
 {"Id":3001,"EventName":"EnterArea","ShowWindow":"UIGuideScene","UIType":"UIGuideSceneComponent","BookIndex":1}
+{"Id":3002,"EventName":"EnterArea","ShowWindow":"UIShaddockScene","UIType":"UIShaddockSceneComponent","BookIndex":2}

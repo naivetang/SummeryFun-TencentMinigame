@@ -1,8 +1,8 @@
 {"Id":2001,"NextId":2002,"RoleId":1001,"Text":"  囝儿下学啦？  ","ShowTime":3}
 {"Id":2002,"NextId":2003,"RoleId":-1,"Text":"  嗯呢，叔担水呢？  ","ShowTime":3}
 {"Id":2003,"NextId":2004,"RoleId":1001,"Text":"  是啊，刚浇地回来  ","ShowTime":3}
-{"Id":2004,"NextId":2005,"RoleId":1001,"Text":"  记得早些归家！莫让家里人担忧  ","ShowTime":3}
-{"Id":2005,"NextId":-1,"RoleId":-1,"Text":"  好！叔也早些归呀！  ","ShowTime":3}
+{"Id":2004,"NextId":2005,"RoleId":1001,"Text":"  囝儿你看，墙角长了棵小苗哦  ","ShowTime":3}
+{"Id":2005,"NextId":-1,"RoleId":-1,"Text":"  哇，是嘛，我看看！  ","ShowTime":3}
 {"Id":2006,"NextId":2007,"RoleId":1002,"Text":"  你好  ","ShowTime":3}
 {"Id":2007,"NextId":2008,"RoleId":-1,"Text":"  卧槽！QAQ，是谁！  ","ShowTime":3}
 {"Id":2008,"NextId":2009,"RoleId":1002,"Text":"  我是一棵树  ","ShowTime":3}
