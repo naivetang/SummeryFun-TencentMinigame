@@ -72,28 +72,7 @@ namespace ETModel
 
             Game.EventSystem.Run<int>(EventIdType.CompleteTask, this.triggerId);
 
-            TimerComponent timerComponent = Game.Scene.GetComponent<TimerComponent>();
-
-            Log.Info(" 出现结束图画 ");
-
-            // 出画
-            this.drawscene2.SetActive(true);
-
-            this.drawscene2.GetComponent<CanvasGroup>().alpha = 0;
-
-            this.drawscene2.GetComponent<CanvasGroup>().DOFade(1, 1);
-
-            await timerComponent.WaitAsync(1 * 1000);
-
-            // 图画完全显示出来
-
-            this.CloseOtherDrawScene();
-
-            await timerComponent.WaitAsync(1 * 1000);
-
-            // 装进书里面
-
-            this.CollectToBook().Coroutine();
+            this.CollectAndShow();
         }
 
         void CloseOtherDrawScene()
@@ -127,6 +106,32 @@ namespace ETModel
             this.drawscene2 = null;
 
             Game.Scene.GetComponent<UIComponent>().RemoveUI(UIType.UIGuideScene);
+        }
+
+        async ETVoid CollectAndShow()
+        {
+            TimerComponent timerComponent = Game.Scene.GetComponent<TimerComponent>();
+
+            Log.Info(" 出现结束图画 ");
+
+            // 出画
+            this.drawscene2.SetActive(true);
+
+            this.drawscene2.GetComponent<CanvasGroup>().alpha = 0;
+
+            this.drawscene2.GetComponent<CanvasGroup>().DOFade(1, 1);
+
+            await timerComponent.WaitAsync(1 * 1000);
+
+            // 图画完全显示出来
+
+            this.CloseOtherDrawScene();
+
+            await timerComponent.WaitAsync(1 * 1000);
+
+            // 装进书里面
+
+            this.CollectToBook().Coroutine();
         }
     }
 }
