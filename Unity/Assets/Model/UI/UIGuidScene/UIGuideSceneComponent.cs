@@ -36,7 +36,11 @@ namespace ETModel
 
         private GameObject successShuiDiAnimation;
 
+        private GameObject failShuiDiAnimation;
+
         private GameObject rightDropWater;
+
+        private GameObject leftDropWater;
 
         private GameObject guideEndAnimation;
 
@@ -79,13 +83,19 @@ namespace ETModel
 
             this.successShuiDiAnimation = rc.Get<GameObject>("SuccessShuidiAnimation");
 
+            this.failShuiDiAnimation = rc.Get<GameObject>("FailShuidiAnimation");
+
             this.successShuiDiAnimation.SetActive(false);
-            
+
+            this.failShuiDiAnimation.SetActive(false);
+
             this.ZhuziAnimation.SetActive(false);
 
             this.zhuziInitPos = this.zhuzi.transform.position;
 
             this.rightDropWater = rc.Get<GameObject>("WaterDropRight");
+
+            this.leftDropWater = rc.Get<GameObject>("WaterDropLeft");
 
             this.guideEndAnimation = rc.Get<GameObject>("GuideEndAnimation");
             
@@ -231,17 +241,34 @@ namespace ETModel
             Handheld.Vibrate();
             
         }
+        void reset()
+        {
+            this.leftDropWater.SetActive(true);
+
+            this.rightDropWater.SetActive(true);
+
+            this.failShuiDiAnimation.SetActive(false);
+
+            this.successShuiDiAnimation.SetActive(false);
+        }
+
+
+
 
         void DragPointUp(PointerEventData p)
         {
             //Log.Info("up");
 
             this.zhuzi.transform.DOScale(Vector3.one, 0.15f);
+
+            this.reset();
         }
 
         void BeginDrageZhuzi(PointerEventData p)
         {
             //Log.Info("begin drage");
+
+            this.zhuzi.GetComponent<Image>().CrossFadeAlpha(1f, 0.1f, true);
         }
 
         void DrageingZhuzi(PointerEventData p)
@@ -256,10 +283,13 @@ namespace ETModel
             // 解题成功
             if (this.stayHine != null && this.stayHine == this.hine2)
             {
-                this.SolveSucces();    
+                this.SolveSucces();
             }
-            else // 解题失败，竹子掉下来
+            else if (this.stayHine != null && this.stayHine == this.hine1)
             {
+                this.LeftFailed();
+            }// 解题失败，竹子掉下来
+            else{
                 this.SolveFaild();
             }
         }
@@ -296,6 +326,28 @@ namespace ETModel
             
         }
 
+        void LeftFailed()
+        {
+            {
+                var multImage = this.hine1.GetComponent<UIMultImage>();
+
+                multImage.SetSprite(1);
+
+                multImage.CrossFadeAlpha(1, 0.1f, true);
+            }
+
+            {
+                this.zhuzi.GetComponent<Image>().CrossFadeAlpha(0f, 0.1f, true);
+
+                this.zhuzi.transform.position = this.hine1.transform.position;
+
+                //this.zhuzi.GetComponent<Image>().raycastTarget = false;
+            }
+
+            this.WaterDropLeftFinish();                                  
+        }
+
+
         private EventProxy eventProxy;
         
         void AddListener()
@@ -311,6 +363,15 @@ namespace ETModel
                 Game.EventSystem.UnRegisterEvent(EventIdType.WaterDropRightFinish, this.eventProxy);
         }
 
+        void WaterDropLeftFinish()
+        {
+            Log.Info("左侧水滴停止播放");
+
+            this.leftDropWater.SetActive(false);
+
+            this.failShuiDiAnimation.SetActive(true);
+        }
+        
         // 右侧水滴停止播放，开始播放浇水动画
         void WaterDropRightFinish()
         {
@@ -319,6 +380,8 @@ namespace ETModel
             this.successShuiDiAnimation.SetActive(true);
 
             this.rightDropWater.SetActive(false);
+
+
                                     
             this.PlayXiaoMiaoGrowUp().Coroutine();
         }
@@ -417,6 +480,8 @@ namespace ETModel
             this.gamesence3.SetActive(false);
             
             this.successShuiDiAnimation.SetActive(false);
+
+            this.failShuiDiAnimation.SetActive(false);
 
             this.zhuzi.SetActive(false);
 
