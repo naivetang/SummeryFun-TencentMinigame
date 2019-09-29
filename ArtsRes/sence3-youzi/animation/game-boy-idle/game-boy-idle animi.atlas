@@ -1,0 +1,97 @@
+
+game-boy-idle animi.png
+size: 698,298
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bag
+  rotate: false
+  xy: 2, 35
+  size: 128, 261
+  orig: 130, 263
+  offset: 1, 1
+  index: -1
+body
+  rotate: false
+  xy: 132, 60
+  size: 182, 236
+  orig: 185, 236
+  offset: 0, 0
+  index: -1
+head
+  rotate: true
+  xy: 316, 11
+  size: 116, 106
+  orig: 118, 108
+  offset: 1, 1
+  index: -1
+left arm
+  rotate: false
+  xy: 522, 164
+  size: 64, 132
+  orig: 66, 134
+  offset: 1, 1
+  index: -1
+left-foot
+  rotate: false
+  xy: 179, 5
+  size: 106, 53
+  orig: 108, 55
+  offset: 1, 1
+  index: -1
+left-leg-1
+  rotate: true
+  xy: 588, 118
+  size: 103, 104
+  orig: 105, 106
+  offset: 1, 1
+  index: -1
+left-leg-2
+  rotate: false
+  xy: 424, 22
+  size: 102, 133
+  orig: 104, 136
+  offset: 1, 2
+  index: -1
+right arm-1
+  rotate: false
+  xy: 595, 29
+  size: 100, 87
+  orig: 104, 89
+  offset: 3, 1
+  index: -1
+right arm-2
+  rotate: true
+  xy: 588, 223
+  size: 73, 108
+  orig: 75, 110
+  offset: 1, 1
+  index: -1
+right-foot
+  rotate: true
+  xy: 528, 3
+  size: 113, 65
+  orig: 115, 67
+  offset: 1, 1
+  index: -1
+right-hand
+  rotate: false
+  xy: 132, 2
+  size: 45, 56
+  orig: 47, 58
+  offset: 1, 1
+  index: -1
+right-leg-1
+  rotate: true
+  xy: 423, 157
+  size: 139, 97
+  orig: 144, 99
+  offset: 1, 1
+  index: -1
+right-leg-2
+  rotate: false
+  xy: 316, 129
+  size: 105, 167
+  orig: 107, 169
+  offset: 1, 1
+  index: -1
