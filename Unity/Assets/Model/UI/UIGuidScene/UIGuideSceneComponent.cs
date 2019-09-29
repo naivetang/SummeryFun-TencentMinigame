@@ -287,7 +287,7 @@ namespace ETModel
 
                 this.zhuzi.GetComponent<Image>().raycastTarget = false;
             }
-            
+
             this.AddListener();
             
             
@@ -300,7 +300,7 @@ namespace ETModel
         
         void AddListener()
         {
-            this.eventProxy = new EventProxy(WaterDropRightFinish);
+            this.WaterDropRightFinish();
             
             Game.EventSystem.RegisterEvent(EventIdType.WaterDropRightFinish, this.eventProxy);
         }
@@ -312,14 +312,14 @@ namespace ETModel
         }
 
         // 右侧水滴停止播放，开始播放浇水动画
-        void WaterDropRightFinish(List<object> obj)
+        void WaterDropRightFinish()
         {
             Log.Info("开始滴水到小苗上 1 次");
-            
-            this.rightDropWater.SetActive(false);
-            
+
             this.successShuiDiAnimation.SetActive(true);
-            
+
+            this.rightDropWater.SetActive(false);
+                                    
             this.PlayXiaoMiaoGrowUp().Coroutine();
         }
 
