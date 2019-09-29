@@ -79,6 +79,11 @@
         
         public const string ShowJoystic = "ShowJoystic";
         
+        /// <summary>
+        /// 柚子关，杆在哪位小盆友手上
+        /// </summary>
+        public const string ShaddockStickChild = "ShaddockStickChild";
+        
         
         
         

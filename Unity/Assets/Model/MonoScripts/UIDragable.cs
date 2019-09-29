@@ -19,6 +19,8 @@ namespace ETModel
         private Action<PointerEventData> onPointUp;
 
 
+        private Vector3 offect;
+
         public void RegistOnBeginDrag(Action<PointerEventData> p)
         {
             this.onBeginDrag += p;
@@ -44,6 +46,8 @@ namespace ETModel
             this.onPointUp += p;
         }
 
+        #region 拖动
+
         public void OnBeginDrag(PointerEventData eventData)
         {
             SetDraggedPosition(eventData);
@@ -68,8 +72,14 @@ namespace ETModel
                 this.onEndDrag.Invoke(eventData);
         }
 
+        #endregion
+        
+
         public void OnPointerDown(PointerEventData eventData)
         {
+            
+            this.SetOffect(eventData);
+            
             if (this.onPointDown != null)
                 this.onPointDown.Invoke(eventData);
         }
@@ -78,6 +88,19 @@ namespace ETModel
         {
             if (this.onPointUp != null)
                 this.onPointUp.Invoke(eventData);
+        }
+
+        
+        private void SetOffect(PointerEventData eventData)
+        {
+            var rt = gameObject.GetComponent<RectTransform>();
+
+            // transform the screen point to world point int rectangle
+            Vector3 globalMousePos;
+            if (RectTransformUtility.ScreenPointToWorldPointInRectangle(rt, eventData.position, eventData.pressEventCamera, out globalMousePos))
+            {
+                this.offect =  rt.position - globalMousePos;
+            }
         }
 
 
@@ -89,7 +112,7 @@ namespace ETModel
             Vector3 globalMousePos;
             if (RectTransformUtility.ScreenPointToWorldPointInRectangle(rt, eventData.position, eventData.pressEventCamera, out globalMousePos))
             {
-                rt.position = globalMousePos;
+                rt.position = globalMousePos + this.offect;
             }
         }
 

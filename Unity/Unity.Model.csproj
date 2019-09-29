@@ -2,6 +2,7 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
+    <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <_TargetFrameworkDirectories>non_empty_path_generated_by_rider_editor_plugin</_TargetFrameworkDirectories>
     <_FullFrameworkReferenceAssemblyPaths>non_empty_path_generated_by_rider_editor_plugin</_FullFrameworkReferenceAssemblyPaths>
     <DisableHandlePackageFileConflicts>true</DisableHandlePackageFileConflicts>
@@ -46,13 +47,6 @@
     <AddAdditionalExplicitAssemblyReferences>false</AddAdditionalExplicitAssemblyReferences>
     <ImplicitlyExpandNETStandardFacades>false</ImplicitlyExpandNETStandardFacades>
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <UnityProjectGenerator>Unity/VSTU</UnityProjectGenerator>
-    <UnityProjectType>Game:1</UnityProjectType>
-    <UnityBuildTarget>Android:13</UnityBuildTarget>
-    <UnityVersion>2018.3.6f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -518,10 +512,12 @@
     <Compile Include="Assets\Model\Module\UI\UIFactoryAttribute.cs" />
     <Compile Include="Assets\Model\Module\UI\UIType.cs" />
     <Compile Include="Assets\Model\MonoScripts\AnimationEvent.cs" />
+    <Compile Include="Assets\Model\MonoScripts\ClickedToShowHint.cs" />
     <Compile Include="Assets\Model\MonoScripts\DialogArea.cs" />
     <Compile Include="Assets\Model\MonoScripts\DialogTextCtl.cs" />
     <Compile Include="Assets\Model\MonoScripts\JoyStick.cs" />
     <Compile Include="Assets\Model\MonoScripts\NonDrawingGraphic.cs" />
+    <Compile Include="Assets\Model\MonoScripts\PhoneShake.cs" />
     <Compile Include="Assets\Model\MonoScripts\PlayerAnimation.cs" />
     <Compile Include="Assets\Model\MonoScripts\RoleUnit.cs" />
     <Compile Include="Assets\Model\MonoScripts\TriggerArea.cs" />
@@ -536,6 +532,7 @@
     <Compile Include="Assets\Model\Other\MonoStaticMethod.cs" />
     <Compile Include="Assets\Model\Other\MotionType.cs" />
     <Compile Include="Assets\Model\Other\ReferenceCollector.cs" />
+    <Compile Include="Assets\Model\UI\Attribute\CustomLabelAttribute.cs" />
     <Compile Include="Assets\Model\UI\Test\AnchorTest.cs" />
     <Compile Include="Assets\Model\UI\Test\UILogDepth.cs" />
     <Compile Include="Assets\Model\UI\UIBase.cs" />
@@ -559,9 +556,11 @@
     <Compile Include="Assets\Model\UI\UIManager.cs" />
     <Compile Include="Assets\Model\UI\UIMap\EnterGame_CreateMap.cs" />
     <Compile Include="Assets\Model\UI\UIMap\UIMapComponent.cs" />
+    <Compile Include="Assets\Model\UI\UIShaddockScene\UIShaddockSceneBind.cs" />
     <Compile Include="Assets\Model\UI\UIShaddockScene\UIShaddockSceneComponent.cs" />
     <Compile Include="Assets\Model\UI\UIStart\UIStartComponent.cs" />
     <Compile Include="Assets\Model\Utils\ISingleton.cs" />
+    <Compile Include="Assets\Model\Utils\MathHelp.cs" />
     <Compile Include="Assets\Model\Utils\Singleton.cs" />
     <Compile Include="Assets\Model\Utils\SingletonMono.cs" />
     <None Include="Assets\Model\Module\Pathfinding\AstarPathfindingProject\ExampleScenes\Materials\DiffuseAlwaysVisible.shader" />
@@ -792,9 +791,6 @@
     </Reference>
     <Reference Include="UnityEditor.WindowsStandalone.Extensions">
       <HintPath>D:/Program Files/Unity2018.3.6f1/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
-      <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="TexturePackerImporter">
       <HintPath>D:/Github/SummerFun/Unity/Assets/codeandweb.com/Editor/TexturePackerImporter.dll</HintPath>
@@ -1223,7 +1219,6 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Target Name="GenerateTargetFrameworkMonikerAttribute" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
