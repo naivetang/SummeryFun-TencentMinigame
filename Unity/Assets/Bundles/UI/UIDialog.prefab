@@ -343,7 +343,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 402
+  m_SortingOrder: 400
   m_TargetDisplay: 0
 --- !u!114 &605738696115297638
 MonoBehaviour:
@@ -359,10 +359,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 861139011326792277}
   parentCanvas: {fileID: 0}
-  _relativeDepth: 2
-  relativeDepth: 2
-  _absoluteDepth: 402
-  absoluteDepth: 402
+  _relativeDepth: 0
+  relativeDepth: 0
+  _absoluteDepth: 400
+  absoluteDepth: 400
   init: 1
 --- !u!114 &1171047762086412827
 MonoBehaviour:
@@ -634,7 +634,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 401
+  m_SortingOrder: 400
   m_TargetDisplay: 0
 --- !u!114 &4362104227440226937
 MonoBehaviour:
@@ -650,10 +650,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 3529661337651409130}
   parentCanvas: {fileID: 861139011326792277}
-  _relativeDepth: -1
-  relativeDepth: -1
-  _absoluteDepth: 401
-  absoluteDepth: 401
+  _relativeDepth: -2
+  relativeDepth: -2
+  _absoluteDepth: 400
+  absoluteDepth: 400
   init: 1
 --- !u!114 &1935348414744837552
 MonoBehaviour:
