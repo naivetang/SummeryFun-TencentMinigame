@@ -126,6 +126,10 @@ namespace ETModel
                 this.hine1.GetComponent<UIColliderTrigger>().RegistOnTriggerEnter2D((p) =>
                 {
                     HineTriggerEnter2D(this.hine1, p);
+
+                    Log.Info("手机震动");
+
+                    Handheld.Vibrate();
                 });
 
                 this.hine1.GetComponent<UIColliderTrigger>().RegistOnTriggerExit2D((p) =>
@@ -136,7 +140,6 @@ namespace ETModel
                 this.hine1.GetComponent<UIColliderTrigger>().RegistOnTriggerStay2D((p) =>
                 {
                     HineTriggerStaty2D(this.hine1, p);
-
                 });
 
             }
@@ -146,6 +149,10 @@ namespace ETModel
                 this.hine2.GetComponent<UIColliderTrigger>().RegistOnTriggerEnter2D((p) =>
                 {
                     HineTriggerEnter2D(this.hine2, p);
+
+                    Log.Info("手机震动");
+
+                    Handheld.Vibrate();
                 });
 
                 this.hine2.GetComponent<UIColliderTrigger>().RegistOnTriggerExit2D((p) =>
@@ -156,7 +163,7 @@ namespace ETModel
                 this.hine2.GetComponent<UIColliderTrigger>().RegistOnTriggerStay2D((p) =>
                 {
                     HineTriggerStaty2D(this.hine2, p);
-
+                    
                 });
             }
         }
@@ -218,6 +225,11 @@ namespace ETModel
             //Log.Info("down");
 
             this.zhuzi.transform.DOScale(Vector3.one * 1.1f, 0.15f);
+
+            Log.Info("手机震动0.5秒");
+
+            Handheld.Vibrate();
+            
         }
 
         void DragPointUp(PointerEventData p)
