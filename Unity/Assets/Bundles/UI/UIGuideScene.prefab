@@ -3036,6 +3036,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: " \u6DA6\u7269\u7EC6\u65E0\u58F0 "
       objectReference: {fileID: 0}
+    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 402
+      objectReference: {fileID: 0}
     - target: {fileID: 605738696115297638, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: canvas
@@ -3161,6 +3166,11 @@ PrefabInstance:
       propertyPath: parentCanvas
       value: 
       objectReference: {fileID: 4636272439573109479}
+    - target: {fileID: 1581732063512426026, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 401
+      objectReference: {fileID: 0}
     - target: {fileID: 3022603799441677649, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: canvas
@@ -3171,6 +3181,11 @@ PrefabInstance:
       propertyPath: parentCanvas
       value: 
       objectReference: {fileID: 4636272439573109479}
+    - target: {fileID: 4069805135089721041, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 401
+      objectReference: {fileID: 0}
     - target: {fileID: 4362104227440226937, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: canvas
@@ -3181,7 +3196,16 @@ PrefabInstance:
       propertyPath: parentCanvas
       value: 
       objectReference: {fileID: 4636272439573109479}
-    m_RemovedComponents: []
+    - target: {fileID: 3529661337651409130, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 401
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3022603799441677649, guid: caff69c3476453a47975a1e144634f57, type: 3}
+    - {fileID: 4362104227440226937, guid: caff69c3476453a47975a1e144634f57, type: 3}
+    - {fileID: 1363894945143000883, guid: caff69c3476453a47975a1e144634f57, type: 3}
+    - {fileID: 605738696115297638, guid: caff69c3476453a47975a1e144634f57, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: caff69c3476453a47975a1e144634f57, type: 3}
 --- !u!1 &930776364844729529 stripped
 GameObject:

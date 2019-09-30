@@ -51,7 +51,7 @@ namespace ETModel
             {
                 Log.Error( this.name +" 参数有误: 绝对层级：" + this.absoluteDepth + "相对层级：" + this.relativeDepth);
 
-                return;
+                //return;
             }
 
             this.canvas.sortingOrder = this.absoluteDepth;

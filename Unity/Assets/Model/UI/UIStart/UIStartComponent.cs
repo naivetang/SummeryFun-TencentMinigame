@@ -138,7 +138,7 @@ namespace ETModel
 
             this.passWord.text = "";
 
-            UIFactory.Create<UIShaddockSceneComponent>(ViewLayer.UIEffectLayer, UIType.UIShaddockScene);
+            UIFactory.Create<UIShaddockSceneComponent>(ViewLayer.UIPopupLayer, UIType.UIShaddockScene);
 
             this.loginCom.SetActive(false);
             

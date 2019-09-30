@@ -104,7 +104,7 @@ namespace ETModel
                 }
                     
                 
-                UIFactory.CreateByTrigger(ViewLayer.UIPopupLayer, this.config.ShowWindow).Coroutine();
+                UIFactory.CreateByTrigger(ViewLayer.UIFullScreenLayer, this.config.ShowWindow).Coroutine();
             }
         }
 
