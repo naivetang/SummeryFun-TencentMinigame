@@ -1,0 +1,76 @@
+
+riddle-boy-idle animi.png
+size: 1206,507
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bag
+  rotate: false
+  xy: 1080, 245
+  size: 124, 260
+  orig: 126, 262
+  offset: 1, 1
+  index: -1
+body
+  rotate: true
+  xy: 842, 335
+  size: 170, 236
+  orig: 173, 236
+  offset: 0, 0
+  index: -1
+head
+  rotate: false
+  xy: 792, 15
+  size: 116, 91
+  orig: 118, 93
+  offset: 1, 1
+  index: -1
+left-arm
+  rotate: false
+  xy: 996, 191
+  size: 70, 142
+  orig: 73, 146
+  offset: 1, 1
+  index: -1
+left-leg
+  rotate: true
+  xy: 607, 7
+  size: 99, 183
+  orig: 101, 185
+  offset: 1, 1
+  index: -1
+leftfoot
+  rotate: false
+  xy: 1068, 205
+  size: 93, 38
+  orig: 95, 40
+  offset: 1, 1
+  index: -1
+right-arm
+  rotate: false
+  xy: 996, 33
+  size: 192, 156
+  orig: 195, 158
+  offset: 2, 1
+  index: -1
+right-leg
+  rotate: false
+  xy: 842, 122
+  size: 152, 211
+  orig: 154, 213
+  offset: 1, 1
+  index: -1
+rightfoot
+  rotate: false
+  xy: 607, 108
+  size: 233, 397
+  orig: 235, 399
+  offset: 1, 1
+  index: -1
+图层 0
+  rotate: true
+  xy: 2, 2
+  size: 503, 603
+  orig: 505, 605
+  offset: 1, 1
+  index: -1
