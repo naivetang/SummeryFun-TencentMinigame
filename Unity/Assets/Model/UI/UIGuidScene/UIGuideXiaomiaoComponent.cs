@@ -100,6 +100,9 @@ namespace ETModel
 
             await timer.WaitAsync((long)(this.bind.waitTimeToPrompt * 1000));
 
+            if (this.IsDisposed)
+                return;
+
             if (!this.tishiDialog.activeSelf && !this.hadShow) 
             {
                 this.ShowTishi();
