@@ -34,6 +34,8 @@ namespace ETModel
         private Button PreBtn;
         
         private Button NextBtn;
+        
+        private Button cancel;
 
         private int currentPage = 0;
 
@@ -63,6 +65,8 @@ namespace ETModel
             
             this.NextBtn = rc.Get<GameObject>("Next").GetComponent<Button>();
             
+            this.cancel = rc.Get<GameObject>("Cancel").GetComponent<Button>();
+            
             DOTweenAnimation animation = context.GetComponent<DOTweenAnimation>();
             
             easeCurve = animation.easeCurve;
@@ -81,6 +85,12 @@ namespace ETModel
         void Opened()
         {
             Game.EventSystem.Run(EventIdType.BookState, true);
+            
+            this.cancel.onClick.AddListener(() =>
+            {
+                Game.Scene.GetComponent<UIComponent>().RemoveUI(UIType.UIBook);
+            });
+            
         }
         
 

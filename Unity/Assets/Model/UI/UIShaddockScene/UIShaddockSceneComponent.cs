@@ -63,6 +63,8 @@ namespace ETModel
         private CancellationTokenSource cancellationTokenSource;
 
         private GameObject shootBtn;
+        
+        private Button cancel;
 
         private Vector3 stickInitPos;
 
@@ -140,6 +142,8 @@ namespace ETModel
 
             this.stickInitPos = this.stick.transform.localPosition;
             
+            this.cancel = rc.Get<GameObject>("Cancel").GetComponent<Button>();
+            
             this.Init();
         }
 
@@ -202,43 +206,65 @@ namespace ETModel
             {
                 Log.Info("Ω‚√‹ ß∞‹(÷–£©");
 
-                this.middleChild.UpdateState(ChildState.Fail);
-                                
-                this.reset(ChildType.Middle);
+
+                Faild(this.middleChild).Coroutine();
+
+                //this.reset(ChildType.Middle);
             }
 
             else if (this.stickStayChild != null && this.stickStayChild == this.rightChild)
             {
                 Log.Info("Ω‚√‹ ß∞‹£®”“£©");
 
-                this.middleChild.UpdateState(ChildState.Fail);
+                Faild(this.rightChild).Coroutine();
 
-                this.reset(ChildType.Right);
+                //this.middleChild.UpdateState(ChildState.Fail);
+
+                //this.reset(ChildType.Right);
             }
+        }
+
+        async ETVoid Faild(ShaddockChild child)
+        {
+            SkeletonAnimation animation = child.fail.GetComponent<SkeletonAnimation>();
+
+            float leng = animation.Skeleton.Data.Animations.Items[0].Duration;
+                
+            child.UpdateState(ChildState.Fail);
+
+            TimerComponent time = Game.Scene.GetComponent<TimerComponent>();
+
+            await time.WaitAsync((long) (leng * 1000));
+            
+            reset(child);
         }
         
         
-        void reset(ChildType type)
+        void reset(ShaddockChild child)
         {
+            //this.stick.transform.localPosition = this.stickInitPos;
+
+            // switch (type)
+            // {
+            //     case ChildType.Middle:
+            //
+            //         this.middleChild.UpdateState(ChildState.Jiemi);
+            //                             
+            //         break;
+            //
+            //     case ChildType.Right:
+            //
+            //         this.middleChild.UpdateState(ChildState.Jiemi);
+            //
+            //         break;
+            // }
+            
+            child.UpdateState(ChildState.Jiemi);
+
             this.stick.transform.localPosition = this.stickInitPos;
 
-            switch (type)
-            {
-                case ChildType.Middle:
-
-                    this.middleChild.UpdateState(ChildState.Jiemi);
-                                        
-                    break;
-
-                case ChildType.Right:
-
-                    this.middleChild.UpdateState(ChildState.Jiemi);
-
-                    break;
-            }
-
-            this.stick.transform.localPosition = this.stickInitPos;
-
+            
+            this.stick.SetActive(true);
         }
 
 
@@ -246,6 +272,9 @@ namespace ETModel
         
         void Addlistener()
         {
+            
+            this.cancel.onClick.AddListener(Close);
+            
             this.shootBtn.GetComponent<Button>().onClick.AddListener(this.ShootButtonClick);
             
             this.stayChild = new EventProxy(this.StayChild);
@@ -578,7 +607,7 @@ namespace ETModel
         {
             this.drawscene2 = null;
 
-            Game.Scene.GetComponent<UIComponent>().RemoveUI(UIType.UIGuideScene);
+            Game.Scene.GetComponent<UIComponent>().RemoveUI(UIType.UIShaddockScene);
         }
 
         async ETVoid CollectAndShow()
@@ -751,6 +780,7 @@ namespace ETModel
 
                     this.fail.SetActive(true);
 
+                    
                     break;
                 
                 case ChildState.Shoot:

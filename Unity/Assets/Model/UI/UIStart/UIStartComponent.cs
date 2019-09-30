@@ -154,6 +154,8 @@ namespace ETModel
             Log.Debug("Cancle click");
 
 
+            
+            
             this.startCom.SetActive(false);
             
             this.loginCom.SetActive(true);

@@ -76,6 +76,9 @@ namespace ETModel
             TimerComponent timer = Game.Scene.GetComponent<TimerComponent>();
 
             await timer.WaitAsync(3 * 1000);
+
+            if (this.IsDisposed)
+                return;
             
             this.tishiDialog.SetActive(false);
         }

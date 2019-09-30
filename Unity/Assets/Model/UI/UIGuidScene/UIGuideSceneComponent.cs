@@ -60,6 +60,8 @@ namespace ETModel
 
         private GameObject xiaomiao;
 
+        private GameObject cancel;
+
         private UIGuideXiaomiaoComponent xiaomiaoComponent;
 
         // 进入的对应的区域事件
@@ -114,6 +116,8 @@ namespace ETModel
             this.context = rc.Get<GameObject>("Context");
             
             this.xiaomiao = rc.Get<GameObject>("xiaomiao");
+            
+            this.cancel = rc.Get<GameObject>("Cancel");
 
             this.xiaomiaoComponent = ComponentFactory.Create<UIGuideXiaomiaoComponent,GameObject>(this.xiaomiao);
             
@@ -122,6 +126,9 @@ namespace ETModel
 
         void Init()
         {
+            
+            this.cancel.GetComponent<Button>().onClick.AddListener(this.Close);
+            
             this.RegistColliderTrriger();
             
             this.RegistDrageEvent();
@@ -401,6 +408,9 @@ namespace ETModel
             await timerComponent.WaitAsync((long)(leng * 1 * 1000));
             
             Log.Info(" 开始小苗成长动画 ");
+
+            if (this.IsDisposed)
+                return;
             
             // 小苗隐藏
             this.xiaomiaoAniamtion.SetActive(false);
@@ -502,6 +512,9 @@ namespace ETModel
         void Close()
         {
             this.drawsence2 = null;
+            
+            Game.EventSystem.Run(EventIdType.ShowJoystic);
+            
             Game.Scene.GetComponent<UIComponent>().RemoveUI(UIType.UIGuideScene);
         }
         
@@ -565,15 +578,21 @@ namespace ETModel
 
             await timerComponent.WaitAsync((long) (1 * 1000));
 
-            this.ZhuziAnimation.GetComponent<CanvasGroup>().DOFade(0, 1f).OnComplete(() =>
-            {
-                this.ZhuziAnimation.SetActive(false);
-                this.ZhuziAnimation.GetComponent<CanvasGroup>().alpha = 1;
+            if (ZhuziAnimation != null)
+                this.ZhuziAnimation.GetComponent<CanvasGroup>().DOFade(0, 1f).OnComplete(() =>
+                {
+                    if (this.ZhuziAnimation != null)
+                    {
+                        this.ZhuziAnimation.SetActive(false);
+                        
+                        this.ZhuziAnimation.GetComponent<CanvasGroup>().alpha = 1;
 
-                this.zhuzi.transform.localPosition = this.zhuziInitPos;
-                
-                this.zhuzi.SetActive(true);
-            });
+                        this.zhuzi.transform.localPosition = this.zhuziInitPos;
+
+                        this.zhuzi.SetActive(true);
+                    }
+                    
+                });
         }
 
         /// <summary>
