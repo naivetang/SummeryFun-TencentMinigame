@@ -63,6 +63,8 @@ namespace ETModel
 
         private GameObject shootBtn;
 
+        private Vector3 stickInitPos;
+
         /// <summary>
         /// 小苗被点击后显示这张图
         /// </summary>
@@ -100,6 +102,7 @@ namespace ETModel
         private GameObject Shaddocks;
 
         private Vector3 stickInitScale;
+
         public void Awake()
         {
             ReferenceCollector rc = this.GetParent<UIBase>().GameObject.GetComponent<ReferenceCollector>();
@@ -128,7 +131,13 @@ namespace ETModel
 
             this.bind = this.GetParent<UIBase>().GameObject.GetComponent<UIShaddockSceneBind>();
 
-            this.leftChild = new ShaddockChild(rc.Get<GameObject>("LeftChild"), ChildType.Left); 
+            this.leftChild = new ShaddockChild(rc.Get<GameObject>("LeftChild"), ChildType.Left);
+
+            this.middleChild = new ShaddockChild(rc.Get<GameObject>("MiddleChild"), ChildType.Middle);
+
+            this.rightChild = new ShaddockChild(rc.Get<GameObject>("RightChild"), ChildType.Right);
+
+            this.stickInitPos = this.stick.transform.localPosition;
             
             this.Init();
         }
@@ -186,13 +195,49 @@ namespace ETModel
 
                 this.stick.transform.tag = "ShootStick";
             }
-            else
+            else if (this.stickStayChild != null && this.stickStayChild == this.middleChild)
             {
-                Log.Info("解密失败");
+                Log.Info("解密失败(中）");
+
+                this.middleChild.UpdateState(ChildState.Fail);
+                                
+                this.reset(ChildType.Middle);
+            }
+
+            else if (this.stickStayChild != null && this.stickStayChild == this.rightChild)
+            {
+                Log.Info("解密失败（右）");
+
+                this.middleChild.UpdateState(ChildState.Fail);
+
+                this.reset(ChildType.Right);
             }
         }
         
         
+        void reset(ChildType type)
+        {
+            this.stick.transform.localPosition = this.stickInitPos;
+
+            switch (type)
+            {
+                case ChildType.Middle:
+
+                    this.middleChild.UpdateState(ChildState.Jiemi);
+                                        
+                    break;
+
+                case ChildType.Right:
+
+                    this.middleChild.UpdateState(ChildState.Jiemi);
+
+                    break;
+            }
+
+            this.stick.transform.localPosition = this.stickInitPos;
+
+        }
+
 
         private EventProxy stayChild;
         
@@ -563,6 +608,7 @@ namespace ETModel
         Jiemi,//解密
         JiemiPrompt,//解密提示
         Ready,//准备打柚子
+        Fail,//解谜失败
         Shoot,//打柚子
     }
 
@@ -583,6 +629,7 @@ namespace ETModel
         public GameObject jiemi;
         public GameObject jiemiPrompt;
         public GameObject ready;
+        public GameObject fail;
         public GameObject stickShootPos;
 
         public GameObject stickIdlePos;
@@ -605,6 +652,7 @@ namespace ETModel
             jiemi = rc.Get<GameObject>("jiemi");
             jiemiPrompt = rc.Get<GameObject>("jiemiPrompt");
             ready = rc.Get<GameObject>("ready");
+            fail = rc.Get<GameObject>("fail");
             stickShootPos = rc.Get<GameObject>("stickShootPos");
             stickIdlePos = rc.Get<GameObject>("stickIdlePos");
             
@@ -647,8 +695,12 @@ namespace ETModel
             shoot.SetActive(false);
             
             jiemi.SetActive(false);
-            
-            this.ready.SetActive(false);
+
+            if(ready != null)
+                this.ready.SetActive(false);
+
+            if (fail != null)
+                this.fail.SetActive(false);
             
             this.jiemiPrompt.SetActive(false);
             
@@ -664,6 +716,12 @@ namespace ETModel
                     
                     this.ready.SetActive(true);
                     
+                    break;
+
+                case ChildState.Fail:
+
+                    this.fail.SetActive(true);
+
                     break;
                 
                 case ChildState.Shoot:
