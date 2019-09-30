@@ -305,6 +305,7 @@ namespace ETModel
         {
             Log.Info("解题成功");
 
+            this.cancel.SetActive(false);
 
             Game.EventSystem.Run(EventIdType.ShowJoystic);
             
