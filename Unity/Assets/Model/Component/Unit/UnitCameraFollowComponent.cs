@@ -19,8 +19,6 @@ namespace ETModel
     [ObjectSystem]
     public class UnitCameraFollowLateSystem : LateUpdateSystem<UnitCameraFollowComponent>
     {
-        
-
         public override void LateUpdate(UnitCameraFollowComponent self)
         {
             self.LateUpdate();
@@ -51,7 +49,6 @@ namespace ETModel
             pos.y = this.player.transform.position.y;
 
             pos.y = Mathf.Clamp(pos.y, this.minY, this.maxY);
-            
             
             this.uiCamera.transform.position = pos;
         }

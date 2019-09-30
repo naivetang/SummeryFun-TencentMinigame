@@ -108,6 +108,10 @@ namespace ETModel
 
         public void Awake()
         {
+            
+            if(Game.Scene.GetComponent<UnitComponent>().MyUnit != null)
+                Game.Scene.GetComponent<UnitComponent>().MyUnit.RemoveComponent<UnitCameraFollowComponent>();
+            
             ReferenceCollector rc = this.GetParent<UIBase>().GameObject.GetComponent<ReferenceCollector>();
 
             this.drawscene2 = rc.Get<GameObject>("drawscene2");
@@ -639,6 +643,8 @@ namespace ETModel
         public override void Dispose()
         {
             base.Dispose();
+            
+            Game.Scene.GetComponent<UnitComponent>().MyUnit.AddComponent<UnitCameraFollowComponent>();
 
             this.RemoveListener();
             

@@ -97,7 +97,14 @@ namespace ETModel
             
             else if (this.config.ShowWindow != null)
             {
-                UIFactory.CreateByTrigger(ViewLayer.UIFullScreenLayer, this.config.ShowWindow).Coroutine();
+                if (this.config.ShowWindow.Equals("UIShaddockScene"))
+                {
+                    //Log.Error("移出");
+                    //Game.Scene.GetComponent<UnitComponent>().MyUnit.RemoveComponent<UnitCameraFollowComponent>();
+                }
+                    
+                
+                UIFactory.CreateByTrigger(ViewLayer.UIPopupLayer, this.config.ShowWindow).Coroutine();
             }
         }
 

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Spine.Unity;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -28,10 +29,19 @@ namespace ETModel
         /// 当前被连续击中次数
         /// </summary>
         private int curShtTimes;
+
+        private SkeletonGraphic animaton;
+
+        private readonly string drop = "drop";
+        private readonly string hitten = "hitten";
+        private readonly string normal = "normal";
+        private readonly string swing = "swing";
         
         void Start()
         {
             //this.animationName = this.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
+            animaton = this.gameObject.transform.Find("Image").GetComponent<SkeletonGraphic>();
+            
             this.AddListener();
         }
 
@@ -72,16 +82,31 @@ namespace ETModel
             if (this.curShtTimes == 0)
             {
                 //Log.Info(Id + "静止");
+
+                this.animaton.AnimationState.ClearTracks();
+                
+                this.animaton.AnimationState.SetAnimation(0, this.normal, false);
             }
             // 落下去
             else if (this.curShtTimes == this.shootTimes)
             {
-                Log.Info(Id + "掉落");
+                this.animaton.AnimationState.SetAnimation(0, this.drop, false);
             }
             // 晃动
             else 
             {
-                Log.Info(Id + "晃动");
+                this.animaton.AnimationState.SetAnimation(0, this.hitten, false);
+                
+                //animation.Skeleton.Data.Animations.Items[0].Duration;
+
+                Spine.Animation a = this.animaton.Skeleton.Data.Animations.Find((t) => { return t.Name.Equals(this.normal); });
+
+                if (a != null)
+                {
+                    Log.Info("xxxxxxxxx");
+                }
+
+                this.animaton.AnimationState.AddAnimation(0, this.swing,true,a.Duration);
             }
         }
         
