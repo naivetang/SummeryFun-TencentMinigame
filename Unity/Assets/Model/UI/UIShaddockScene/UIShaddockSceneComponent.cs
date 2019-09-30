@@ -181,6 +181,10 @@ namespace ETModel
                 this.cancellationTokenSource = new CancellationTokenSource();
             
                 StartStickRotate(this.cancellationTokenSource.Token);
+                
+                // 设置杆子tag值，使杆子戳到柚子和树叶能有反馈
+
+                this.stick.transform.tag = "ShootStick";
             }
             else
             {
@@ -215,8 +219,8 @@ namespace ETModel
 
             TimerComponent timer = Game.Scene.GetComponent<TimerComponent>();
 
-            // 两秒之后可重新出杆
-            await timer.WaitAsync(2 * 1000);
+            // 一秒之后可重新出杆
+            await timer.WaitAsync(1 * 1000);
             
             this.shootBtn.GetComponent<Button>().interactable = true;
             
