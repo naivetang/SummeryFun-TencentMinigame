@@ -276,14 +276,22 @@ namespace ETModel
         
         void Addlistener()
         {
-            
-            this.cancel.onClick.AddListener(Close);
-            
+
+            ExitScene();
+                        
             this.shootBtn.GetComponent<Button>().onClick.AddListener(this.ShootButtonClick);
             
             this.stayChild = new EventProxy(this.StayChild);
             
             Game.EventSystem.RegisterEvent(EventIdType.ShaddockStickChild, this.stayChild);
+        }
+
+        void ExitScene()
+        {
+
+            this.bstickRock = false;
+
+            this.cancel.onClick.AddListener(Close);
         }
 
         
