@@ -1,0 +1,90 @@
+
+riddle-girl-idle animi.png
+size: 1065,152
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+body
+  rotate: true
+  xy: 2, 4
+  size: 146, 329
+  orig: 148, 332
+  offset: 1, 2
+  index: -1
+head
+  rotate: false
+  xy: 866, 34
+  size: 115, 116
+  orig: 117, 119
+  offset: 1, 2
+  index: -1
+left hand
+  rotate: false
+  xy: 821, 42
+  size: 41, 61
+  orig: 43, 63
+  offset: 1, 1
+  index: -1
+left-arm-1
+  rotate: true
+  xy: 333, 2
+  size: 148, 113
+  orig: 153, 115
+  offset: 1, 1
+  index: -1
+left-arm-2
+  rotate: true
+  xy: 641, 95
+  size: 55, 91
+  orig: 57, 100
+  offset: 1, 8
+  index: -1
+left-foot
+  rotate: false
+  xy: 983, 70
+  size: 80, 80
+  orig: 82, 82
+  offset: 1, 1
+  index: -1
+left-leg
+  rotate: true
+  xy: 448, 73
+  size: 77, 191
+  orig: 79, 193
+  offset: 1, 1
+  index: -1
+right leg
+  rotate: true
+  xy: 448, 4
+  size: 67, 201
+  orig: 69, 203
+  offset: 1, 1
+  index: -1
+right-arm-1
+  rotate: true
+  xy: 651, 13
+  size: 80, 168
+  orig: 82, 170
+  offset: 1, 1
+  index: -1
+right-arm-2
+  rotate: true
+  xy: 797, 105
+  size: 45, 67
+  orig: 51, 69
+  offset: 1, 1
+  index: -1
+right-foot
+  rotate: false
+  xy: 983, 6
+  size: 71, 62
+  orig: 74, 64
+  offset: 1, 1
+  index: -1
+right-hand
+  rotate: true
+  xy: 734, 97
+  size: 53, 61
+  orig: 55, 63
+  offset: 1, 1
+  index: -1
