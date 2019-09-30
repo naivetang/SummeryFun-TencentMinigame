@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 1266894441
+CRC: 3278287115
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -43,4 +43,7 @@ AssetBundleManifest:
       Dependencies: {}
     Info_13:
       Name: uibook.unity3d
+      Dependencies: {}
+    Info_14:
+      Name: uishaddockscene.unity3d
       Dependencies: {}

@@ -1,31 +1,49 @@
 ManifestFileVersion: 0
-CRC: 592075088
+CRC: 2005800423
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 2f76abb03f01c79ab4c3721da8d09be7
+    Hash: 9bdb4dcfd43a44400ee5846fc1c70117
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 28a3d8bb2f8ebf3e1033652fb487e591
+    Hash: 736d182733785289f4175efbf7c2d050
 HashAppended: 0
 ClassTypes:
 - Class: 1
   Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
 - Class: 28
   Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 - Class: 114
   Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f41ed456050f5d041bcc9df44ebbeebe, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 64544088011f47809c940e5042e39908, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 38ddb9993c437ef48a946012486233ca, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 4d0390bd8b8ffd640b34fe25065ff1df, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 502d8cafd6a5a0447ab1db9a24cdcb10, type: 3}
 - Class: 115
   Script: {instanceID: 0}
+- Class: 128
+  Script: {instanceID: 0}
 - Class: 213
   Script: {instanceID: 0}
 - Class: 222
   Script: {instanceID: 0}
 - Class: 224
+  Script: {instanceID: 0}
+- Class: 225
   Script: {instanceID: 0}
 Assets:
 - Assets/Bundles/UI/UIBook.prefab

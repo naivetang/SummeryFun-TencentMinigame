@@ -556,6 +556,7 @@
     <Compile Include="Assets\Model\UI\UIManager.cs" />
     <Compile Include="Assets\Model\UI\UIMap\EnterGame_CreateMap.cs" />
     <Compile Include="Assets\Model\UI\UIMap\UIMapComponent.cs" />
+    <Compile Include="Assets\Model\UI\UIShaddockScene\ShaddockTrigger.cs" />
     <Compile Include="Assets\Model\UI\UIShaddockScene\UIShaddockSceneBind.cs" />
     <Compile Include="Assets\Model\UI\UIShaddockScene\UIShaddockSceneComponent.cs" />
     <Compile Include="Assets\Model\UI\UIShaddockScene\UITreeTrigger.cs" />

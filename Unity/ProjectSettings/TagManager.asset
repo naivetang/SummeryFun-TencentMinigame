@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - ShootStick
+  - Shaddock
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - 
   - Map
   - Hidden
-  - 
+  - Shaddock
   - 
   - 
   - 

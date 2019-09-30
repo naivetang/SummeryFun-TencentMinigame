@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using DG.Tweening;
+using ILRuntime.Runtime;
 using Spine;
 using Spine.Unity;
 using UnityEngine;
@@ -181,6 +182,8 @@ namespace ETModel
             {
                 Log.Info("解密成功");
                 
+                Game.EventSystem.UnRegisterEvent(EventIdType.ShaddockStickChild, this.stayChild);
+                
                 this.leftChild.UpdateState(ChildState.Ready);
                 
                 this.shootBtn.SetActive(true);
@@ -277,6 +280,30 @@ namespace ETModel
         }
 
         /// <summary>
+        /// 检查哪个柚子被戳到
+        /// </summary>
+        void CheckShootShaddock()
+        {
+            int shaddockLayerMask = LayerMask.GetMask("Shaddock");//获取“Ground”层级
+            
+            var stickChild = this.stick.transform.Find("dir");
+            
+            RaycastHit hit;
+
+            int shaddockId = 0;
+
+            if (Physics.Raycast(this.stick.transform.position, stickChild.position - this.stick.transform.position, out hit,
+                50000,shaddockLayerMask))
+            {
+                Log.Info("打到柚子：" + hit.collider.gameObject.name);
+                
+                shaddockId = hit.collider.gameObject.GetComponent<ShaddockTrigger>().GetShaddockId();
+            }
+
+            Game.EventSystem.Run(EventIdType.ShaddockShootThing, shaddockId);
+        }
+
+        /// <summary>
         /// 出杆
         /// </summary>
         void Shoot()
@@ -290,6 +317,8 @@ namespace ETModel
                 
                 this.cancellationTokenSource = null;
             }
+            
+            this.CheckShootShaddock();
             
             var stickChild = this.stick.transform.Find("dir");
             
@@ -477,7 +506,7 @@ namespace ETModel
                 else
                     rockdir = RockDir.Right;
                 
-                Log.Info("开始旋转，目标角度: " + this.rotationZ + ",  速度：" + this.rotationSpeed + "需要时长："  + waittime + "  方向：" + this.rockdir.ToString());
+                //Log.Info("开始旋转，目标角度: " + this.rotationZ + ",  速度：" + this.rotationSpeed + "需要时长："  + waittime + "  方向：" + this.rockdir.ToString());
             
                 await timer.WaitAsync((long)(waittime * 1000),cancellationToken);
 

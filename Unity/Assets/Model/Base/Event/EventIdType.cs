@@ -85,6 +85,12 @@
         public const string ShaddockStickChild = "ShaddockStickChild";
         
         
+        /// <summary>
+        /// 柚子关，出杆打到的柚子
+        /// </summary>
+        public const string ShaddockShootThing = "ShaddockShootThing";
+        
+        
         
         
         //public const string DialogAera = "DialogAera";

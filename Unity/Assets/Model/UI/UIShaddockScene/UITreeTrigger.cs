@@ -4,20 +4,21 @@ using UnityEngine.EventSystems;
 
 namespace ETModel
 {
+    
+    /// <summary>
+    /// 树被戳 震动
+    /// </summary>
     public class UITreeTrigger : UIBehaviour
     {
 
         [SerializeField]
         private Animator animator;
 
-        private GameObject image;
 
         private string animationName;
 
         void Start()
         {
-            this.image = this.gameObject.transform.Find("Image").gameObject;
-            
             
             this.animationName = this.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
             
