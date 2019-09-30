@@ -230,6 +230,8 @@ namespace ETModel
 
         async ETVoid Faild(ShaddockChild child)
         {
+            this.stick.SetActive(false);
+
             SkeletonAnimation animation = child.fail.GetComponent<SkeletonAnimation>();
 
             float leng = animation.Skeleton.Data.Animations.Items[0].Duration;

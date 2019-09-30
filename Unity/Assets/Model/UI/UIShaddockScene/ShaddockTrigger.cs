@@ -91,6 +91,8 @@ namespace ETModel
             else if (this.curShtTimes == this.shootTimes)
             {
                 this.animaton.AnimationState.SetAnimation(0, this.drop, false);
+
+                this.gameObject.SetActive(false);
             }
             // 晃动
             else 
