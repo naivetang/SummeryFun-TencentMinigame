@@ -33,6 +33,9 @@ namespace ETModel
         
         void OnTriggerEnter2D(Collider2D other)
         {
+            if (!other.gameObject.transform.tag.Equals("Player"))
+                return;
+
             Game.EventSystem.Run(EventIdType.TriggerAera, "Enter", this._triggerId);
         }
         void OnTriggerStay2D(Collider2D other)    //每帧调用一次OnTriggerStay()函数
@@ -40,6 +43,9 @@ namespace ETModel
         }
         void OnTriggerExit2D(Collider2D other)
         {
+            if (!other.gameObject.transform.tag.Equals("Player"))
+                return;
+
             Game.EventSystem.Run(EventIdType.TriggerAera, "Exit", this._triggerId);
         }
         
