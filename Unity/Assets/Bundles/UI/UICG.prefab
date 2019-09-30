@@ -1514,9 +1514,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1be7fc10ca7bd340bce53fdbafbdff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FirstPaintStaryTime: 16
-  SecondPaintStaryTime: 7
-  ThreePaintStaryTime: 4
+  FirstPaintStaryTime: 1
+  SecondPaintStaryTime: 1
+  ThreePaintStaryTime: 1
 --- !u!82 &7564033238320150802
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1911,16 +1911,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8874566509915217626}
     m_Modifications:
-    - target: {fileID: 986684182952096226, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_Name
-      value: UIDialog
-      objectReference: {fileID: 0}
-    - target: {fileID: 986684182952096226, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3585937882436825901, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2025,6 +2015,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 986684182952096226, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_Name
+      value: UIDialog
+      objectReference: {fileID: 0}
+    - target: {fileID: 986684182952096226, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2072915454867577536, guid: caff69c3476453a47975a1e144634f57,
         type: 3}

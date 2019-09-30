@@ -211,7 +211,7 @@ Animation:
   m_GameObject: {fileID: 872305376094087542}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 0}
+  m_Animation: {fileID: 7400000, guid: 2aeb348671ccc75438c60a802ab778a3, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: 2aeb348671ccc75438c60a802ab778a3, type: 2}
   m_WrapMode: 0
@@ -976,7 +976,7 @@ GameObject:
   - component: {fileID: 7956633571648024393}
   - component: {fileID: 879455465222356213}
   - component: {fileID: 4945377221278805816}
-  - component: {fileID: 7543118605543423007}
+  - component: {fileID: 7051650806015932688}
   m_Layer: 5
   m_Name: Pre
   m_TagString: Untagged
@@ -1001,7 +1001,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -426, y: -20}
+  m_AnchoredPosition: {x: -426, y: -30}
   m_SizeDelta: {x: 69, y: 179}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7956633571648024393
@@ -1084,7 +1084,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   pressScale: 1.2
---- !u!111 &7543118605543423007
+--- !u!111 &7051650806015932688
 Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1093,8 +1093,10 @@ Animation:
   m_GameObject: {fileID: 7747522564693074653}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations: []
+  m_Animation: {fileID: 7400000, guid: 220536744d29a69499e1dc808d7a8556, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 2aeb348671ccc75438c60a802ab778a3, type: 2}
+  - {fileID: 7400000, guid: 220536744d29a69499e1dc808d7a8556, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
