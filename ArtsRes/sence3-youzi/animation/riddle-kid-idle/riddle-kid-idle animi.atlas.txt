@@ -1,0 +1,90 @@
+
+riddle-kid-idle animi.png
+size: 610,158
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+body
+  rotate: true
+  xy: 2, 8
+  size: 148, 229
+  orig: 148, 229
+  offset: 0, 0
+  index: -1
+head
+  rotate: false
+  xy: 233, 69
+  size: 97, 87
+  orig: 99, 89
+  offset: 1, 1
+  index: -1
+left foot
+  rotate: false
+  xy: 336, 3
+  size: 75, 43
+  orig: 77, 45
+  offset: 1, 1
+  index: -1
+left-arm1
+  rotate: true
+  xy: 332, 89
+  size: 67, 96
+  orig: 69, 98
+  offset: 1, 1
+  index: -1
+left-arm2
+  rotate: true
+  xy: 336, 48
+  size: 39, 87
+  orig: 43, 89
+  offset: 2, 1
+  index: -1
+left-hand
+  rotate: true
+  xy: 413, 2
+  size: 43, 46
+  orig: 47, 51
+  offset: 1, 3
+  index: -1
+left-leg
+  rotate: true
+  xy: 430, 47
+  size: 55, 102
+  orig: 59, 104
+  offset: 1, 1
+  index: -1
+right foot
+  rotate: true
+  xy: 537, 54
+  size: 102, 61
+  orig: 205, 390
+  offset: 103, 0
+  index: -1
+right-arm-1
+  rotate: true
+  xy: 233, 8
+  size: 59, 101
+  orig: 61, 103
+  offset: 1, 1
+  index: -1
+right-arm-2
+  rotate: true
+  xy: 534, 5
+  size: 47, 74
+  orig: 50, 76
+  offset: 1, 1
+  index: -1
+right-hand
+  rotate: false
+  xy: 461, 12
+  size: 51, 33
+  orig: 53, 35
+  offset: 1, 1
+  index: -1
+right-leg
+  rotate: true
+  xy: 430, 104
+  size: 52, 105
+  orig: 54, 107
+  offset: 1, 1
+  index: -1
