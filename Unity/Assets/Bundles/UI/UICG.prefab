@@ -1517,7 +1517,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FirstPaintStaryTime: 16
   SecondPaintStaryTime: 7
-  ThreePaintStaryTime: 7
+  ThreePaintStaryTime: 4
 --- !u!82 &7564033238320150802
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2137,30 +2137,35 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 132
       objectReference: {fileID: 0}
-    - target: {fileID: 4245063729831077592, guid: caff69c3476453a47975a1e144634f57,
+    - target: {fileID: 7151740085634641264, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_AnchorMin.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4245063729831077592, guid: caff69c3476453a47975a1e144634f57,
+    - target: {fileID: 7151740085634641264, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4245063729831077592, guid: caff69c3476453a47975a1e144634f57,
+    - target: {fileID: 7151740085634641264, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 66
+      value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 4245063729831077592, guid: caff69c3476453a47975a1e144634f57,
+    - target: {fileID: 7151740085634641264, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -61.660004
       objectReference: {fileID: 0}
-    - target: {fileID: 4245063729831077592, guid: caff69c3476453a47975a1e144634f57,
+    - target: {fileID: 7151740085634641264, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 92
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 202
       objectReference: {fileID: 0}
     - target: {fileID: 3656936645390115285, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
@@ -2187,42 +2192,37 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 202
-      objectReference: {fileID: 0}
-    - target: {fileID: 7151740085634641264, guid: caff69c3476453a47975a1e144634f57,
+    - target: {fileID: 4245063729831077592, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_AnchorMin.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7151740085634641264, guid: caff69c3476453a47975a1e144634f57,
+    - target: {fileID: 4245063729831077592, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7151740085634641264, guid: caff69c3476453a47975a1e144634f57,
+    - target: {fileID: 4245063729831077592, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 10
+      value: 66
       objectReference: {fileID: 0}
-    - target: {fileID: 7151740085634641264, guid: caff69c3476453a47975a1e144634f57,
+    - target: {fileID: 4245063729831077592, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -61.660004
       objectReference: {fileID: 0}
-    - target: {fileID: 7151740085634641264, guid: caff69c3476453a47975a1e144634f57,
+    - target: {fileID: 4245063729831077592, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 20
+      value: 92
       objectReference: {fileID: 0}
-    - target: {fileID: 4069805135089721041, guid: caff69c3476453a47975a1e144634f57,
+    - target: {fileID: 3529661337651409130, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_SortingOrder
       value: 201
       objectReference: {fileID: 0}
-    - target: {fileID: 3529661337651409130, guid: caff69c3476453a47975a1e144634f57,
+    - target: {fileID: 4069805135089721041, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_SortingOrder
       value: 201

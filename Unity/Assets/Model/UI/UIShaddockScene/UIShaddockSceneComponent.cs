@@ -63,6 +63,8 @@ namespace ETModel
         private CancellationTokenSource cancellationTokenSource;
 
         private GameObject shootBtn;
+
+        private GameObject tishiDialog;
         
         private Button cancel;
 
@@ -142,12 +144,16 @@ namespace ETModel
             this.drawscene2.SetActive(false);
 
             this.bind = this.GetParent<UIBase>().GameObject.GetComponent<UIShaddockSceneBind>();
+            
+            this.tishiDialog = rc.Get<GameObject>("tishiDialog");
+            
+            this.tishiDialog.SetActive(false);
 
-            this.leftChild = new ShaddockChild(rc.Get<GameObject>("LeftChild"), ChildType.Left);
+            this.leftChild = new ShaddockChild(rc.Get<GameObject>("LeftChild"),this.tishiDialog, ChildType.Left);
 
-            this.middleChild = new ShaddockChild(rc.Get<GameObject>("MiddleChild"), ChildType.Middle);
+            this.middleChild = new ShaddockChild(rc.Get<GameObject>("MiddleChild"),this.tishiDialog, ChildType.Middle);
 
-            this.rightChild = new ShaddockChild(rc.Get<GameObject>("RightChild"), ChildType.Right);
+            this.rightChild = new ShaddockChild(rc.Get<GameObject>("RightChild"),this.tishiDialog, ChildType.Right);
 
             this.stickInitPos = this.stick.transform.localPosition;
             
@@ -156,6 +162,8 @@ namespace ETModel
             this.middleDialog = rc.Get<GameObject>("MiddleDialog");
 
             this.rightDialog = rc.Get<GameObject>("RightDialog");
+            
+            
 
             this.Init();
         }
@@ -298,6 +306,7 @@ namespace ETModel
             this.stayChild = new EventProxy(this.StayChild);
             
             Game.EventSystem.RegisterEvent(EventIdType.ShaddockStickChild, this.stayChild);
+            
         }
 
         void ExitScene()
@@ -572,6 +581,9 @@ namespace ETModel
             
             while (true)
             {
+                if (this.IsDisposed)
+                    return;
+                
                 Angle angle = GetNextAngle();
 
                 rotationZ = angle.rotation;
@@ -755,9 +767,13 @@ namespace ETModel
 
         public ChildState state = ChildState.None;
 
-        public ShaddockChild(GameObject go, ChildType type)
+        private GameObject tishiDialog;
+
+        public ShaddockChild(GameObject go, GameObject tishi, ChildType type)
         {
-            this.type = type; 
+            this.type = type;
+
+            this.tishiDialog = tishi;
             Init(go);
         }
 
@@ -777,8 +793,42 @@ namespace ETModel
             
             UpdateState(ChildState.Jiemi);
             
+            Clicklistener();
+            
             this.RegistColliderTrigger();
         }
+
+        /// <summary>
+        /// 点击事件
+        /// </summary>
+        void Clicklistener()
+        {
+            this.self.GetComponent<UIPointHandler>().RegisterPointDown(this.SelfClick);
+        }
+
+        void SelfClick(PointerEventData p)
+        {
+            if (this.tishiDialog.activeSelf)
+                return;
+
+            this.tishiDialog.SetActive(true);
+            
+            this.Wait3sToHide().Coroutine();
+        }
+
+        async ETVoid Wait3sToHide()
+        {
+            TimerComponent timer = Game.Scene.GetComponent<TimerComponent>();
+
+            await timer.WaitAsync(3 * 1000);
+
+            if (this.tishiDialog != null)
+            {
+                this.tishiDialog.SetActive(false);
+            }
+        }
+        
+        
 
         /// <summary>
         /// 注册区域触发事件
