@@ -92,7 +92,7 @@ namespace ETModel
             {
                 this.animaton.AnimationState.SetAnimation(0, this.drop, false);
 
-                this.gameObject.SetActive(false);
+                this.gameObject.transform.GetComponent<Collider>().enabled = false;
             }
             // 晃动
             else 
