@@ -1079,28 +1079,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   angleIndex: 0
   Angles:
-  - rotation: 72.4
+  - rotation: 80
     speed: 10
-  - rotation: 59.38
-    speed: 10
-  - rotation: 41.2
-    speed: 10
-  - rotation: 86
-    speed: 10
-  - rotation: 91.7
-    speed: 10
+  - rotation: 60
+    speed: 30
+  - rotation: 60
+    speed: 30
+  - rotation: 30
+    speed: 50
+  - rotation: 40
+    speed: 50
+  - rotation: 60
+    speed: 50
+  - rotation: 80
+    speed: 50
+  - rotation: 40
+    speed: 50
   speedIndex: 0
   addSpped:
   - 1
   - 1.1
   - 1.2
-  - 1.3
-  - 1.3
-  - 1.3
-  - 1.3
-  - 1.3
-  - 1.3
-  - 1.3
+  - 1.2
+  - 1.2
+  - 1.2
 --- !u!1 &1126231991192678886
 GameObject:
   m_ObjectHideFlags: 0
