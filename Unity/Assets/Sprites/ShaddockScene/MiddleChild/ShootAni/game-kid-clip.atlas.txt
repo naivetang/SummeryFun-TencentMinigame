@@ -1,0 +1,90 @@
+
+game-kid-clip.png
+size: 737,150
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+body
+  rotate: true
+  xy: 2, 4
+  size: 144, 211
+  orig: 148, 213
+  offset: 3, 1
+  index: -1
+head
+  rotate: true
+  xy: 215, 66
+  size: 82, 97
+  orig: 84, 99
+  offset: 1, 1
+  index: -1
+left arm1
+  rotate: true
+  xy: 662, 3
+  size: 65, 73
+  orig: 67, 77
+  offset: 1, 1
+  index: -1
+left arm2
+  rotate: true
+  xy: 215, 2
+  size: 62, 64
+  orig: 64, 66
+  offset: 1, 1
+  index: -1
+left foot
+  rotate: false
+  xy: 502, 18
+  size: 88, 53
+  orig: 91, 55
+  offset: 1, 1
+  index: -1
+left hand
+  rotate: true
+  xy: 592, 6
+  size: 35, 51
+  orig: 37, 53
+  offset: 1, 1
+  index: -1
+leftleg
+  rotate: false
+  xy: 606, 43
+  size: 54, 105
+  orig: 56, 107
+  offset: 1, 1
+  index: -1
+right arm1
+  rotate: false
+  xy: 662, 70
+  size: 68, 78
+  orig: 71, 80
+  offset: 1, 1
+  index: -1
+right arm2
+  rotate: false
+  xy: 314, 7
+  size: 92, 64
+  orig: 94, 66
+  offset: 1, 1
+  index: -1
+right foot
+  rotate: true
+  xy: 314, 73
+  size: 75, 290
+  orig: 77, 292
+  offset: 1, 1
+  index: -1
+right hand
+  rotate: false
+  xy: 281, 20
+  size: 31, 44
+  orig: 33, 46
+  offset: 1, 1
+  index: -1
+right leg
+  rotate: true
+  xy: 408, 15
+  size: 56, 92
+  orig: 60, 94
+  offset: 2, 1
+  index: -1

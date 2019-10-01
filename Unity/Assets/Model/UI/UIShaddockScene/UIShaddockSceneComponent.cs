@@ -210,7 +210,11 @@ namespace ETModel
                 Game.EventSystem.UnRegisterEvent(EventIdType.ShaddockStickChild, this.stayChild);
                 
                 this.leftChild.UpdateState(ChildState.Ready);
-                
+
+                this.middleChild.UpdateState(ChildState.Ready);
+
+                this.rightChild.UpdateState(ChildState.Ready);
+
                 this.shootBtn.SetActive(true);
 
                 middleDialog.GetComponent<DialogTextCtl>().SetText("  打柚子！  ", 2f);
@@ -251,9 +255,7 @@ namespace ETModel
         async ETVoid Faild(ShaddockChild child)
         {
             this.stick.SetActive(false);
-
-            SkeletonAnimation animation = child.fail.GetComponent<SkeletonAnimation>();
-                                      
+                                                            
             child.UpdateState(ChildState.Fail);
 
             float leng = child.fail.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.length;
@@ -334,6 +336,12 @@ namespace ETModel
             // 一秒之后可重新出杆
             await timer.WaitAsync(1 * 1000);
 
+            //能再次出竿的时候将右边两个小孩设为Ready状态
+
+            this.middleChild.UpdateState(ChildState.Ready);
+
+            this.rightChild.UpdateState(ChildState.Ready);
+
             if (ShaddockTrigger.isComplete == true)
             {
                 this.Complete();
@@ -353,7 +361,7 @@ namespace ETModel
         /// <summary>
         /// 检查哪个柚子被戳到
         /// </summary>
-        void CheckShootShaddock()
+        async void CheckShootShaddock()
         {
             int shaddockLayerMask = LayerMask.GetMask("Shaddock");//获取“Ground”层级
             
@@ -364,7 +372,8 @@ namespace ETModel
             GameObject rightDialog = this.GetParent<UIBase>().GameObject.GetComponent<ReferenceCollector>().Get<GameObject>("RightDialog");
 
             RaycastHit hit;
-
+            
+            //判定是否击中
             bool isHit = false;
 
             int shaddockId = 0;
@@ -383,9 +392,15 @@ namespace ETModel
             
             if (isHit ==  true)
             {
+                //击中后播放文字，同时将中右两个小孩设为Shoot状态（即击中鼓掌状态）
+
                 middleDialog.GetComponent<DialogTextCtl>().SetText("  打中啦！  ", 3f);
 
                 rightDialog.GetComponent<DialogTextCtl>().SetText("  加油再一次！  ", 3f);
+
+                this.middleChild.UpdateState(ChildState.Shoot);
+
+                this.rightChild.UpdateState(ChildState.Shoot);
             }
             else
             {
@@ -740,7 +755,8 @@ namespace ETModel
         JiemiPrompt,//解密提示
         Ready,//准备打柚子
         Fail,//解谜失败
-        Shoot,//打柚子
+        Shoot,//打柚子（中右小孩代表打中时的动作）   
+        Hit,//被击中
     }
 
     public enum ChildType
@@ -860,9 +876,10 @@ namespace ETModel
         {
             if (this.state == state)
                 return;
-            
+
+
             shoot.SetActive(false);
-            
+                   
             jiemi.SetActive(false);
 
             if(ready != null)
