@@ -699,7 +699,7 @@ MonoBehaviour:
   sprites:
   - {fileID: 21300000, guid: d29ba2032aff3a6419992503320bb774, type: 3}
   - {fileID: 21300000, guid: e35f90c6a6f6c674f8a2a1ca4320956f, type: 3}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: f27d9dbbbe6b02e4e96268fdf0f5b40f, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
