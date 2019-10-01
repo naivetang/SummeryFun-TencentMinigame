@@ -5832,8 +5832,8 @@ GameObject:
   - component: {fileID: 8322368683181007380}
   - component: {fileID: 2825312592772109294}
   - component: {fileID: 3954400373920058254}
-  - component: {fileID: 895734918669145342}
-  - component: {fileID: 3415906686687197172}
+  - component: {fileID: 6625173416653254143}
+  - component: {fileID: 8215156713696235959}
   m_Layer: 5
   m_Name: fail
   m_TagString: Untagged
@@ -5897,7 +5897,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!212 &895734918669145342
+--- !u!212 &6625173416653254143
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5939,13 +5939,13 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 8.28, y: 7.79}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &3415906686687197172
+--- !u!95 &8215156713696235959
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
