@@ -1,0 +1,76 @@
+
+game-girl-idle animi.png
+size: 433,274
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+arm1
+  rotate: false
+  xy: 322, 163
+  size: 109, 109
+  orig: 111, 111
+  offset: 1, 1
+  index: -1
+arm2
+  rotate: false
+  xy: 97, 2
+  size: 64, 63
+  orig: 66, 66
+  offset: 1, 1
+  index: -1
+body
+  rotate: true
+  xy: 2, 141
+  size: 131, 318
+  orig: 131, 318
+  offset: 0, 0
+  index: -1
+dress
+  rotate: false
+  xy: 2, 55
+  size: 93, 84
+  orig: 93, 84
+  offset: 0, 0
+  index: -1
+hand
+  rotate: false
+  xy: 280, 19
+  size: 38, 46
+  orig: 40, 48
+  offset: 1, 1
+  index: -1
+head
+  rotate: true
+  xy: 322, 52
+  size: 109, 107
+  orig: 111, 110
+  offset: 1, 2
+  index: -1
+left foot
+  rotate: false
+  xy: 2, 5
+  size: 91, 48
+  orig: 93, 50
+  offset: 1, 1
+  index: -1
+left leg
+  rotate: true
+  xy: 97, 67
+  size: 72, 208
+  orig: 74, 210
+  offset: 1, 1
+  index: -1
+right foot
+  rotate: false
+  xy: 320, 13
+  size: 46, 37
+  orig: 48, 39
+  offset: 1, 1
+  index: -1
+right leg
+  rotate: true
+  xy: 163, 17
+  size: 48, 115
+  orig: 50, 117
+  offset: 1, 1
+  index: -1
