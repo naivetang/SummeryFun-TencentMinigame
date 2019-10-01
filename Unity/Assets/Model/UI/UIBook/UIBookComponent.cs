@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using DG.Tweening;
 using DG.Tweening.Core.Easing;
+using ILRuntime.Runtime;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -124,13 +125,52 @@ namespace ETModel
                 
             });
 
-            if (this.OpendPages() <= 1)
+            this.UpdateBtnState();
+            
+            
+        }
+
+        void UpdateBtnState()
+        {
+            this.PreBtn.gameObject.SetActive(this.CanLeftCut());
+            
+            this.NextBtn.gameObject.SetActive(this.CanRightCut());
+            
+        }
+
+        
+        /// <summary>
+        /// 能否向左翻页
+        /// </summary>
+        /// <returns></returns>
+        bool CanLeftCut()
+        {
+            for (int i = this.currentPage - 1; i >= 0; i--)
             {
-                this.PreBtn.gameObject.SetActive(false);
-                this.NextBtn.gameObject.SetActive(false);
+                if (hadOpenPage[i])
+                {
+                    return true;
+                }
             }
-            
-            
+
+            return false;
+        }
+
+        /// <summary>
+        /// 能否向右翻页
+        /// </summary>
+        /// <returns></returns>
+        bool CanRightCut()
+        {
+            for (int i = this.currentPage + 1; i < hadOpenPage.Count; i++)
+            {
+                if (hadOpenPage[i])
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         int OpendPages()
@@ -155,6 +195,8 @@ namespace ETModel
                     
                     this.CutPage().Coroutine();
                     
+                    this.UpdateBtnState();
+                    
                     break;
                 }
             }
@@ -169,6 +211,8 @@ namespace ETModel
                     this.currentPage = i;
                     
                     this.CutPage().Coroutine();
+                    
+                    this.UpdateBtnState();
                     
                     break;
                 }
