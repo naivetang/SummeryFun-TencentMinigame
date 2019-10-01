@@ -233,10 +233,10 @@ namespace ETModel
             this.stick.SetActive(false);
 
             SkeletonAnimation animation = child.fail.GetComponent<SkeletonAnimation>();
-
-            float leng = animation.Skeleton.Data.Animations.Items[0].Duration;
-                
+                                      
             child.UpdateState(ChildState.Fail);
+
+            float leng = child.fail.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.length;
 
             TimerComponent time = Game.Scene.GetComponent<TimerComponent>();
 
@@ -312,14 +312,21 @@ namespace ETModel
 
             // 一秒之后可重新出杆
             await timer.WaitAsync(1 * 1000);
-            
-            this.shootBtn.GetComponent<Button>().interactable = true;
-            
-            this.leftChild.UpdateState(ChildState.Ready);
-            
-            this.cancellationTokenSource = new CancellationTokenSource();
 
-            StartStickRotate(this.cancellationTokenSource.Token);
+            if (ShaddockTrigger.isComplete == true)
+            {
+                this.Complete();
+            }
+            else
+            {
+                this.shootBtn.GetComponent<Button>().interactable = true;
+
+                this.leftChild.UpdateState(ChildState.Ready);
+
+                this.cancellationTokenSource = new CancellationTokenSource();
+
+                StartStickRotate(this.cancellationTokenSource.Token);
+            }
         }
 
         /// <summary>

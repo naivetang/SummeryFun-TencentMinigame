@@ -15,6 +15,8 @@ namespace ETModel
         //[SerializeField]
         private Animator animator;
 
+        public static bool isComplete = false;
+
         [SerializeField]
         [CustomLabel("柚子ID")]
         private int Id;
@@ -78,6 +80,8 @@ namespace ETModel
         /// </summary>
         void CheckState()
         {
+            float dropID = GetShaddockId();
+                        
             // 静止
             if (this.curShtTimes == 0)
             {
@@ -93,6 +97,12 @@ namespace ETModel
                 this.animaton.AnimationState.SetAnimation(0, this.drop, false);
 
                 this.gameObject.transform.GetComponent<Collider>().enabled = false;
+
+                if(dropID>4)
+                {
+                    Log.Info("Complete");
+                    isComplete = true;
+                }
             }
             // 晃动
             else 
