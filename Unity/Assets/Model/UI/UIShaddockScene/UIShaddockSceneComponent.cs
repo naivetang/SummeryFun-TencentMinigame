@@ -638,6 +638,9 @@ namespace ETModel
 
             this.whiteBG.SetActive(false);
 
+            this.rightDialog.SetActive(false);
+
+            this.middleDialog.SetActive(false);
             //this.
         }
 
