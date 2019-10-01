@@ -161,6 +161,12 @@ namespace ETModel
             
             this.MainBG.GetComponent<CanvasGroup>().DOFade(1,4);
 
+
+            float y = this.player.transform.position.y;
+            
+            this.player.transform.DOMoveY(y - 50, 4f, true);
+            
+            
             this.player.transform.DOScale(Vector3.one, 4).OnComplete(this.Close);
         }
 

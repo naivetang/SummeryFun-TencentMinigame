@@ -57,10 +57,12 @@ namespace ETModel
             
             // 玩家向左走
             Game.EventSystem.Run(EventIdType.MoveDirChange,MoveDir.Left);
+
+            Vector2 endPos = Game.Scene.GetComponent<UIComponent>().GetUI(UIType.UIMap).GetComponent<UIMapComponent>().GetForceGuidePos();
             
             while (true)
             {
-                if (playerTransform.localPosition.x < -300f)
+                if (playerTransform.position.x < endPos.x)  //-300f
                     break;
 
                 await timer.WaitAsync((long) (0.2f * 1000));
@@ -70,7 +72,7 @@ namespace ETModel
             
             while (true)
             {
-                if (playerTransform.localPosition.y > -662f)
+                if (playerTransform.position.y > endPos.y) //-662f
                     break;
 
                 await timer.WaitAsync((long) (0.2f * 1000));

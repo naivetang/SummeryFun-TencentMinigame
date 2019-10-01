@@ -71,9 +71,6 @@ namespace ETModel
 
         void PlayUpToDownAnimation()
         {
-
-            
-            
             this.GetParent<UIBase>().GameObject.transform.DOLocalMoveY(0, 4f).SetEase(Ease.Linear).OnComplete(this.AnimationComplte);
             
             
@@ -141,6 +138,13 @@ namespace ETModel
             // unitComponent.MyUnit = unit;
             //
             // unit.AddComponent<UnitMoveComponent>();
+        }
+
+        public Vector2 GetForceGuidePos()
+        {
+            ReferenceCollector rc = this.GetParent<UIBase>().GameObject.GetComponent<ReferenceCollector>();
+
+            return rc.Get<GameObject>("forceGuidePos").transform.position;
         }
        
 
