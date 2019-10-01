@@ -17,6 +17,9 @@ namespace ETModel
 
         public static bool isComplete = false;
 
+        public GameObject middleDialog;
+        public GameObject rightDialog;
+
         [SerializeField]
         [CustomLabel("柚子ID")]
         private int Id;
@@ -74,13 +77,14 @@ namespace ETModel
             this.CheckState();
         }
 
-        
+
+
         /// <summary>
         /// 每一次出杆之后，需要检查每个柚子状态，落下去？晃动？静止
         /// </summary>
         void CheckState()
         {
-            float dropID = GetShaddockId();
+            float ID = GetShaddockId();
                         
             // 静止
             if (this.curShtTimes == 0)
@@ -98,10 +102,16 @@ namespace ETModel
 
                 this.gameObject.transform.GetComponent<Collider>().enabled = false;
 
-                if(dropID>4)
+                if(ID > 4)
                 {
                     Log.Info("Complete");
                     isComplete = true;
+                }
+                else
+                {
+                    middleDialog.GetComponent<DialogTextCtl>().SetText("  掉进去了！  ", 2f);
+
+                    rightDialog.GetComponent<DialogTextCtl>().SetText("  打这边的！  ", 2f);
                 }
             }
             // 晃动

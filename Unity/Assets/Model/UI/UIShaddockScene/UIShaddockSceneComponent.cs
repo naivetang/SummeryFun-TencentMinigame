@@ -106,6 +106,11 @@ namespace ETModel
 
         private Vector3 stickInitScale;
 
+        private GameObject middleDialog;
+            
+        private GameObject rightDialog;
+
+
         public void Awake()
         {
             
@@ -147,7 +152,11 @@ namespace ETModel
             this.stickInitPos = this.stick.transform.localPosition;
             
             this.cancel = rc.Get<GameObject>("Cancel").GetComponent<Button>();
-            
+
+            this.middleDialog = rc.Get<GameObject>("MiddleDialog");
+
+            this.rightDialog = rc.Get<GameObject>("RightDialog");
+
             this.Init();
         }
 
@@ -189,14 +198,17 @@ namespace ETModel
             if (this.stickStayChild != null && this.stickStayChild == this.leftChild)
             {
                 Log.Info("解密成功");
-                
+
                 Game.EventSystem.UnRegisterEvent(EventIdType.ShaddockStickChild, this.stayChild);
                 
                 this.leftChild.UpdateState(ChildState.Ready);
                 
                 this.shootBtn.SetActive(true);
-                
-                
+
+                middleDialog.GetComponent<DialogTextCtl>().SetText("  打柚子！  ", 2f);
+
+                rightDialog.GetComponent<DialogTextCtl>().SetText("  打柚子！  ", 2f);
+
                 // 竹竿开始晃动
                 this.cancellationTokenSource = new CancellationTokenSource();
             
@@ -303,7 +315,7 @@ namespace ETModel
         async void ShootButtonClick()
         {
             this.Shoot();
-            
+
             this.ChildShootState();
             
             this.shootBtn.GetComponent<Button>().interactable = false;
@@ -337,8 +349,14 @@ namespace ETModel
             int shaddockLayerMask = LayerMask.GetMask("Shaddock");//获取“Ground”层级
             
             var stickChild = this.stick.transform.Find("dir");
-            
+
+            GameObject middleDialog = this.GetParent<UIBase>().GameObject.GetComponent<ReferenceCollector>().Get<GameObject>("MiddleDialog");
+
+            GameObject rightDialog = this.GetParent<UIBase>().GameObject.GetComponent<ReferenceCollector>().Get<GameObject>("RightDialog");
+
             RaycastHit hit;
+
+            bool isHit = false;
 
             int shaddockId = 0;
 
@@ -348,8 +366,25 @@ namespace ETModel
                 Log.Info("打到柚子：" + hit.collider.gameObject.name);
                 
                 shaddockId = hit.collider.gameObject.GetComponent<ShaddockTrigger>().GetShaddockId();
-            }
 
+                isHit = true;
+
+
+            }      
+            
+            if (isHit ==  true)
+            {
+                middleDialog.GetComponent<DialogTextCtl>().SetText("  打中啦！  ", 3f);
+
+                rightDialog.GetComponent<DialogTextCtl>().SetText("  加油再一次！  ", 3f);
+            }
+            else
+            {
+                middleDialog.GetComponent<DialogTextCtl>().SetText("  打歪啦！  ", 3f);
+
+                rightDialog.GetComponent<DialogTextCtl>().SetText("  瞄准了！  ", 3f);
+            }
+        
             Game.EventSystem.Run(EventIdType.ShaddockShootThing, shaddockId);
         }
 
