@@ -333,6 +333,12 @@ namespace ETModel
 
             TimerComponent timer = Game.Scene.GetComponent<TimerComponent>();
 
+            if (ShaddockTrigger.isComplete == true)
+            {
+                //播放小孩子被砸中的音效
+                tree.GetComponent<ReferenceCollector>().Get<GameObject>("Shaddock").GetComponent<ReferenceCollector>().Get<GameObject>("AudioOuch").GetComponent<AudioSource>().Play();
+            }      
+
             // 一秒之后可重新出杆
             await timer.WaitAsync(1 * 1000);
 
@@ -344,7 +350,7 @@ namespace ETModel
 
             if (ShaddockTrigger.isComplete == true)
             {
-                this.Complete();
+                this.Complete();                              
             }
             else
             {
@@ -401,6 +407,10 @@ namespace ETModel
                 this.middleChild.UpdateState(ChildState.Shoot);
 
                 this.rightChild.UpdateState(ChildState.Shoot);
+
+                //从Shaddock里面取到受击音效并播放
+                tree.GetComponent<ReferenceCollector>().Get<GameObject>("Shaddock").GetComponent<AudioSource>().Play();
+
             }
             else
             {
