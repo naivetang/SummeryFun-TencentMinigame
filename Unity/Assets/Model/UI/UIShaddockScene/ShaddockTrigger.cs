@@ -123,12 +123,7 @@ namespace ETModel
 
                 Spine.Animation a = this.animaton.Skeleton.Data.Animations.Find((t) => { return t.Name.Equals(this.normal); });
 
-                if (a != null)
-                {
-                    Log.Info("xxxxxxxxx");
-                }
-
-                this.animaton.AnimationState.AddAnimation(0, this.swing,true,a.Duration);
+                this.animaton.AnimationState.AddAnimation(0, this.swing,true,0f);
             }
         }
         
