@@ -414,6 +414,11 @@ namespace ETModel
                 // 速度加快
                 this.bind.speedIndex += 1;
 
+                if (this.bind.speedIndex >= this.bind.addSpped.Count)
+                {
+                    this.bind.speedIndex = this.bind.addSpped.Count - 1;
+                }
+
             }
             else
             {
