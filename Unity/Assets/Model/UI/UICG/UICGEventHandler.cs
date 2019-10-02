@@ -44,7 +44,7 @@ namespace ETModel
             // 大叔叫喊
             GameObject uiDialog = unit.GameObject.GetComponent<ReferenceCollector>().Get<GameObject>("AudioDialog"); 
             
-            uiDialog.GetComponent<DialogTextCtl>().SetText("  哎~~~~~~！  ", 2f, true);
+            uiDialog.GetComponent<DialogTextCtl>().SetText("哎~~~~~~！", 2f, true);
 
             TimerComponent timer = Game.Scene.GetComponent<TimerComponent>();
 
