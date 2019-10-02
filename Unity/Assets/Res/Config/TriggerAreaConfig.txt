@@ -1,2 +1,11 @@
 {"Id":3001,"EventName":"EnterArea","ShowWindow":"UIGuideScene","UIType":"UIGuideSceneComponent","BookIndex":1}
 {"Id":3002,"EventName":"EnterArea","ShowWindow":"UIShaddockScene","UIType":"UIShaddockSceneComponent","BookIndex":2}
+{"Id":3003,"EventName":"EnterArea","ShowWindow":"UIPigScene","UIType":"UIPigSceneComponent","BookIndex":3}
+{"Id":3004,"EventName":"EnterArea","ShowWindow":"UIGirlScene","UIType":"UIGirlSceneComponent","BookIndex":4}
+{"Id":3005,"EventName":"EnterArea","ShowWindow":"UIKiteScene","UIType":"UIKiteSceneComponent","BookIndex":5}
+{"Id":3006,"EventName":"EnterArea","ShowWindow":"UIGooseScene","UIType":"UIGooseSceneComponent","BookIndex":6}
+{"Id":3007,"EventName":"EnterArea","ShowWindow":"UIBirdCatchScene","UIType":"UIBirdCatchSceneComponent","BookIndex":7}
+{"Id":3008,"EventName":"EnterArea","ShowWindow":"UIBirdReleaseScene","UIType":"UIBirdReleaseSceneComponent","BookIndex":8}
+{"Id":3009,"EventName":"EnterArea","ShowWindow":"UIClothesScene","UIType":"UIClothesSceneComponent","BookIndex":9}
+{"Id":3010,"EventName":"EnterArea","ShowWindow":"UITeaScene","UIType":"UITeaSceneComponent","BookIndex":10}
+{"Id":3100,"EventName":"EnterArea","ShowWindow":"UIResultScene","UIType":"UIResultSceneComponent","BookIndex":-1}
