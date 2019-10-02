@@ -42,12 +42,17 @@ namespace ETModel
             TimerComponent timer = Game.Scene.GetComponent<TimerComponent>();
 
             await timer.WaitAsync((long) (closeTime * 1000), this.cancellationTokenSource.Token);
-            
+
+            if(this.textGo ==null )
+            {
+                return;
+            }
+
             this.cancellationTokenSource.Dispose();
 
             this.cancellationTokenSource = null;
-            
-            this.gameObject.SetActive(false);
+        
+            this.gameObject.SetActive(false);            
         }
     }
 }
