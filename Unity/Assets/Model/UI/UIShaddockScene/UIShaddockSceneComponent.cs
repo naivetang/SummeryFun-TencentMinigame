@@ -516,6 +516,8 @@ namespace ETModel
         {
             this.stickStayChild.UpdateState(ChildState.Shoot);
         }
+
+        private List<ShaddockChild> enterChilds = new List<ShaddockChild>();  
         
         void StayChild(List<object> obj)
         {
@@ -533,12 +535,25 @@ namespace ETModel
                 else if (type == ChildType.Right)
                     this.stickStayChild = this.rightChild;
                 
+                this.enterChilds.Add(this.stickStayChild);
+                
             }
             else if (action.Equals("Exit"))
             {
                 Log.Info("离开小孩区域，小孩：" + type.ToString());
 
+                if (type == ChildType.Left)
+                    this.enterChilds.Remove(this.leftChild);
+                else if (type == ChildType.Middle)
+                    this.enterChilds.Remove(this.middleChild);
+                else if (type == ChildType.Right)
+                    this.enterChilds.Remove(this.rightChild);
                 this.stickStayChild = null;
+            }
+
+            if (this.enterChilds.Count > 0)
+            {
+                this.stickStayChild = this.enterChilds[enterChilds.Count-1];
             }
         }
 
