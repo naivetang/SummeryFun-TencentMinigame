@@ -623,7 +623,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f27d9dbbbe6b02e4e96268fdf0f5b40f, type: 3}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 14ab4a7dacdfccd4780d493877cb10ee, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -1075,17 +1075,17 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1968916742374863602, guid: dad3354c2caab434287127fb3236a85e,
-        type: 3}
-      propertyPath: m_TargetGraphic
-      value: 
-      objectReference: {fileID: 5007111241114713777}
     - target: {fileID: 879247958012190385, guid: dad3354c2caab434287127fb3236a85e,
         type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 118bec2b6fb1bfa49ba8f7dbe3f6db43,
         type: 3}
+    - target: {fileID: 1968916742374863602, guid: dad3354c2caab434287127fb3236a85e,
+        type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 5007111241114713777}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dad3354c2caab434287127fb3236a85e, type: 3}
 --- !u!1 &1275438409637665301 stripped

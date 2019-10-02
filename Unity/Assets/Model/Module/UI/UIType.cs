@@ -39,8 +39,10 @@ namespace ETModel
         public const string UIBook = "UIBook";
 
 
-        
+        //柚子关
         public const string UIShaddockScene = "UIShaddockScene";
-        
+
+        //风筝关
+        public const string UIKiteScene = "UIKiteScene";
     }
 }

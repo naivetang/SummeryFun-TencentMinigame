@@ -31,6 +31,8 @@ namespace ETModel
             RegistWindowCom(UIType.UIGuideScene, typeof(UIGuideSceneComponent));
             
             RegistWindowCom(UIType.UIShaddockScene, typeof(UIShaddockSceneComponent));
+
+            RegistWindowCom(UIType.UIKiteScene, typeof(UIKiteSceneComponent));
         }
 
         public Type GetWindowCom(string str)
