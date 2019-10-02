@@ -410,6 +410,9 @@ namespace ETModel
 
                 //从Shaddock里面取到受击音效并播放
                 tree.GetComponent<ReferenceCollector>().Get<GameObject>("Shaddock").GetComponent<AudioSource>().Play();
+                
+                // 速度加快
+                this.bind.speedIndex += 1;
 
             }
             else
@@ -417,6 +420,9 @@ namespace ETModel
                 middleDialog.GetComponent<DialogTextCtl>().SetText("  打歪啦！  ", 3f);
 
                 rightDialog.GetComponent<DialogTextCtl>().SetText("  瞄准了！  ", 3f);
+
+                // 速度归0
+                this.bind.speedIndex = 0;
             }
         
             Game.EventSystem.Run(EventIdType.ShaddockShootThing, shaddockId);
