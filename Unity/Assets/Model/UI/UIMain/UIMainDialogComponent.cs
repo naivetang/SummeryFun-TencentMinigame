@@ -20,7 +20,7 @@ namespace ETModel
         /// <summary>
         /// 对话组开始的id
         /// </summary>
-        private int beginDialogId;
+        private int lastDialogId;
         /// <summary>
         /// 当前对话组id
         /// </summary>
@@ -28,6 +28,9 @@ namespace ETModel
 
         private Button btn;
 
+
+        private EventProxy nextDialog;
+        
         public void Awake(GameObject go)
         {
 
@@ -43,10 +46,23 @@ namespace ETModel
         void AddLsitener()
         {
             this.btn.onClick.AddListener(this.BtnOnClick);
+            
+            this.nextDialog = new EventProxy(NextDialogHandler);
+
+            Game.EventSystem.RegisterEvent(EventIdType.NextDialog, this.nextDialog);
 
             this.dialogAeraHandler = new EventProxy(this.DialogAeraHandler);
 
             Game.EventSystem.RegisterEvent(EventIdType.DialogAera, this.dialogAeraHandler);
+        }
+
+        private void NextDialogHandler(List<object> obj)
+        {
+            lastDialogId = currentDialogId = (int)obj[0];
+            
+            this.GameObject.SetActive(true);
+            
+            this.CheckDialogBtn();
         }
 
         void BtnOnClick()
@@ -67,9 +83,13 @@ namespace ETModel
 
             UnityEngine.GameObject dialogGo = unit.GameObject.GetComponent<ReferenceCollector>().Get<GameObject>("UIDialog");
 
-            DialogShowText(dialogGo, dialogConfig.Text, dialogConfig.ShowTime);
+            DialogShowText(dialogGo, dialogConfig.Text, dialogConfig.ShowTime, dialogConfig.NextId != -1);
 
+
+            this.lastDialogId = this.currentDialogId;
+            
             this.currentDialogId = dialogConfig.NextId;
+            
 
             this.CheckDialogBtn();
         }
@@ -80,13 +100,13 @@ namespace ETModel
             {
                 Log.Info("结束对话");
                 
-                Game.EventSystem.Run(EventIdType.CompleteDialog, this.beginDialogId);
+                Game.EventSystem.Run(EventIdType.CompleteDialog, this.lastDialogId);
                 
                 this.GameObject.SetActive(false);
             }
         }
 
-        void DialogShowText(GameObject dialogGo, string text, float closeTime)
+        void DialogShowText(GameObject dialogGo, string text, float closeTime, bool hasNext)
         {
             Log.Info("对话内容：" + text);
 
@@ -94,7 +114,7 @@ namespace ETModel
 
             dialogGo.SetActive(true);
 
-            dialogGo.GetComponent<DialogTextCtl>().SetText(text, closeTime);
+            dialogGo.GetComponent<DialogTextCtl>().SetText(text, closeTime, hasNext);
             
             //UIFactory.Create<UIGuideSceneComponent>()
         }
@@ -108,12 +128,17 @@ namespace ETModel
 
             int dialogId = (int) obj[1];
 
+            
+            
             // 进入对话区域
             if (state.Equals("Enter"))
             {
                 Log.Info("进入对话区域，id ： " + dialogId);
 
-                beginDialogId = dialogId;
+
+                return;
+
+                this.lastDialogId = dialogId;
                 
                 currentDialogId = dialogId;
 
@@ -123,6 +148,11 @@ namespace ETModel
             // 离开对话区域
             else if (state.Equals("Exit"))
             {
+
+                this.GameObject.SetActive(false);
+                
+                return;
+                
                 this.currentDialogId = 0;
 
                 this.GameObject.SetActive(false);
@@ -132,6 +162,8 @@ namespace ETModel
 
         void RemoveListener()
         {
+            Game.EventSystem.UnRegisterEvent(EventIdType.NextDialog, this.nextDialog);
+
             Game.EventSystem.UnRegisterEvent(EventIdType.DialogAera, this.dialogAeraHandler);
         }
 

@@ -9,11 +9,15 @@ namespace ETModel
     {
         private GameObject textGo;
         
-        private CancellationTokenSource cancellationTokenSource; 
+        private CancellationTokenSource cancellationTokenSource;
+
+        private GameObject hasNext;
 
         void Awake()
         {
             this.textGo = this.GetComponent<ReferenceCollector>().Get<GameObject>("TextContext");
+            
+            this.hasNext = this.GetComponent<ReferenceCollector>().Get<GameObject>("hasNext");
 
             if (this.textGo == null)
             {
@@ -21,12 +25,15 @@ namespace ETModel
             }
         }
         
-        public void SetText(string text, float closeTime)
+        public void SetText(string text, float closeTime, bool hasNextDialog = false)
         {
             
             this.gameObject.SetActive(true);
 
             this.textGo.GetComponent<Text>().text = text;
+
+            this.hasNext.SetActive(hasNextDialog);
+
 
             if (this.cancellationTokenSource != null)
             {

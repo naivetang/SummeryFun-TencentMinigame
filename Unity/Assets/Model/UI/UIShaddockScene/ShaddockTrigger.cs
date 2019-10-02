@@ -112,9 +112,9 @@ namespace ETModel
                 }
                 else
                 {
-                    middleDialog.GetComponent<DialogTextCtl>().SetText("  掉进去了！  ", 2f);
+                    middleDialog.GetComponent<DialogTextCtl>().SetText("  掉进去了！  ", 2f, false);
 
-                    rightDialog.GetComponent<DialogTextCtl>().SetText("  打这边的！  ", 2f);
+                    rightDialog.GetComponent<DialogTextCtl>().SetText("  打这边的！  ", 2f, false);
 
                     AudioSource.PlayClipAtPoint(dropAudio, this.gameObject.transform.localPosition);
                                        

@@ -43,8 +43,6 @@ namespace ETModel
 
         private TriggerAreaConfig _currenArea;
 
-
-
         private UIMainDialogComponent _mainDialogComponent;
         /// <summary>
         /// 引导关入口
@@ -67,7 +65,7 @@ namespace ETModel
 
             _actionBtn.SetActive(false);
 
-            _dialogBtn = rc.Get<GameObject>("DialogBtn");
+            _dialogBtn = rc.Get<GameObject>("NextDialogBtn");
             this._context = rc.Get<GameObject>("Context");
             
             this._context.SetActive(false);
