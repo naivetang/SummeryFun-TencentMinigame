@@ -161,6 +161,9 @@ namespace ETModel
 
         public void Update()
         {
+            if (this.hadShow)
+                return;
+            
             #if UNITY_EDITOR
 
             if (Input.GetMouseButtonDown(0) && this.cancellationTokenSource != null)
@@ -184,6 +187,18 @@ namespace ETModel
             
             #endif
             
+        }
+
+        public override void Dispose()
+        {
+            base.Dispose();
+
+            if (this.cancellationTokenSource != null)
+            {
+                this.cancellationTokenSource.Dispose();
+
+                this.cancellationTokenSource = null;
+            }
         }
     }
 }

@@ -112,9 +112,15 @@ namespace ETModel
             
         private GameObject rightDialog;
 
+        private CancellationTokenSource dialogCancelSource;
+        
+        private bool hadShow;
+
 
         public void Awake()
         {
+
+            this.hadShow = false;
             
             if(Game.Scene.GetComponent<UnitComponent>().MyUnit != null)
                 Game.Scene.GetComponent<UnitComponent>().MyUnit.RemoveComponent<UnitCameraFollowComponent>();
@@ -164,10 +170,57 @@ namespace ETModel
             this.rightDialog = rc.Get<GameObject>("RightDialog");
             
             
+            
+            this.dialogCancelSource = new CancellationTokenSource();
+
+            Wait5sToShowPromptDialog(this.dialogCancelSource.Token);
 
             this.Init();
         }
 
+
+
+        /// <summary>
+        /// 等5s后自动弹提示
+        /// </summary>
+        /// <returns></returns>
+        async ETVoid Wait5sToShowPromptDialog(CancellationToken token)
+        {
+            TimerComponent timer = Game.Scene.GetComponent<TimerComponent>();
+
+            await timer.WaitAsync(5 * 1000, token);
+            
+            if (this.IsDisposed || this.tishiDialog.activeSelf || this.hadShow)
+                return;
+            
+
+            this.ShowTishi();
+            
+            this.Wait3sToHide().Coroutine();
+        }
+        
+        void ShowTishi()
+        {
+            this.hadShow = true;
+            
+            this.tishiDialog.SetActive(true);
+        }
+
+        async ETVoid Wait3sToHide()
+        {
+            TimerComponent timer = Game.Scene.GetComponent<TimerComponent>();
+
+            await timer.WaitAsync(3 * 1000);
+
+            if (this.IsDisposed)
+                return;
+
+            if (this.tishiDialog != null)
+            {
+                this.tishiDialog.SetActive(false);
+            }
+        }
+        
 
         public void Update()
         {
@@ -175,6 +228,38 @@ namespace ETModel
             {
                 this.UpdateStickRotation();
             }
+
+            if (!this.hadShow)
+            {
+                CheckClick();
+            }
+        }
+        
+        public void CheckClick()
+        {
+#if UNITY_EDITOR
+
+            if (Input.GetMouseButtonDown(0) && this.dialogCancelSource != null)
+            {
+                this.dialogCancelSource.Cancel();
+                
+                this.dialogCancelSource.Dispose();
+
+                this.dialogCancelSource = null;
+            }
+            
+#else
+            if (Input.touchCount > 0 && this.dialogCancelSource != null)
+            {
+                this.dialogCancelSource.Cancel();
+                
+                this.dialogCancelSource.Dispose();
+
+                this.dialogCancelSource = null;
+            }
+            
+#endif
+            
         }
 
         void Init()
