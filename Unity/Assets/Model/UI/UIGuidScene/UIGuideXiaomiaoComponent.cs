@@ -1,3 +1,4 @@
+using System.Threading;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -14,6 +15,16 @@ namespace ETModel
         }
     }
 
+    
+    [ObjectSystem]
+    public class UIGuideXiaomiaoComponentUpdateSystem : UpdateSystem<UIGuideXiaomiaoComponent>
+    {
+        public override void Update(UIGuideXiaomiaoComponent self)
+        {
+            self.Update();
+        }
+    }
+    
     [HideInHierarchy]
     public class UIGuideXiaomiaoComponent : Component
     {
@@ -28,15 +39,23 @@ namespace ETModel
 
         private UIGuideXiaomiaoBind bind;
 
-        private bool hadShow = false;
+        private CancellationTokenSource cancellationTokenSource;
+
+        private bool hadShow;
         
         public void Awake(GameObject go)
         {
             this.xiaomiao = go;
 
+            hadShow = false;
+
             bind = this.xiaomiao.GetComponent<UIGuideXiaomiaoBind>();
             
-            this.DialogWaitbindTimeToShow().Coroutine();
+            this.cancellationTokenSource = new CancellationTokenSource();
+            
+            this.DialogWaitbindTimeToShow(this.cancellationTokenSource.Token).Coroutine();
+            
+            //this.CheckClick().Coroutine();
 
             ReferenceCollector rc = this.xiaomiao.GetComponent<ReferenceCollector>();
 
@@ -70,6 +89,8 @@ namespace ETModel
                 this.DialogWait3SToHide().Coroutine();
             }
         }
+        
+        
 
         async ETVoid DialogWait3SToHide()
         {
@@ -94,11 +115,11 @@ namespace ETModel
         /// 进入引导关n秒之后，自动弹提示
         /// </summary>
         /// <returns></returns>
-        async ETVoid DialogWaitbindTimeToShow()
+        async ETVoid DialogWaitbindTimeToShow(CancellationToken token)
         {
             TimerComponent timer = Game.Scene.GetComponent<TimerComponent>();
 
-            await timer.WaitAsync((long)(this.bind.waitTimeToPrompt * 1000));
+            await timer.WaitAsync((long) (this.bind.waitTimeToPrompt * 1000), token);
 
             if (this.IsDisposed)
                 return;
@@ -110,12 +131,59 @@ namespace ETModel
                 this.DialogWait3SToHide().Coroutine();
             }
         }
+
+        async ETVoid CheckClick()
+        {
+            TimerComponent timer = Game.Scene.GetComponent<TimerComponent>();
+
+            await timer.WaitAsync((long) 1f * 1000);
+            
+            while (true)
+            {
+                await timer.WaitAsync((long) (0.1f * 1000));
+                
+                if (this.IsDisposed)
+                    return;
+                
+                //this.Update();
+                
+            }
+
+           
+        }
         
         void PointUp(PointerEventData data)
         {
             this.xiaomiaoClick.SetActive(false);
             
             this.xiaomiaoAimation.SetActive(true);
+        }
+
+        public void Update()
+        {
+            #if UNITY_EDITOR
+
+            if (Input.GetMouseButtonDown(0) && this.cancellationTokenSource != null)
+            {
+                this.cancellationTokenSource.Cancel();
+                
+                this.cancellationTokenSource.Dispose();
+
+                this.cancellationTokenSource = null;
+            }
+            
+            #else
+            if (Input.touchCount > 0 && this.cancellationTokenSource != null)
+            {
+                this.cancellationTokenSource.Cancel();
+                
+                this.cancellationTokenSource.Dispose();
+
+                this.cancellationTokenSource = null;
+            }
+            
+            #endif
+            
         }
     }
 }
