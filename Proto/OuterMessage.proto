@@ -9,18 +9,83 @@ enum ErrorCodeSer {
 
 message LoginReq // IRequest
 {
-	int32 RpcId = 90;
-	string	Account	 = 1;	// 帐号
-	string	Password = 2;	// 密码
+    int32 RpcId = 90;
+    string Account = 1; // 帐号
+    string Password = 2; // 密码
 }
 
+message RegisterReq // IRequest
+{
+    int32 RpcId = 90;
+    string Account = 1; // 帐号
+    string Password = 2; // 密码
+}
+
+message RegisterRsp // IResponse
+{
+    enum ErrorCode {
+        SUCCEED = 0;
+        UNKOWN_EORROR = -1;
+        ACCOUNT_ALREADY_EXIST = 2001;
+    }
+    int32 RpcId = 90;
+    int32 Error = 91;
+    string Message = 92;
+
+    int32 gid = 1;
+}
 message LoginRsp // IResponse
 {
-	int32 RpcId = 90;
-	int32 Error = 91;
-	string Message = 92;
+    enum ErrorCode {
+        SUCCEED = 0;
+        UNKOWN_EORROR = -1;
+        LOGIN_PASSWORD_WRONG = 1001;
+        LOGIN_NOT_REGISTERED = 1002;
+    }
+    int32 RpcId = 90;
+    int32 Error = 91;
+    string Message = 92;
+
+    int32 gid = 1;
 }
 
+message TaskQueryReq // IRequest
+{
+    int32 RpcId = 90;
+    //    int32 gid = 1;  // gid 没有必要，客户端没有要查询其他玩家进度信息的需求
+}
+
+message TaskQueryRsp // IResponse
+{
+    enum ErrorCode {
+        SUCCEED = 0;
+        UNKOWN_EORROR = -1;
+    }
+    int32 RpcId = 90;
+    int32 Error = 91;
+    string Message = 92;
+
+    repeated int32 done_tasks = 1; // 现在已经完成的任务
+    repeated int32 get_tasks = 2; // 现在接取到的任务
+}
+
+message TaskUpdateReq // IRequest
+{
+    int32 RpcId = 90;
+    repeated int32 finished_task_ids = 1;
+    repeated int32 get_task_ids = 2;
+}
+
+message TaskUpdateRsp // IResponse
+{
+    enum ErrorCode {
+        SUCCEED = 0;
+        UNKOWN_EORROR = -1;
+    }
+    int32 RpcId = 90;
+    int32 Error = 91;
+    string Message = 92;
+}
 
 message C2M_TestRequest // IActorLocationRequest
 {
