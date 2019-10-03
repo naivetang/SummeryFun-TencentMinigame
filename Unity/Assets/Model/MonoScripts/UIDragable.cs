@@ -78,6 +78,8 @@ namespace ETModel
         public void OnPointerDown(PointerEventData eventData)
         {
             
+            Log.Info("down");
+            
             this.SetOffect(eventData);
             
             if (this.onPointDown != null)

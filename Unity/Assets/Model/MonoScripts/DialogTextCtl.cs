@@ -25,15 +25,21 @@ namespace ETModel
             }
         }
 
-        public void CloseDialog()
+        public void CloseDialog(float delay = 0)
         {
-            if (this.gameObject.activeSelf && this.cancellationTokenSource != null)
+            if (this.gameObject.activeSelf)
             {
-                this.cancellationTokenSource.Cancel();
-
-                this.cancellationTokenSource = null;
                 
-                this.gameObject.SetActive(false);
+                if(this.cancellationTokenSource != null)
+                {
+                    this.cancellationTokenSource.Cancel();
+
+                    this.cancellationTokenSource = null;
+                }
+                this.cancellationTokenSource = new CancellationTokenSource();
+                
+                AsyncClose(delay).Coroutine();
+                
             }
         }
         

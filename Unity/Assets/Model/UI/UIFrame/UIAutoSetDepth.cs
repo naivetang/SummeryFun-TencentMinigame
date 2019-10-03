@@ -64,6 +64,9 @@ namespace ETModel
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
+            
+            //Log.Warning("进入 ： " + this.name );
+            
             Transform colliderTransform = collision.transform;
             
             if (colliderTransform.tag.Equals("Player"))
@@ -75,6 +78,8 @@ namespace ETModel
 
         private void OnTriggerExit2D(Collider2D collision)
         {
+            //Log.Warning("离开 ： " + this.name);
+
             if (collision.gameObject.tag.Equals("Player"))
             {
                 this.canvas.sortingOrder = this.initDepth;

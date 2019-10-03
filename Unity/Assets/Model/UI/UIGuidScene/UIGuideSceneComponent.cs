@@ -62,6 +62,8 @@ namespace ETModel
 
         private GameObject cancel;
 
+        private GameObject uidialog2;
+
         private UIGuideXiaomiaoComponent xiaomiaoComponent;
 
         // 进入的对应的区域事件
@@ -82,6 +84,10 @@ namespace ETModel
             this.zhuzi = rc.Get<GameObject>("DragZhuzi");
 
             this.ZhuziAnimation = rc.Get<GameObject>("ZhuziAnimation");
+
+            this.uidialog2 = rc.Get<GameObject>("UIDialog2");
+            
+            this.uidialog2.SetActive(false);
 
             this.successShuiDiAnimation = rc.Get<GameObject>("SuccessShuidiAnimation");
 
@@ -276,6 +282,10 @@ namespace ETModel
             //Log.Info("begin drage");
 
             this.zhuzi.GetComponent<Image>().CrossFadeAlpha(1f, 0.1f, true);
+            
+            this.uidialog2.SetActive(true);
+            
+            this.uidialog2.GetComponent<DialogTextCtl>().CloseDialog(1);
         }
 
         void DrageingZhuzi(PointerEventData p)
