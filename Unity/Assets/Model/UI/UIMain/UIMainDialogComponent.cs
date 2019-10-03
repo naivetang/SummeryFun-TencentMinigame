@@ -58,8 +58,10 @@ namespace ETModel
 
         private void NextDialogHandler(List<object> obj)
         {
-            lastDialogId = currentDialogId = (int)obj[0];
-            
+            lastDialogId = (int)obj[0];
+
+            currentDialogId = (int)obj[1];
+
             this.GameObject.SetActive(true);
             
             this.CheckDialogBtn();
@@ -70,6 +72,7 @@ namespace ETModel
             //this.currentDialogId;
 
             DialogConfig dialogConfig = Game.Scene.GetComponent<ConfigComponent>().Get(typeof (DialogConfig), this.currentDialogId) as DialogConfig;
+            DialogConfig lastdialogConfig = Game.Scene.GetComponent<ConfigComponent>().Get(typeof (DialogConfig), this.lastDialogId) as DialogConfig;
 
             if (dialogConfig == null)
             {
@@ -80,10 +83,12 @@ namespace ETModel
             }
 
             Unit unit = Game.Scene.GetComponent<UnitComponent>().Get(dialogConfig.RoleId);
+            Unit lasyUnit = Game.Scene.GetComponent<UnitComponent>().Get(lastdialogConfig.RoleId);
 
             UnityEngine.GameObject dialogGo = unit.GameObject.GetComponent<ReferenceCollector>().Get<GameObject>("UIDialog");
+            UnityEngine.GameObject lastDialogGo = lasyUnit.GameObject.GetComponent<ReferenceCollector>().Get<GameObject>("UIDialog");
 
-            DialogShowText(dialogGo, dialogConfig.Text, dialogConfig.ShowTime, dialogConfig.NextId != -1);
+            DialogShowText(lastDialogGo,dialogGo, dialogConfig.Text, dialogConfig.ShowTime, dialogConfig.NextId != -1);
 
 
             this.lastDialogId = this.currentDialogId;
@@ -106,11 +111,14 @@ namespace ETModel
             }
         }
 
-        void DialogShowText(GameObject dialogGo, string text, float closeTime, bool hasNext)
+        void DialogShowText(GameObject lastDialog,GameObject dialogGo, string text, float closeTime, bool hasNext)
         {
             Log.Info("对话内容：" + text);
 
-            ///GameObject textGo = dialogGo.GetComponent<ReferenceCollector>().Get<GameObject>("TextContext");
+            //GameObject textGo = dialogGo.GetComponent<ReferenceCollector>().Get<GameObject>("TextContext");
+            
+            if(lastDialog != null)
+                lastDialog.GetComponent<DialogTextCtl>().CloseDialog();
 
             dialogGo.SetActive(true);
 

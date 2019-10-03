@@ -187,7 +187,7 @@ namespace ETModel
 
         void HineTriggerEnter2D(GameObject hine, Collider2D collider2D)
         {
-            //Log.Info( collider2D.name + collider2D.ToString());
+            Log.Info( "进入竹子区域：" + hine.name);
 
             UIMultImage multImage = hine.GetComponent<UIMultImage>();
 
@@ -204,8 +204,8 @@ namespace ETModel
 
         void HineTriggerExit2D(GameObject hine, Collider2D collider2D)
         {
-            //Log.Info(collider2D.name + collider2D.ToString());
-            
+            Log.Info("离开竹子区域：" + hine.name);
+
             UIMultImage multImage = hine.GetComponent<UIMultImage>();
 
             multImage.enabled = false;

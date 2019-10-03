@@ -1136,6 +1136,27 @@ MonoBehaviour:
   spacing: 1.18
   waitTime: 0
   duration: 4
+--- !u!223 &450643518154314940
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2821931630001269969}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 210
+  m_TargetDisplay: 0
 --- !u!1 &3131301892592620450
 GameObject:
   m_ObjectHideFlags: 0
@@ -1880,6 +1901,12 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1417258771930201152}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2821931630001269969 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3783760934588027025, guid: f086cf120917fc74e8977df5b69387fe,
+    type: 3}
+  m_PrefabInstance: {fileID: 1417258771930201152}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1602390124272190128
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2127,16 +2154,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 7652616735329588471, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: data.Array.data[0].gameObject
-      value: 
-      objectReference: {fileID: 9188528365782204511}
     - target: {fileID: 2072915454867577536, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_SizeDelta.x
       value: 132
       objectReference: {fileID: 0}
+    - target: {fileID: 7652616735329588471, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: data.Array.data[0].gameObject
+      value: 
+      objectReference: {fileID: 9188528365782204511}
     - target: {fileID: 4245063729831077592, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -2187,11 +2214,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 202
-      objectReference: {fileID: 0}
     - target: {fileID: 7151740085634641264, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -2216,6 +2238,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.x
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 202
       objectReference: {fileID: 0}
     - target: {fileID: 4069805135089721041, guid: caff69c3476453a47975a1e144634f57,
         type: 3}

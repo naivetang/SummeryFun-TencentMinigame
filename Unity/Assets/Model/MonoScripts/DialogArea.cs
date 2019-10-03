@@ -61,7 +61,7 @@ namespace ETModel
             }
             
             
-            Game.EventSystem.Run(EventIdType.NextDialog, nextDialogId);
+            Game.EventSystem.Run(EventIdType.NextDialog, (int)dialogConfig.Id,dialogConfig.NextId);
         }
 
         void BtnClick()

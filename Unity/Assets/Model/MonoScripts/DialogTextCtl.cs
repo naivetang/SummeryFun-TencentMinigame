@@ -24,6 +24,18 @@ namespace ETModel
                 Log.Error("text is null, gameObject name is " + this.gameObject.name);
             }
         }
+
+        public void CloseDialog()
+        {
+            if (this.gameObject.activeSelf && this.cancellationTokenSource != null)
+            {
+                this.cancellationTokenSource.Cancel();
+
+                this.cancellationTokenSource = null;
+                
+                this.gameObject.SetActive(false);
+            }
+        }
         
         public void SetText(string text, float closeTime, bool hasNextDialog = false)
         {
