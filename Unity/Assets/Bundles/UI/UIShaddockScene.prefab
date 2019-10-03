@@ -1105,41 +1105,41 @@ MonoBehaviour:
   angleIndex: 0
   Angles:
   - rotation: 83
-    speed: 10
+    speed: 25
   - rotation: 60
-    speed: 10
+    speed: 40
   - rotation: 50
-    speed: 10
+    speed: 45
   - rotation: 40
-    speed: 10
+    speed: 50
   - rotation: 30
-    speed: 10
+    speed: 55
   - rotation: 40
-    speed: 10
+    speed: 50
   - rotation: 50
-    speed: 10
+    speed: 45
   - rotation: 60
-    speed: 10
+    speed: 40
   - rotation: 83
-    speed: 10
+    speed: 25
   - rotation: 60
-    speed: 10
+    speed: 35
   - rotation: 50
-    speed: 10
+    speed: 55
   - rotation: 40
-    speed: 10
+    speed: 60
   - rotation: 30
-    speed: 10
+    speed: 65
   - rotation: 40
-    speed: 10
+    speed: 60
   - rotation: 50
-    speed: 10
+    speed: 55
   - rotation: 60
-    speed: 10
+    speed: 35
   - rotation: 83
-    speed: 10
+    speed: 30
   - rotation: 30
-    speed: 10
+    speed: 25
   speedIndex: 0
   addSpped:
   - 1
@@ -6822,11 +6822,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3141736577167326527}
     m_Modifications:
-    - target: {fileID: 4926519332354823381, guid: d24ff20ad129b0c45b7ce149f46c1f33,
-        type: 3}
-      propertyPath: m_Name
-      value: Black
-      objectReference: {fileID: 0}
     - target: {fileID: 4336889294134783270, guid: d24ff20ad129b0c45b7ce149f46c1f33,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6932,6 +6927,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4926519332354823381, guid: d24ff20ad129b0c45b7ce149f46c1f33,
+        type: 3}
+      propertyPath: m_Name
+      value: Black
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d24ff20ad129b0c45b7ce149f46c1f33, type: 3}
 --- !u!224 &1188534776779744503 stripped
@@ -6947,6 +6947,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3141736577167326527}
     m_Modifications:
+    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 801
+      objectReference: {fileID: 0}
     - target: {fileID: 986684182952096226, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_Name
@@ -7156,11 +7161,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FontData.m_FontSize
       value: 38
-      objectReference: {fileID: 0}
-    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 801
       objectReference: {fileID: 0}
     - target: {fileID: 605738696115297638, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
@@ -7411,6 +7411,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3141736577167326527}
     m_Modifications:
+    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 801
+      objectReference: {fileID: 0}
     - target: {fileID: 986684182952096226, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_Name
@@ -7620,11 +7625,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FontData.m_FontSize
       value: 38
-      objectReference: {fileID: 0}
-    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 801
       objectReference: {fileID: 0}
     - target: {fileID: 605738696115297638, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
