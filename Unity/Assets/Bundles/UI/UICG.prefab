@@ -1536,9 +1536,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1be7fc10ca7bd340bce53fdbafbdff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FirstPaintStaryTime: 1
-  SecondPaintStaryTime: 1
-  ThreePaintStaryTime: 1
+  FirstPaintStaryTime: 16
+  SecondPaintStaryTime: 7
+  ThreePaintStaryTime: 4
 --- !u!82 &7564033238320150802
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1914,6 +1914,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6988787161685911440}
     m_Modifications:
+    - target: {fileID: 4926519332354823381, guid: d24ff20ad129b0c45b7ce149f46c1f33,
+        type: 3}
+      propertyPath: m_Name
+      value: Black
+      objectReference: {fileID: 0}
     - target: {fileID: 4336889294134783270, guid: d24ff20ad129b0c45b7ce149f46c1f33,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2018,11 +2023,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4926519332354823381, guid: d24ff20ad129b0c45b7ce149f46c1f33,
-        type: 3}
-      propertyPath: m_Name
-      value: Black
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d24ff20ad129b0c45b7ce149f46c1f33, type: 3}

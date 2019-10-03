@@ -285,7 +285,7 @@ namespace ETModel
             
             this.uidialog2.SetActive(true);
             
-            this.uidialog2.GetComponent<DialogTextCtl>().CloseDialog(1);
+            //this.uidialog2.GetComponent<DialogTextCtl>().CloseDialog(1);
         }
 
         void DrageingZhuzi(PointerEventData p)
@@ -295,6 +295,8 @@ namespace ETModel
 
         void EndDrageZhuzi(PointerEventData p)
         {
+            this.uidialog2.SetActive(false);
+            
             //Log.Info("end draging");
 
             // 解题成功
