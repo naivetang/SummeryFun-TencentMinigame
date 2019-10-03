@@ -114,9 +114,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -344, y: 609}
+  m_AnchoredPosition: {x: -344.00006, y: 399.73315}
   m_SizeDelta: {x: 322, y: 610}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.49999997, y: 0.15693967}
 --- !u!222 &1993164737221877023
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -511,9 +511,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 24, y: -213}
+  m_AnchoredPosition: {x: 28.342804, y: -253.82251}
   m_SizeDelta: {x: 360, y: 306}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5120633, y: 0.3665933}
 --- !u!114 &8819834248096699526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1837,9 +1837,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -356, y: -831}
-  m_SizeDelta: {x: 417, y: 418}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -355.99988, y: -1036.4403}
+  m_SizeDelta: {x: 417, y: 623}
+  m_Pivot: {x: 0.5, y: 0.30186152}
 --- !u!222 &7534117722071577160
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1868,7 +1868,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 5ad74f1385e402a4c9c1fbf0df10c875, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 170ed1504965a8641a69bb7eb7479578, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3202,7 +3202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.93725497, g: 0.93725497, b: 0.93725497, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4015,9 +4015,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15, y: 0}
+  m_AnchoredPosition: {x: 15, y: -206.37305}
   m_SizeDelta: {x: 244, y: 581}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.50000006, y: 0.1447967}
 --- !u!222 &8160366572278118749
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4283,9 +4283,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -258, y: 531}
+  m_AnchoredPosition: {x: -258, y: 445.00635}
   m_SizeDelta: {x: 203, y: 242}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 0.14465444}
 --- !u!222 &2195350929800223144
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4336,7 +4336,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 4.7, y: -90.8}
+  m_Offset: {x: 4.7, y: -6.3}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -5204,9 +5204,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 354, y: -774}
-  m_SizeDelta: {x: 372, y: 533}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 354, y: -1387.9998}
+  m_SizeDelta: {x: 391, y: 926}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &5810278249866837539
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5235,7 +5235,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 5b38c2e9a6424894f9852ada577e3328, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 503b6b374d34870429c71f33cb9395bd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5453,9 +5453,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 426, y: 449}
+  m_AnchoredPosition: {x: 426, y: 157.77905}
   m_SizeDelta: {x: 393, y: 907}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.49999997, y: 0.17892057}
 --- !u!222 &6762086267588712423
 CanvasRenderer:
   m_ObjectHideFlags: 0
