@@ -1515,9 +1515,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1be7fc10ca7bd340bce53fdbafbdff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FirstPaintStaryTime: 16
-  SecondPaintStaryTime: 7
-  ThreePaintStaryTime: 4
+  FirstPaintStaryTime: 1
+  SecondPaintStaryTime: 1
+  ThreePaintStaryTime: 1
 --- !u!82 &7564033238320150802
 AudioSource:
   m_ObjectHideFlags: 0

@@ -626,7 +626,9 @@ namespace ETModel
             base.Dispose();
             
             this.xiaomiaoComponent.Dispose();
-            
+
+            Game.Scene.GetComponent<UnitComponent>().MyUnit.AddComponent<UnitCameraFollowComponent>();
+
             this.RemoveListener();
         }
     }

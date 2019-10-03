@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
+using Spine;
 using Spine.Unity;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using AnimationState = Spine.AnimationState;
 
 namespace ETModel
 {
@@ -39,17 +41,28 @@ namespace ETModel
 
         private SkeletonGraphic animaton;
 
+        [SerializeField]
+        private ShaddockTrigger sixShaddock;
+
         private readonly string drop = "drop";
         private readonly string hitten = "hitten";
         private readonly string normal = "normal";
         private readonly string swing = "swing";
-        
+
+
+        // 进入的对应的区域事件
+        private static int triggerId = 3002;
         void Start()
         {
             //this.animationName = this.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
             animaton = this.gameObject.transform.Find("Image").GetComponent<SkeletonGraphic>();
             
             this.AddListener();
+        }
+
+        public SkeletonGraphic GetSkeletonGraphic()
+        {
+            return this.animaton;
         }
 
 
@@ -98,7 +111,11 @@ namespace ETModel
             // 落下去
             else if (this.curShtTimes == this.shootTimes)
             {
-                this.animaton.AnimationState.SetAnimation(0, this.drop, false);
+
+                TrackEntry entry;
+
+
+                entry = this.animaton.AnimationState.SetAnimation(0, this.drop, false);
 
                 this.gameObject.transform.GetComponent<Collider>().enabled = false;
 
@@ -108,7 +125,18 @@ namespace ETModel
 
                     AudioSource.PlayClipAtPoint(dropAudio, this.gameObject.transform.localPosition);
                     //判定通关完成
-                    isComplete = true;                    
+                    isComplete = true;
+
+                    if (ID >= 7)
+                    {
+                        // 让第六个掉下来
+
+                        entry = this.sixShaddock.GetSkeletonGraphic().AnimationState.SetAnimation(0, this.drop, false);
+                    }
+
+                    entry.Event += this.StateEvent;
+
+                    Game.EventSystem.Run<int>(EventIdType.CompleteTask, triggerId);
                 }
                 else
                 {
@@ -130,6 +158,14 @@ namespace ETModel
                 Spine.Animation a = this.animaton.Skeleton.Data.Animations.Find((t) => { return t.Name.Equals(this.normal); });
 
                 this.animaton.AnimationState.AddAnimation(0, this.swing,true,0f);
+            }
+        }
+
+        void StateEvent(TrackEntry trackEntry, Spine.Event e)
+        {
+            if (e.Data.Name.Equals("ChildHit"))
+            {
+                Game.EventSystem.Run(EventIdType.ChildHit);
             }
         }
         

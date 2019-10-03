@@ -44,6 +44,9 @@ namespace ETModel
 
         public void LateUpdate()
         {
+            if (this.IsDisposed)
+                return;
+            
             Vector3 pos = this.uiCamera.transform.position;
 
             pos.y = this.player.transform.position.y;

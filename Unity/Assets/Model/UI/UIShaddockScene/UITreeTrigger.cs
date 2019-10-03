@@ -32,7 +32,7 @@ namespace ETModel
 
             if (collision.gameObject.transform.tag.Equals("ShootStick"))
             {
-                Log.Info($"{this.gameObject.name}的树叶震动");
+                //Log.Info($"{this.gameObject.name}的树叶震动");
                 
 
                 this.animator.enabled = true;

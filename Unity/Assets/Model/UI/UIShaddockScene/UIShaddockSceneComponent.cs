@@ -122,8 +122,8 @@ namespace ETModel
 
             this.hadShow = false;
             
-            if(Game.Scene.GetComponent<UnitComponent>().MyUnit != null)
-                Game.Scene.GetComponent<UnitComponent>().MyUnit.RemoveComponent<UnitCameraFollowComponent>();
+            // if(Game.Scene.GetComponent<UnitComponent>().MyUnit != null)
+            //     Game.Scene.GetComponent<UnitComponent>().MyUnit.RemoveComponent<UnitCameraFollowComponent>();
             
             ReferenceCollector rc = this.GetParent<UIBase>().GameObject.GetComponent<ReferenceCollector>();
 
@@ -173,14 +173,14 @@ namespace ETModel
             
             this.dialogCancelSource = new CancellationTokenSource();
 
-            Wait5sToShowPromptDialog(this.dialogCancelSource.Token);
+            Wait5sToShowPromptDialog(this.dialogCancelSource.Token).Coroutine();
 
             this.Init();
         }
 
 
 
-        /// <summary>
+        /// <summary>dia
         /// 等5s后自动弹提示
         /// </summary>
         /// <returns></returns>
@@ -302,14 +302,14 @@ namespace ETModel
 
                 this.shootBtn.SetActive(true);
 
-                middleDialog.GetComponent<DialogTextCtl>().SetText("  打柚子！  ", 2f);
+                middleDialog.GetComponent<DialogTextCtl>().SetText("  打柚子！  ", 2f, false);
 
-                rightDialog.GetComponent<DialogTextCtl>().SetText("  打柚子！  ", 2f);
+                rightDialog.GetComponent<DialogTextCtl>().SetText("  打柚子！  ", 2f, false);
 
                 // 竹竿开始晃动
                 this.cancellationTokenSource = new CancellationTokenSource();
             
-                StartStickRotate(this.cancellationTokenSource.Token);
+                StartStickRotate(this.cancellationTokenSource.Token).Coroutine();
                 
                 // 设置杆子tag值，使杆子戳到柚子和树叶能有反馈
 
@@ -323,8 +323,6 @@ namespace ETModel
                 Faild(this.middleChild).Coroutine();
 
                 //this.reset(ChildType.Middle);
-
-                //this.stickStayChild = null;
             }
 
             else if (this.stickStayChild != null && this.stickStayChild == this.rightChild)
@@ -336,14 +334,11 @@ namespace ETModel
                 //this.middleChild.UpdateState(ChildState.Fail);
 
                 //this.reset(ChildType.Right);
-
-                //this.stickStayChild = null;
             }
+
 
             else
             {
-                
-                //拖到空白处杆子归位
                 this.stick.transform.localPosition = this.stickInitPos;
             }
         }
@@ -382,20 +377,33 @@ namespace ETModel
             //
             //         break;
             // }
+
             
+
             child.UpdateState(ChildState.Jiemi);
 
             this.stick.transform.localPosition = this.stickInitPos;
 
-            
             this.stick.SetActive(true);
 
+
             this.stickStayChild = null;
+            this.enterChilds.Clear();
         }
 
 
         private EventProxy stayChild;
         
+        private EventProxy completeEventProxy;
+
+        private EventProxy childHitEventProxy;
+
+        void ChildHitHandler(List<object> list)
+        {
+            //播放小孩子被砸中的音效
+            tree.GetComponent<ReferenceCollector>().Get<GameObject>("Shaddock").GetComponent<ReferenceCollector>().Get<GameObject>("AudioOuch").GetComponent<AudioSource>().Play();
+        }
+
         void Addlistener()
         {
 
@@ -404,11 +412,23 @@ namespace ETModel
             this.shootBtn.GetComponent<Button>().onClick.AddListener(this.ShootButtonClick);
             
             this.stayChild = new EventProxy(this.StayChild);
-            
+
+            completeEventProxy = new EventProxy(this.CompleteTask);
+
+
+            Game.EventSystem.RegisterEvent(EventIdType.CompleteTask, this.completeEventProxy);
+
             Game.EventSystem.RegisterEvent(EventIdType.ShaddockStickChild, this.stayChild);
-            
+
+            childHitEventProxy = new EventProxy(this.ChildHitHandler);
+
+            Game.EventSystem.RegisterEvent(EventIdType.ChildHit, this.childHitEventProxy);
+
         }
 
+        
+        
+        
         void ExitScene()
         {
 
@@ -431,24 +451,16 @@ namespace ETModel
 
             TimerComponent timer = Game.Scene.GetComponent<TimerComponent>();
 
-            if (ShaddockTrigger.isComplete == true)
-            {
-                //播放小孩子被砸中的音效
-                tree.GetComponent<ReferenceCollector>().Get<GameObject>("Shaddock").GetComponent<ReferenceCollector>().Get<GameObject>("AudioOuch").GetComponent<AudioSource>().Play();
-            }      
-
             // 一秒之后可重新出杆
             await timer.WaitAsync(1 * 1000);
 
-            //能再次出竿的时候将右边两个小孩设为Ready状态
-
-            this.middleChild.UpdateState(ChildState.Ready);
-
-            this.rightChild.UpdateState(ChildState.Ready);
-
             if (ShaddockTrigger.isComplete == true)
             {
-                this.Complete();                              
+                //  等2s之后播放完成
+                
+                //await timer.WaitAsync(2 * 1000);
+
+                //this.Complete();                              
             }
             else
             {
@@ -458,7 +470,14 @@ namespace ETModel
 
                 this.cancellationTokenSource = new CancellationTokenSource();
 
-                StartStickRotate(this.cancellationTokenSource.Token);
+
+                // 能再次出竿的时候将右边两个小孩设为Ready状态
+
+                this.middleChild.UpdateState(ChildState.Ready);
+
+                this.rightChild.UpdateState(ChildState.Ready);
+
+                StartStickRotate(this.cancellationTokenSource.Token).Coroutine();
             }
         }
 
@@ -615,8 +634,36 @@ namespace ETModel
             this.stickStayChild.UpdateState(ChildState.Shoot);
         }
 
-        private List<ShaddockChild> enterChilds = new List<ShaddockChild>();  
-        
+        private List<ShaddockChild> enterChilds = new List<ShaddockChild>();
+
+        void CompleteTask(List<object> obj)
+        {
+            int triggerid = (int)obj[0];
+
+            if (triggerid == this.triggerId)
+            {
+                this.cancel.gameObject.SetActive(false);
+                
+                this.PlayCompleteAni().Coroutine();
+            }
+            
+        }
+
+        async ETVoid PlayCompleteAni()
+        {
+           
+
+            TimerComponent timer = Game.Scene.GetComponent<TimerComponent>();
+
+            // 定格1s
+            await timer.WaitAsync((long)3 * 1000);
+
+
+            // 收进书本
+            this.CollectAndShow().Coroutine();
+        }
+
+
         void StayChild(List<object> obj)
         {
             string action = obj[0] as string;
@@ -632,8 +679,19 @@ namespace ETModel
                     this.stickStayChild = this.middleChild;
                 else if (type == ChildType.Right)
                     this.stickStayChild = this.rightChild;
+
+                bool hasExit = false;
+                foreach (ShaddockChild child in this.enterChilds)
+                {
+                    if (child == this.stickStayChild)
+                    {
+                        hasExit = true;
+                        break;
+                    }
+                }
                 
-                this.enterChilds.Add(this.stickStayChild);
+                if(!hasExit)
+                    this.enterChilds.Add(this.stickStayChild);
                 
             }
             else if (action.Equals("Exit"))
@@ -658,6 +716,10 @@ namespace ETModel
         void RemoveListener()
         {
             Game.EventSystem.UnRegisterEvent(EventIdType.ShaddockStickChild, this.stayChild);
+
+            Game.EventSystem.UnRegisterEvent(EventIdType.CompleteTask, this.completeEventProxy);
+
+            Game.EventSystem.UnRegisterEvent(EventIdType.ChildHit, this.childHitEventProxy);
         }
 
         
@@ -805,12 +867,6 @@ namespace ETModel
             //this.
         }
 
-        void Complete()
-        {
-            Game.EventSystem.Run<int>(EventIdType.CompleteTask, this.triggerId);
-            
-            this.CollectAndShow();
-        }
 
         async ETVoid CollectToBook()
         {
@@ -911,6 +967,8 @@ namespace ETModel
         public GameObject jiemiPrompt;
         public GameObject ready;
         public GameObject fail;
+        public GameObject hitten;
+
         public GameObject stickShootPos;
 
         public GameObject stickIdlePos;
@@ -938,12 +996,15 @@ namespace ETModel
             jiemiPrompt = rc.Get<GameObject>("jiemiPrompt");
             ready = rc.Get<GameObject>("ready");
             fail = rc.Get<GameObject>("fail");
+            hitten = rc.Get<GameObject>("hitten");
             stickShootPos = rc.Get<GameObject>("stickShootPos");
             stickIdlePos = rc.Get<GameObject>("stickIdlePos");
             
             UpdateState(ChildState.Jiemi);
             
             Clicklistener();
+            
+            this.Addlistener();
             
             this.RegistColliderTrigger();
         }
@@ -1022,6 +1083,9 @@ namespace ETModel
             if (fail != null)
                 this.fail.SetActive(false);
             
+            if(this.hitten != null)
+                this.hitten.SetActive(false);
+            
             this.jiemiPrompt.SetActive(false);
             
             switch (state)
@@ -1056,12 +1120,44 @@ namespace ETModel
                     this.jiemiPrompt.SetActive(true);
                     
                     break;
+
+                case ChildState.Hit:
+                    
+                    if(this.hitten != null)
+                        this.hitten.SetActive(true);
+
+                    break;
             }
+        }
+
+
+        private EventProxy childHitEventProxy;
+
+        void Addlistener()
+        {
+            childHitEventProxy = new EventProxy(this.ChildHitHandler);
+
+            Game.EventSystem.RegisterEvent(EventIdType.ChildHit, this.childHitEventProxy);
+
+        }
+
+        void ChildHitHandler(List<object> list)
+        {
+            if (this.type == ChildType.Middle)
+            {
+                Log.Warning("中间小孩被砸");
+                UpdateState(ChildState.Hit);
+            }
+        }
+
+        void RemoveListener()
+        {
+            Game.EventSystem.UnRegisterEvent(EventIdType.ChildHit, this.childHitEventProxy);
         }
 
         public void Dispose()
         {
-            
+            this.RemoveListener();
         }
     } 
 }

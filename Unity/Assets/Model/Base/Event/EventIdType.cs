@@ -91,6 +91,8 @@
         public const string ShaddockShootThing = "ShaddockShootThing";
 
         public const string NextDialog = "NextDialog";
+        
+        public const string ChildHit = "ChildHit";
 
 
         //public const string DialogAera = "DialogAera";

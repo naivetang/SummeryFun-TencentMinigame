@@ -102,8 +102,11 @@ namespace ETModel
                     //Log.Error("移出");
                     //Game.Scene.GetComponent<UnitComponent>().MyUnit.RemoveComponent<UnitCameraFollowComponent>();
                 }
-                    
-                
+
+                if (Game.Scene.GetComponent<UnitComponent>().MyUnit != null)
+                    Game.Scene.GetComponent<UnitComponent>().MyUnit.RemoveComponent<UnitCameraFollowComponent>();
+
+
                 UIFactory.CreateByTrigger(ViewLayer.UIFullScreenLayer, this.config.ShowWindow).Coroutine();
             }
         }
