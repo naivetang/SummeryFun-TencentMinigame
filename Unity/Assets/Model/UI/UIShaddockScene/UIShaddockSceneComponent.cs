@@ -51,6 +51,8 @@ namespace ETModel
         private GameObject tree;
 
         private GameObject stick;
+        
+        private GameObject drageStick;
 
         private GameObject bevy;
 
@@ -134,8 +136,10 @@ namespace ETModel
             this.tree = rc.Get<GameObject>("Tree");
 
             this.stick = rc.Get<GameObject>("Stick");
+            
+            this.drageStick = rc.Get<GameObject>("DragableStick");
 
-            this.stickInitScale = this.stick.transform.localScale;
+            this.stickInitScale = this.drageStick.transform.localScale;
 
             this.bevy = rc.Get<GameObject>("Bevy");
             
@@ -161,7 +165,7 @@ namespace ETModel
 
             this.rightChild = new ShaddockChild(rc.Get<GameObject>("RightChild"),this.tishiDialog, ChildType.Right);
 
-            this.stickInitPos = this.stick.transform.localPosition;
+            this.stickInitPos = this.drageStick.transform.localPosition;
             
             this.cancel = rc.Get<GameObject>("Cancel").GetComponent<Button>();
 
@@ -281,7 +285,7 @@ namespace ETModel
         /// </summary>
         void RegistStickDrag()
         {
-            UIDragable drag = this.stick.GetComponent<UIDragable>();
+            UIDragable drag = this.drageStick.GetComponent<UIDragable>();
             
             drag.RegistOnEndDrag(this.StickDragEnd);
         }
@@ -339,13 +343,13 @@ namespace ETModel
 
             else
             {
-                this.stick.transform.localPosition = this.stickInitPos;
+                this.drageStick.transform.localPosition = this.stickInitPos;
             }
         }
 
         async ETVoid Faild(ShaddockChild child)
         {
-            this.stick.SetActive(false);
+            this.drageStick.SetActive(false);
                                                             
             child.UpdateState(ChildState.Fail);
 
@@ -382,9 +386,9 @@ namespace ETModel
 
             child.UpdateState(ChildState.Jiemi);
 
-            this.stick.transform.localPosition = this.stickInitPos;
+            this.drageStick.transform.localPosition = this.stickInitPos;
 
-            this.stick.SetActive(true);
+            this.drageStick.SetActive(true);
 
 
             this.stickStayChild = null;
@@ -734,13 +738,13 @@ namespace ETModel
 
             float endZ = speed * Time.deltaTime;
 
-            Vector3 angle = this.stick.transform.localEulerAngles;
+            Vector3 angle = this.drageStick.transform.localEulerAngles;
 
             angle.z += this.rockdir == RockDir.Left? endZ : -endZ;
             
-            this.stick.transform.localEulerAngles = angle;
+            this.drageStick.transform.localEulerAngles = angle;
 
-            this.stick.transform.position = this.StickPos();
+            this.drageStick.transform.position = this.StickPos();
 
 
             //Log.Info("z:" + this.stick.transform.localEulerAngles);
