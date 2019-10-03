@@ -323,6 +323,8 @@ namespace ETModel
                 Faild(this.middleChild).Coroutine();
 
                 //this.reset(ChildType.Middle);
+
+                //this.stickStayChild = null;
             }
 
             else if (this.stickStayChild != null && this.stickStayChild == this.rightChild)
@@ -334,6 +336,15 @@ namespace ETModel
                 //this.middleChild.UpdateState(ChildState.Fail);
 
                 //this.reset(ChildType.Right);
+
+                //this.stickStayChild = null;
+            }
+
+            else
+            {
+                
+                //拖到空白处杆子归位
+                this.stick.transform.localPosition = this.stickInitPos;
             }
         }
 
@@ -378,6 +389,8 @@ namespace ETModel
 
             
             this.stick.SetActive(true);
+
+            this.stickStayChild = null;
         }
 
 
