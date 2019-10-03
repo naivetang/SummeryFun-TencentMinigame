@@ -492,7 +492,7 @@ namespace ETModel
         {
             int shaddockLayerMask = LayerMask.GetMask("Shaddock");//获取“Ground”层级
             
-            var stickChild = this.stick.transform.Find("dir");
+            var stickChild = this.drageStick.transform.Find("dir");
 
             GameObject middleDialog = this.GetParent<UIBase>().GameObject.GetComponent<ReferenceCollector>().Get<GameObject>("MiddleDialog");
 
@@ -505,7 +505,7 @@ namespace ETModel
 
             int shaddockId = 0;
 
-            if (Physics.Raycast(this.stick.transform.position, stickChild.position - this.stick.transform.position, out hit,
+            if (Physics.Raycast(this.drageStick.transform.position, stickChild.position - this.drageStick.transform.position, out hit,
                 50000,shaddockLayerMask))
             {
                 Log.Info("打到柚子：" + hit.collider.gameObject.name);
@@ -571,22 +571,22 @@ namespace ETModel
             
             this.CheckShootShaddock();
             
-            var stickChild = this.stick.transform.Find("dir");
+            var stickChild = this.drageStick.transform.Find("dir");
             
             RaycastHit hit;
             
-            if (Physics.Raycast(this.stick.transform.position, stickChild.position - this.stick.transform.position, out hit,1000))
+            if (Physics.Raycast(this.drageStick.transform.position, stickChild.position - this.drageStick.transform.position, out hit,1000))
             {
                 //Log.Info("碰撞点" + hit.point);
                 //Log.Info("碰撞体" + hit.collider.gameObject.name);
 
                  //this.GetParent<UIBase>().GameObject.transform.Find("Image11") .transform.position = hit.point;
                  
-                 this.stick.transform.position = this.stickStayChild.stickShootPos.transform.position;
+                 this.drageStick.transform.position = this.stickStayChild.stickShootPos.transform.position;
 
                  Vector2 endVec2 = hit.point;
 
-                 Vector2 beginVec2 = this.stick.transform.position;
+                 Vector2 beginVec2 = this.drageStick.transform.position;
                  
                  float tan = (endVec2.y - beginVec2.y) / (endVec2.x - beginVec2.x);
                  
@@ -599,15 +599,15 @@ namespace ETModel
                  
                  Log.Info("角度：" + angle);
 
-                 Vector3 eulerAngles = this.stick.transform.eulerAngles;
+                 Vector3 eulerAngles = this.drageStick.transform.eulerAngles;
 
                  eulerAngles.z = (float)angle;
 
-                 this.stick.transform.eulerAngles = eulerAngles;
+                 this.drageStick.transform.eulerAngles = eulerAngles;
 
                  {
 
-                     Vector3 scale = this.stick.transform.localScale;
+                     Vector3 scale = this.drageStick.transform.localScale;
 
                      float maxScale = 0.94f;
 
@@ -628,7 +628,7 @@ namespace ETModel
 
                      Log.Info("scale X:" + scale.x);
                      
-                     this.stick.transform.localScale = scale;
+                     this.drageStick.transform.localScale = scale;
                  }
             }
         }
@@ -792,7 +792,7 @@ namespace ETModel
             
             TimerComponent timer = Game.Scene.GetComponent<TimerComponent>();
 
-            this.stick.transform.localScale = this.stickInitScale;
+            this.drageStick.transform.localScale = this.stickInitScale;
             
             while (true)
             {
@@ -813,7 +813,7 @@ namespace ETModel
                 
                 
 
-                if(this.rotationZ > this.stick.gameObject.transform.localEulerAngles.z)
+                if(this.rotationZ > this.drageStick.gameObject.transform.localEulerAngles.z)
                     rockdir = RockDir.Left;
                 else
                     rockdir = RockDir.Right;
@@ -837,7 +837,7 @@ namespace ETModel
         /// <returns></returns>
         float GetWaitRotationTime()
         {
-            float curr = this.stick.gameObject.transform.localEulerAngles.z;
+            float curr = this.drageStick.gameObject.transform.localEulerAngles.z;
             
             float target = rotationZ;
 
@@ -859,7 +859,7 @@ namespace ETModel
 
             this.tree.SetActive(false);
 
-            this.stick.SetActive(false);
+            this.drageStick.SetActive(false);
 
             this.bevy.SetActive(false);
 
