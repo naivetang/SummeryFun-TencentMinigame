@@ -1117,8 +1117,8 @@ MonoBehaviour:
     speed: 25
   speedIndex: 0
   addSpped:
+  - 1
   - 1.5
-  - 1.7
 --- !u!1 &1126231991192678886
 GameObject:
   m_ObjectHideFlags: 0
