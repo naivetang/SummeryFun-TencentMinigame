@@ -12,3 +12,10 @@
 {"Id":2021,"NextId":2022,"RoleId":1003,"Text":"嘘~~ 莫要惊了鱼儿哟","ShowTime":3}
 {"Id":2022,"NextId":2023,"RoleId":-1,"Text":"（轻声）这样能钓到鱼嘛？","ShowTime":3}
 {"Id":2023,"NextId":-1,"RoleId":1003,"Text":"钓鱼钓鱼，一心一意","ShowTime":3}
+{"Id":2030,"NextId":2031,"RoleId":-1,"Text":"奇怪，这里怎么会有一只小猪","ShowTime":3}
+{"Id":2031,"NextId":2032,"RoleId":1004,"Text":"（哼~哼~）","ShowTime":3}
+{"Id":2032,"NextId":2033,"RoleId":-1,"Text":"小猪小猪，你是不是跑丢了呀","ShowTime":3}
+{"Id":2033,"NextId":2034,"RoleId":-1,"Text":"我送你回家好不好","ShowTime":3}
+{"Id":2034,"NextId":2035,"RoleId":1004,"Text":"（哼~哼~）","ShowTime":3}
+{"Id":2035,"NextId":2036,"RoleId":-1,"Text":"哎你别跑啊，回来~","ShowTime":3}
+{"Id":2036,"NextId":-1,"RoleId":-1,"Text":"（看来得有些什么吃的诱引它才行）","ShowTime":3}
