@@ -646,6 +646,15 @@ namespace ETModel
 
             if (triggerid == this.triggerId)
             {
+                // 掉柚子的时候不要说话
+                GameObject middleDialog = this.GetParent<UIBase>().GameObject.GetComponent<ReferenceCollector>().Get<GameObject>("MiddleDialog");
+
+                GameObject rightDialog = this.GetParent<UIBase>().GameObject.GetComponent<ReferenceCollector>().Get<GameObject>("RightDialog");
+
+                middleDialog.GetComponent<DialogTextCtl>().CloseDialog( 0f);
+
+                rightDialog.GetComponent<DialogTextCtl>().CloseDialog( 0f);
+
                 this.cancel.gameObject.SetActive(false);
                 
                 this.PlayCompleteAni().Coroutine();
