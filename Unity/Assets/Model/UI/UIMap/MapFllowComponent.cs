@@ -16,7 +16,7 @@ namespace ETModel
         }
     }
 
-    []
+    [ObjectSystem]
     public class MapFllowLateUpdateSystem : LateUpdateSystem<MapFllowComponent>
     {
         public override void LateUpdate(MapFllowComponent self)
