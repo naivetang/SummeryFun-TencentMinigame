@@ -21,7 +21,7 @@ namespace ETModel
         
         public void OnPointerDown(PointerEventData eventData)
         {
-            Log.Info("down");
+            //Log.Info("down");
             
             if (this.onPointDown != null)
                 this.onPointDown.Invoke(eventData);
