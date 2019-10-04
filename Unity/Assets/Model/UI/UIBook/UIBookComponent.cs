@@ -44,7 +44,7 @@ namespace ETModel
         public static List<bool> hadOpenPage = new List<bool>(new bool[20]);
 
 
-        private string[] indexArr = new[] { "零", "壹", "贰", "叁", "肆", "伍", "六", "七", "八", "九", "十", "", "", "", "", "" };
+        private string[] indexArr = new[] { "零", "壹", "贰", "叁", "肆", "伍", "陆", "柒", "捌", "玖", "拾", "", "", "", "", "" };
         
         public void Awake()
         {
