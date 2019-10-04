@@ -24,7 +24,7 @@ namespace ETModel
     {
         private GameObject drawscene2;
 
-        private int triggerId = 3005;
+        private int triggerId = 3004;
 
         public void Awake()
         {
