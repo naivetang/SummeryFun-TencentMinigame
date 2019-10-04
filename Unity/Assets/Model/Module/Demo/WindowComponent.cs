@@ -33,6 +33,20 @@ namespace ETModel
             RegistWindowCom(UIType.UIShaddockScene, typeof(UIShaddockSceneComponent));
 
             RegistWindowCom(UIType.UIKiteScene, typeof(UIKiteSceneComponent));
+
+            RegistWindowCom(UIType.UIPigScene, typeof(UIPigSceneComponent));
+
+            RegistWindowCom(UIType.UIGooseScene, typeof(UIGooseSceneComponent));
+
+            RegistWindowCom(UIType.UIGirlScene, typeof(UIGirlSceneComponent));
+
+            RegistWindowCom(UIType.UIBirdCatchScene, typeof(UIBirdCatchSceneComponent));
+
+            RegistWindowCom(UIType.UIBirdReleaseScene, typeof(UIBirdReleaseSceneComponent));
+
+            RegistWindowCom(UIType.UITeaScene, typeof(UITeaSceneComponent));
+
+            RegistWindowCom(UIType.UIClothesScene, typeof(UIClothesSceneComponent));
         }
 
         public Type GetWindowCom(string str)

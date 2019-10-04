@@ -44,5 +44,29 @@ namespace ETModel
 
         //风筝关
         public const string UIKiteScene = "UIKiteScene";
+
+        //猪关
+        public const string UIPigScene = "UIPigScene";
+
+        //鹅关
+        public const string UIGooseScene = "UIGooseScene";
+
+        //小女孩关
+        public const string UIGirlScene = "UIGirlScene";
+
+        //抓鸟关
+        public const string UIBirdCatchScene = "UIBirdCatchScene";
+
+        //放鸟关
+        public const string UIBirdReleaseScene = "UIBirdReleaseScene";
+
+        //茶馆关
+        public const string UITeaScene = "UITeaScene";
+
+        //晾衣服关
+        public const string UIClothesScene = "UIClothesScene";
+
+        //结局
+        public const string UIResultScene = "UIResultScene";
     }
 }
