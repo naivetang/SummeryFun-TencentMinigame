@@ -89,6 +89,19 @@ namespace ETModel
 
             Game.Scene.GetComponent<UIComponent>().RemoveUI(UIType.UIKiteScene);
         }
+
+        public override void Dispose()
+        {
+            base.Dispose();
+
+            Unit player = Game.Scene.GetComponent<UnitComponent>().MyUnit;
+
+
+            if (player != null && player.GetComponent<UnitCameraFollowComponent>() == null)
+            {
+                player.AddComponent<UnitCameraFollowComponent>();
+            }
+        }
     }
 
 }
