@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6816863374070729871}
   - component: {fileID: 4983613407697263809}
   - component: {fileID: 3442198350091286444}
+  - component: {fileID: 911168455362507168}
   m_Layer: 5
   m_Name: TextContext
   m_TagString: Untagged
@@ -143,6 +144,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 2
   m_VerticalFit: 0
+--- !u!95 &911168455362507168
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308238565608346321}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 84e2c1bc8cdc71140b6a8c9f2f978652, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1611610186887813587
 GameObject:
   m_ObjectHideFlags: 0
