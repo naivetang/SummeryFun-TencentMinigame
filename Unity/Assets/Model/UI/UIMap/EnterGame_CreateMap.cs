@@ -31,7 +31,14 @@ namespace ETModel
 
         public override void Run(GameObject a)
         {
-            UIFactory.Create<UIMapComponent, GameObject>(ViewLayer.UIMainLayer, UIType.UIMap, a).Coroutine();
+             UIBase b = UIFactory.Create<UIMapComponent, GameObject>(ViewLayer.UIMainLayer, UIType.UIMap, a).Result;
+
+             Transform player = Game.Scene.GetComponent<UnitComponent>().MyUnit.GameObject.transform;
+
+             Transform map = b.GameObject.transform;
+
+
+             b.AddComponent<MapFllowComponent, Transform, Transform>(player, map);
 
             UIFactory.Create<UIMainComponent>(ViewLayer.UIFixedLayer, UIType.UIMain).Coroutine();
         }

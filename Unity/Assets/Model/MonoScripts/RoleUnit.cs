@@ -35,8 +35,73 @@ namespace ETModel
              if (this.roleId == -1)
                  UnitComponent.Instance.MyUnit = unit; 
         }
-        
-        
-        
+        //
+        // private void OnControllerColliderHit(ControllerColliderHit hit)
+        // {
+        //     Log.Error("OnControllerColliderHit");
+        // }
+        //
+        // private void OnCollisionEnter(Collision collision)
+        // {
+        //     Log.Error("OnControllerColliderHit");
+        // }
+        //
+        // private void OnCollisionEnter2D(Collision2D collision)
+        // {
+        //     Log.Error("OnControllerColliderHit");
+        // }
+        //
+        // private void OnCollisionExit(Collision collision)
+        // {
+        //     Log.Error("OnControllerColliderHit");
+        // }
+        //
+        // private void OnCollisionExit2D(Collision2D collision)
+        // {
+        //     Log.Error("OnControllerColliderHit");
+        // }
+        //
+        // private void OnCollisionStay(Collision collision)
+        // {
+        //     Log.Error("OnControllerColliderHit");
+        // }
+        //
+        // private void OnCollisionStay2D(Collision2D collision)
+        // {
+        //     Log.Error("OnControllerColliderHit");
+        // }
+        //
+        // private void OnTriggerEnter(Collider other)
+        // {
+        //     Log.Error("OnControllerColliderHit");
+        // }
+        //
+        // private void OnTriggerEnter2D(Collider2D collision)
+        // {
+        //     Log.Error("OnControllerColliderHit");
+        // }
+        //
+        // private void OnTriggerExit(Collider other)
+        // {
+        //     Log.Error("OnControllerColliderHit");
+        // }
+        //
+        // private void OnTriggerExit2D(Collider2D collision)
+        // {
+        //     Log.Error("OnControllerColliderHit");
+        // }
+        //
+        // private void OnTriggerStay(Collider other)
+        // {
+        //     Log.Error("OnControllerColliderHit");
+        // }
+        //
+        // private void OnTriggerStay2D(Collider2D collision)
+        // {
+        //     Log.Error("OnControllerColliderHit");
+        // }
+        //
+
+
     }
 }
