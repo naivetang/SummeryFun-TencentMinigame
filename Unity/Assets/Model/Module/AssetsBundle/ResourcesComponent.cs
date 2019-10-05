@@ -220,7 +220,15 @@ namespace ETModel
             RegistBeforeLoadList(UIType.UIMain);
             RegistBeforeLoadList(UIType.UIGuideScene);
             RegistBeforeLoadList(UIType.UIShaddockScene);
-            RegistBeforeLoadList(UIType.UIBook);
+            RegistBeforeLoadList(UIType.UIBirdCatchScene);
+            RegistBeforeLoadList(UIType.UIBirdReleaseScene);
+            RegistBeforeLoadList(UIType.UIGirlScene);
+            RegistBeforeLoadList(UIType.UIGooseScene);
+            RegistBeforeLoadList(UIType.UIKiteScene);
+            RegistBeforeLoadList(UIType.UIPigScene);
+            RegistBeforeLoadList(UIType.UIResultScene);
+            RegistBeforeLoadList(UIType.UITeaScene);
+            RegistBeforeLoadList(UIType.UIClothesScene);
         }
         void RegistBeforeLoadList(string assetBundleName)
         {
