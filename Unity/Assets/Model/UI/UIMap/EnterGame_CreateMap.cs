@@ -44,11 +44,11 @@ namespace ETModel
             // UICG
 
 
-            stopwatch.Start();
-
-            await res.LoadBundleAsync(UIType.UICG.StringToAB());
-
-            stopwatch.Stop();
+            // stopwatch.Start();
+            //
+            // await res.LoadBundleAsync(UIType.UICG.StringToAB());
+            //
+            // stopwatch.Stop();
             
 
             Log.Warning($"加载{UIType.UICG}资源所用时间(毫秒)：{stopwatch.ElapsedMilliseconds}");
