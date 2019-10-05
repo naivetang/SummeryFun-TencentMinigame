@@ -170,7 +170,15 @@ namespace ETModel
 			parents.RemoveAt(parents.Count - 1);
 		}
 	}
-	
+    
+    [ObjectSystem]
+    public class ResourcesComponentAwakeSystem: AwakeSystem<ResourcesComponent>
+    {
+        public override void Awake(ResourcesComponent self)
+        {
+            self.Awake();
+        }
+    }
 
 	public class ResourcesComponent : Component
 	{
@@ -180,6 +188,8 @@ namespace ETModel
 
 		private readonly Dictionary<string, ABInfo> bundles = new Dictionary<string, ABInfo>();
 
+        private readonly List<string> beforeLoadList = new List<string>();
+        
 		public override void Dispose()
 		{
 			if (this.IsDisposed)
@@ -198,7 +208,63 @@ namespace ETModel
 			this.resourceCache.Clear();
 		}
 
-		public UnityEngine.Object GetAsset(string bundleName, string prefab)
+        public void Awake()
+        {
+            this.InitBeforeList();
+        }
+
+        void InitBeforeList()
+        {
+            // 只能预加载CG之后的prefab
+            RegistBeforeLoadList(UIType.UIMap);
+            RegistBeforeLoadList(UIType.UIMain);
+            RegistBeforeLoadList(UIType.UIGuideScene);
+            RegistBeforeLoadList(UIType.UIShaddockScene);
+            RegistBeforeLoadList(UIType.UIBook);
+        }
+        void RegistBeforeLoadList(string assetBundleName)
+        {
+            if(!this.beforeLoadList.Contains(assetBundleName))
+                this.beforeLoadList.Add(assetBundleName);
+        }
+        
+        /// <summary>
+        /// 异步预加载
+        /// </summary>
+        /// <returns></returns>
+        public async ETVoid AsyncBeforeLoadBundle()
+        {
+            var stopwatch = new System.Diagnostics.Stopwatch();
+
+            for (int i = 0; i < this.beforeLoadList.Count; ++i)
+            {
+                stopwatch.Restart();
+                
+                string assetBundleName = this.beforeLoadList[i];
+                
+                await LoadBundleAsync(assetBundleName.StringToAB());
+                
+                stopwatch.Stop();
+                
+                Log.Warning($"加载{assetBundleName}资源所用时间(毫秒)：{stopwatch.ElapsedMilliseconds}");
+
+            }
+        }
+
+        /// <summary>
+        /// 是否已经被预加载
+        /// </summary>
+        /// <param name="assetBundleName"></param>
+        /// <returns></returns>
+        public bool hasBeforeLoad(string assetBundleName)
+        {
+            if (Define.LoadFromRes)
+                return false;
+            
+            return this.beforeLoadList.Contains(assetBundleName);
+        }
+
+        public UnityEngine.Object GetAsset(string bundleName, string prefab)
         {
             
             // if(Define.LoadFromRes)
@@ -221,7 +287,10 @@ namespace ETModel
 			return resource;
 		}
 
-		public void UnloadBundle(string assetBundleName)
+
+
+
+        public void UnloadBundle(string assetBundleName)
 		{
             // if (Define.LoadFromRes)
             //     return;

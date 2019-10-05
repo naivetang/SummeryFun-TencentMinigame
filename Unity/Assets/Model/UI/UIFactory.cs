@@ -15,7 +15,7 @@ namespace ETModel
 
             ResourcesComponent resourcesComponent = Game.Scene.GetComponent<ResourcesComponent>();
             
-            if(Define.LoadFromRes)
+            if(!resourcesComponent.hasBeforeLoad(prefabName))
                 resourcesComponent.LoadBundle(prefabName.StringToAB());
             
             GameObject bundleGameObject = (GameObject)resourcesComponent.GetAsset(prefabName.StringToAB(), prefabName);
@@ -37,7 +37,7 @@ namespace ETModel
 
             ResourcesComponent resourcesComponent = Game.Scene.GetComponent<ResourcesComponent>();
 
-            if (Define.LoadFromRes)
+            if (!resourcesComponent.hasBeforeLoad(prefabName))
                 resourcesComponent.LoadBundle(prefabName.StringToAB());
 
             GameObject bundleGameObject = (GameObject)resourcesComponent.GetAsset(prefabName.StringToAB(), prefabName);
@@ -68,7 +68,7 @@ namespace ETModel
             //stopwatch.Start();
 
 
-            if (Define.LoadFromRes)
+            if (!resourcesComponent.hasBeforeLoad(prefabName))
                 resourcesComponent.LoadBundle(prefabName.StringToAB());
             
             
