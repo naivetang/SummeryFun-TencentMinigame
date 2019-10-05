@@ -47,5 +47,14 @@ namespace ETModel
 
             }
         }
+
+
+        public static string ResourceBundlePath
+        {
+            get
+            {
+                return "Bundles";
+            }
+        }
     }
 }

@@ -15,7 +15,8 @@ namespace ETModel
 
             ResourcesComponent resourcesComponent = Game.Scene.GetComponent<ResourcesComponent>();
             
-            resourcesComponent.LoadBundle(prefabName.StringToAB());
+            if(Define.LoadFromRes)
+                resourcesComponent.LoadBundle(prefabName.StringToAB());
             
             GameObject bundleGameObject = (GameObject)resourcesComponent.GetAsset(prefabName.StringToAB(), prefabName);
             
@@ -36,7 +37,8 @@ namespace ETModel
 
             ResourcesComponent resourcesComponent = Game.Scene.GetComponent<ResourcesComponent>();
 
-            resourcesComponent.LoadBundle(prefabName.StringToAB());
+            if (Define.LoadFromRes)
+                resourcesComponent.LoadBundle(prefabName.StringToAB());
 
             GameObject bundleGameObject = (GameObject)resourcesComponent.GetAsset(prefabName.StringToAB(), prefabName);
 
@@ -60,11 +62,35 @@ namespace ETModel
 
             ResourcesComponent resourcesComponent = Game.Scene.GetComponent<ResourcesComponent>();
 
-            resourcesComponent.LoadBundle(prefabName.StringToAB());
+            //var stopwatch = new System.Diagnostics.Stopwatch();
+
+
+            //stopwatch.Start();
+
+
+            if (Define.LoadFromRes)
+                resourcesComponent.LoadBundle(prefabName.StringToAB());
+            
+            
+            //stopwatch.Stop();
+            
+            //Log.Info($"加载{prefabName}资源所用时间(毫秒)：{stopwatch.ElapsedMilliseconds}");
+            
+            //stopwatch.Restart();
 
             GameObject bundleGameObject = (GameObject)resourcesComponent.GetAsset(prefabName.StringToAB(), prefabName);
 
+            //stopwatch.Stop();
+
+            //Log.Info($"获取{prefabName} 的Asset所用时间(毫秒)：{stopwatch.ElapsedMilliseconds}");
+
+            //stopwatch.Restart();
+
             GameObject gameObject = UnityEngine.Object.Instantiate(bundleGameObject);
+
+            //stopwatch.Stop();
+
+           // Log.Info($"实例化{prefabName} 的所用时间(毫秒)：{stopwatch.ElapsedMilliseconds}");
 
             UIBase ui = ComponentFactory.Create<UIBase, ViewLayer, string, GameObject>(layer, prefabName, gameObject);
 

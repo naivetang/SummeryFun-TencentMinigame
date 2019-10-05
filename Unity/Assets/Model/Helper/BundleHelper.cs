@@ -39,7 +39,16 @@ namespace ETModel
 				}
 
 			}
-		}
+
+            if (!Define.LoadFromRes && ResourcesComponent.AssetBundleManifestObject == null)
+            {
+                Game.Scene.GetComponent<ResourcesComponent>().LoadOneBundle("StreamingAssets");
+
+                ResourcesComponent.AssetBundleManifestObject = (AssetBundleManifest)Game.Scene.GetComponent<ResourcesComponent>().GetAsset("StreamingAssets", "AssetBundleManifest");
+            }
+            
+            
+        }
 
 		public static string GetBundleMD5(VersionConfig streamingVersionConfig, string bundleName)
 		{

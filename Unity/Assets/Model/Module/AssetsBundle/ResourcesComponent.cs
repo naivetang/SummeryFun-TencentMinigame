@@ -116,12 +116,17 @@ namespace ETModel
             {
                 return dependencies;
             }
-            if (!Define.IsAsync)
+
+            if (Define.LoadFromRes)
             {
+                if (!Define.IsAsync)
+                {
 #if UNITY_EDITOR
-                dependencies = AssetDatabase.GetAssetBundleDependencies(assetBundleName, true);
+                    dependencies = AssetDatabase.GetAssetBundleDependencies(assetBundleName, true);
 #endif
+                }
             }
+
             else
             {
                 dependencies = ResourcesComponent.AssetBundleManifestObject.GetAllDependencies(assetBundleName);
@@ -194,7 +199,13 @@ namespace ETModel
 		}
 
 		public UnityEngine.Object GetAsset(string bundleName, string prefab)
-		{
+        {
+            
+            // if(Define.LoadFromRes)
+            //     return Resources.Load(Path.Combine(PathHelper.ResourceBundlePath, prefab));
+
+            //return Resources.LoadAsync(Path.Combine(PathHelper.ResourceBundlePath, prefab) ).asset;
+            
 			Dictionary<string, UnityEngine.Object> dict;
 			if (!this.resourceCache.TryGetValue(bundleName.BundleNameToLower(), out dict))
 			{
@@ -212,6 +223,9 @@ namespace ETModel
 
 		public void UnloadBundle(string assetBundleName)
 		{
+            // if (Define.LoadFromRes)
+            //     return;
+            
 			assetBundleName = assetBundleName.BundleNameToLower();
 
 			string[] dependencies = AssetBundleHelper.GetSortedDependencies(assetBundleName);
@@ -225,6 +239,9 @@ namespace ETModel
 
 		private void UnloadOneBundle(string assetBundleName)
 		{
+            // if (Define.LoadFromRes)
+            //     return;
+            
 			assetBundleName = assetBundleName.BundleNameToLower();
 
 			ABInfo abInfo;
@@ -256,6 +273,9 @@ namespace ETModel
 		/// <returns></returns>
 		public void LoadBundle(string assetBundleName)
 		{
+            // if (Define.LoadFromRes)
+            //     return;
+            
 			assetBundleName = assetBundleName.ToLower();
 			string[] dependencies = AssetBundleHelper.GetSortedDependencies(assetBundleName);
 			//Log.Debug($"-----------dep load {assetBundleName} dep: {dependencies.ToList().ListToString()}");
@@ -281,7 +301,13 @@ namespace ETModel
 			dict[assetName] = resource;
 		}
 
-		public void LoadOneBundle(string assetBundleName)
+
+
+        /// <summary>
+        /// 实际加载资源的逻辑
+        /// </summary>
+        /// <param name="assetBundleName"></param>
+        public void LoadOneBundle(string assetBundleName)
 		{
 			//Log.Debug($"---------------load one bundle {assetBundleName}");
 			ABInfo abInfo;
@@ -290,11 +316,13 @@ namespace ETModel
 				++abInfo.RefCount;
 				return;
 			}
-
-			if (!Define.IsAsync)
+#if UNITY_EDITOR
+   
+            
+            if (Define.LoadFromRes)
 			{
 				string[] realPath = null;
-#if UNITY_EDITOR
+   
 				realPath = AssetDatabase.GetAssetPathsFromAssetBundle(assetBundleName);
 				foreach (string s in realPath)
 				{
@@ -302,15 +330,16 @@ namespace ETModel
 					UnityEngine.Object resource = AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(s);
 					AddResource(assetBundleName, assetName, resource);
 				}
-
+   
 				abInfo = ComponentFactory.CreateWithParent<ABInfo, string, AssetBundle>(this, assetBundleName, null);
 				abInfo.Parent = this;
 				this.bundles[assetBundleName] = abInfo;
-#endif
+   
 				return;
 			}
 
-			string p = Path.Combine(PathHelper.AppHotfixResPath, assetBundleName);
+#endif
+            string p = Path.Combine(PathHelper.AppHotfixResPath, assetBundleName);
 			AssetBundle assetBundle = null;
 			if (File.Exists(p))
 			{
@@ -371,23 +400,29 @@ namespace ETModel
 			}
 
             //Log.Debug($"---------------load one bundle {assetBundleName}");
-            if (!Define.IsAsync)
-			{
-				string[] realPath = null;
-#if UNITY_EDITOR
-				realPath = AssetDatabase.GetAssetPathsFromAssetBundle(assetBundleName);
-				foreach (string s in realPath)
-				{
-					string assetName = Path.GetFileNameWithoutExtension(s);
-					UnityEngine.Object resource = AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(s);
-					AddResource(assetBundleName, assetName, resource);
-				}
 
-				abInfo = ComponentFactory.CreateWithParent<ABInfo, string, AssetBundle>(this, assetBundleName, null);
-				this.bundles[assetBundleName] = abInfo;
+            if (Define.LoadFromRes)
+            {
+                if (!Define.IsAsync)
+                {
+                    string[] realPath = null;
+#if UNITY_EDITOR
+                    realPath = AssetDatabase.GetAssetPathsFromAssetBundle(assetBundleName);
+                    foreach (string s in realPath)
+                    {
+                        string assetName = Path.GetFileNameWithoutExtension(s);
+                        UnityEngine.Object resource = AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(s);
+                        AddResource(assetBundleName, assetName, resource);
+                    }
+
+                    abInfo = ComponentFactory.CreateWithParent<ABInfo, string, AssetBundle>(this, assetBundleName, null);
+                    this.bundles[assetBundleName] = abInfo;
 #endif
-				return;
-			}
+                    return;
+                }
+            }
+            
+            
 
 			string p = Path.Combine(PathHelper.AppHotfixResPath, assetBundleName);
 			AssetBundle assetBundle = null;
