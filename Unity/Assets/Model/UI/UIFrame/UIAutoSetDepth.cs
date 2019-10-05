@@ -55,7 +55,11 @@ namespace ETModel
 
             this.boxCollider2D.isTrigger = true;
 
-            this.boxCollider2D.offset = Vector2.zero;
+            float offectY = (image.rectTransform.pivot.y-0.5f) * image.rectTransform.sizeDelta.y;
+
+            float offectX = (image.rectTransform.pivot.x - 0.5f) * image.rectTransform.sizeDelta.x;
+
+            this.boxCollider2D.offset = new Vector2(-offectX,-offectY);
 
             RectTransform rt = this.transform as RectTransform;
 
@@ -83,6 +87,18 @@ namespace ETModel
             if (collision.gameObject.tag.Equals("Player"))
             {
                 this.canvas.sortingOrder = this.initDepth;
+            }
+        }
+
+        private void OnTriggerStay2D(Collider2D collision)
+        {
+            Transform colliderTransform = collision.transform;
+            if (collision.gameObject.tag.Equals("Player"))
+            {
+                if (colliderTransform.position.y > this.transform.position.y)
+                    this.canvas.sortingOrder = this.maxDepth;
+                else
+                    this.canvas.sortingOrder = this.initDepth;
             }
         }
 
