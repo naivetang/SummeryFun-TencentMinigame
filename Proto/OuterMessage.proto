@@ -21,6 +21,7 @@ message LoginRsp // IResponse
     string Message = 92;
 
     int32 gid = 1;
+    bool is_returning_visitor = 2;
 }
 
 message RegisterReq // IRequest
@@ -61,29 +62,35 @@ message TaskQueryRsp // IResponse
     string Message = 92;
 
     repeated int32 done_tasks = 1; // 现在已经完成的任务
-    repeated int32 get_tasks = 2; // 现在接取到的任务
-    int32 position_x = 3;
-    int32 position_y = 4;
+    // repeated int32 get_tasks = 2; // 现在接取到的任务
+    double position_x = 3;
+    double position_y = 4;
 }
 
 message TaskUpdateReq // IRequest
 {
     int32 RpcId = 90;
+    // 刚刚完成的任务
     repeated int32 finished_task_ids = 1;
-    repeated int32 get_task_ids = 2;
-    int32 position_x = 3;
-    int32 position_y = 4;
+    // repeated int32 get_task_ids = 2;
+    double position_x = 3;
+    double position_y = 4;
 }
 
-message TaskUpdateRsp // IResponse
+message EraseRoleReq // IRequest
 {
-    enum ErrorCode {
-        SUCCEED = 0;
-        UNKOWN_EORROR = 200001;
-    }
-    int32 RpcId = 90;
-    int32 Error = 91;
-    string Message = 92;
+	int32 RpcId = 90;
+}
+
+message EraseRoleRsp // IResponse
+{
+	enum ErrorCode {
+		SUCCEED = 0;
+		UNKOWN_EORROR = 200001;
+	}
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
 }
 
 message C2M_TestRequest // IActorLocationRequest

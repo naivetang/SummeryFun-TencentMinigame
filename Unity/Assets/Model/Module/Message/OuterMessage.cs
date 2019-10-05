@@ -136,10 +136,22 @@ namespace ETModel {
       }
     }
 
+    private bool isReturningVisitor_;
+    public bool IsReturningVisitor {
+      get { return isReturningVisitor_; }
+      set {
+        isReturningVisitor_ = value;
+      }
+    }
+
     public void WriteTo(pb::CodedOutputStream output) {
       if (Gid != 0) {
         output.WriteRawTag(8);
         output.WriteInt32(Gid);
+      }
+      if (IsReturningVisitor != false) {
+        output.WriteRawTag(16);
+        output.WriteBool(IsReturningVisitor);
       }
       if (RpcId != 0) {
         output.WriteRawTag(208, 5);
@@ -169,11 +181,15 @@ namespace ETModel {
       if (Gid != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Gid);
       }
+      if (IsReturningVisitor != false) {
+        size += 1 + 1;
+      }
       return size;
     }
 
     public void MergeFrom(pb::CodedInputStream input) {
       gid_ = 0;
+      isReturningVisitor_ = false;
       rpcId_ = 0;
       error_ = 0;
       message_ = "";
@@ -185,6 +201,10 @@ namespace ETModel {
             break;
           case 8: {
             Gid = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            IsReturningVisitor = input.ReadBool();
             break;
           }
           case 720: {
@@ -513,27 +533,19 @@ namespace ETModel {
       set { doneTasks_ = value; }
     }
 
-    private static readonly pb::FieldCodec<int> _repeated_getTasks_codec
-        = pb::FieldCodec.ForInt32(18);
-    private pbc::RepeatedField<int> getTasks_ = new pbc::RepeatedField<int>();
+    private double positionX_;
     /// <summary>
-    /// 现在接取到的任务
+    /// repeated int32 get_tasks = 2; // 现在接取到的任务
     /// </summary>
-    public pbc::RepeatedField<int> GetTasks {
-      get { return getTasks_; }
-      set { getTasks_ = value; }
-    }
-
-    private int positionX_;
-    public int PositionX {
+    public double PositionX {
       get { return positionX_; }
       set {
         positionX_ = value;
       }
     }
 
-    private int positionY_;
-    public int PositionY {
+    private double positionY_;
+    public double PositionY {
       get { return positionY_; }
       set {
         positionY_ = value;
@@ -542,14 +554,13 @@ namespace ETModel {
 
     public void WriteTo(pb::CodedOutputStream output) {
       doneTasks_.WriteTo(output, _repeated_doneTasks_codec);
-      getTasks_.WriteTo(output, _repeated_getTasks_codec);
-      if (PositionX != 0) {
-        output.WriteRawTag(24);
-        output.WriteInt32(PositionX);
+      if (PositionX != 0D) {
+        output.WriteRawTag(25);
+        output.WriteDouble(PositionX);
       }
-      if (PositionY != 0) {
-        output.WriteRawTag(32);
-        output.WriteInt32(PositionY);
+      if (PositionY != 0D) {
+        output.WriteRawTag(33);
+        output.WriteDouble(PositionY);
       }
       if (RpcId != 0) {
         output.WriteRawTag(208, 5);
@@ -577,21 +588,17 @@ namespace ETModel {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(Message);
       }
       size += doneTasks_.CalculateSize(_repeated_doneTasks_codec);
-      size += getTasks_.CalculateSize(_repeated_getTasks_codec);
-      if (PositionX != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(PositionX);
+      if (PositionX != 0D) {
+        size += 1 + 8;
       }
-      if (PositionY != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(PositionY);
+      if (PositionY != 0D) {
+        size += 1 + 8;
       }
       return size;
     }
 
     public void MergeFrom(pb::CodedInputStream input) {
       doneTasks_.Clear();
-      getTasks_.Clear();
-      positionX_ = 0;
-      positionY_ = 0;
       rpcId_ = 0;
       error_ = 0;
       message_ = "";
@@ -606,17 +613,12 @@ namespace ETModel {
             doneTasks_.AddEntriesFrom(input, _repeated_doneTasks_codec);
             break;
           }
-          case 18:
-          case 16: {
-            getTasks_.AddEntriesFrom(input, _repeated_getTasks_codec);
+          case 25: {
+            PositionX = input.ReadDouble();
             break;
           }
-          case 24: {
-            PositionX = input.ReadInt32();
-            break;
-          }
-          case 32: {
-            PositionY = input.ReadInt32();
+          case 33: {
+            PositionY = input.ReadDouble();
             break;
           }
           case 720: {
@@ -663,29 +665,27 @@ namespace ETModel {
     private static readonly pb::FieldCodec<int> _repeated_finishedTaskIds_codec
         = pb::FieldCodec.ForInt32(10);
     private pbc::RepeatedField<int> finishedTaskIds_ = new pbc::RepeatedField<int>();
+    /// <summary>
+    /// 刚刚完成的任务
+    /// </summary>
     public pbc::RepeatedField<int> FinishedTaskIds {
       get { return finishedTaskIds_; }
       set { finishedTaskIds_ = value; }
     }
 
-    private static readonly pb::FieldCodec<int> _repeated_getTaskIds_codec
-        = pb::FieldCodec.ForInt32(18);
-    private pbc::RepeatedField<int> getTaskIds_ = new pbc::RepeatedField<int>();
-    public pbc::RepeatedField<int> GetTaskIds {
-      get { return getTaskIds_; }
-      set { getTaskIds_ = value; }
-    }
-
-    private int positionX_;
-    public int PositionX {
+    private double positionX_;
+    /// <summary>
+    /// repeated int32 get_task_ids = 2;
+    /// </summary>
+    public double PositionX {
       get { return positionX_; }
       set {
         positionX_ = value;
       }
     }
 
-    private int positionY_;
-    public int PositionY {
+    private double positionY_;
+    public double PositionY {
       get { return positionY_; }
       set {
         positionY_ = value;
@@ -694,14 +694,13 @@ namespace ETModel {
 
     public void WriteTo(pb::CodedOutputStream output) {
       finishedTaskIds_.WriteTo(output, _repeated_finishedTaskIds_codec);
-      getTaskIds_.WriteTo(output, _repeated_getTaskIds_codec);
-      if (PositionX != 0) {
-        output.WriteRawTag(24);
-        output.WriteInt32(PositionX);
+      if (PositionX != 0D) {
+        output.WriteRawTag(25);
+        output.WriteDouble(PositionX);
       }
-      if (PositionY != 0) {
-        output.WriteRawTag(32);
-        output.WriteInt32(PositionY);
+      if (PositionY != 0D) {
+        output.WriteRawTag(33);
+        output.WriteDouble(PositionY);
       }
       if (RpcId != 0) {
         output.WriteRawTag(208, 5);
@@ -715,21 +714,17 @@ namespace ETModel {
         size += 2 + pb::CodedOutputStream.ComputeInt32Size(RpcId);
       }
       size += finishedTaskIds_.CalculateSize(_repeated_finishedTaskIds_codec);
-      size += getTaskIds_.CalculateSize(_repeated_getTaskIds_codec);
-      if (PositionX != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(PositionX);
+      if (PositionX != 0D) {
+        size += 1 + 8;
       }
-      if (PositionY != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(PositionY);
+      if (PositionY != 0D) {
+        size += 1 + 8;
       }
       return size;
     }
 
     public void MergeFrom(pb::CodedInputStream input) {
       finishedTaskIds_.Clear();
-      getTaskIds_.Clear();
-      positionX_ = 0;
-      positionY_ = 0;
       rpcId_ = 0;
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
@@ -742,17 +737,12 @@ namespace ETModel {
             finishedTaskIds_.AddEntriesFrom(input, _repeated_finishedTaskIds_codec);
             break;
           }
-          case 18:
-          case 16: {
-            getTaskIds_.AddEntriesFrom(input, _repeated_getTaskIds_codec);
+          case 25: {
+            PositionX = input.ReadDouble();
             break;
           }
-          case 24: {
-            PositionX = input.ReadInt32();
-            break;
-          }
-          case 32: {
-            PositionY = input.ReadInt32();
+          case 33: {
+            PositionY = input.ReadDouble();
             break;
           }
           case 720: {
@@ -765,9 +755,54 @@ namespace ETModel {
 
   }
 
-  public partial class TaskUpdateRsp : pb::IMessage {
-    private static readonly pb::MessageParser<TaskUpdateRsp> _parser = new pb::MessageParser<TaskUpdateRsp>(() => (TaskUpdateRsp)MessagePool.Instance.Fetch(typeof(TaskUpdateRsp)));
-    public static pb::MessageParser<TaskUpdateRsp> Parser { get { return _parser; } }
+  public partial class EraseRoleReq : pb::IMessage {
+    private static readonly pb::MessageParser<EraseRoleReq> _parser = new pb::MessageParser<EraseRoleReq>(() => (EraseRoleReq)MessagePool.Instance.Fetch(typeof(EraseRoleReq)));
+    public static pb::MessageParser<EraseRoleReq> Parser { get { return _parser; } }
+
+    private int rpcId_;
+    public int RpcId {
+      get { return rpcId_; }
+      set {
+        rpcId_ = value;
+      }
+    }
+
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (RpcId != 0) {
+        output.WriteRawTag(208, 5);
+        output.WriteInt32(RpcId);
+      }
+    }
+
+    public int CalculateSize() {
+      int size = 0;
+      if (RpcId != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(RpcId);
+      }
+      return size;
+    }
+
+    public void MergeFrom(pb::CodedInputStream input) {
+      rpcId_ = 0;
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 720: {
+            RpcId = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public partial class EraseRoleRsp : pb::IMessage {
+    private static readonly pb::MessageParser<EraseRoleRsp> _parser = new pb::MessageParser<EraseRoleRsp>(() => (EraseRoleRsp)MessagePool.Instance.Fetch(typeof(EraseRoleRsp)));
+    public static pb::MessageParser<EraseRoleRsp> Parser { get { return _parser; } }
 
     private int rpcId_;
     public int RpcId {
@@ -849,7 +884,7 @@ namespace ETModel {
     }
 
     #region Nested types
-    /// <summary>Container for nested types declared in the TaskUpdateRsp message type.</summary>
+    /// <summary>Container for nested types declared in the EraseRoleRsp message type.</summary>
     public static class Types {
       public enum ErrorCode {
         Succeed = 0,
