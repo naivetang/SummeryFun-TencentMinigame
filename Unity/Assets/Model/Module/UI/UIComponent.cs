@@ -26,7 +26,7 @@ namespace ETModel
         {
             get
             {
-                return this.uiManager.Camera;
+                return this.uiManager.uiCamera;
             }
         }
 

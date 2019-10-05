@@ -35,7 +35,7 @@ namespace ETModel
     [HideInHierarchy]
     public  class UIManager : Component
     {
-        public Camera Camera;
+        public Camera uiCamera;
 
 
         private UIBase[] _viewLayer = new UIBase[(int)ViewLayer.Max];
@@ -46,9 +46,19 @@ namespace ETModel
         {
             this.GameObject = go;
 
-            this.Camera = this.GameObject.transform.Find("UICamera").GetComponent<Camera>();
+            this.uiCamera = this.GameObject.transform.Find("UICamera").GetComponent<Camera>();
+            
+            this.SetCameraSize();
 
             this.InitViewLayer();
+        }
+
+        void SetCameraSize()
+        {
+            
+            Log.Warning($"屏幕宽度：{Screen.width} , 高度：{Screen.height}"); 
+            
+            this.uiCamera.orthographicSize = 346.8f + (Screen.height * 1.0f / Screen.width - 1920f/1080f)* ((387.2f - 346.8f) /(2160f/1080f - 1920f/1080f));
         }
 
         private void InitViewLayer()

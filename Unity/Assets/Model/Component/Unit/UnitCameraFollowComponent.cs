@@ -47,8 +47,6 @@ namespace ETModel
             if (this.IsDisposed)
                 return;
 
-            return;
-            
             Vector3 pos = this.uiCamera.transform.position;
 
             pos.y = this.player.transform.position.y;

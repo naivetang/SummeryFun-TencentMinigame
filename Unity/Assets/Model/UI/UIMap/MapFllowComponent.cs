@@ -51,6 +51,8 @@ namespace ETModel
         }
         public void LateUpdate()
         {
+            return;
+            
             if (this.player == null || this.map == null)
                 return;
 
