@@ -144,6 +144,8 @@ namespace ETModel
                 SetAlpha(this.startButton);
                 this.userName.text = "";
                 this.passWord.text = "";
+
+                //UIFactory.Create<UIPigSceneComponent>(ViewLayer.UIPopupLayer, UIType.UIPigScene);
             }
             else if (rsp.Error == (int)LoginRsp.Types.ErrorCode.LoginNotRegistered)
             {
