@@ -109,9 +109,674 @@ namespace ETModel {
 
   }
 
+  public partial class RegisterReq : pb::IMessage {
+    private static readonly pb::MessageParser<RegisterReq> _parser = new pb::MessageParser<RegisterReq>(() => (RegisterReq)MessagePool.Instance.Fetch(typeof(RegisterReq)));
+    public static pb::MessageParser<RegisterReq> Parser { get { return _parser; } }
+
+    private int rpcId_;
+    public int RpcId {
+      get { return rpcId_; }
+      set {
+        rpcId_ = value;
+      }
+    }
+
+    private string account_ = "";
+    /// <summary>
+    /// 帐号
+    /// </summary>
+    public string Account {
+      get { return account_; }
+      set {
+        account_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    private string password_ = "";
+    /// <summary>
+    /// 密码
+    /// </summary>
+    public string Password {
+      get { return password_; }
+      set {
+        password_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Account.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Account);
+      }
+      if (Password.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Password);
+      }
+      if (RpcId != 0) {
+        output.WriteRawTag(208, 5);
+        output.WriteInt32(RpcId);
+      }
+    }
+
+    public int CalculateSize() {
+      int size = 0;
+      if (RpcId != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(RpcId);
+      }
+      if (Account.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Account);
+      }
+      if (Password.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Password);
+      }
+      return size;
+    }
+
+    public void MergeFrom(pb::CodedInputStream input) {
+      account_ = "";
+      password_ = "";
+      rpcId_ = 0;
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            Account = input.ReadString();
+            break;
+          }
+          case 18: {
+            Password = input.ReadString();
+            break;
+          }
+          case 720: {
+            RpcId = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public partial class RegisterRsp : pb::IMessage {
+    private static readonly pb::MessageParser<RegisterRsp> _parser = new pb::MessageParser<RegisterRsp>(() => (RegisterRsp)MessagePool.Instance.Fetch(typeof(RegisterRsp)));
+    public static pb::MessageParser<RegisterRsp> Parser { get { return _parser; } }
+
+    private int rpcId_;
+    public int RpcId {
+      get { return rpcId_; }
+      set {
+        rpcId_ = value;
+      }
+    }
+
+    private int error_;
+    public int Error {
+      get { return error_; }
+      set {
+        error_ = value;
+      }
+    }
+
+    private string message_ = "";
+    public string Message {
+      get { return message_; }
+      set {
+        message_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    private int gid_;
+    public int Gid {
+      get { return gid_; }
+      set {
+        gid_ = value;
+      }
+    }
+
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Gid != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Gid);
+      }
+      if (RpcId != 0) {
+        output.WriteRawTag(208, 5);
+        output.WriteInt32(RpcId);
+      }
+      if (Error != 0) {
+        output.WriteRawTag(216, 5);
+        output.WriteInt32(Error);
+      }
+      if (Message.Length != 0) {
+        output.WriteRawTag(226, 5);
+        output.WriteString(Message);
+      }
+    }
+
+    public int CalculateSize() {
+      int size = 0;
+      if (RpcId != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(RpcId);
+      }
+      if (Error != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(Error);
+      }
+      if (Message.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(Message);
+      }
+      if (Gid != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Gid);
+      }
+      return size;
+    }
+
+    public void MergeFrom(pb::CodedInputStream input) {
+      gid_ = 0;
+      rpcId_ = 0;
+      error_ = 0;
+      message_ = "";
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            Gid = input.ReadInt32();
+            break;
+          }
+          case 720: {
+            RpcId = input.ReadInt32();
+            break;
+          }
+          case 728: {
+            Error = input.ReadInt32();
+            break;
+          }
+          case 738: {
+            Message = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+    #region Nested types
+    /// <summary>Container for nested types declared in the RegisterRsp message type.</summary>
+    public static class Types {
+      public enum ErrorCode {
+        Succeed = 0,
+        UnkownEorror = -1,
+        AccountAlreadyExist = 2001,
+      }
+
+    }
+    #endregion
+
+  }
+
   public partial class LoginRsp : pb::IMessage {
     private static readonly pb::MessageParser<LoginRsp> _parser = new pb::MessageParser<LoginRsp>(() => (LoginRsp)MessagePool.Instance.Fetch(typeof(LoginRsp)));
     public static pb::MessageParser<LoginRsp> Parser { get { return _parser; } }
+
+    private int rpcId_;
+    public int RpcId {
+      get { return rpcId_; }
+      set {
+        rpcId_ = value;
+      }
+    }
+
+    private int error_;
+    public int Error {
+      get { return error_; }
+      set {
+        error_ = value;
+      }
+    }
+
+    private string message_ = "";
+    public string Message {
+      get { return message_; }
+      set {
+        message_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    private int gid_;
+    public int Gid {
+      get { return gid_; }
+      set {
+        gid_ = value;
+      }
+    }
+
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Gid != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Gid);
+      }
+      if (RpcId != 0) {
+        output.WriteRawTag(208, 5);
+        output.WriteInt32(RpcId);
+      }
+      if (Error != 0) {
+        output.WriteRawTag(216, 5);
+        output.WriteInt32(Error);
+      }
+      if (Message.Length != 0) {
+        output.WriteRawTag(226, 5);
+        output.WriteString(Message);
+      }
+    }
+
+    public int CalculateSize() {
+      int size = 0;
+      if (RpcId != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(RpcId);
+      }
+      if (Error != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(Error);
+      }
+      if (Message.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(Message);
+      }
+      if (Gid != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Gid);
+      }
+      return size;
+    }
+
+    public void MergeFrom(pb::CodedInputStream input) {
+      gid_ = 0;
+      rpcId_ = 0;
+      error_ = 0;
+      message_ = "";
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            Gid = input.ReadInt32();
+            break;
+          }
+          case 720: {
+            RpcId = input.ReadInt32();
+            break;
+          }
+          case 728: {
+            Error = input.ReadInt32();
+            break;
+          }
+          case 738: {
+            Message = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+    #region Nested types
+    /// <summary>Container for nested types declared in the LoginRsp message type.</summary>
+    public static class Types {
+      public enum ErrorCode {
+        Succeed = 0,
+        UnkownEorror = -1,
+        LoginPasswordWrong = 1001,
+        LoginNotRegistered = 1002,
+      }
+
+    }
+    #endregion
+
+  }
+
+  public partial class TaskQueryReq : pb::IMessage {
+    private static readonly pb::MessageParser<TaskQueryReq> _parser = new pb::MessageParser<TaskQueryReq>(() => (TaskQueryReq)MessagePool.Instance.Fetch(typeof(TaskQueryReq)));
+    public static pb::MessageParser<TaskQueryReq> Parser { get { return _parser; } }
+
+    private int rpcId_;
+    /// <summary>
+    ///    int32 gid = 1;  // gid 没有必要，客户端没有要查询其他玩家进度信息的需求
+    /// </summary>
+    public int RpcId {
+      get { return rpcId_; }
+      set {
+        rpcId_ = value;
+      }
+    }
+
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (RpcId != 0) {
+        output.WriteRawTag(208, 5);
+        output.WriteInt32(RpcId);
+      }
+    }
+
+    public int CalculateSize() {
+      int size = 0;
+      if (RpcId != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(RpcId);
+      }
+      return size;
+    }
+
+    public void MergeFrom(pb::CodedInputStream input) {
+      rpcId_ = 0;
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 720: {
+            RpcId = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public partial class TaskQueryRsp : pb::IMessage {
+    private static readonly pb::MessageParser<TaskQueryRsp> _parser = new pb::MessageParser<TaskQueryRsp>(() => (TaskQueryRsp)MessagePool.Instance.Fetch(typeof(TaskQueryRsp)));
+    public static pb::MessageParser<TaskQueryRsp> Parser { get { return _parser; } }
+
+    private int rpcId_;
+    public int RpcId {
+      get { return rpcId_; }
+      set {
+        rpcId_ = value;
+      }
+    }
+
+    private int error_;
+    public int Error {
+      get { return error_; }
+      set {
+        error_ = value;
+      }
+    }
+
+    private string message_ = "";
+    public string Message {
+      get { return message_; }
+      set {
+        message_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    private static readonly pb::FieldCodec<int> _repeated_doneTasks_codec
+        = pb::FieldCodec.ForInt32(10);
+    private pbc::RepeatedField<int> doneTasks_ = new pbc::RepeatedField<int>();
+    /// <summary>
+    /// 现在已经完成的任务
+    /// </summary>
+    public pbc::RepeatedField<int> DoneTasks {
+      get { return doneTasks_; }
+      set { doneTasks_ = value; }
+    }
+
+    private static readonly pb::FieldCodec<int> _repeated_getTasks_codec
+        = pb::FieldCodec.ForInt32(18);
+    private pbc::RepeatedField<int> getTasks_ = new pbc::RepeatedField<int>();
+    /// <summary>
+    /// 现在接取到的任务
+    /// </summary>
+    public pbc::RepeatedField<int> GetTasks {
+      get { return getTasks_; }
+      set { getTasks_ = value; }
+    }
+
+    private int positionX_;
+    public int PositionX {
+      get { return positionX_; }
+      set {
+        positionX_ = value;
+      }
+    }
+
+    private int positionY_;
+    public int PositionY {
+      get { return positionY_; }
+      set {
+        positionY_ = value;
+      }
+    }
+
+    public void WriteTo(pb::CodedOutputStream output) {
+      doneTasks_.WriteTo(output, _repeated_doneTasks_codec);
+      getTasks_.WriteTo(output, _repeated_getTasks_codec);
+      if (PositionX != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(PositionX);
+      }
+      if (PositionY != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(PositionY);
+      }
+      if (RpcId != 0) {
+        output.WriteRawTag(208, 5);
+        output.WriteInt32(RpcId);
+      }
+      if (Error != 0) {
+        output.WriteRawTag(216, 5);
+        output.WriteInt32(Error);
+      }
+      if (Message.Length != 0) {
+        output.WriteRawTag(226, 5);
+        output.WriteString(Message);
+      }
+    }
+
+    public int CalculateSize() {
+      int size = 0;
+      if (RpcId != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(RpcId);
+      }
+      if (Error != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(Error);
+      }
+      if (Message.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(Message);
+      }
+      size += doneTasks_.CalculateSize(_repeated_doneTasks_codec);
+      size += getTasks_.CalculateSize(_repeated_getTasks_codec);
+      if (PositionX != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(PositionX);
+      }
+      if (PositionY != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(PositionY);
+      }
+      return size;
+    }
+
+    public void MergeFrom(pb::CodedInputStream input) {
+      doneTasks_.Clear();
+      getTasks_.Clear();
+      positionX_ = 0;
+      positionY_ = 0;
+      rpcId_ = 0;
+      error_ = 0;
+      message_ = "";
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10:
+          case 8: {
+            doneTasks_.AddEntriesFrom(input, _repeated_doneTasks_codec);
+            break;
+          }
+          case 18:
+          case 16: {
+            getTasks_.AddEntriesFrom(input, _repeated_getTasks_codec);
+            break;
+          }
+          case 24: {
+            PositionX = input.ReadInt32();
+            break;
+          }
+          case 32: {
+            PositionY = input.ReadInt32();
+            break;
+          }
+          case 720: {
+            RpcId = input.ReadInt32();
+            break;
+          }
+          case 728: {
+            Error = input.ReadInt32();
+            break;
+          }
+          case 738: {
+            Message = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+    #region Nested types
+    /// <summary>Container for nested types declared in the TaskQueryRsp message type.</summary>
+    public static class Types {
+      public enum ErrorCode {
+        Succeed = 0,
+        UnkownEorror = -1,
+      }
+
+    }
+    #endregion
+
+  }
+
+  public partial class TaskUpdateReq : pb::IMessage {
+    private static readonly pb::MessageParser<TaskUpdateReq> _parser = new pb::MessageParser<TaskUpdateReq>(() => (TaskUpdateReq)MessagePool.Instance.Fetch(typeof(TaskUpdateReq)));
+    public static pb::MessageParser<TaskUpdateReq> Parser { get { return _parser; } }
+
+    private int rpcId_;
+    public int RpcId {
+      get { return rpcId_; }
+      set {
+        rpcId_ = value;
+      }
+    }
+
+    private static readonly pb::FieldCodec<int> _repeated_finishedTaskIds_codec
+        = pb::FieldCodec.ForInt32(10);
+    private pbc::RepeatedField<int> finishedTaskIds_ = new pbc::RepeatedField<int>();
+    public pbc::RepeatedField<int> FinishedTaskIds {
+      get { return finishedTaskIds_; }
+      set { finishedTaskIds_ = value; }
+    }
+
+    private static readonly pb::FieldCodec<int> _repeated_getTaskIds_codec
+        = pb::FieldCodec.ForInt32(18);
+    private pbc::RepeatedField<int> getTaskIds_ = new pbc::RepeatedField<int>();
+    public pbc::RepeatedField<int> GetTaskIds {
+      get { return getTaskIds_; }
+      set { getTaskIds_ = value; }
+    }
+
+    private int positionX_;
+    public int PositionX {
+      get { return positionX_; }
+      set {
+        positionX_ = value;
+      }
+    }
+
+    private int positionY_;
+    public int PositionY {
+      get { return positionY_; }
+      set {
+        positionY_ = value;
+      }
+    }
+
+    public void WriteTo(pb::CodedOutputStream output) {
+      finishedTaskIds_.WriteTo(output, _repeated_finishedTaskIds_codec);
+      getTaskIds_.WriteTo(output, _repeated_getTaskIds_codec);
+      if (PositionX != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(PositionX);
+      }
+      if (PositionY != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(PositionY);
+      }
+      if (RpcId != 0) {
+        output.WriteRawTag(208, 5);
+        output.WriteInt32(RpcId);
+      }
+    }
+
+    public int CalculateSize() {
+      int size = 0;
+      if (RpcId != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(RpcId);
+      }
+      size += finishedTaskIds_.CalculateSize(_repeated_finishedTaskIds_codec);
+      size += getTaskIds_.CalculateSize(_repeated_getTaskIds_codec);
+      if (PositionX != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(PositionX);
+      }
+      if (PositionY != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(PositionY);
+      }
+      return size;
+    }
+
+    public void MergeFrom(pb::CodedInputStream input) {
+      finishedTaskIds_.Clear();
+      getTaskIds_.Clear();
+      positionX_ = 0;
+      positionY_ = 0;
+      rpcId_ = 0;
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10:
+          case 8: {
+            finishedTaskIds_.AddEntriesFrom(input, _repeated_finishedTaskIds_codec);
+            break;
+          }
+          case 18:
+          case 16: {
+            getTaskIds_.AddEntriesFrom(input, _repeated_getTaskIds_codec);
+            break;
+          }
+          case 24: {
+            PositionX = input.ReadInt32();
+            break;
+          }
+          case 32: {
+            PositionY = input.ReadInt32();
+            break;
+          }
+          case 720: {
+            RpcId = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public partial class TaskUpdateRsp : pb::IMessage {
+    private static readonly pb::MessageParser<TaskUpdateRsp> _parser = new pb::MessageParser<TaskUpdateRsp>(() => (TaskUpdateRsp)MessagePool.Instance.Fetch(typeof(TaskUpdateRsp)));
+    public static pb::MessageParser<TaskUpdateRsp> Parser { get { return _parser; } }
 
     private int rpcId_;
     public int RpcId {
@@ -191,6 +856,17 @@ namespace ETModel {
         }
       }
     }
+
+    #region Nested types
+    /// <summary>Container for nested types declared in the TaskUpdateRsp message type.</summary>
+    public static class Types {
+      public enum ErrorCode {
+        Succeed = 0,
+        UnkownEorror = -1,
+      }
+
+    }
+    #endregion
 
   }
 
