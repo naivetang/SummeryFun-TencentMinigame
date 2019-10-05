@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using ETModel;
 using UnityEditor;
+using UnityEngine;
 
 namespace ETEditor
 {
@@ -20,4 +21,30 @@ namespace ETEditor
 			AssetDatabase.Refresh();
 		}
 	}
+
+
+    public class CreateCollider : EditorWindow
+    {
+        [MenuItem("Tools/生成Collider")]
+        public static void Create()
+        {
+            GameObject[] gos = Selection.gameObjects;
+
+            if(gos != null)
+                foreach (GameObject gameObject in gos)
+                {
+                    BoxCollider2D collider = gameObject.GetComponent<BoxCollider2D>();
+
+                    if (collider == null)
+                        collider = gameObject.AddComponent<BoxCollider2D>();
+
+                    RectTransform transform = gameObject.transform as RectTransform;
+                    
+                    if (collider != null && transform != null)
+                    {
+                        collider.size = transform.sizeDelta;
+                    }
+                }
+        }
+    }
 }

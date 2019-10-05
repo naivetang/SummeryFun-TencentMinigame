@@ -43,6 +43,13 @@ namespace ETModel
         
         public void Awake(GameObject player)
         {
+            
+            
+            Vector3 oldPos = this.GetParent<UIBase>().GameObject.transform.position;
+
+            this.GetParent<UIBase>().GameObject.transform.position = new Vector3(oldPos.x, 2000, oldPos.y);
+
+
             ReferenceCollector rc = this.GetParent<UIBase>().GameObject.GetComponent<ReferenceCollector>();
 
             //_joyStick = rc.Get<GameObject>("JoyStick");
