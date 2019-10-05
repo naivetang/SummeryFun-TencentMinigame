@@ -39,6 +39,8 @@ namespace ETModel
         private GameObject _bg;
 
         private GameObject _context;
+
+        private CanFllowPigComponent _canFllowPigCom;
         
         
         public void Awake(GameObject player)
@@ -66,6 +68,10 @@ namespace ETModel
             //_player = rc.Get<GameObject>("Player");
 
             _player = player;
+            
+            GameObject fllowPig = rc.Get<GameObject>("CanFllowPig");
+
+            _canFllowPigCom = ComponentFactory.Create<CanFllowPigComponent, GameObject>(fllowPig);
 
 
             this._bg = rc.Get<GameObject>("BG");
@@ -158,6 +164,9 @@ namespace ETModel
         public override void Dispose()
         {
             base.Dispose();
+            
+            this._canFllowPigCom.Dispose();
+            
             RemoveListener();
         }
     }
