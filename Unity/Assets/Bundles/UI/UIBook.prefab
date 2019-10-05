@@ -621,13 +621,13 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c44e02e1794afaa44bf5967e2344533b, type: 3}
   - {fileID: 21300000, guid: e35f90c6a6f6c674f8a2a1ca4320956f, type: 3}
   - {fileID: 21300000, guid: f27d9dbbbe6b02e4e96268fdf0f5b40f, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: be766926f8e3b5b4ba5cb9bbe3ede88a, type: 3}
+  - {fileID: 21300000, guid: 5ec060ff9a06bd0428bf94852b8087d6, type: 3}
   - {fileID: 21300000, guid: 14ab4a7dacdfccd4780d493877cb10ee, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: d9a06f16b20dd19489afe7f733c0054c, type: 3}
+  - {fileID: 21300000, guid: 914730ee0d3f9cc44a0fd7224ae2bf0e, type: 3}
+  - {fileID: 21300000, guid: 9d01ce128d296484e914181171602d3c, type: 3}
+  - {fileID: 21300000, guid: bd42bd55dcd60714d9910095df5a204a, type: 3}
 --- !u!225 &3192559137894924251
 CanvasGroup:
   m_ObjectHideFlags: 0
