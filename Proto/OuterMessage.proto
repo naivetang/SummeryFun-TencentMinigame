@@ -12,17 +12,15 @@ message LoginRsp // IResponse
 {
     enum ErrorCode {
         SUCCEED = 0;
-        UNKOWN_EORROR = -1;
-        LOGIN_PASSWORD_WRONG = 1001;
-        LOGIN_NOT_REGISTERED = 1002;
+        UNKOWN_EORROR = 200001;
+        LOGIN_PASSWORD_WRONG = 200002;
+        LOGIN_NOT_REGISTERED = 200003;
     }
     int32 RpcId = 90;
     int32 Error = 91;
     string Message = 92;
 
-    int32 error_code = 1;
-    string error_message = 2;
-    int32 gid = 3;
+    int32 gid = 1;
 }
 
 message RegisterReq // IRequest
@@ -36,16 +34,14 @@ message RegisterRsp // IResponse
 {
     enum ErrorCode {
         SUCCEED = 0;
-        UNKOWN_EORROR = -1;
-        ACCOUNT_ALREADY_EXIST = 2001;
+        UNKOWN_EORROR = 200001;
+        ACCOUNT_ALREADY_EXIST = 200002;
     }
     int32 RpcId = 90;
     int32 Error = 91;
     string Message = 92;
 
-    int32 error_code = 1;
-    string error_message = 2;
-    int32 gid = 3;
+    int32 gid = 1;
 }
 
 message TaskQueryReq // IRequest
@@ -58,19 +54,16 @@ message TaskQueryRsp // IResponse
 {
     enum ErrorCode {
         SUCCEED = 0;
-        UNKOWN_EORROR = -1;
+        UNKOWN_EORROR = 200001;
     }
     int32 RpcId = 90;
     int32 Error = 91;
     string Message = 92;
 
-    int32 error_code = 1;
-    string error_message = 2;
-
-    repeated int32 done_tasks = 3; // 现在已经完成的任务
-    repeated int32 get_tasks = 4; // 现在接取到的任务
-    int32 position_x = 5;
-    int32 position_y = 6;
+    repeated int32 done_tasks = 1; // 现在已经完成的任务
+    repeated int32 get_tasks = 2; // 现在接取到的任务
+    int32 position_x = 3;
+    int32 position_y = 4;
 }
 
 message TaskUpdateReq // IRequest
@@ -86,15 +79,11 @@ message TaskUpdateRsp // IResponse
 {
     enum ErrorCode {
         SUCCEED = 0;
-        UNKOWN_EORROR = -1;
+        UNKOWN_EORROR = 200001;
     }
     int32 RpcId = 90;
     int32 Error = 91;
     string Message = 92;
-
-    int32 error_code = 1;
-    string error_message = 2;
-
 }
 
 message C2M_TestRequest // IActorLocationRequest
