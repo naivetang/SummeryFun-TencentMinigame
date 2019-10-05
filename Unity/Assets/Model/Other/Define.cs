@@ -35,7 +35,7 @@
         /// 从Resource加载,如果为false，从AssetStream中预加载
         /// </summary>
 #if UNITY_EDITOR
-        public static bool LoadFromRes = false;
+        public static bool LoadFromRes = true;
 #else
         public static bool LoadFromRes = false;
 #endif
