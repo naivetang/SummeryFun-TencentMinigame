@@ -67,6 +67,8 @@ message TaskQueryRsp // IResponse
 
     repeated int32 done_tasks = 1; // 现在已经完成的任务
     repeated int32 get_tasks = 2; // 现在接取到的任务
+    int32 position_x = 3;
+    int32 position_y = 4;
 }
 
 message TaskUpdateReq // IRequest
@@ -74,6 +76,8 @@ message TaskUpdateReq // IRequest
     int32 RpcId = 90;
     repeated int32 finished_task_ids = 1;
     repeated int32 get_task_ids = 2;
+    int32 position_x = 3;
+    int32 position_y = 4;
 }
 
 message TaskUpdateRsp // IResponse
