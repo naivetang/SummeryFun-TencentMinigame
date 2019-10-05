@@ -8,15 +8,6 @@ using pbc = global::Google.Protobuf.Collections;
 using scg = global::System.Collections.Generic;
 namespace ETModel {
 
-  #region Enums
-  public enum ErrorCodeSer {
-    Succeed = 0,
-    LoginPasswordWrong = 1001,
-    LoginNotRegistered = 1002,
-  }
-
-  #endregion
-
   #region Messages
   public partial class LoginReq : pb::IMessage {
     private static readonly pb::MessageParser<LoginReq> _parser = new pb::MessageParser<LoginReq>(() => (LoginReq)MessagePool.Instance.Fetch(typeof(LoginReq)));
@@ -106,6 +97,124 @@ namespace ETModel {
         }
       }
     }
+
+  }
+
+  public partial class LoginRsp : pb::IMessage {
+    private static readonly pb::MessageParser<LoginRsp> _parser = new pb::MessageParser<LoginRsp>(() => (LoginRsp)MessagePool.Instance.Fetch(typeof(LoginRsp)));
+    public static pb::MessageParser<LoginRsp> Parser { get { return _parser; } }
+
+    private int rpcId_;
+    public int RpcId {
+      get { return rpcId_; }
+      set {
+        rpcId_ = value;
+      }
+    }
+
+    private int error_;
+    public int Error {
+      get { return error_; }
+      set {
+        error_ = value;
+      }
+    }
+
+    private string message_ = "";
+    public string Message {
+      get { return message_; }
+      set {
+        message_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    private int gid_;
+    public int Gid {
+      get { return gid_; }
+      set {
+        gid_ = value;
+      }
+    }
+
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Gid != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Gid);
+      }
+      if (RpcId != 0) {
+        output.WriteRawTag(208, 5);
+        output.WriteInt32(RpcId);
+      }
+      if (Error != 0) {
+        output.WriteRawTag(216, 5);
+        output.WriteInt32(Error);
+      }
+      if (Message.Length != 0) {
+        output.WriteRawTag(226, 5);
+        output.WriteString(Message);
+      }
+    }
+
+    public int CalculateSize() {
+      int size = 0;
+      if (RpcId != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(RpcId);
+      }
+      if (Error != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(Error);
+      }
+      if (Message.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(Message);
+      }
+      if (Gid != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Gid);
+      }
+      return size;
+    }
+
+    public void MergeFrom(pb::CodedInputStream input) {
+      gid_ = 0;
+      rpcId_ = 0;
+      error_ = 0;
+      message_ = "";
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            Gid = input.ReadInt32();
+            break;
+          }
+          case 720: {
+            RpcId = input.ReadInt32();
+            break;
+          }
+          case 728: {
+            Error = input.ReadInt32();
+            break;
+          }
+          case 738: {
+            Message = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+    #region Nested types
+    /// <summary>Container for nested types declared in the LoginRsp message type.</summary>
+    public static class Types {
+      public enum ErrorCode {
+        Succeed = 0,
+        UnkownEorror = 200001,
+        LoginPasswordWrong = 200002,
+        LoginNotRegistered = 200003,
+      }
+
+    }
+    #endregion
 
   }
 
@@ -308,126 +417,8 @@ namespace ETModel {
     public static class Types {
       public enum ErrorCode {
         Succeed = 0,
-        UnkownEorror = -1,
-        AccountAlreadyExist = 2001,
-      }
-
-    }
-    #endregion
-
-  }
-
-  public partial class LoginRsp : pb::IMessage {
-    private static readonly pb::MessageParser<LoginRsp> _parser = new pb::MessageParser<LoginRsp>(() => (LoginRsp)MessagePool.Instance.Fetch(typeof(LoginRsp)));
-    public static pb::MessageParser<LoginRsp> Parser { get { return _parser; } }
-
-    private int rpcId_;
-    public int RpcId {
-      get { return rpcId_; }
-      set {
-        rpcId_ = value;
-      }
-    }
-
-    private int error_;
-    public int Error {
-      get { return error_; }
-      set {
-        error_ = value;
-      }
-    }
-
-    private string message_ = "";
-    public string Message {
-      get { return message_; }
-      set {
-        message_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    private int gid_;
-    public int Gid {
-      get { return gid_; }
-      set {
-        gid_ = value;
-      }
-    }
-
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (Gid != 0) {
-        output.WriteRawTag(8);
-        output.WriteInt32(Gid);
-      }
-      if (RpcId != 0) {
-        output.WriteRawTag(208, 5);
-        output.WriteInt32(RpcId);
-      }
-      if (Error != 0) {
-        output.WriteRawTag(216, 5);
-        output.WriteInt32(Error);
-      }
-      if (Message.Length != 0) {
-        output.WriteRawTag(226, 5);
-        output.WriteString(Message);
-      }
-    }
-
-    public int CalculateSize() {
-      int size = 0;
-      if (RpcId != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeInt32Size(RpcId);
-      }
-      if (Error != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeInt32Size(Error);
-      }
-      if (Message.Length != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeStringSize(Message);
-      }
-      if (Gid != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Gid);
-      }
-      return size;
-    }
-
-    public void MergeFrom(pb::CodedInputStream input) {
-      gid_ = 0;
-      rpcId_ = 0;
-      error_ = 0;
-      message_ = "";
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            input.SkipLastField();
-            break;
-          case 8: {
-            Gid = input.ReadInt32();
-            break;
-          }
-          case 720: {
-            RpcId = input.ReadInt32();
-            break;
-          }
-          case 728: {
-            Error = input.ReadInt32();
-            break;
-          }
-          case 738: {
-            Message = input.ReadString();
-            break;
-          }
-        }
-      }
-    }
-
-    #region Nested types
-    /// <summary>Container for nested types declared in the LoginRsp message type.</summary>
-    public static class Types {
-      public enum ErrorCode {
-        Succeed = 0,
-        UnkownEorror = -1,
-        LoginPasswordWrong = 1001,
-        LoginNotRegistered = 1002,
+        UnkownEorror = 200001,
+        AccountAlreadyExist = 200002,
       }
 
     }
@@ -649,7 +640,7 @@ namespace ETModel {
     public static class Types {
       public enum ErrorCode {
         Succeed = 0,
-        UnkownEorror = -1,
+        UnkownEorror = 200001,
       }
 
     }
@@ -862,7 +853,7 @@ namespace ETModel {
     public static class Types {
       public enum ErrorCode {
         Succeed = 0,
-        UnkownEorror = -1,
+        UnkownEorror = 200001,
       }
 
     }
