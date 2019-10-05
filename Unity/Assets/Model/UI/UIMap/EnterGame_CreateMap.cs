@@ -51,47 +51,57 @@ namespace ETModel
             stopwatch.Stop();
             
 
-            Log.Info($"加载{UIType.UICG}资源所用时间(毫秒)：{stopwatch.ElapsedMilliseconds}");
+            Log.Warning($"加载{UIType.UICG}资源所用时间(毫秒)：{stopwatch.ElapsedMilliseconds}");
 
             // UIMap
             
-            stopwatch.Start();
+            stopwatch.Restart();
 
             await res.LoadBundleAsync(UIType.UIMap.StringToAB());
 
             stopwatch.Stop();
 
-            Log.Info($"加载{UIType.UIMap}资源所用时间(毫秒)：{stopwatch.ElapsedMilliseconds}");
+            Log.Warning($"加载{UIType.UIMap}资源所用时间(毫秒)：{stopwatch.ElapsedMilliseconds}");
 
             // UIMain
 
-            stopwatch.Start();
+            stopwatch.Restart();
 
             await res.LoadBundleAsync(UIType.UIMain.StringToAB());
 
             stopwatch.Stop();
 
-            Log.Info($"加载{UIType.UIMain}资源所用时间(毫秒)：{stopwatch.ElapsedMilliseconds}");
+            Log.Warning($"加载{UIType.UIMain}资源所用时间(毫秒)：{stopwatch.ElapsedMilliseconds}");
 
             // UIGuideScene
 
-            stopwatch.Start();
+            stopwatch.Restart();
 
             await res.LoadBundleAsync(UIType.UIGuideScene.StringToAB());
 
             stopwatch.Stop();
 
-            Log.Info($"加载{UIType.UIGuideScene}资源所用时间(毫秒)：{stopwatch.ElapsedMilliseconds}");
+            Log.Warning($"加载{UIType.UIGuideScene}资源所用时间(毫秒)：{stopwatch.ElapsedMilliseconds}");
 
             // UIShaddockScene
 
-            stopwatch.Start();
+            stopwatch.Restart();
 
             await res.LoadBundleAsync(UIType.UIShaddockScene.StringToAB());
 
             stopwatch.Stop();
 
-            Log.Info($"加载{UIType.UIShaddockScene}资源所用时间(毫秒)：{stopwatch.ElapsedMilliseconds}");
+            Log.Warning($"加载{UIType.UIShaddockScene}资源所用时间(毫秒)：{stopwatch.ElapsedMilliseconds}");
+
+            // UIBook
+
+            stopwatch.Restart();
+
+            await res.LoadBundleAsync(UIType.UIBook.StringToAB());
+
+            stopwatch.Stop();
+
+            Log.Warning($"加载{UIType.UIBook}资源所用时间(毫秒)：{stopwatch.ElapsedMilliseconds}");
         }
     }
 

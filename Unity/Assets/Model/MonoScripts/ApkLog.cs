@@ -16,12 +16,12 @@ namespace ETModel
             log.stack = s;
             return log;
         }
-        public void Show(GUIStyle style = null /*bool showstack*/)
+        public void Show(GUIStyle style = null ,bool showstack = false)
         {
             
             GUILayout.Label(output,style);
-            //if (showstack)
-            GUILayout.Label(stack,style);
+            if (showstack)
+                GUILayout.Label(stack,style);
         }
     }
     /// <summary>
@@ -205,7 +205,7 @@ namespace ETModel
                 uiError = GUILayout.BeginScrollView(uiError);
                 foreach (var va in errorDatas)
                 {
-                    va.Show(this.errorTextStyle);
+                    va.Show(this.errorTextStyle, true);
                 }
                 GUILayout.EndScrollView();
             }
