@@ -20,7 +20,9 @@ message LoginRsp // IResponse
     int32 Error = 91;
     string Message = 92;
 
-    int32 gid = 1;
+    int32 error_code = 1;
+    string error_message = 2;
+    int32 gid = 3;
 }
 
 message RegisterReq // IRequest
@@ -41,7 +43,9 @@ message RegisterRsp // IResponse
     int32 Error = 91;
     string Message = 92;
 
-    int32 gid = 1;
+    int32 error_code = 1;
+    string error_message = 2;
+    int32 gid = 3;
 }
 
 message TaskQueryReq // IRequest
@@ -60,10 +64,13 @@ message TaskQueryRsp // IResponse
     int32 Error = 91;
     string Message = 92;
 
-    repeated int32 done_tasks = 1; // 现在已经完成的任务
-    repeated int32 get_tasks = 2; // 现在接取到的任务
-    int32 position_x = 3;
-    int32 position_y = 4;
+    int32 error_code = 1;
+    string error_message = 2;
+
+    repeated int32 done_tasks = 3; // 现在已经完成的任务
+    repeated int32 get_tasks = 4; // 现在接取到的任务
+    int32 position_x = 5;
+    int32 position_y = 6;
 }
 
 message TaskUpdateReq // IRequest
@@ -84,6 +91,10 @@ message TaskUpdateRsp // IResponse
     int32 RpcId = 90;
     int32 Error = 91;
     string Message = 92;
+
+    int32 error_code = 1;
+    string error_message = 2;
+
 }
 
 message C2M_TestRequest // IActorLocationRequest

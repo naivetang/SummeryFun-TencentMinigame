@@ -25,7 +25,7 @@ namespace ETModel
 
 				Game.Scene.AddComponent<TimerComponent>();
 				Game.Scene.AddComponent<GlobalConfigComponent>();
-				//Game.Scene.AddComponent<NetOuterComponent>();
+				Game.Scene.AddComponent<NetOuterComponent>();
 				Game.Scene.AddComponent<ResourcesComponent>();
 				Game.Scene.AddComponent<PlayerComponent>();
 				Game.Scene.AddComponent<UnitComponent>();
@@ -47,8 +47,8 @@ namespace ETModel
                 
                 Game.Scene.AddComponent<TriggerAreaBtnComponent>();
                 
-				//Game.Scene.AddComponent<OpcodeTypeComponent>();
-				//Game.Scene.AddComponent<MessageDispatcherComponent>();
+				Game.Scene.AddComponent<OpcodeTypeComponent>();
+				Game.Scene.AddComponent<MessageDispatcherComponent>();
 
 				//Game.Hotfix.GotoHotfix();
 

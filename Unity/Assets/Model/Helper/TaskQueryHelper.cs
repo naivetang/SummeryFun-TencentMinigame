@@ -11,7 +11,7 @@ namespace ETModel
                 TaskQueryRsp rsp = (TaskQueryRsp) await session.Call(new TaskQueryReq() {});
                 if (rsp.Error == (int)TaskQueryRsp.Types.ErrorCode.Succeed)
                 {
-                    Log.Info("task query succeed");
+                    Log.Info("task query succeed | position_x=" + rsp.PositionX + " | positon_y=" +  rsp.PositionY);
                 } else 
                 {
                     Log.Warning("unkown error");

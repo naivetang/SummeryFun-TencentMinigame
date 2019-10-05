@@ -132,8 +132,16 @@ namespace ETModel
             Log.Debug("login click");
             
             Log.Debug("用户名：" + this.userName.text);
-            Log.Debug("密码：" + this.passWord.text);
+            Log.Debug("密码：" + this.passWord.text); 
+            Session session = Game.Scene.GetComponent<NetOuterComponent>().Create(GlobalConfigComponent.Instance.GlobalProto.Address);
 
+            
+            /* FIXME: 测试*/
+            RegisterHelper.OnRegisterAsync(session, this.userName.text, this.passWord.text).Coroutine();
+            LoginHelper.OnLoginAsync(session, this.userName.text, this.passWord.text).Coroutine();
+            TaskUpdateHelper.OnTaskUpdateAsync(session).Coroutine();
+            TaskQueryHelper.OnTaskQueryAsync(session).Coroutine();
+            
             this.userName.text = "";
 
             this.passWord.text = "";

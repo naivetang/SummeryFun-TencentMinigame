@@ -15,11 +15,11 @@ namespace ETModel
                 }
                 else if (rsp.Error == (int)LoginRsp.Types.ErrorCode.LoginNotRegistered)
                 {
-                    Log.Info("account not exist, please register new account");
+                    Log.Warning("account not exist, please register new account");
                 }
                 else if (rsp.Error == (int)LoginRsp.Types.ErrorCode.LoginPasswordWrong)
                 {
-                    Log.Info("password wrong");
+                    Log.Warning("password wrong");
                 }
                 {
                     

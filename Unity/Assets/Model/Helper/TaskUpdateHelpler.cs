@@ -8,7 +8,7 @@ namespace ETModel
         {
             try
             {
-                TaskUpdateRsp rsp = (TaskUpdateRsp) await session.Call(new TaskUpdateReq() {});
+                TaskUpdateRsp rsp = (TaskUpdateRsp) await session.Call(new TaskUpdateReq() {PositionX = 100, PositionY = 200});
                 if (rsp.Error == (int)TaskUpdateRsp.Types.ErrorCode.Succeed)
                 {
                     Log.Info("task update succeed");
