@@ -79,9 +79,9 @@ namespace ETModel
 	public static partial class OuterOpcode
 	{
 		 public const ushort LoginReq = 101;
-		 public const ushort RegisterReq = 102;
-		 public const ushort RegisterRsp = 103;
-		 public const ushort LoginRsp = 104;
+		 public const ushort LoginRsp = 102;
+		 public const ushort RegisterReq = 103;
+		 public const ushort RegisterRsp = 104;
 		 public const ushort TaskQueryReq = 105;
 		 public const ushort TaskQueryRsp = 106;
 		 public const ushort TaskUpdateReq = 107;
