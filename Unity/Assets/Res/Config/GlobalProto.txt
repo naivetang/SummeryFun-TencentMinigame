@@ -1,1 +1,1 @@
-{"AssetBundleServerUrl":"http://127.0.0.1:8080/","Address":"127.0.0.1:10002"}
+{"AssetBundleServerUrl":"http://127.0.0.1:8080/","Address":"182.254.232.242:10002"}
