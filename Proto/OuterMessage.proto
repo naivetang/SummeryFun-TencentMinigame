@@ -77,6 +77,17 @@ message TaskUpdateReq // IRequest
     double position_y = 4;
 }
 
+message TaskUpdateRsp // IResponse
+{
+	enum ErrorCode {
+		SUCCEED = 0;
+		UNKOWN_EORROR = 200001;
+	}
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+}
+
 message EraseRoleReq // IRequest
 {
 	int32 RpcId = 90;
