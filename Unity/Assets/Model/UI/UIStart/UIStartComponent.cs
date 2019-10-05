@@ -133,33 +133,37 @@ namespace ETModel
             
             Log.Debug("用户名：" + this.userName.text);
             Log.Debug("密码：" + this.passWord.text); 
-            Session session = Game.Scene.GetComponent<NetOuterComponent>().Create(GlobalConfigComponent.Instance.GlobalProto.Address);
-
-            LoginRsp rsp = (LoginRsp) await session.Call(new LoginReq() { Account = this.userName.text, Password = this.passWord.text });
-            if (rsp.Error == (int)LoginRsp.Types.ErrorCode.Succeed)
-            {
-                Log.Info("login succeed");
-                this.loginCom.SetActive(false);
-                this.startCom.SetActive(true);
-                SetAlpha(this.startButton);
-                this.userName.text = "";
-                this.passWord.text = "";
-            }
-            else if (rsp.Error == (int)LoginRsp.Types.ErrorCode.LoginNotRegistered)
-            {
-                Log.Warning("account not exist, please register new account");
-            }
-            else if (rsp.Error == (int)LoginRsp.Types.ErrorCode.LoginPasswordWrong)
-            {
-                Log.Warning("password wrong");
-            }
+            // Session session = Game.Scene.GetComponent<NetOuterComponent>().Create(GlobalConfigComponent.Instance.GlobalProto.Address);
+            //
+            // LoginRsp rsp = (LoginRsp) await session.Call(new LoginReq() { Account = this.userName.text, Password = this.passWord.text });
+            // if (rsp.Error == (int)LoginRsp.Types.ErrorCode.Succeed)
+            // {
+            //     Log.Info("login succeed");
+            //     this.loginCom.SetActive(false);
+            //     this.startCom.SetActive(true);
+            //     SetAlpha(this.startButton);
+            //     this.userName.text = "";
+            //     this.passWord.text = "";
+            // }
+            // else if (rsp.Error == (int)LoginRsp.Types.ErrorCode.LoginNotRegistered)
+            // {
+            //     Log.Warning("account not exist, please register new account");
+            // }
+            // else if (rsp.Error == (int)LoginRsp.Types.ErrorCode.LoginPasswordWrong)
+            // {
+            //     Log.Warning("password wrong");
+            // }
             /* FIXME: 测试*/
             // RegisterHelper.OnRegisterAsync(session, this.userName.text, this.passWord.text).Coroutine();
             // LoginHelper.OnLoginAsync(session, this.userName.text, this.passWord.text).Coroutine();
             // TaskUpdateHelper.OnTaskUpdateAsync(session).Coroutine();
             // TaskQueryHelper.OnTaskQueryAsync(session).Coroutine();
             
-
+            this.loginCom.SetActive(false);
+            this.startCom.SetActive(true);
+            SetAlpha(this.startButton);
+            this.userName.text = "";
+            this.passWord.text = "";
 
             //UIFactory.Create<UIShaddockSceneComponent>(ViewLayer.UIPopupLayer, UIType.UIShaddockScene).Coroutine();
 
