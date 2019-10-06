@@ -22,86 +22,118 @@ namespace ETModel
 
     public class UIResultSceneComponent : Component
     {
-        private GameObject drawscene2;
+        private GameObject scene1;
 
-        private int triggerId = 3005;
+        private GameObject scene2;
+
+        private GameObject scene3;
+    
 
         public void Awake()
         {
             ReferenceCollector rc = this.GetParent<UIBase>().GameObject.GetComponent<ReferenceCollector>();
 
-            this.drawscene2 = rc.Get<GameObject>("drawscene2");
+            this.scene1 = rc.Get<GameObject>("Scene1");
 
-            Game.EventSystem.Run<int>(EventIdType.CompleteTask, this.triggerId);
+            this.scene2 = rc.Get<GameObject>("Scene2");
 
-            this.CollectAndShow();
+            this.scene3 = rc.Get<GameObject>("Scene3");
+
+            this.EndtheGame();
            
         }
 
-        async ETVoid CollectAndShow()
+        async ETVoid EndtheGame()
         {
+
+            //地图逐渐出现黑色遮罩
+
+            GameObject blackBG;
+
+            //blackBG = Game.Scene.GetComponent<UIMapComponent>().GetParent<UIBase>().GameObject.GetComponent<ReferenceCollector>().Get<GameObject>("BlackBG");
+
+            //blackBG.SetActive(true);
+
+            //blackBG.GetComponent<CanvasGroup>().DOFade(1f, 1f);
+
             TimerComponent timerComponent = Game.Scene.GetComponent<TimerComponent>();
 
-            Log.Info(" 出现结束图画 ");
 
-            // 出画
-            this.drawscene2.SetActive(true);
-
-            this.drawscene2.GetComponent<CanvasGroup>().alpha = 0;
-
-            this.drawscene2.GetComponent<CanvasGroup>().DOFade(1, 1);
-
-            await timerComponent.WaitAsync(1 * 1000);
-
-            // 图画完全显示出来
-
-            this.CloseOtherDrawScene();
-
-            await timerComponent.WaitAsync(1 * 1000);
-
-            // 装进书里面
-
-            this.CollectToBook().Coroutine();
-        }
-
-        void CloseOtherDrawScene()
-        {
-
-        }
+            await timerComponent.WaitAsync((long)(1 * 1000));
 
 
-        async ETVoid CollectToBook()
-        {
-            UIBase com = UIFactory.Create<UIBookComponent>(ViewLayer.UIPopupLayer, UIType.UIBook).Result;
+            //场景1
+            this.scene1.GetComponent<CanvasGroup>().DOFade(1f, 1f);
+                       
 
-            com.GetComponent<UIBookComponent>().AddImageGo(this.drawscene2);
+            await timerComponent.WaitAsync((long)(3 * 1000));
+
+            this.scene1.GetComponent<CanvasGroup>().DOFade(0.2f, 1f);
+
+            await timerComponent.WaitAsync((long)(1 * 1000));
+
+            //this.scene1.SetActive(false);
 
 
-            this.Close();
+            //场景2
 
-        }
 
-        void Close()
-        {
-            this.drawscene2 = null;
+            this.scene2.GetComponent<CanvasGroup>().DOFade(1f, 1f);
 
-            Game.EventSystem.Run(EventIdType.ShowJoystic);
+            await timerComponent.WaitAsync((long)(3 * 1000));
+
+            this.scene2.GetComponent<CanvasGroup>().DOFade(0f, 1f);
+
+            await timerComponent.WaitAsync((long)(1.5 * 1000));
+
+            //this.scene2.SetActive(false);
+
+
+            //场景3
+
+
+            this.scene3.GetComponent<CanvasGroup>().DOFade(1f, 1f);
+
+            await timerComponent.WaitAsync((long)(2 * 1000));
+
+            this.scene3.GetComponent<CanvasGroup>().DOFade(0f, 2f);
+
+            this.scene1.GetComponent<CanvasGroup>().DOFade(0f, 2f);
 
             Game.Scene.GetComponent<UIComponent>().RemoveUI(UIType.UIResultScene);
-        }
 
-        public override void Dispose()
+
+
+            await timerComponent.WaitAsync((long)(2 * 1000));
+
+            this.CloseAll();
+
+            //this.scene3.SetActive(false);
+        }
+        
+
+        void CloseAll()
         {
-            base.Dispose();
+            Game.Scene.GetComponent<UIComponent>().RemoveUI(UIType.UIResultScene);
 
-            Unit player = Game.Scene.GetComponent<UnitComponent>().MyUnit;
+            Game.Scene.GetComponent<UIComponent>().RemoveUI(UIType.UIMap);
 
 
-            if (player != null && player.GetComponent<UnitCameraFollowComponent>() == null)
-            {
-                player.AddComponent<UnitCameraFollowComponent>();
-            }
+            UIFactory.Create<UIStartComponent>(ViewLayer.UIPopupLayer, UIType.UIStart).Coroutine();
+
         }
+        //public override void Dispose()
+        //{
+        //    base.Dispose();
+
+        //    Unit player = Game.Scene.GetComponent<UnitComponent>().MyUnit;
+
+
+        //    if (player != null && player.GetComponent<UnitCameraFollowComponent>() == null)
+        //    {
+        //        player.AddComponent<UnitCameraFollowComponent>();
+        //    }
+        //}
     }
 
 }
