@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -9,29 +10,51 @@ using UnityEngine.UI;
 
 namespace ETModel
 {
-    [RequireComponent(typeof(Image))]
+    //[RequireComponent(typeof(Image))]
     public class UIAutoSetDepth : UIBehaviour
     {
         private Image image;
 
-        private Canvas canvas;
+        [HideInInspector]
+        public Canvas canvas;
 
         private BoxCollider2D boxCollider2D;
 
         private int initDepth = 202;
 
         private int maxDepth = 240;
+
+        private static string tag = "AutoDepth";
+
+        [HideInInspector]
+        public Transform player;
+
+        [HideInInspector]
+        public int EnterPigDepth = 0;
+        
+        private static List<UIAutoSetDepth> allDepths = new List<UIAutoSetDepth>();
+
+        void Awake()
+        {
+            UIMapComponent.AddAutoDepth(this);
+        }
         
         void Start()
         {
             
-            this.InitImage();
+            //this.InitImage();
             
             this.InitCanvas();
            
-            this.InitCollider();
-            
+            //this.InitCollider();
+
+            this.gameObject.tag = tag;
+
         }
+
+
+
+        
 
         void InitImage()
         {
@@ -42,6 +65,10 @@ namespace ETModel
         {
             //this.initDepth = this.image.canvas.renderOrder;
 
+            this.canvas = this.gameObject.GetComponent<Canvas>();
+            if (this.canvas != null)
+                return;
+            
             this.canvas = this.gameObject.AddComponent<Canvas>();
 
             this.canvas.overrideSorting = true;
@@ -66,41 +93,52 @@ namespace ETModel
             this.boxCollider2D.size = rt.sizeDelta;
         }
 
-        private void OnTriggerEnter2D(Collider2D collision)
-        {
-            
-            //Log.Warning("进入 ： " + this.name );
-            
-            Transform colliderTransform = collision.transform;
-            
-            if (colliderTransform.tag.Equals("Player"))
-            {
-                if(colliderTransform.position.y > this.transform.position.y)
-                    this.canvas.sortingOrder = this.maxDepth;
-            }
-        }
-
-        private void OnTriggerExit2D(Collider2D collision)
-        {
-            //Log.Warning("离开 ： " + this.name);
-
-            if (collision.gameObject.tag.Equals("Player"))
-            {
-                this.canvas.sortingOrder = this.initDepth;
-            }
-        }
-
-        private void OnTriggerStay2D(Collider2D collision)
-        {
-            Transform colliderTransform = collision.transform;
-            if (collision.gameObject.tag.Equals("Player"))
-            {
-                if (colliderTransform.position.y > this.transform.position.y)
-                    this.canvas.sortingOrder = this.maxDepth;
-                else
-                    this.canvas.sortingOrder = this.initDepth;
-            }
-        }
+        // private void OnTriggerEnter2D(Collider2D collision)
+        // {
+        //     
+        //     //Log.Warning("进入 ： " + this.name );
+        //
+        //     if (this.EnterPigDepth != 0)
+        //         return;
+        //     
+        //     Transform colliderTransform = collision.transform;
+        //     
+        //     if (colliderTransform.tag.Equals("Player"))
+        //     {
+        //         this.player = colliderTransform;
+        //         if (colliderTransform.position.y > this.transform.position.y)
+        //             this.canvas.sortingOrder = this.maxDepth;
+        //     }
+        // }
+        //
+        // private void OnTriggerExit2D(Collider2D collision)
+        // {
+        //     //Log.Warning("离开 ： " + this.name);
+        //
+        //     if (this.EnterPigDepth != 0)
+        //         return;
+        //
+        //     if (collision.gameObject.tag.Equals("Player"))
+        //     {
+        //         this.player = null;
+        //         this.canvas.sortingOrder = this.initDepth;
+        //     }
+        // }
+        //
+        // private void OnTriggerStay2D(Collider2D collision)
+        // {
+        //     if (this.EnterPigDepth != 0)
+        //         return;
+        //
+        //     Transform colliderTransform = collision.transform;
+        //     if (collision.gameObject.tag.Equals("Player"))
+        //     {
+        //         if (colliderTransform.position.y > this.transform.position.y)
+        //             this.canvas.sortingOrder = this.maxDepth;
+        //         else
+        //             this.canvas.sortingOrder = this.initDepth;
+        //     }
+        // }
 
 
 

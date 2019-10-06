@@ -18,7 +18,7 @@ namespace ETModel
             self.Awake(go);
         }
     }
-
+    
     public class UIMapComponent : Component 
     {
         //private GameObject _joyStick;
@@ -79,14 +79,49 @@ namespace ETModel
             
             this.PlayUpToDownAnimation();
             
+            this.AsyncUpdate().Coroutine();
+        }
+
+        private static List<UIAutoSetDepth> allDepths = new List<UIAutoSetDepth>();
+
+        public static void AddAutoDepth(UIAutoSetDepth a)
+        {
+            allDepths.Add(a);
+        }
+
+        int SortRule(UIAutoSetDepth a, UIAutoSetDepth b)
+        {
+            return (int)(b.transform.position.y - a.transform.position.y);
+        }
+
+        async ETVoid AsyncUpdate()
+        {
+            TimerComponent timerComponent = Game.Scene.GetComponent<TimerComponent>();
+
+            while (true)
+            {
+                await timerComponent.WaitAsync((long) 0.8f * 1000);
+                
+                this.UpdateRenderDepth();
+            }
+        }
+
+        public void UpdateRenderDepth()
+        {
+            allDepths.Sort(this.SortRule);
+
+            int minDepth = 201;
             
+            foreach (UIAutoSetDepth setDepth in allDepths)
+            {
+                setDepth.canvas.sortingOrder = minDepth;
+                ++minDepth;
+            }
         }
 
         void PlayUpToDownAnimation()
         {
             this.GetParent<UIBase>().GameObject.transform.DOLocalMoveY(0, 4f).SetEase(Ease.Linear).OnComplete(this.AnimationComplte);
-            
-            
         }
 
         void AnimationComplte()

@@ -1267,6 +1267,8 @@ MonoBehaviour:
   data:
   - key: UIDialog
     gameObject: {fileID: 3853864803757784502}
+  - key: Animator
+    gameObject: {fileID: 2821931630001269969}
 --- !u!1 &7323921367006874007
 GameObject:
   m_ObjectHideFlags: 0
@@ -2039,11 +2041,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8874566509915217626}
     m_Modifications:
-    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 251
-      objectReference: {fileID: 0}
     - target: {fileID: 986684182952096226, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_Name
@@ -2053,6 +2050,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 251
       objectReference: {fileID: 0}
     - target: {fileID: 3585937882436825901, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
@@ -2159,16 +2161,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 2072915454867577536, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 132
-      objectReference: {fileID: 0}
     - target: {fileID: 7652616735329588471, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: data.Array.data[0].gameObject
       value: 
       objectReference: {fileID: 9188528365782204511}
+    - target: {fileID: 2072915454867577536, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 132
+      objectReference: {fileID: 0}
     - target: {fileID: 4245063729831077592, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_AnchorMin.y
