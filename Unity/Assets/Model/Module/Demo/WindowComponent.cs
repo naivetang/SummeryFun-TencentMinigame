@@ -47,6 +47,8 @@ namespace ETModel
             RegistWindowCom(UIType.UITeaScene, typeof(UITeaSceneComponent));
 
             RegistWindowCom(UIType.UIClothesScene, typeof(UIClothesSceneComponent));
+            
+            RegistWindowCom(UIType.UIResultScene, typeof(UIResultSceneComponent));
         }
 
         public Type GetWindowCom(string str)
