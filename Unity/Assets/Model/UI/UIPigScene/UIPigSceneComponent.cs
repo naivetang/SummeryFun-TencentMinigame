@@ -242,6 +242,8 @@ namespace ETModel
 
             this.youzi.SetActive(false);
 
+            this.cancel.SetActive(false);
+
             Game.EventSystem.Run<int>(EventIdType.CompleteTask, this.triggerId);
 
             TimerComponent timer = Game.Scene.GetComponent<TimerComponent>();
