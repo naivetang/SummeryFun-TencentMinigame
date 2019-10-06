@@ -170,8 +170,8 @@ namespace ETModel
 
             if (dialogId == this.completeDialogId)
             {
-                this.dialogArea.SetActive(false);
-
+                this.dialogArea.GetComponent<BoxCollider2D>().enabled = false;
+                
 
                 this.followBubble.SetActive(true);
 
