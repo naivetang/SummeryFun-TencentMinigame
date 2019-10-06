@@ -27,7 +27,8 @@ namespace ETModel
         private GameObject scene2;
 
         private GameObject scene3;
-    
+
+        private int triggerId = 3100;
 
         public void Awake()
         {
@@ -39,6 +40,8 @@ namespace ETModel
 
             this.scene3 = rc.Get<GameObject>("Scene3");
 
+            Game.EventSystem.Run<int>(EventIdType.CompleteTask, this.triggerId);
+
             this.EndtheGame();
            
         }
@@ -46,15 +49,11 @@ namespace ETModel
         async ETVoid EndtheGame()
         {
 
-            //地图逐渐出现黑色遮罩
+            Game.Scene.GetComponent<UIComponent>().RemoveUI(UIType.UIMap);
 
-            GameObject blackBG;
+            Game.Scene.GetComponent<UIComponent>().RemoveUI(UIType.UIMain);
 
-            //blackBG = Game.Scene.GetComponent<UIMapComponent>().GetParent<UIBase>().GameObject.GetComponent<ReferenceCollector>().Get<GameObject>("BlackBG");
 
-            //blackBG.SetActive(true);
-
-            //blackBG.GetComponent<CanvasGroup>().DOFade(1f, 1f);
 
             TimerComponent timerComponent = Game.Scene.GetComponent<TimerComponent>();
 
@@ -114,10 +113,9 @@ namespace ETModel
 
         void CloseAll()
         {
+
+
             Game.Scene.GetComponent<UIComponent>().RemoveUI(UIType.UIResultScene);
-
-            Game.Scene.GetComponent<UIComponent>().RemoveUI(UIType.UIMap);
-
 
             UIFactory.Create<UIStartComponent>(ViewLayer.UIPopupLayer, UIType.UIStart).Coroutine();
 
