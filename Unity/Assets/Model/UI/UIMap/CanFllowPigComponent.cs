@@ -44,13 +44,15 @@ namespace ETModel
         /// <summary>
         /// 头顶按钮
         /// </summary>
-        private Button topButton;
+        //private Button topButton;
         
         private bool completeTask;
 
         private bool isFllowed;
 
         private NavMeshAgent2D navAgent;
+
+        private int completeDialogId = 2122;
         
         public void Awake(GameObject gameObject)
         {
@@ -71,8 +73,10 @@ namespace ETModel
             dialogArea = this.GameObject.Get<GameObject>("DialogArea");
 
             followBubble = this.GameObject.Get<GameObject>("FollowBubble");
+            
+            this.followBubble.SetActive(false);
 
-            this.topButton = rc.Get<GameObject>("DialogPrompt").GetComponent<Button>();
+            //this.topButton = rc.Get<GameObject>("DialogPrompt").GetComponent<Button>();
 
             this.GameObject.SetActive(false);
             
@@ -90,15 +94,20 @@ namespace ETModel
         }
 
         private EventProxy completeTaskProxy;
+        private EventProxy completeDialogProxy;
+        
         
         void Addlistener()
         {
             completeTaskProxy = new EventProxy(this.CompleteTask);
 
+            completeDialogProxy = new EventProxy(this.CompleteDialog);
+
 
             Game.EventSystem.RegisterEvent(EventIdType.CompleteTask, this.completeTaskProxy);
+            Game.EventSystem.RegisterEvent(EventIdType.CompleteDialog, this.completeDialogProxy);
             
-            this.topButton.onClick.AddListener(this.TopBtnClick);
+            //this.topButton.onClick.AddListener(this.TopBtnClick);
             
             this.GameObject.GetComponent<UIColliderTrigger>().RegistOnTriggerEnter2D(this.TriggerEnter);
             this.GameObject.GetComponent<UIColliderTrigger>().RegistOnTriggerExit2D(this.TriggerExit);
@@ -112,7 +121,7 @@ namespace ETModel
 
             this.dialogArea.SetActive(false);
                                   
-            this.topButton.gameObject.SetActive(false);
+            //this.topButton.gameObject.SetActive(false);
         }
 
         void TriggerEnter(Collider2D other)
@@ -120,7 +129,7 @@ namespace ETModel
             if (!other.gameObject.transform.tag.Equals("Player") || this.isFllowed)
                 return;
             
-            this.topButton.gameObject.SetActive(true);
+            //this.topButton.gameObject.SetActive(true);
         }
 
         void TriggerExit(Collider2D other)
@@ -128,7 +137,7 @@ namespace ETModel
             if (!other.gameObject.transform.tag.Equals("Player") || this.isFllowed)
                 return;
             
-            this.topButton.gameObject.SetActive(false);
+            //this.topButton.gameObject.SetActive(false);
         }
 
         /// <summary>
@@ -150,10 +159,32 @@ namespace ETModel
 
         }
 
+
+        /// <summary>
+        /// 完成对话
+        /// </summary>
+        /// <param name="obj"></param>
+        void CompleteDialog(List<object> obj)
+        {
+            int dialogId = (int)obj[0];
+
+            if (dialogId == this.completeDialogId)
+            {
+                this.dialogArea.SetActive(false);
+
+
+                this.followBubble.SetActive(true);
+
+                this.completeTask = true;
+            }
+
+        }
+
         void RemoveListener()
         {
             Game.EventSystem.UnRegisterEvent(EventIdType.CompleteTask, this.completeTaskProxy);
-            
+            Game.EventSystem.UnRegisterEvent(EventIdType.CompleteDialog, this.completeDialogProxy);
+
         }
 
         public override void Dispose()
