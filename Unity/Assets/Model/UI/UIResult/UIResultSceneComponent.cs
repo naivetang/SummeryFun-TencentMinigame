@@ -49,12 +49,6 @@ namespace ETModel
         async ETVoid EndtheGame()
         {
 
-            Game.Scene.GetComponent<UIComponent>().RemoveUI(UIType.UIMap);
-
-            Game.Scene.GetComponent<UIComponent>().RemoveUI(UIType.UIMain);
-
-
-
             TimerComponent timerComponent = Game.Scene.GetComponent<TimerComponent>();
 
 
@@ -105,19 +99,24 @@ namespace ETModel
 
             await timerComponent.WaitAsync((long)(2 * 1000));
 
+
             this.CloseAll();
 
             //this.scene3.SetActive(false);
         }
         
 
-        void CloseAll()
+        async ETVoid CloseAll()
         {
+            Game.Scene.GetComponent<UIComponent>().RemoveUI(UIType.UIMap);
 
+            UIFactory.Create<UIStartComponent>(ViewLayer.UIPopupLayer, UIType.UIStart).Coroutine();
+
+            Game.Scene.GetComponent<UIComponent>().RemoveUI(UIType.UIMain);
 
             Game.Scene.GetComponent<UIComponent>().RemoveUI(UIType.UIResultScene);
 
-            UIFactory.Create<UIStartComponent>(ViewLayer.UIPopupLayer, UIType.UIStart).Coroutine();
+
 
         }
         //public override void Dispose()
