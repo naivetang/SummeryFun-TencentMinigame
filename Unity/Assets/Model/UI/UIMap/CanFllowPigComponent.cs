@@ -37,7 +37,8 @@ namespace ETModel
 
         private GameObject followBubble;
 
-        private int triggerId = 3002;
+        private int shaddockTriggerId = 3002;
+        private int pigTriggerId = 3003;
 
         private Transform player;
 
@@ -148,13 +149,21 @@ namespace ETModel
         {
             int triggerid = (int)obj[0];
 
-            if (triggerid == this.triggerId)
+            // 完成柚子关
+            if (triggerid == this.shaddockTriggerId)
             {
                 this.dialogPig.SetActive(false);
                 
                 this.GameObject.SetActive(true);
 
                 this.completeTask = true;
+            }
+            // 完成猪关
+            else if (triggerid == this.pigTriggerId)
+            {
+                this.isFllowed = false;
+                
+                this.GameObject.SetActive(false);
             }
 
         }
