@@ -236,7 +236,17 @@ namespace ETModel
 
             this.child2.SetActive(true);
 
+            this.child2.GetComponent<CanvasGroup>().DOFade(1f, 0);
+
+            this.hine.GetComponent<CanvasGroup>().DOFade(1f, 0);
+
+            this.youzi.SetActive(false);
+
             Game.EventSystem.Run<int>(EventIdType.CompleteTask, this.triggerId);
+
+            TimerComponent timer = Game.Scene.GetComponent<TimerComponent>();
+
+            await timer.WaitAsync((long)(2 * 1000));
 
             this.CollectAndShow().Coroutine();
 
