@@ -175,7 +175,7 @@ namespace ETModel
 
                 this.followBubble.SetActive(true);
 
-                this.completeTask = true;
+                this.isFllowed = true;
             }
 
         }
