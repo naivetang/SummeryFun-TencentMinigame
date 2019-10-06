@@ -1,0 +1,69 @@
+
+left.png
+size: 178,169
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bag
+  rotate: false
+  xy: 63, 64
+  size: 48, 56
+  orig: 51, 58
+  offset: 1, 1
+  index: -1
+body
+  rotate: false
+  xy: 2, 47
+  size: 59, 120
+  orig: 60, 124
+  offset: 1, 4
+  index: -1
+head
+  rotate: false
+  xy: 126, 14
+  size: 47, 49
+  orig: 49, 51
+  offset: 1, 1
+  index: -1
+l-arm
+  rotate: false
+  xy: 63, 2
+  size: 24, 60
+  orig: 26, 62
+  offset: 1, 1
+  index: -1
+l-leg1
+  rotate: false
+  xy: 63, 122
+  size: 61, 45
+  orig: 61, 53
+  offset: 0, 0
+  index: -1
+r-arm
+  rotate: true
+  xy: 126, 114
+  size: 53, 50
+  orig: 56, 52
+  offset: 1, 1
+  index: -1
+r-leg1
+  rotate: false
+  xy: 113, 65
+  size: 56, 47
+  orig: 59, 50
+  offset: 1, 1
+  index: -1
+r-leg2
+  rotate: true
+  xy: 2, 2
+  size: 43, 55
+  orig: 47, 55
+  offset: 0, 0
+  index: -1
+图层 4
+  rotate: false
+  xy: 89, 9
+  size: 35, 53
+  orig: 35, 53
+  offset: 0, 0
+  index: -1

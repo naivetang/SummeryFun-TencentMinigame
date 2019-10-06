@@ -1,0 +1,55 @@
+
+boy front.png
+size: 427,90
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bag
+  rotate: true
+  xy: 2, 4
+  size: 84, 108
+  orig: 84, 108
+  offset: 0, 0
+  index: -1
+body
+  rotate: true
+  xy: 112, 17
+  size: 71, 104
+  orig: 71, 104
+  offset: 0, 0
+  index: -1
+head
+  rotate: true
+  xy: 377, 35
+  size: 53, 48
+  orig: 55, 50
+  offset: 1, 1
+  index: -1
+l-arm
+  rotate: true
+  xy: 314, 46
+  size: 42, 61
+  orig: 44, 63
+  offset: 1, 1
+  index: -1
+l-leg
+  rotate: true
+  xy: 218, 44
+  size: 44, 94
+  orig: 44, 94
+  offset: 0, 0
+  index: -1
+r-arm
+  rotate: true
+  xy: 315, 2
+  size: 42, 55
+  orig: 45, 57
+  offset: 2, 1
+  index: -1
+r-leg
+  rotate: true
+  xy: 218, 2
+  size: 40, 95
+  orig: 40, 95
+  offset: 0, 0
+  index: -1

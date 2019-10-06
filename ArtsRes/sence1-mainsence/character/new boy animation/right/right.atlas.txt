@@ -1,0 +1,69 @@
+
+right.png
+size: 120,287
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bag
+  rotate: true
+  xy: 2, 177
+  size: 50, 97
+  orig: 52, 100
+  offset: 1, 2
+  index: -1
+body
+  rotate: true
+  xy: 2, 229
+  size: 56, 103
+  orig: 56, 103
+  offset: 0, 0
+  index: -1
+head
+  rotate: true
+  xy: 2, 9
+  size: 47, 48
+  orig: 49, 50
+  offset: 1, 1
+  index: -1
+l-arm
+  rotate: false
+  xy: 2, 115
+  size: 67, 60
+  orig: 69, 62
+  offset: 1, 1
+  index: -1
+l-leg1
+  rotate: false
+  xy: 2, 58
+  size: 56, 55
+  orig: 58, 57
+  offset: 1, 1
+  index: -1
+l-leg2
+  rotate: false
+  xy: 71, 110
+  size: 42, 65
+  orig: 42, 65
+  offset: 0, 0
+  index: -1
+r-arm
+  rotate: false
+  xy: 89, 9
+  size: 29, 46
+  orig: 31, 49
+  offset: 1, 2
+  index: -1
+r-leg1
+  rotate: false
+  xy: 60, 57
+  size: 55, 51
+  orig: 57, 53
+  offset: 1, 1
+  index: -1
+r-leg2
+  rotate: false
+  xy: 52, 2
+  size: 35, 53
+  orig: 62, 53
+  offset: 27, 0
+  index: -1
