@@ -863,7 +863,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 306, y: 113}
+  m_AnchoredPosition: {x: 689, y: 113}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5380198774565516981
@@ -937,8 +937,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 206.38, y: 125}
-  m_SizeDelta: {x: 270.4, y: 87}
+  m_AnchoredPosition: {x: 405.5, y: 127}
+  m_SizeDelta: {x: 668.6, y: 83}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &570223929454732967
 CanvasRenderer:
@@ -981,7 +981,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u513F\u7AE5\u5077\u628A<color=red>\u957F\u7AFF</color>"
+  m_Text: "\u6A58\u67DA\u59D4\u8EAB\u7389\u76D8\u4E2D\uFF0C\u8C5A\u8C55\u5386\u5E74\u5180\u89C1\u98DF"
 --- !u!1 &6193439620437258900
 GameObject:
   m_ObjectHideFlags: 0
@@ -1352,7 +1352,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -197, y: 450}
+  m_AnchoredPosition: {x: -225, y: 490}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8645528902166537570
@@ -1390,14 +1390,14 @@ RectTransform:
   m_GameObject: {fileID: 8969593200180934293}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5.117515, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8976232823647027124}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 206, y: 113}
+  m_AnchoredPosition: {x: 412, y: 113}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3369055739874897547
@@ -1668,6 +1668,11 @@ PrefabInstance:
       propertyPath: data.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1308238565608346321, guid: 7168386f6a7892f48a82f45b9594d345,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5308976358834734106, guid: 7168386f6a7892f48a82f45b9594d345,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -1752,11 +1757,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.x
       value: 174.7619
-      objectReference: {fileID: 0}
-    - target: {fileID: 1308238565608346321, guid: 7168386f6a7892f48a82f45b9594d345,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4565157028204481069, guid: 7168386f6a7892f48a82f45b9594d345, type: 3}
