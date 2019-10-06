@@ -69,3 +69,6 @@
 {"Id":2113,"NextId":2114,"RoleId":1017,"Text":"吃的小娃笑开颜","ShowTime":3}
 {"Id":2114,"NextId":2115,"RoleId":1019,"Text":"大叔我要一串","ShowTime":3}
 {"Id":2115,"NextId":-1,"RoleId":1018,"Text":"大叔大叔，我也要","ShowTime":3}
+{"Id":2120,"NextId":2121,"RoleId":-1,"Text":"来来小猪","ShowTime":3}
+{"Id":2121,"NextId":2122,"RoleId":-1,"Text":"我来送你回家","ShowTime":3}
+{"Id":2122,"NextId":-1,"RoleId":1020,"Text":"哼~哼~","ShowTime":3}
