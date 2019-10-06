@@ -53,7 +53,7 @@ namespace ETModel
 
         private NavMeshAgent2D navAgent;
 
-        private int completeDialogId = 2122;
+        private int completeDialogId = 2123;
         
         public void Awake(GameObject gameObject)
         {
