@@ -76,7 +76,7 @@ namespace ETModel
             RegistColliderTrriger();
 
             RegistDrageEvent();
-                       
+            
         }
 
         void AddListener()
@@ -227,7 +227,9 @@ namespace ETModel
 
             Game.EventSystem.Run<int>(EventIdType.CompleteTask, this.triggerId);
 
-            this.CollectAndShow();
+            this.CollectAndShow().Coroutine();
+
+            await ETTask.CompletedTask;
         }
 
         void fail()

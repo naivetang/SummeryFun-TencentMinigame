@@ -11,7 +11,7 @@ using UnityEngine.UI;
 namespace ETModel
 {
     //[RequireComponent(typeof(Image))]
-    public class UIAutoSetDepth : UIBehaviour
+    public class UIAutoSetDepth : UIBehaviour,IDisposable
     {
         private Image image;
 
@@ -34,27 +34,46 @@ namespace ETModel
         
         private static List<UIAutoSetDepth> allDepths = new List<UIAutoSetDepth>();
 
-        void Awake()
+
+        private static UIMapComponent ui = null;
+        private UIMapComponent UiMap
         {
-            UIMapComponent.AddAutoDepth(this);
+            get
+            {
+                if (ui == null)
+                    ui = Game.Scene.GetComponent<UIComponent>().GetUI(UIType.UIMap).GetComponent<UIMapComponent>();
+                return ui;
+            }
         }
-        
+
+
         void Start()
         {
-            
+
             //this.InitImage();
-            
+
+            this.UiMap.AddAutoDepth(this);
+
             this.InitCanvas();
            
             //this.InitCollider();
 
-            this.gameObject.tag = tag;
+            //this.gameObject.tag = tag;
 
+        }
+
+        protected override void OnDisable()
+        {
+            this.UiMap.RemoveDepth(this);
         }
 
 
 
-        
+        public void Dispose()
+        {
+            this.UiMap.RemoveDepth(this);
+        }
+
 
         void InitImage()
         {
@@ -139,8 +158,6 @@ namespace ETModel
         //             this.canvas.sortingOrder = this.initDepth;
         //     }
         // }
-
-
 
 
     }

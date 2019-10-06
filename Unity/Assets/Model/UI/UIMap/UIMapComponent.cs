@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
@@ -41,6 +42,8 @@ namespace ETModel
         private GameObject _context;
 
         private CanFllowPigComponent _canFllowPigCom;
+
+        private CancellationTokenSource cancel;
         
         
         public void Awake(GameObject player)
@@ -79,14 +82,34 @@ namespace ETModel
             
             this.PlayUpToDownAnimation();
             
-            this.AsyncUpdate().Coroutine();
+            this.cancel = new CancellationTokenSource();
+
+
+            this.AsyncUpdate(this.cancel.Token).Coroutine();
         }
 
         private static List<UIAutoSetDepth> allDepths = new List<UIAutoSetDepth>();
 
-        public static void AddAutoDepth(UIAutoSetDepth a)
+        public void AddAutoDepth(UIAutoSetDepth a)
         {
             allDepths.Add(a);
+        }
+
+        public void RemoveDepth(UIAutoSetDepth a)
+        {
+            if (allDepths.Contains(a))
+            {
+                allDepths.Remove(a);
+                
+                this.cancel.Cancel();
+                
+                this.cancel.Dispose();
+                
+                this.cancel = new CancellationTokenSource();
+
+                this.AsyncUpdate(this.cancel.Token).Coroutine();
+            }
+            
         }
 
         int SortRule(UIAutoSetDepth a, UIAutoSetDepth b)
@@ -94,16 +117,24 @@ namespace ETModel
             return (int)(b.transform.position.y - a.transform.position.y);
         }
 
-        async ETVoid AsyncUpdate()
+        async ETVoid AsyncUpdate(CancellationToken token)
         {
             TimerComponent timerComponent = Game.Scene.GetComponent<TimerComponent>();
 
             while (true)
             {
-                await timerComponent.WaitAsync((long) 0.8f * 1000);
+                await timerComponent.WaitAsync((long) 0.8f * 1000,token);
                 
                 this.UpdateRenderDepth();
             }
+        }
+
+
+        private EventProxy finalResult;
+        
+        void FinalResult(List<object> list)
+        {
+            allDepths.Clear();
         }
 
         public void UpdateRenderDepth()
@@ -114,8 +145,23 @@ namespace ETModel
             
             foreach (UIAutoSetDepth setDepth in allDepths)
             {
-                setDepth.canvas.sortingOrder = minDepth;
-                ++minDepth;
+                if (setDepth != null&& setDepth.isActiveAndEnabled)
+                {
+
+                    try
+                    {
+                        setDepth.canvas.sortingOrder = minDepth;
+                        ++minDepth;
+                    }
+                    catch (Exception e)
+                    {
+                        allDepths.Remove(setDepth);
+
+                        Log.Error(e);
+                    }
+                    
+                    
+                }
             }
         }
 
@@ -141,6 +187,10 @@ namespace ETModel
 
         private void AddListener()
         {
+            this.finalResult = new EventProxy(this.FinalResult);
+
+            Game.EventSystem.RegisterEvent(EventIdType.FinalResult, this.finalResult);
+
             //Game.EventSystem.RegisterEvent(EventIdType.TriggerAera, new EventProxy(TriggerArea));
 
             // _actionBtn.GetComponent<Button>().onClick.AddListener(() =>
@@ -151,6 +201,8 @@ namespace ETModel
 
         private void RemoveListener()
         {
+            Game.EventSystem.UnRegisterEvent(EventIdType.FinalResult, this.finalResult);
+
             //Game.EventSystem.UnRegisterEvent(EventIdType.TriggerAera, new EventProxy(TriggerArea));
         }
 
@@ -201,6 +253,14 @@ namespace ETModel
             base.Dispose();
             
             this._canFllowPigCom.Dispose();
+
+            if (this.cancel != null)
+            {
+                this.cancel.Cancel();
+                this.cancel.Dispose();
+                this.cancel = null;
+            }
+            
             
             RemoveListener();
         }

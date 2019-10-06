@@ -93,6 +93,11 @@
         public const string NextDialog = "NextDialog";
         
         public const string ChildHit = "ChildHit";
+        
+        /// <summary>
+        /// 结局
+        /// </summary>
+        public const string FinalResult = "FinalResult";
 
 
         //public const string DialogAera = "DialogAera";

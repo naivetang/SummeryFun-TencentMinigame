@@ -19,11 +19,34 @@ namespace ETModel
 		public Unit MyUnit;
 		
 		private readonly Dictionary<long, Unit> idUnits = new Dictionary<long, Unit>();
-
+        
 		public void Awake()
 		{
 			Instance = this;
+            
+            this.AddListener();
 		}
+
+        private EventProxy finalResult;
+
+        void AddListener()
+        {
+            this.finalResult = new EventProxy(this.FinalResult);
+            
+            Game.EventSystem.RegisterEvent(EventIdType.FinalResult, this.finalResult);
+        }
+
+        void RemoveListener()
+        {
+            Game.EventSystem.UnRegisterEvent(EventIdType.FinalResult, this.finalResult);
+        }
+
+        void FinalResult(List<object> list)
+        {
+            this.MyUnit = null;
+            
+            this.idUnits.Clear();
+        }
 
 		public override void Dispose()
 		{
@@ -39,6 +62,8 @@ namespace ETModel
 			}
 
 			this.idUnits.Clear();
+            
+            this.RemoveListener();
 
 			Instance = null;
 		}

@@ -42,7 +42,7 @@ namespace ETModel
 
             Game.EventSystem.Run<int>(EventIdType.CompleteTask, this.triggerId);
 
-            this.EndtheGame();
+            this.EndtheGame().Coroutine();
            
         }
 
@@ -93,14 +93,18 @@ namespace ETModel
 
             this.scene1.GetComponent<CanvasGroup>().DOFade(0f, 2f);
 
-            Game.Scene.GetComponent<UIComponent>().RemoveUI(UIType.UIResultScene);
+            
 
 
 
             await timerComponent.WaitAsync((long)(2 * 1000));
 
+            
 
-            this.CloseAll();
+            // 回到主界面
+            Game.EventSystem.Run(EventIdType.FinalResult);
+            
+            this.CloseAll().Coroutine();
 
             //this.scene3.SetActive(false);
         }
@@ -108,15 +112,18 @@ namespace ETModel
 
         async ETVoid CloseAll()
         {
-            Game.Scene.GetComponent<UIComponent>().RemoveUI(UIType.UIMap);
-
             UIFactory.Create<UIStartComponent>(ViewLayer.UIPopupLayer, UIType.UIStart).Coroutine();
+
+            Game.Scene.GetComponent<UIComponent>().RemoveUI(UIType.UIResultScene);
+
+            Game.Scene.GetComponent<UIComponent>().RemoveUI(UIType.UIMap);
+           
 
             Game.Scene.GetComponent<UIComponent>().RemoveUI(UIType.UIMain);
 
             Game.Scene.GetComponent<UIComponent>().RemoveUI(UIType.UIResultScene);
 
-
+            await ETTask.CompletedTask;
 
         }
         //public override void Dispose()

@@ -14,7 +14,12 @@ namespace ETModel
         {
             // 移出CG
             Game.Scene.GetComponent<UIComponent>().RemoveUI(UIType.UICG);
-            
+
+            // tianjia
+            Unit player = Game.Scene.GetComponent<UnitComponent>().Get(-1);
+            player.GameObject.GetComponent<ReferenceCollector>().Get<GameObject>("Animator").AddComponent<UIAutoSetDepth>();
+
+
             this.ForceGuide().Coroutine();
         }
 

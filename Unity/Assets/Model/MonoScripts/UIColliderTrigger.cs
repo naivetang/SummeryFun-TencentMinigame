@@ -31,7 +31,7 @@ namespace ETModel
 
         private void OnTriggerEnter2D(UnityEngine.Collider2D collision)
         {
-            if(this.onTriggerEnter2D != null)
+            if (this.onTriggerEnter2D != null)
                 this.onTriggerEnter2D.Invoke(collision);
         }
 
