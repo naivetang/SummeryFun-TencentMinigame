@@ -1,0 +1,41 @@
+
+pigbehind animi.png
+size: 366,220
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+b-head
+  rotate: false
+  xy: 197, 101
+  size: 163, 117
+  orig: 165, 119
+  offset: 1, 1
+  index: -1
+b-leftleg
+  rotate: false
+  xy: 252, 14
+  size: 51, 85
+  orig: 51, 85
+  offset: 0, 0
+  index: -1
+b-rightleg
+  rotate: false
+  xy: 197, 11
+  size: 53, 88
+  orig: 53, 88
+  offset: 0, 0
+  index: -1
+b-tail
+  rotate: false
+  xy: 305, 54
+  size: 59, 45
+  orig: 61, 47
+  offset: 1, 1
+  index: -1
+body
+  rotate: true
+  xy: 2, 2
+  size: 216, 193
+  orig: 218, 195
+  offset: 1, 1
+  index: -1
