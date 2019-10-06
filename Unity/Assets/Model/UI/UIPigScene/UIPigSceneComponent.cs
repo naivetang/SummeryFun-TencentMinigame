@@ -201,6 +201,12 @@ namespace ETModel
 
         void HineTriggerEnter2D(GameObject gameobject, Collider2D collider2D)
         {
+            if (!collider2D.gameObject.tag.Equals("youzi"))
+            {
+                return;
+            }
+            
+            
             gameobject.GetComponent<CanvasGroup>().DOFade(0.4f, 0);
                        
             this.stayHine = gameobject;
@@ -208,6 +214,11 @@ namespace ETModel
 
         void HineTriggerExit2D(GameObject gameobject, Collider2D collider2D)
         {
+            if (!collider2D.gameObject.tag.Equals("youzi"))
+            {
+                return;
+            }
+
             gameobject.GetComponent<CanvasGroup>().DOFade(0f, 0);
 
             this.stayHine = null;
