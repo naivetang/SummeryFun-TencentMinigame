@@ -33,6 +33,10 @@ namespace ETModel
 
         private GameObject dialogPig;
 
+        private GameObject dialogArea;
+
+        private GameObject followBubble;
+
         private int triggerId = 3002;
 
         private Transform player;
@@ -63,7 +67,11 @@ namespace ETModel
             ReferenceCollector rc = this.GameObject.GetComponent<ReferenceCollector>();
 
             dialogPig = rc.Get<GameObject>("DialogPig");
-            
+
+            dialogArea = this.GameObject.Get<GameObject>("DialogArea");
+
+            followBubble = this.GameObject.Get<GameObject>("FollowBubble");
+
             this.topButton = rc.Get<GameObject>("DialogPrompt").GetComponent<Button>();
 
             this.GameObject.SetActive(false);
@@ -99,7 +107,11 @@ namespace ETModel
         void TopBtnClick()
         {
             this.isFllowed = true;
-            
+
+            this.followBubble.SetActive(true);
+
+            this.dialogArea.SetActive(false);
+                                  
             this.topButton.gameObject.SetActive(false);
         }
 
