@@ -73,6 +73,8 @@ namespace ETModel
 
         public void Awake()
         {
+            hadShow = false;
+
             ReferenceCollector rc = this.GetParent<UIBase>().GameObject.GetComponent<ReferenceCollector>();
 
             this.drawscene2 = rc.Get<GameObject>("drawscene2");
