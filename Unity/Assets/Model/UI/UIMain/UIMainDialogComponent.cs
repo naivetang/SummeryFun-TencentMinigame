@@ -18,7 +18,7 @@ namespace ETModel
     {
 
         /// <summary>
-        /// 对话组开始的id
+        /// 对话组上一个对话
         /// </summary>
         private int lastDialogId;
         /// <summary>
@@ -71,8 +71,25 @@ namespace ETModel
         {
             //this.currentDialogId;
 
+            //关闭上一句
+
+
+            DialogConfig lastdialogConfig = Game.Scene.GetComponent<ConfigComponent>().Get(typeof(DialogConfig), this.lastDialogId) as DialogConfig;
+            Unit lasyUnit = Game.Scene.GetComponent<UnitComponent>().Get(lastdialogConfig.RoleId);
+            UnityEngine.GameObject lastDialogGo = lasyUnit.GameObject.GetComponent<ReferenceCollector>().Get<GameObject>("UIDialog");
+
+            if (lastDialogGo != null)
+                lastDialogGo.GetComponent<DialogTextCtl>().CloseDialog();
+
+            if (this.currentDialogId == -1)
+            {
+                return;
+            }
+
+            // 播放下一句
+            
             DialogConfig dialogConfig = Game.Scene.GetComponent<ConfigComponent>().Get(typeof (DialogConfig), this.currentDialogId) as DialogConfig;
-            DialogConfig lastdialogConfig = Game.Scene.GetComponent<ConfigComponent>().Get(typeof (DialogConfig), this.lastDialogId) as DialogConfig;
+            
 
             if (dialogConfig == null)
             {
@@ -83,12 +100,12 @@ namespace ETModel
             }
 
             Unit unit = Game.Scene.GetComponent<UnitComponent>().Get(dialogConfig.RoleId);
-            Unit lasyUnit = Game.Scene.GetComponent<UnitComponent>().Get(lastdialogConfig.RoleId);
+            
 
             UnityEngine.GameObject dialogGo = unit.GameObject.GetComponent<ReferenceCollector>().Get<GameObject>("UIDialog");
-            UnityEngine.GameObject lastDialogGo = lasyUnit.GameObject.GetComponent<ReferenceCollector>().Get<GameObject>("UIDialog");
+            
 
-            DialogShowText(lastDialogGo,dialogGo, dialogConfig.Text, dialogConfig.ShowTime, dialogConfig.NextId != -1);
+            DialogShowText(dialogGo, dialogConfig.Text, dialogConfig.ShowTime, dialogConfig.NextId != -1);
 
 
             this.lastDialogId = this.currentDialogId;
@@ -106,19 +123,29 @@ namespace ETModel
                 Log.Info("结束对话");
                 
                 Game.EventSystem.Run(EventIdType.CompleteDialog, this.lastDialogId);
-                
-                this.GameObject.SetActive(false);
+
+                this.Wait3SAutoHide().Coroutine();
             }
         }
 
-        void DialogShowText(GameObject lastDialog,GameObject dialogGo, string text, float closeTime, bool hasNext)
+
+        async ETVoid Wait3SAutoHide()
+        {
+            TimerComponent timer = Game.Scene.GetComponent<TimerComponent>();
+
+            await timer.WaitAsync(3 * 1000);
+
+            if (!this.IsDisposed && this.btn.gameObject.activeInHierarchy)
+            {
+                this.btn.gameObject.SetActive(false);
+            }
+        }
+
+        void DialogShowText(GameObject dialogGo, string text, float closeTime, bool hasNext)
         {
             Log.Info("对话内容：" + text);
 
             //GameObject textGo = dialogGo.GetComponent<ReferenceCollector>().Get<GameObject>("TextContext");
-            
-            if(lastDialog != null)
-                lastDialog.GetComponent<DialogTextCtl>().CloseDialog();
 
             dialogGo.SetActive(true);
 
@@ -145,12 +172,7 @@ namespace ETModel
 
 
                 return;
-
-                this.lastDialogId = dialogId;
                 
-                currentDialogId = dialogId;
-
-                this.GameObject.SetActive(true);
             }
 
             // 离开对话区域
@@ -161,9 +183,7 @@ namespace ETModel
                 
                 return;
                 
-                this.currentDialogId = 0;
 
-                this.GameObject.SetActive(false);
             }
 
         }
