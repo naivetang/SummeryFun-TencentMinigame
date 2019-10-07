@@ -117,6 +117,8 @@ namespace ETModel
 
                             this._animation.skeletonDataAsset = this._rightSkeletonData;
 
+                            this._animation.AnimationState.SetAnimation(this._trackIndex, this._walkAnimation, true);
+
                             isRight(true);
 
                             this._animation.Initialize(true);
@@ -131,7 +133,9 @@ namespace ETModel
                         {
 
                             this._animation.skeletonDataAsset = this._leftSkeletonData;
-                            
+
+                            this._animation.AnimationState.SetAnimation(this._trackIndex, this._walkAnimation, true);
+
                             isRight(false);
 
                             this._animation.Initialize(true);
@@ -153,7 +157,9 @@ namespace ETModel
                         {
 
                             this._animation.skeletonDataAsset = this._upSkeletonData;
-                            
+
+                            this._animation.AnimationState.SetAnimation(this._trackIndex, this._walkAnimation, true);
+
                             isRight(false);
 
                             this._animation.Initialize(true);
@@ -168,7 +174,9 @@ namespace ETModel
                         {
 
                             this._animation.skeletonDataAsset = this._downSkeletonData;
-                            
+
+                            this._animation.AnimationState.SetAnimation(this._trackIndex, this._walkAnimation, true);
+
                             isRight(false);
 
                             this._animation.Initialize(true);

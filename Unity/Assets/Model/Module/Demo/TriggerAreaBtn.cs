@@ -114,8 +114,36 @@ namespace ETModel
         public void Show()
         {
             this.GameObject.SetActive(true);
+            
+            // 猪关
+            if (this.config.Id == 3003 && !hasFinish)
+            {
+                
+                Button btn = this.GameObject.GetComponent<UINextButton>();
+                
+                if (Game.Scene.GetComponent<UnitComponent>().Get(1020) == null)
+                {
+                    this.multImage.SetSprite(2);
 
-            this.multImage.SetSprite(this.hasFinish? 1 : 0);
+
+                    btn.onClick.RemoveAllListeners();
+                }
+                else
+                {
+                    this.multImage.SetSprite(0);
+
+
+                    btn.onClick.RemoveAllListeners();
+                    
+                    btn.onClick.AddListener(this.OnBtnClick);
+                }
+
+                return;
+            }
+
+            this.multImage.SetSprite(this.hasFinish ? 1 : 0);
+
+            
         }
 
         public void Hide()

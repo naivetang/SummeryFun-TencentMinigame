@@ -129,6 +129,9 @@ namespace ETModel
 
         async void LoginButOnClick()
         {
+
+
+           //UIFactory.Create<UIPigSceneComponent>(ViewLayer.UIPopupLayer, UIType.UIPigScene);
             Log.Debug("login click");
             
             Log.Debug("用户名：" + this.userName.text);
