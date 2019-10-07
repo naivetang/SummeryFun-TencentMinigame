@@ -3,11 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using DG.Tweening;
+using ILRuntime.Runtime;
+using Spine;
+using Spine.Unity;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+
 
 namespace ETModel
 {
@@ -19,6 +24,19 @@ namespace ETModel
             self.Awake();
         }
     }
+
+
+    [ObjectSystem]
+    public class UIPigUpdateSystem : UpdateSystem<UIPigSceneComponent>
+    {
+
+
+        public override void Update(UIPigSceneComponent self)
+        {
+            self.Update();
+        }
+    }
+
 
     public class UIPigSceneComponent : Component
     {
@@ -46,6 +64,12 @@ namespace ETModel
 
         private AudioSource audioWalk;
 
+        private GameObject tishiDialog;
+
+        private bool hadShow;
+
+        private CancellationTokenSource dialogCancelSource;
+
 
         public void Awake()
         {
@@ -70,7 +94,17 @@ namespace ETModel
             this.audioSuccess = rc.Get<GameObject>("hine").GetComponent<AudioSource>();
 
             this.audioWalk = rc.Get<GameObject>("Audiowalk").GetComponent<AudioSource>();
-            
+
+            this.tishiDialog = rc.Get<GameObject>("tishiDialog");
+
+            UIPointHandler pointHandler = this.pigAnimator.GetComponent<UIPointHandler>();
+
+            this.tishiDialog.SetActive(false);
+
+            this.dialogCancelSource = new CancellationTokenSource();
+
+            Wait5sToShowPromptDialog(this.dialogCancelSource.Token).Coroutine();
+
             this.init();
             
 
@@ -80,7 +114,85 @@ namespace ETModel
            
         }
 
-        void init()
+
+        void PointDown(PointerEventData data)
+        {
+
+            if (!this.tishiDialog.activeSelf)
+            {
+                this.ShowTishi();
+            }
+        }
+
+        void PointUp(PointerEventData data)
+        {
+
+        }
+
+        /// <summary>dia
+        /// 等5s后自动弹提示
+        /// </summary>
+        /// <returns></returns>
+        async ETVoid Wait5sToShowPromptDialog(CancellationToken token)
+        {
+            TimerComponent timer = Game.Scene.GetComponent<TimerComponent>();
+
+            await timer.WaitAsync(3 * 1000, token);
+
+            if (this.IsDisposed || this.tishiDialog.activeSelf || this.hadShow)
+                return;
+
+
+            this.ShowTishi();
+
+            this.Wait3sToHide().Coroutine();
+        }
+
+        void ShowTishi()
+        {
+            this.hadShow = true;
+
+            this.tishiDialog.SetActive(true);
+        }
+
+        async ETVoid Wait3sToHide()
+        {
+            TimerComponent timer = Game.Scene.GetComponent<TimerComponent>();
+
+            await timer.WaitAsync(3 * 1000);
+
+            if (this.IsDisposed)
+                return;
+
+            if (this.tishiDialog != null)
+            {
+                this.tishiDialog.SetActive(false);
+            }
+        }
+
+        public void Update()
+        {
+            if (!this.hadShow)
+            {
+                CheckClick();
+            }
+        }
+
+
+        public void CheckClick()
+        {
+            if (Input.GetMouseButtonDown(0) && this.dialogCancelSource != null)
+            {
+                this.dialogCancelSource.Cancel();
+
+                this.dialogCancelSource.Dispose();
+
+                this.dialogCancelSource = null;
+            }
+        }
+
+
+         void init()
         {
             this.child2.SetActive(false);
 
@@ -93,6 +205,7 @@ namespace ETModel
             this.AddListener();
             
         }
+
 
         private EventProxy pigIntoProxy;
         

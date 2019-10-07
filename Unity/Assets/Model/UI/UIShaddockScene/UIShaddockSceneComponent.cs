@@ -177,9 +177,10 @@ namespace ETModel
             this.rightDialog = rc.Get<GameObject>("RightDialog");
 
             this.audioSuccess = rc.Get<GameObject>("LeftChild").GetComponent<ReferenceCollector>().Get<GameObject>("AudioSuccess").GetComponent<AudioSource>();
-            
-            
-            
+
+
+            this.tishiDialog.SetActive(false);
+
             this.dialogCancelSource = new CancellationTokenSource();
 
             Wait5sToShowPromptDialog(this.dialogCancelSource.Token).Coroutine();
@@ -197,7 +198,7 @@ namespace ETModel
         {
             TimerComponent timer = Game.Scene.GetComponent<TimerComponent>();
 
-            await timer.WaitAsync(5 * 1000, token);
+            await timer.WaitAsync(3 * 1000, token);
             
             if (this.IsDisposed || this.tishiDialog.activeSelf || this.hadShow)
                 return;
