@@ -39,6 +39,9 @@ namespace ETModel
         private GameObject cancel;
 
         private int triggerId = 3003;
+        
+        private GameObject pigAnimator;
+
 
         public void Awake()
         {
@@ -57,6 +60,8 @@ namespace ETModel
             this.inityouziPosition = this.youzi.transform.localPosition;
 
             this.cancel = rc.Get<GameObject>("Cancel");
+
+            this.pigAnimator = rc.Get<GameObject>("pigAnimator");
 
             this.init();
             
@@ -77,11 +82,23 @@ namespace ETModel
 
             RegistDrageEvent();
             
+            this.AddListener();
+            
         }
 
+        private EventProxy pigIntoProxy;
+        
         void AddListener()
         {
+            
+            this.pigIntoProxy = new EventProxy(this.PigIntoStyFinish_Close);
+            
+            Game.EventSystem.RegisterEvent(EventIdType.PigIntoStyFinish, this.pigIntoProxy);
+        }
 
+        void RemoveListener()
+        {
+            Game.EventSystem.UnRegisterEvent(EventIdType.PigIntoStyFinish, this.pigIntoProxy);
         }
 
         async ETVoid CollectAndShow()
@@ -230,6 +247,8 @@ namespace ETModel
 
         }
 
+        
+
         async ETVoid success()
         {
             this.child1.SetActive(false);
@@ -246,6 +265,17 @@ namespace ETModel
 
             Game.EventSystem.Run<int>(EventIdType.CompleteTask, this.triggerId);
 
+            pigAnimator.GetComponent<PigIntoSty>().enabled = true;
+        }
+
+
+        void PigIntoStyFinish_Close(List<object> list)
+        {
+            PigIntoStyFinish_Close().Coroutine();
+        }
+
+        async ETVoid PigIntoStyFinish_Close()
+        {
             TimerComponent timer = Game.Scene.GetComponent<TimerComponent>();
 
             await timer.WaitAsync((long)(2 * 1000));
@@ -290,6 +320,8 @@ namespace ETModel
         public override void Dispose()
         {
             base.Dispose();
+            
+            this.RemoveListener();
 
             Unit player = Game.Scene.GetComponent<UnitComponent>().MyUnit;
 

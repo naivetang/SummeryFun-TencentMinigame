@@ -98,6 +98,12 @@
         /// 结局
         /// </summary>
         public const string FinalResult = "FinalResult";
+        
+
+        /// <summary>
+        /// 小猪进猪圈
+        /// </summary>
+        public const string PigIntoStyFinish = "PigIntoStyFinish";
 
 
         //public const string DialogAera = "DialogAera";

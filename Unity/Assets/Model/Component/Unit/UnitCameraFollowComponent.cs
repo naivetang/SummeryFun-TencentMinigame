@@ -33,7 +33,7 @@ namespace ETModel
 
         private float minY = 0;
 
-        private float maxY = 4000;
+        private float maxY = 1400;
         public void Awake()
         {
             this.uiCamera = Game.Scene.GetComponent<UIComponent>().Camera;
