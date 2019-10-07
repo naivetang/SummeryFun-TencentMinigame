@@ -54,3 +54,5 @@ MonoBehaviour:
     gameObject: {fileID: 4900000, guid: 5e08fb6d2a14e754cba6240e88ecf99f, type: 3}
   - key: TriggerAreaConfig
     gameObject: {fileID: 4900000, guid: 3c84730f2f2fd484e9d6a523eb8c48ec, type: 3}
+  - key: BookDetails
+    gameObject: {fileID: 4900000, guid: 73dcb32ee78e3fa4b85ccfd1bbe9ac1e, type: 3}

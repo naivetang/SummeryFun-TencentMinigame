@@ -1,8 +1,10 @@
 using System.Collections.Generic;
+using System.Threading;
 using DG.Tweening;
 using DG.Tweening.Core.Easing;
 using ILRuntime.Runtime;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace ETModel
@@ -41,6 +43,8 @@ namespace ETModel
         private GameObject onePagePrompt;
         private GameObject noFinishPrompt;
 
+        private UIBookText bookText;
+
         private int currentPage = 0;
 
         //public static List<bool> hadOpenPage = new List<bool>(20){true};
@@ -71,6 +75,12 @@ namespace ETModel
             
             this.cancel = rc.Get<GameObject>("Cancel").GetComponent<Button>();
             
+            this.bookText = rc.Get<GameObject>("PointDown").GetComponent<UIBookText>();
+
+            this.bookText.gameObject.SetActive(true);
+            
+            this.bookText.gameObject.GetComponent<CanvasGroup>().alpha = 0f;
+            
             this.onePagePrompt = rc.Get<GameObject>("Prompt");
 
             this.onePagePrompt.SetActive(false);
@@ -91,7 +101,62 @@ namespace ETModel
             //this.animation = this.context.GetComponent<DOTweenAnimation>();
             
             this.Opened();
+            
+            this.Addlistener();
         }
+
+
+        void Addlistener()
+        {
+            this.pictures.GetComponent<UIPointHandler>().RegisterPointDown(this.PointDown);
+            this.pictures.GetComponent<UIPointHandler>().RegisterPointUp(this.PointUp);
+        }
+
+        private CancellationTokenSource cancellation = new CancellationTokenSource();
+
+        void PointDown(PointerEventData p)
+        {
+            if (this.currentPage == 0)
+                return;
+
+            this.pictures.GetComponent<CanvasGroup>().DOFade(0.1f, 1).SetEase(Ease.OutExpo);
+            
+            this.bookText.Show(this.currentPage);
+            
+            this.bookText.gameObject.GetComponent<CanvasGroup>().alpha = 0f;
+
+            this.bookText.gameObject.GetComponent<CanvasGroup>().DOFade(1, 1).SetEase(Ease.InExpo);
+        }
+
+        void PointUp(PointerEventData p)
+        {
+            if (this.currentPage == 0)
+                return;
+
+            this.pictures.GetComponent<CanvasGroup>().DOFade(1f, 1).SetEase(Ease.InExpo);
+
+            this.bookText.gameObject.GetComponent<CanvasGroup>().DOFade(0, 1).SetEase(Ease.OutExpo);
+        }
+
+
+        async ETVoid PointDown(CancellationToken token)
+        {
+            TimerComponent timer = Game.Scene.GetComponent<TimerComponent>();
+
+            while (true)
+            {
+                
+                
+                await timer.WaitAsync((long) (0.1f * 1000), token);
+                
+            }
+        }
+
+        async ETVoid PointUp()
+        {
+            TimerComponent timer = Game.Scene.GetComponent<TimerComponent>();
+        }
+
 
 
         void Opened()

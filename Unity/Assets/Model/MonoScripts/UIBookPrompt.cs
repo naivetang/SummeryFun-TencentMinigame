@@ -23,19 +23,21 @@ namespace ETModel
         private UIBookComponent uibook;
         void Awake()
         {
+            
+        }
+
+        private void Start()
+        {
             this.image = this.GetComponent<ReferenceCollector>().Get<GameObject>("image").GetComponent<UIMultImage>();
 
             this.btn = this.GetComponent<UINextButton>();
-            
+
             this.btn.onClick.AddListener(this.BtnClick);
 
             uibook = Game.Scene.GetComponent<UIComponent>().GetUI(UIType.UIBook).GetComponent<UIBookComponent>();
 
             this.finish = this.uibook.hasOpenedPage(this.pageIndex);
-        }
 
-        private void Start()
-        {
             this.image.SetSprite(this.finish ? 1 : 0);
         }
 
