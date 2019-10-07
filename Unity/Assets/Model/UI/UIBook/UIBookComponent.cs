@@ -37,6 +37,9 @@ namespace ETModel
         private Button NextBtn;
         
         private Button cancel;
+        
+        private GameObject onePagePrompt;
+        private GameObject noFinishPrompt;
 
         private int currentPage = 0;
 
@@ -68,6 +71,14 @@ namespace ETModel
             
             this.cancel = rc.Get<GameObject>("Cancel").GetComponent<Button>();
             
+            this.onePagePrompt = rc.Get<GameObject>("Prompt");
+
+            this.onePagePrompt.SetActive(false);
+
+            this.noFinishPrompt = rc.Get<GameObject>("notFinishPrompt");
+            
+            this.noFinishPrompt.SetActive(false);
+            
             DOTweenAnimation animation = context.GetComponent<DOTweenAnimation>();
             
             easeCurve = animation.easeCurve;
@@ -93,13 +104,20 @@ namespace ETModel
             });
             
         }
-        
+
+        public bool hasOpenedPage(int index)
+        {
+            return hadOpenPage[index];
+        }
 
         public void ShowPicture(int index)
         {
             this.currentPage = index;
             
             this.pictures.SetActive(true);
+
+            
+            this.CheckPagePromptShow();
             
             UIMultImage uiMultImage = this.pictures.GetComponent<UIMultImage>();
             
@@ -130,8 +148,21 @@ namespace ETModel
             
         }
 
+        void CheckPagePromptShow()
+        {
+            this.onePagePrompt.SetActive(currentPage == 0);
+        }
+
+        public void ShowNotFinishTip()
+        {
+            this.noFinishPrompt.SetActive(true);
+        }
+
         void UpdateBtnState()
         {
+            this.PreBtn.gameObject.SetActive(false);
+            this.NextBtn.gameObject.SetActive(false);
+
             this.PreBtn.gameObject.SetActive(this.CanLeftCut());
             
             this.NextBtn.gameObject.SetActive(this.CanRightCut());
@@ -230,6 +261,12 @@ namespace ETModel
             
             this.indexText.text = this.indexArr[this.currentPage];
 
+            this.CheckPagePromptShow();
+            
+            this.UpdateBtnState();
+
+            await ETTask.CompletedTask;
+
             // CanvasGroup canvasGroup = uiMultImage.GetComponent<CanvasGroup>();
             //
             // // 0.6f内消失
@@ -238,7 +275,13 @@ namespace ETModel
             //     uiMultImage.SetSprite(this.currentPage);
             // });
         }
-        
+
+        public void CutPage(int pageIndex)
+        {
+            this.currentPage = pageIndex;
+            
+            this.CutPage().Coroutine();
+        }
        
 
         public void AddImageGo(GameObject image)
