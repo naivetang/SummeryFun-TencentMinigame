@@ -42,6 +42,10 @@ namespace ETModel
         
         private GameObject pigAnimator;
 
+        private AudioSource audioSuccess;
+
+        private AudioSource audioWalk;
+
 
         public void Awake()
         {
@@ -63,6 +67,10 @@ namespace ETModel
 
             this.pigAnimator = rc.Get<GameObject>("pigAnimator");
 
+            this.audioSuccess = rc.Get<GameObject>("hine").GetComponent<AudioSource>();
+
+            this.audioWalk = rc.Get<GameObject>("Audiowalk").GetComponent<AudioSource>();
+            
             this.init();
             
 
@@ -186,7 +194,11 @@ namespace ETModel
             // 解题成功
             if (this.stayHine != null)
             {
+                this.audioSuccess.Play();
+
                 this.success();
+
+                this.audioWalk.Play();
             }
             else
             {
@@ -277,6 +289,8 @@ namespace ETModel
         async ETVoid PigIntoStyFinish_Close()
         {
             TimerComponent timer = Game.Scene.GetComponent<TimerComponent>();
+
+            this.audioWalk.Stop();
 
             await timer.WaitAsync((long)(2 * 1000));
 
