@@ -121,9 +121,18 @@ namespace ETModel
         {
             TimerComponent timerComponent = Game.Scene.GetComponent<TimerComponent>();
 
+            if (timerComponent == null)
+            {
+                return;
+            }
+            
             while (true)
             {
                 await timerComponent.WaitAsync((long) 0.8f * 1000,token);
+
+
+                if (this.IsDisposed)
+                    return;
                 
                 this.UpdateRenderDepth();
             }
