@@ -133,9 +133,9 @@ namespace ETModel
             if (this.currentPage == 0)
                 return;
 
-            this.pictures.GetComponent<CanvasGroup>().DOFade(1f, 0.1f).SetEase(Ease.InExpo);
+            this.pictures.GetComponent<CanvasGroup>().DOFade(1f, 0.3f).SetEase(Ease.InExpo);
 
-            this.bookText.gameObject.GetComponent<CanvasGroup>().DOFade(0, 0.1f).SetEase(Ease.OutExpo);
+            this.bookText.gameObject.GetComponent<CanvasGroup>().DOFade(0, 0.3f).SetEase(Ease.OutExpo);
         }
 
 
