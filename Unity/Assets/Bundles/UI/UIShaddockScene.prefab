@@ -346,7 +346,6 @@ MonoBehaviour:
   Id: 5
   shootTimes: 2
   sixShaddock: {fileID: 0}
-  sevenShaddock: {fileID: 8221517793949620867}
 --- !u!65 &8172841396917547974
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1274,7 +1273,6 @@ MonoBehaviour:
   Id: 1
   shootTimes: 2
   sixShaddock: {fileID: 0}
-  sevenShaddock: {fileID: 0}
 --- !u!65 &3596506032532710761
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1770,7 +1768,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u513F\u7AE5\u5077\u628A<color=red>\u957F\u7AFF</color>"
+  m_Text: "\u513F\u7AE5\u5077\u628A<color=#de5449>\u957F\u7AFF</color>"
 --- !u!1 &2418505654734069849
 GameObject:
   m_ObjectHideFlags: 0
@@ -2730,7 +2728,6 @@ MonoBehaviour:
   Id: 3
   shootTimes: 2
   sixShaddock: {fileID: 0}
-  sevenShaddock: {fileID: 0}
 --- !u!65 &4638768304280982087
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2874,7 +2871,6 @@ MonoBehaviour:
   Id: 8
   shootTimes: 2
   sixShaddock: {fileID: 4432479904563665811}
-  sevenShaddock: {fileID: 0}
 --- !u!65 &2127179590316026587
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3654,7 +3650,6 @@ MonoBehaviour:
   Id: 7
   shootTimes: 2
   sixShaddock: {fileID: 4432479904563665811}
-  sevenShaddock: {fileID: 0}
 --- !u!65 &6759735645237240084
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4776,7 +4771,6 @@ MonoBehaviour:
   Id: 2
   shootTimes: 2
   sixShaddock: {fileID: 0}
-  sevenShaddock: {fileID: 0}
 --- !u!65 &8246243666669739101
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4971,7 +4965,6 @@ MonoBehaviour:
   Id: 4
   shootTimes: 2
   sixShaddock: {fileID: 0}
-  sevenShaddock: {fileID: 0}
 --- !u!65 &8214111289161205395
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6780,7 +6773,6 @@ MonoBehaviour:
   Id: 6
   shootTimes: 2
   sixShaddock: {fileID: 0}
-  sevenShaddock: {fileID: 8221517793949620867}
 --- !u!65 &6264185899809705203
 BoxCollider:
   m_ObjectHideFlags: 0

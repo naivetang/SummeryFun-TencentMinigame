@@ -349,6 +349,18 @@ MonoBehaviour:
   _upSkeletonData: {fileID: 11400000, guid: 36a7d426da2728b4684afc8bbab20aaf, type: 2}
   _leftSkeletonData: {fileID: 11400000, guid: 7e089aa2d752383469b10d06c6b9f6c4, type: 2}
   moveTime: 5
+--- !u!114 &2627351837140223741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1113760324586500891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8a3cf1f4b1e431f93e88e17aaaa1b8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1849944392710980829
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,6 +697,8 @@ MonoBehaviour:
     gameObject: {fileID: 1113760324586500891}
   - key: Audiowalk
     gameObject: {fileID: 6397601702459677705}
+  - key: tishiDialog
+    gameObject: {fileID: 8076613580960397008}
 --- !u!1 &2623769647184798444
 GameObject:
   m_ObjectHideFlags: 0
@@ -1941,7 +1955,7 @@ PrefabInstance:
     - target: {fileID: 3639789238422000621, guid: df73797af48c85447a1f1d757974d78e,
         type: 3}
       propertyPath: m_RaycastTarget
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3639789238422000621, guid: df73797af48c85447a1f1d757974d78e,
         type: 3}
@@ -1960,15 +1974,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df73797af48c85447a1f1d757974d78e, type: 3}
---- !u!1 &1113760324586500891 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1113760325549885257, guid: df73797af48c85447a1f1d757974d78e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1186329682}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &6539341358399705813 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6539341359446926983, guid: df73797af48c85447a1f1d757974d78e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1186329682}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1113760324586500891 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1113760325549885257, guid: df73797af48c85447a1f1d757974d78e,
     type: 3}
   m_PrefabInstance: {fileID: 1186329682}
   m_PrefabAsset: {fileID: 0}
