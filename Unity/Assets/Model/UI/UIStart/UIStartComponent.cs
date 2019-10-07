@@ -145,6 +145,8 @@ namespace ETModel
                 this.userName.text = "";
                 this.passWord.text = "";
 
+
+                //UIFactory.Create<UIShaddockSceneComponent>(ViewLayer.UIPopupLayer, UIType.UIShaddockScene).Coroutine();
                 //UIFactory.Create<UIPigSceneComponent>(ViewLayer.UIPopupLayer, UIType.UIPigScene);
             }
             // else if (rsp.Error == (int)LoginRsp.Types.ErrorCode.LoginNotRegistered)
@@ -160,7 +162,7 @@ namespace ETModel
             // LoginHelper.OnLoginAsync(session, this.userName.text, this.passWord.text).Coroutine();
             // TaskUpdateHelper.OnTaskUpdateAsync(session).Coroutine();
             // TaskQueryHelper.OnTaskQueryAsync(session).Coroutine();
-            //UIFactory.Create<UIShaddockSceneComponent>(ViewLayer.UIPopupLayer, UIType.UIShaddockScene).Coroutine();
+
 
         }
 

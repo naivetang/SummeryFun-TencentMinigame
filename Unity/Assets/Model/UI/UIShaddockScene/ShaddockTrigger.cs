@@ -44,6 +44,7 @@ namespace ETModel
         [SerializeField]
         private ShaddockTrigger sixShaddock;
 
+
         private readonly string drop = "drop";
         private readonly string hitten = "hitten";
         private readonly string normal = "normal";
@@ -127,7 +128,7 @@ namespace ETModel
                     //判定通关完成
                     isComplete = true;
 
-                    if (ID >= 7)
+                    if (ID >= 7 )
                     {
                         // 让第六个掉下来
 

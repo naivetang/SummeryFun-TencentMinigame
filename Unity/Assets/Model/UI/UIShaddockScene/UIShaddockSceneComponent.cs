@@ -72,6 +72,9 @@ namespace ETModel
 
         private Vector3 stickInitPos;
 
+        private AudioSource audioSuccess;
+
+
         /// <summary>
         /// 小苗被点击后显示这张图
         /// </summary>
@@ -172,6 +175,8 @@ namespace ETModel
             this.middleDialog = rc.Get<GameObject>("MiddleDialog");
 
             this.rightDialog = rc.Get<GameObject>("RightDialog");
+
+            this.audioSuccess = rc.Get<GameObject>("LeftChild").GetComponent<ReferenceCollector>().Get<GameObject>("AudioSuccess").GetComponent<AudioSource>();
             
             
             
@@ -297,7 +302,9 @@ namespace ETModel
                 Log.Info("解密成功");
 
                 Game.EventSystem.UnRegisterEvent(EventIdType.ShaddockStickChild, this.stayChild);
-                
+
+                audioSuccess.Play();
+
                 this.leftChild.UpdateState(ChildState.Ready);
 
                 this.middleChild.UpdateState(ChildState.Ready);
@@ -655,6 +662,8 @@ namespace ETModel
 
                 rightDialog.GetComponent<DialogTextCtl>().CloseDialog( 0f);
 
+                this.rightChild.UpdateState(ChildState.Ready);
+
                 this.cancel.gameObject.SetActive(false);
                 
                 this.PlayCompleteAni().Coroutine();
@@ -669,7 +678,7 @@ namespace ETModel
             TimerComponent timer = Game.Scene.GetComponent<TimerComponent>();
 
             // 定格1s
-            await timer.WaitAsync((long)3 * 1000);
+            await timer.WaitAsync((long)1 * 1000);
 
 
             // 收进书本
