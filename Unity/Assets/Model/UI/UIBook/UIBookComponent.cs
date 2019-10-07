@@ -107,6 +107,8 @@ namespace ETModel
 
         public bool hasOpenedPage(int index)
         {
+            if (index < 0 || index > hadOpenPage.Count)
+                return false;
             return hadOpenPage[index];
         }
 
