@@ -119,13 +119,13 @@ namespace ETModel
             if (this.currentPage == 0)
                 return;
 
-            this.pictures.GetComponent<CanvasGroup>().DOFade(0.1f, 1).SetEase(Ease.OutExpo);
+            this.pictures.GetComponent<CanvasGroup>().DOFade(0.1f, 0.1f).SetEase(Ease.OutExpo);
             
             this.bookText.Show(this.currentPage);
             
             this.bookText.gameObject.GetComponent<CanvasGroup>().alpha = 0f;
 
-            this.bookText.gameObject.GetComponent<CanvasGroup>().DOFade(1, 1).SetEase(Ease.InExpo);
+            this.bookText.gameObject.GetComponent<CanvasGroup>().DOFade(1, 0.1f).SetEase(Ease.InExpo);
         }
 
         void PointUp(PointerEventData p)
@@ -133,9 +133,9 @@ namespace ETModel
             if (this.currentPage == 0)
                 return;
 
-            this.pictures.GetComponent<CanvasGroup>().DOFade(1f, 1).SetEase(Ease.InExpo);
+            this.pictures.GetComponent<CanvasGroup>().DOFade(1f, 0.1f).SetEase(Ease.InExpo);
 
-            this.bookText.gameObject.GetComponent<CanvasGroup>().DOFade(0, 1).SetEase(Ease.OutExpo);
+            this.bookText.gameObject.GetComponent<CanvasGroup>().DOFade(0, 0.1f).SetEase(Ease.OutExpo);
         }
 
 
