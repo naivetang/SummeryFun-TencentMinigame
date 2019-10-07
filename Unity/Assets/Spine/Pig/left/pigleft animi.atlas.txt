@@ -1,0 +1,55 @@
+
+pigleft animi.png
+size: 628,178
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+l-1leg
+  rotate: true
+  xy: 399, 15
+  size: 51, 93
+  orig: 51, 93
+  offset: 0, 0
+  index: -1
+l-2leg
+  rotate: false
+  xy: 559, 74
+  size: 61, 102
+  orig: 61, 102
+  offset: 0, 0
+  index: -1
+l-3leg
+  rotate: true
+  xy: 494, 22
+  size: 44, 87
+  orig: 44, 87
+  offset: 0, 0
+  index: -1
+l-4leg
+  rotate: true
+  xy: 399, 68
+  size: 108, 158
+  orig: 108, 158
+  offset: 0, 0
+  index: -1
+l-body
+  rotate: false
+  xy: 2, 2
+  size: 240, 174
+  orig: 246, 174
+  offset: 0, 0
+  index: -1
+l-head
+  rotate: false
+  xy: 244, 21
+  size: 153, 155
+  orig: 155, 157
+  offset: 1, 1
+  index: -1
+l-tail
+  rotate: true
+  xy: 583, 14
+  size: 58, 43
+  orig: 60, 45
+  offset: 1, 1
+  index: -1

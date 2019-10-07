@@ -1,0 +1,48 @@
+
+pigfront animi.png
+size: 407,177
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+f-body
+  rotate: true
+  xy: 2, 2
+  size: 173, 187
+  orig: 173, 187
+  offset: 0, 0
+  index: -1
+f-head
+  rotate: true
+  xy: 191, 3
+  size: 172, 124
+  orig: 174, 126
+  offset: 1, 1
+  index: -1
+f-leftleg
+  rotate: false
+  xy: 317, 22
+  size: 48, 67
+  orig: 48, 67
+  offset: 0, 0
+  index: -1
+f-leg4
+  rotate: false
+  xy: 367, 19
+  size: 24, 70
+  orig: 24, 70
+  offset: 0, 0
+  index: -1
+f-rightleg
+  rotate: false
+  xy: 317, 91
+  size: 60, 84
+  orig: 182, 293
+  offset: 113, 0
+  index: -1
+f-tail
+  rotate: true
+  xy: 379, 130
+  size: 45, 26
+  orig: 47, 28
+  offset: 1, 1
+  index: -1

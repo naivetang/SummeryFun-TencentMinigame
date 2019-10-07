@@ -1,55 +1,55 @@
 
 boy behind.png
-size: 269,125
+size: 210,156
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 bag
-  rotate: true
-  xy: 129, 46
-  size: 77, 105
+  rotate: false
+  xy: 2, 47
+  size: 79, 107
   orig: 79, 107
-  offset: 1, 1
+  offset: 0, 0
   index: -1
 body
-  rotate: true
-  xy: 2, 54
-  size: 69, 125
+  rotate: false
+  xy: 83, 48
+  size: 70, 106
   orig: 70, 127
-  offset: 0, 1
+  offset: 0, 21
   index: -1
 head
   rotate: false
-  xy: 176, 2
+  xy: 91, 4
   size: 51, 42
   orig: 53, 45
   offset: 1, 2
   index: -1
 l-arm
-  rotate: false
-  xy: 236, 65
+  rotate: true
+  xy: 144, 7
   size: 31, 58
   orig: 33, 60
   offset: 1, 1
   index: -1
 l-leg
-  rotate: true
-  xy: 2, 7
-  size: 45, 85
+  rotate: false
+  xy: 155, 66
+  size: 46, 88
   orig: 46, 89
-  offset: 0, 4
+  offset: 0, 1
   index: -1
 r-arm
-  rotate: false
-  xy: 236, 10
+  rotate: true
+  xy: 155, 40
   size: 24, 53
   orig: 26, 55
   offset: 1, 1
   index: -1
 r-leg
   rotate: true
-  xy: 89, 3
-  size: 41, 85
+  xy: 2, 2
+  size: 43, 87
   orig: 43, 87
-  offset: 1, 1
+  offset: 0, 0
   index: -1
