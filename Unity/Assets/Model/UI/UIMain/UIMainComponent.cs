@@ -199,10 +199,10 @@ namespace ETModel
                     Log.Info("进入事件区域,id：" + this._currenArea.Id);
                 }
 
-                if (!string.IsNullOrEmpty(this._currenArea.EventName))
-                {
-                    Log.Info("事件名：" + this._currenArea.EventName);
-                }
+                // if (!string.IsNullOrEmpty(this._currenArea.EventName))
+                // {
+                //     Log.Info("事件名：" + this._currenArea.EventName);
+                // }
                 
                 SolveQiPao(true);
             }

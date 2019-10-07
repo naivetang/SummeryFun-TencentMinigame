@@ -97,7 +97,7 @@ namespace ETModel
 
             this.tishiDialog = rc.Get<GameObject>("tishiDialog");
 
-            UIPointHandler pointHandler = this.pigAnimator.GetComponent<UIPointHandler>();
+            
 
             this.tishiDialog.SetActive(false);
 
@@ -106,14 +106,19 @@ namespace ETModel
             Wait5sToShowPromptDialog(this.dialogCancelSource.Token).Coroutine();
 
             this.init();
-            
 
-            
+            UIPointHandler pointHandler = this.pigAnimator.GetComponent<UIPointHandler>();
+
+
+            pointHandler.RegisterPointDown(this.PointDown);
+            pointHandler.RegisterPointUp(this.PointUp);
+
 
             //this.CollectAndShow();
-           
+
         }
 
+        
 
         void PointDown(PointerEventData data)
         {
@@ -145,7 +150,7 @@ namespace ETModel
 
             this.ShowTishi();
 
-            this.Wait3sToHide().Coroutine();
+            //this.Wait3sToHide().Coroutine();
         }
 
         void ShowTishi()
