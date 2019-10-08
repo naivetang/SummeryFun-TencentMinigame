@@ -118,7 +118,8 @@ namespace ETModel
 
                 entry = this.animaton.AnimationState.SetAnimation(0, this.drop, false);
 
-                this.gameObject.transform.GetComponent<Collider>().enabled = false;
+                if(this.gameObject.transform.GetComponent<Collider>() != null)
+                    this.gameObject.transform.GetComponent<Collider>().enabled = false;
 
                 if(ID > 4)
                 {
