@@ -121,7 +121,7 @@ namespace ETModel
                 
                 Button btn = this.GameObject.GetComponent<UINextButton>();
                 
-                if (Game.Scene.GetComponent<UnitComponent>().Get(1020) == null)
+                if (!CanFllowPigComponent.isFllowed)
                 {
                     this.multImage.SetSprite(2);
 

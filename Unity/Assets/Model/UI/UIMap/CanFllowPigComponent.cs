@@ -49,7 +49,7 @@ namespace ETModel
         
         private bool completeTask;
 
-        private bool isFllowed;
+        public static bool isFllowed;
 
         private NavMeshAgent2D navAgent;
 
@@ -57,7 +57,7 @@ namespace ETModel
         
         public void Awake(GameObject gameObject)
         {
-            this.isFllowed = false;
+            isFllowed = false;
             
             this.completeTask = false;
             
@@ -88,7 +88,7 @@ namespace ETModel
 
         public void LateUpdate()
         {
-            if (this.completeTask && this.isFllowed)
+            if (this.completeTask && isFllowed)
             {
                 navAgent.destination = this.player.position;
             }
@@ -116,7 +116,7 @@ namespace ETModel
 
         void TopBtnClick()
         {
-            this.isFllowed = true;
+            isFllowed = true;
 
             this.followBubble.SetActive(true);
 
@@ -127,7 +127,7 @@ namespace ETModel
 
         void TriggerEnter(Collider2D other)
         {
-            if (!other.gameObject.transform.tag.Equals("Player") || this.isFllowed)
+            if (!other.gameObject.transform.tag.Equals("Player") || isFllowed)
                 return;
             
             //this.topButton.gameObject.SetActive(true);
@@ -135,7 +135,7 @@ namespace ETModel
 
         void TriggerExit(Collider2D other)
         {
-            if (!other.gameObject.transform.tag.Equals("Player") || this.isFllowed)
+            if (!other.gameObject.transform.tag.Equals("Player") || isFllowed)
                 return;
             
             //this.topButton.gameObject.SetActive(false);
@@ -161,7 +161,7 @@ namespace ETModel
             // 完成猪关
             else if (triggerid == this.pigTriggerId)
             {
-                this.isFllowed = false;
+                isFllowed = false;
                 
                 this.GameObject.SetActive(false);
             }
@@ -184,7 +184,7 @@ namespace ETModel
 
                 this.followBubble.SetActive(true);
 
-                this.isFllowed = true;
+                isFllowed = true;
             }
 
         }

@@ -644,7 +644,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 49
-    m_Alignment: 0
+    m_Alignment: 2
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -3829,6 +3829,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7468973573930838055}
     m_Modifications:
+    - target: {fileID: 957620302786043730, guid: 7168386f6a7892f48a82f45b9594d345,
+        type: 3}
+      propertyPath: m_Text
+      value: "\u7EE7\u7EED\u63A2\u7D22\u4EE5\u89E3\u9501\u753B\u9875"
+      objectReference: {fileID: 0}
     - target: {fileID: 6401959539525889848, guid: 7168386f6a7892f48a82f45b9594d345,
         type: 3}
       propertyPath: m_Name
@@ -3953,11 +3958,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 957620302786043730, guid: 7168386f6a7892f48a82f45b9594d345,
-        type: 3}
-      propertyPath: m_Text
-      value: "\u7EE7\u7EED\u63A2\u7D22\u4EE5\u89E3\u9501\u753B\u9875"
       objectReference: {fileID: 0}
     - target: {fileID: 7469555065394577167, guid: 7168386f6a7892f48a82f45b9594d345,
         type: 3}
@@ -4147,6 +4147,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cancel
       objectReference: {fileID: 0}
+    - target: {fileID: 879247958012190385, guid: dad3354c2caab434287127fb3236a85e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 118bec2b6fb1bfa49ba8f7dbe3f6db43,
+        type: 3}
     - target: {fileID: 2020974512592135176, guid: dad3354c2caab434287127fb3236a85e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4257,12 +4263,6 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 5007111241114713777}
-    - target: {fileID: 879247958012190385, guid: dad3354c2caab434287127fb3236a85e,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 118bec2b6fb1bfa49ba8f7dbe3f6db43,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dad3354c2caab434287127fb3236a85e, type: 3}
 --- !u!224 &6144198392397431816 stripped
@@ -4805,16 +4805,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 24fde7888e596a644a22d2533234845b,
         type: 3}
-    - target: {fileID: 6755678082961545616, guid: bec12590c2dbf9e46ae8fdd2810605fe,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 63
-      objectReference: {fileID: 0}
-    - target: {fileID: 6755678082961545616, guid: bec12590c2dbf9e46ae8fdd2810605fe,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 51
-      objectReference: {fileID: 0}
     - target: {fileID: 6831748869600358509, guid: bec12590c2dbf9e46ae8fdd2810605fe,
         type: 3}
       propertyPath: m_TargetGraphic
@@ -4839,6 +4829,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_PlayOnAwake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6755678082961545616, guid: bec12590c2dbf9e46ae8fdd2810605fe,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 63
+      objectReference: {fileID: 0}
+    - target: {fileID: 6755678082961545616, guid: bec12590c2dbf9e46ae8fdd2810605fe,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 51
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bec12590c2dbf9e46ae8fdd2810605fe, type: 3}
@@ -4885,11 +4885,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: -4565544349408904076}
     m_Modifications:
-    - target: {fileID: 4926519332354823381, guid: d24ff20ad129b0c45b7ce149f46c1f33,
-        type: 3}
-      propertyPath: m_Name
-      value: Black
-      objectReference: {fileID: 0}
     - target: {fileID: 4336889294134783270, guid: d24ff20ad129b0c45b7ce149f46c1f33,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4994,6 +4989,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4926519332354823381, guid: d24ff20ad129b0c45b7ce149f46c1f33,
+        type: 3}
+      propertyPath: m_Name
+      value: Black
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d24ff20ad129b0c45b7ce149f46c1f33, type: 3}
