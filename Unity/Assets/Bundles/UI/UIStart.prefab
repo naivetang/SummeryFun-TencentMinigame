@@ -131,7 +131,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 5805397598792739553}
   m_OnClick:
     m_PersistentCalls:
@@ -4204,8 +4204,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f081b6a302bb7474f93d53ae044dec5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _leftSkeletonData: {fileID: 11400000, guid: 6532f5f219aaf5f4783299bd08f6037f, type: 2}
-  _rightSkeletonData: {fileID: 11400000, guid: befbc5c71d473f243aa033453c3e9ac4, type: 2}
+  _leftSkeletonData: {fileID: 0}
+  _rightSkeletonData: {fileID: 0}
   _upSkeletonData: {fileID: 11400000, guid: 25f9e58894afbe640b1860f2c804ff69, type: 2}
   _downSkeletonData: {fileID: 11400000, guid: dc314385ae0a2394ca9b209b8f2c569a, type: 2}
 --- !u!1 &7080306963811565048
@@ -6095,7 +6095,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 5375124188288373717}
   m_OnClick:
     m_PersistentCalls:
