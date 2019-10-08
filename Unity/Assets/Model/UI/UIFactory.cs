@@ -31,7 +31,7 @@ namespace ETModel
             return ui;
         }
 
-        public static async ETTask<UIBase> Create<T,P>(ViewLayer layer, string prefabName, P p) where T : Component, new()
+        public static async ETTask<UIBase> Create<T,P1,P2>(ViewLayer layer, string prefabName, P1 p1,P2 p2) where T : Component, new()
         {
             await ETTask.CompletedTask;
 
@@ -46,7 +46,7 @@ namespace ETModel
 
             UIBase ui = ComponentFactory.Create<UIBase, ViewLayer, string, GameObject>(layer, prefabName, gameObject);
 
-            ui.AddComponent<T, P>(p);
+            ui.AddComponent<T, P1, P2>(p1, p2);
             
             //ui.AddComponent(typeof(T));
 

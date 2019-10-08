@@ -84,8 +84,26 @@ namespace ETModel
                 
                 if(this.config.BookIndex >= 0)
                     UIBookComponent.hadOpenPage[this.config.BookIndex] = true;
+                
+                this.UpdateTask();
             }
             //this.Hide();
+        }
+
+        void UpdateTask()
+        {
+            List<int> task = new List<int>();
+            for (int i = 0; i < UIBookComponent.hadOpenPage.Count; i++)
+            {
+                if (UIBookComponent.hadOpenPage[i])
+                {
+                    task.Add(i);
+                }
+            }
+
+            GameObject p = Game.Scene.GetComponent<UnitComponent>().MyUnit.GameObject;
+            
+            UIStartComponent.UpdateTask(task,p.transform.position.x,p.transform.position.y);
         }
 
         void OnBtnClick()

@@ -12,11 +12,11 @@ namespace ETModel
 {
 
     [ObjectSystem]
-    public class UIMapComponentSystem : AwakeSystem<UIMapComponent,GameObject>
+    public class UIMapComponentSystem : AwakeSystem<UIMapComponent,GameObject, TaskQueryRsp>
     {
-        public override void Awake(UIMapComponent self,GameObject go)
+        public override void Awake(UIMapComponent self,GameObject go, TaskQueryRsp pos)
         {
-            self.Awake(go);
+            self.Awake(go, pos);
         }
     }
     
@@ -44,18 +44,44 @@ namespace ETModel
         private CanFllowPigComponent _canFllowPigCom;
 
         private CancellationTokenSource cancel;
-        
-        
-        public void Awake(GameObject player)
+
+        private GameObject fllowPig;
+
+
+
+        public void Awake(GameObject player, TaskQueryRsp taskQueryRsp)
         {
+            AsyncAwake(player, taskQueryRsp).Coroutine();
             
             
+        }
+
+        async ETVoid AsyncAwake(GameObject player, TaskQueryRsp taskQueryRsp)
+        {
             Vector3 oldPos = this.GetParent<UIBase>().GameObject.transform.position;
 
-            this.GetParent<UIBase>().GameObject.transform.position = new Vector3(oldPos.x, 2000, oldPos.y);
-
-
             ReferenceCollector rc = this.GetParent<UIBase>().GameObject.GetComponent<ReferenceCollector>();
+
+            TimerComponent timer = Game.Scene.GetComponent<TimerComponent>();
+
+            this._context = rc.Get<GameObject>("Context");
+
+            this._bg = rc.Get<GameObject>("BG");
+            
+            if (player == null)
+            {
+                _player = rc.Get<GameObject>("Player");
+                
+                _player.gameObject.SetActive(true);
+                
+                _bg.gameObject.SetActive(true);
+
+                await timer.WaitAsync((long) (0.01f * 1000));
+            }
+            else
+            {
+                _player = player;
+            }
 
             //_joyStick = rc.Get<GameObject>("JoyStick");
 
@@ -64,24 +90,30 @@ namespace ETModel
             //_actionBtn.SetActive(false);
 
             //_dialogBtn = rc.Get<GameObject>("DialogBtn");
-            this._context = rc.Get<GameObject>("Context");
-            
+
+
             //_dialogBtn.SetActive(false);
 
             //_player = rc.Get<GameObject>("Player");
 
-            _player = player;
+            fllowPig = rc.Get<GameObject>("CanFllowPig");
+            if (taskQueryRsp == null)
+            {
+                this.GetParent<UIBase>().GameObject.transform.position = new Vector3(oldPos.x, 2000, oldPos.y);
+                this.PlayUpToDownAnimation();
+
+                _canFllowPigCom = ComponentFactory.Create<CanFllowPigComponent, GameObject>(fllowPig);
+            }
+            else
+            {
+                HuiYi(taskQueryRsp).Coroutine();
+            }
+
             
-            GameObject fllowPig = rc.Get<GameObject>("CanFllowPig");
 
-            _canFllowPigCom = ComponentFactory.Create<CanFllowPigComponent, GameObject>(fllowPig);
-
-
-            this._bg = rc.Get<GameObject>("BG");
 
             
-            this.PlayUpToDownAnimation();
-            
+
             this.cancel = new CancellationTokenSource();
 
 
@@ -110,6 +142,27 @@ namespace ETModel
                 this.AsyncUpdate(this.cancel.Token).Coroutine();
             }
             
+        }
+
+        async ETVoid HuiYi(TaskQueryRsp taskQueryRsp)
+        {
+
+            this._player.transform.position = new Vector3((float) taskQueryRsp.PositionX, (float) taskQueryRsp.PositionY, 0);
+
+            foreach (int doneTask in taskQueryRsp.DoneTasks)
+            {
+                if(doneTask < 0 || doneTask >= UIBookComponent.hadOpenPage.Count)
+                    continue;
+                UIBookComponent.hadOpenPage[doneTask] = true;
+            }
+
+            TimerComponent timer = Game.Scene.GetComponent<TimerComponent>();
+
+            await timer.WaitAsync((long) (0.2f) * 1000);
+            
+            _canFllowPigCom = ComponentFactory.Create<CanFllowPigComponent, GameObject>(fllowPig);
+
+            this.InitPlayer();
         }
 
         int SortRule(UIAutoSetDepth a, UIAutoSetDepth b)

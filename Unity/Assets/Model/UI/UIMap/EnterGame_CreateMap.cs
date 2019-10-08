@@ -42,7 +42,9 @@ namespace ETModel
 
         public override void Run(GameObject a)
         {
-             UIBase b = UIFactory.Create<UIMapComponent, GameObject>(ViewLayer.UIMainLayer, UIType.UIMap, a).Result;
+            
+            
+             UIBase b = UIFactory.Create<UIMapComponent, GameObject, TaskQueryRsp>(ViewLayer.UIMainLayer, UIType.UIMap, a, null).Result;
 
              // Transform player = Game.Scene.GetComponent<UnitComponent>().MyUnit.GameObject.transform;
              //

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DG.Tweening;
+using Google.Protobuf.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -38,8 +39,19 @@ namespace ETModel
 
         private Button cancleLogin;
 
+        private Button RegistBtn;
+
+        private Text ErrorTip;
+
+        private TaskQueryRsp taskQueryRsp;
+
+
+        private bool isNewAcc;
+
         public void Awake()
         {
+            isNewAcc = true;
+
             ReferenceCollector rc = this.GetParent<UIBase>().GameObject.GetComponent<ReferenceCollector>();
 
             this.startCom = rc.Get<GameObject>("StartCom");
@@ -60,6 +72,13 @@ namespace ETModel
             
             this.cancleLogin = rc.Get<GameObject>("CancleLogin").GetComponent<Button>();
             
+            this.RegistBtn = rc.Get<GameObject>("RegistBtn").GetComponent<Button>();
+            
+            this.ErrorTip = rc.Get<GameObject>("ErrorTip").GetComponent<Text>();
+
+            Session session = Game.Scene.GetComponent<NetOuterComponent>().Create(GlobalConfigComponent.Instance.GlobalProto.Address);
+
+            Game.Scene.AddComponent<SessionComponent>().Session = session;
 
             this.Init();
             
@@ -93,11 +112,15 @@ namespace ETModel
             this.loginButton.onClick.AddListener(this.LoginButOnClick);
             
             this.cancleLogin.onClick.AddListener(this.CancleButOnClick);
+            
+            this.RegistBtn.onClick.AddListener(this.RegistBtnOnClick);
         }
 
         void StartButOnClick()
         {
             Log.Debug("startbtn click");
+
+            UpdateTask(null, 0, 0);
             
             SetAlpha(this.startButton);
 
@@ -108,16 +131,61 @@ namespace ETModel
                 this.Close();
             });
 
+            
+            
+        }
+
+        public static void UpdateTask(List<int> finish, double posx, double posy)
+        {
+            TaskUpdateReq req = new TaskUpdateReq();
+            
+            req.FinishedTaskIds = new RepeatedField<int>();
+
+            if (finish != null)
+            {
+                foreach (int i in finish)
+                {
+                    req.FinishedTaskIds.Add(i);
+                }
+            }
+
+            req.PositionX = posx;
+            
+            req.PositionY = posy;
+            
+            SessionComponent.Instance.Session.Send(req);
         }
         
         
-
+        /// <summary>
+        /// 回忆
+        /// </summary>
         void RecallButOnClick()
         {
             Log.Debug("recall click");
             
             SetAlpha(this.recallButton);
+
+            if (this.isNewAcc || 
+                this.taskQueryRsp == null || 
+                Math.Abs(this.taskQueryRsp.PositionX) + Math.Abs(this.taskQueryRsp.PositionY) < 0.2f)
+            {
+                ShowErrorTip("不存在历史记录");
+            }
+
+            else
+            {
+                UIFactory.Create<UIMapComponent, GameObject, TaskQueryRsp>(ViewLayer.UIMainLayer, UIType.UIMap, null, this.taskQueryRsp).Coroutine();
+                
+                UIFactory.Create<UIMainComponent>(ViewLayer.UIFixedLayer, UIType.UIMain).Coroutine();
+                
+                Game.EventSystem.Run(EventIdType.ShowJoystic);
+                this.Close();
+            }
+            
         }
+        
+        
 
         void SettingButOnClick()
         {
@@ -125,6 +193,52 @@ namespace ETModel
             
             SetAlpha(this.setButton);
             
+        }
+
+        async void RegistBtnOnClick()
+        {
+            if (string.IsNullOrEmpty(this.userName.text) || string.IsNullOrEmpty(this.passWord.text))
+            {
+               
+                
+                return;
+            }
+
+            RegisterRsp rsp = (RegisterRsp) await SessionComponent.Instance.Session.Call(new RegisterReq() { Account = this.userName.text, Password = this.passWord.text });
+
+            if (rsp.Error == (int)RegisterRsp.Types.ErrorCode.Succeed)
+            {
+                ShowErrorTip("注册成功");
+            }
+            else
+            {
+                ShowErrorTip(rsp.Error.ToString());
+            }
+
+        }
+
+        void ShowErrorTip(string text)
+        {
+            this.ErrorTip.text = text;
+
+            this.ErrorTip.gameObject.SetActive(true);
+        }
+
+        // 查询此号的进度
+        async void Schedule()
+        {
+            TaskQueryRsp rsp =(TaskQueryRsp) await SessionComponent.Instance.Session.Call(new TaskQueryReq());
+
+            if (rsp.Error != (int) TaskQueryRsp.Types.ErrorCode.Succeed)
+            {
+                //ShowErrorTip(rsp.Error.ToString());
+
+                this.taskQueryRsp = null;
+            }
+            else
+            {
+                taskQueryRsp = rsp;
+            }
         }
 
         async void LoginButOnClick()
@@ -136,10 +250,74 @@ namespace ETModel
             
             Log.Debug("用户名：" + this.userName.text);
             Log.Debug("密码：" + this.passWord.text); 
-            //Session session = Game.Scene.GetComponent<NetOuterComponent>().Create(GlobalConfigComponent.Instance.GlobalProto.Address);
+            
 
-            //LoginRsp rsp = (LoginRsp) await session.Call(new LoginReq() { Account = this.userName.text, Password = this.passWord.text });
-            if ( true/*rsp.Error == (int)LoginRsp.Types.ErrorCode.Succeed*/)
+            LoginRsp rsp = (LoginRsp) await SessionComponent.Instance.Session.Call(new LoginReq() { Account = this.userName.text, Password = this.passWord.text });
+            
+            if ( rsp.Error == (int)LoginRsp.Types.ErrorCode.Succeed)
+            {
+                Log.Info("login succeed");
+                this.loginCom.SetActive(false);
+                this.startCom.SetActive(true);
+                SetAlpha(this.startButton);
+                this.userName.text = "";
+                this.passWord.text = "";
+
+                this.Schedule();
+
+                isNewAcc = false;
+                //UIFactory.Create<UIShaddockSceneComponent>(ViewLayer.UIPopupLayer, UIType.UIShaddockScene).Coroutine();
+                //UIFactory.Create<UIPigSceneComponent>(ViewLayer.UIPopupLayer, UIType.UIPigScene);
+            }
+            else if (rsp.Error == (int)LoginRsp.Types.ErrorCode.LoginNotRegistered)
+            {
+                this.ErrorTip.text = "未注册的账号";
+                
+                this.ErrorTip.gameObject.SetActive(true);
+                
+                Log.Warning("account not exist, please register new account");
+            }
+            else if (rsp.Error == (int)LoginRsp.Types.ErrorCode.LoginPasswordWrong)
+            {
+                this.ErrorTip.text = "密码错误";
+
+                this.ErrorTip.gameObject.SetActive(true);
+
+                Log.Warning("password wrong");
+            }
+            /* FIXME: 测试*/
+            // RegisterHelper.OnRegisterAsync(session, this.userName.text, this.passWord.text).Coroutine();
+            // LoginHelper.OnLoginAsync(session, this.userName.text, this.passWord.text).Coroutine();
+            // TaskUpdateHelper.OnTaskUpdateAsync(session).Coroutine();
+            // TaskQueryHelper.OnTaskQueryAsync(session).Coroutine();
+
+
+        }
+
+        async ETVoid f()
+        {
+            //UIFactory.Create<UIPigSceneComponent>(ViewLayer.UIPopupLayer, UIType.UIPigScene);
+            Log.Debug("login click");
+
+            Log.Debug("用户名：" + this.userName.text);
+            Log.Debug("密码：" + this.passWord.text);
+
+            taskQueryRsp = null;
+
+            Session session = Game.Scene.GetComponent<NetOuterComponent>().Create(GlobalConfigComponent.Instance.GlobalProto.Address);
+
+            LoginRsp rsp = (LoginRsp)await session.Call(new LoginReq() { Account = this.userName.text, Password = this.passWord.text });
+
+            if (!rsp.IsReturningVisitor)
+            {
+
+                taskQueryRsp = (TaskQueryRsp)await session.Call(new TaskQueryReq());
+
+
+            }
+
+
+            if (rsp.Error == (int)LoginRsp.Types.ErrorCode.Succeed)
             {
                 Log.Info("login succeed");
                 this.loginCom.SetActive(false);
@@ -149,24 +327,27 @@ namespace ETModel
                 this.passWord.text = "";
 
 
+                if (this.taskQueryRsp == null)
+                {
+                    this.recallButton.interactable = false;
+                }
+
                 //UIFactory.Create<UIShaddockSceneComponent>(ViewLayer.UIPopupLayer, UIType.UIShaddockScene).Coroutine();
                 //UIFactory.Create<UIPigSceneComponent>(ViewLayer.UIPopupLayer, UIType.UIPigScene);
             }
-            // else if (rsp.Error == (int)LoginRsp.Types.ErrorCode.LoginNotRegistered)
-            // {
-            //     Log.Warning("account not exist, please register new account");
-            // }
-            // else if (rsp.Error == (int)LoginRsp.Types.ErrorCode.LoginPasswordWrong)
-            // {
-            //     Log.Warning("password wrong");
-            // }
+            else if (rsp.Error == (int)LoginRsp.Types.ErrorCode.LoginNotRegistered)
+            {
+                Log.Warning("account not exist, please register new account");
+            }
+            else if (rsp.Error == (int)LoginRsp.Types.ErrorCode.LoginPasswordWrong)
+            {
+                Log.Warning("password wrong");
+            }
             /* FIXME: 测试*/
             // RegisterHelper.OnRegisterAsync(session, this.userName.text, this.passWord.text).Coroutine();
             // LoginHelper.OnLoginAsync(session, this.userName.text, this.passWord.text).Coroutine();
             // TaskUpdateHelper.OnTaskUpdateAsync(session).Coroutine();
             // TaskQueryHelper.OnTaskQueryAsync(session).Coroutine();
-
-
         }
 
         void CancleButOnClick()
