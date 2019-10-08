@@ -81,8 +81,9 @@ namespace ETModel
                 this.hasFinish = true;
                 
                 this.multImage.SetSprite(1);
-
-                UIBookComponent.hadOpenPage[this.config.BookIndex] = true;
+                
+                if(this.config.BookIndex >= 0)
+                    UIBookComponent.hadOpenPage[this.config.BookIndex] = true;
             }
             //this.Hide();
         }

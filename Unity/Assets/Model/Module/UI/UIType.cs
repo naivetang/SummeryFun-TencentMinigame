@@ -68,5 +68,8 @@ namespace ETModel
 
         //结局
         public const string UIResultScene = "UIResultScene";
+
+
+        public const string UITips = "UITips";
     }
 }

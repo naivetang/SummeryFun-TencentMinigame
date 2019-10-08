@@ -8,4 +8,4 @@
 {"Id":3008,"EventName":"EnterArea","ShowWindow":"UIBirdReleaseScene","UIType":"UIBirdReleaseSceneComponent","BookIndex":8}
 {"Id":3009,"EventName":"EnterArea","ShowWindow":"UIClothesScene","UIType":"UIClothesSceneComponent","BookIndex":9}
 {"Id":3010,"EventName":"EnterArea","ShowWindow":"UITeaScene","UIType":"UITeaSceneComponent","BookIndex":10}
-{"Id":3100,"EventName":"EnterArea","ShowWindow":"UIResultScene","UIType":"UIResultSceneComponent","BookIndex":-1}
+{"Id":3100,"EventName":"EnterArea","ShowWindow":"UITips","UIType":"UITipsComponent","BookIndex":-1}
