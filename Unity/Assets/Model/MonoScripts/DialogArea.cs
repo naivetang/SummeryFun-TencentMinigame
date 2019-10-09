@@ -16,7 +16,7 @@ namespace ETModel
 
         void Start()
         {
-            Log.Info("对话组起始ID：" + dialogId);
+            //Log.Info("对话组起始ID：" + dialogId);
             
             if (this.dialogBtn != null)
             {

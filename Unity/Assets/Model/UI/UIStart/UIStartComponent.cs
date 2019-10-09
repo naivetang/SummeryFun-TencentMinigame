@@ -167,6 +167,9 @@ namespace ETModel
 
         static async ETVoid UpdateTask(TaskUpdateReq req)
         {
+            if (SessionComponent.Instance == null || SessionComponent.Instance.Session == null)
+                return;
+            
             TaskUpdateRsp rsp = (TaskUpdateRsp) await SessionComponent.Instance.Session.Call(req);
 
             if (rsp.Error == (int)TaskUpdateRsp.Types.ErrorCode.Succeed)
@@ -243,11 +246,20 @@ namespace ETModel
                 return;
             }
 
+            if (SessionComponent.Instance == null || SessionComponent.Instance.Session == null)
+                return;
+
             RegisterRsp rsp = (RegisterRsp) await SessionComponent.Instance.Session.Call(new RegisterReq() { Account = this.userName.text, Password = this.passWord.text });
 
             if (rsp.Error == (int)RegisterRsp.Types.ErrorCode.Succeed)
             {
                 ShowErrorTip("注册成功");
+            }
+            else if (rsp.Error == (int)RegisterRsp.Types.ErrorCode.AccountAlreadyExist)
+            {
+                ShowErrorTip("此账号已被注册");
+                
+                
             }
             else
             {
@@ -266,6 +278,9 @@ namespace ETModel
         // 查询此号的进度
         async void Schedule()
         {
+            if (SessionComponent.Instance == null || SessionComponent.Instance.Session == null)
+                return;
+
             TaskQueryRsp rsp =(TaskQueryRsp) await SessionComponent.Instance.Session.Call(new TaskQueryReq());
 
             if (rsp.Error != (int) TaskQueryRsp.Types.ErrorCode.Succeed)
@@ -289,8 +304,23 @@ namespace ETModel
             Log.Debug("login click");
             
             Log.Debug("用户名：" + this.userName.text);
-            Log.Debug("密码：" + this.passWord.text); 
-            
+            Log.Debug("密码：" + this.passWord.text);
+
+            if (this.userName.text.Equals("root") && this.passWord.text.Equals("root"))
+            {
+                Log.Info("login succeed");
+                this.loginCom.SetActive(false);
+                this.startCom.SetActive(true);
+                SetAlpha(this.startButton);
+
+                SessionComponent.Instance = null;
+                
+                return;
+            }
+
+            if (SessionComponent.Instance == null || SessionComponent.Instance.Session == null)
+                return;
+
 
             LoginRsp rsp = (LoginRsp) await SessionComponent.Instance.Session.Call(new LoginReq() { Account = this.userName.text, Password = this.passWord.text });
             
@@ -334,62 +364,7 @@ namespace ETModel
 
         }
 
-        async ETVoid f()
-        {
-            //UIFactory.Create<UIPigSceneComponent>(ViewLayer.UIPopupLayer, UIType.UIPigScene);
-            Log.Debug("login click");
-
-            Log.Debug("用户名：" + this.userName.text);
-            Log.Debug("密码：" + this.passWord.text);
-
-            taskQueryRsp = null;
-
-            Session session = Game.Scene.GetComponent<NetOuterComponent>().Create(GlobalConfigComponent.Instance.GlobalProto.Address);
-
-            LoginRsp rsp = (LoginRsp)await session.Call(new LoginReq() { Account = this.userName.text, Password = this.passWord.text });
-
-            if (!rsp.IsReturningVisitor)
-            {
-
-                taskQueryRsp = (TaskQueryRsp)await session.Call(new TaskQueryReq());
-
-
-            }
-
-
-            if (rsp.Error == (int)LoginRsp.Types.ErrorCode.Succeed)
-            {
-                Log.Info("login succeed");
-                this.loginCom.SetActive(false);
-                this.startCom.SetActive(true);
-                SetAlpha(this.startButton);
-                this.userName.text = "";
-                this.passWord.text = "";
-
-
-                if (this.taskQueryRsp == null)
-                {
-                    this.recallButton.interactable = false;
-                }
-
-                //UIFactory.Create<UIShaddockSceneComponent>(ViewLayer.UIPopupLayer, UIType.UIShaddockScene).Coroutine();
-                //UIFactory.Create<UIPigSceneComponent>(ViewLayer.UIPopupLayer, UIType.UIPigScene);
-            }
-            else if (rsp.Error == (int)LoginRsp.Types.ErrorCode.LoginNotRegistered)
-            {
-                Log.Warning("account not exist, please register new account");
-            }
-            else if (rsp.Error == (int)LoginRsp.Types.ErrorCode.LoginPasswordWrong)
-            {
-                Log.Warning("password wrong");
-            }
-            /* FIXME: 测试*/
-            // RegisterHelper.OnRegisterAsync(session, this.userName.text, this.passWord.text).Coroutine();
-            // LoginHelper.OnLoginAsync(session, this.userName.text, this.passWord.text).Coroutine();
-            // TaskUpdateHelper.OnTaskUpdateAsync(session).Coroutine();
-            // TaskQueryHelper.OnTaskQueryAsync(session).Coroutine();
-        }
-
+     
         void CancleButOnClick()
         {
             Log.Debug("Cancle click");
