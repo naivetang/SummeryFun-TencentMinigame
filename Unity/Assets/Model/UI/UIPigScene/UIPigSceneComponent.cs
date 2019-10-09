@@ -277,6 +277,10 @@ namespace ETModel
         {
             //Log.Info("down");
 
+            Log.Info("震动");
+
+            VibrationControler.Vibrate();
+
             this.youzi.transform.DOScale(Vector3.one * 1.1f, 0.15f);
         }
 
@@ -354,8 +358,11 @@ namespace ETModel
             {
                 return;
             }
-            
-            
+
+            Log.Info("震动");
+
+            VibrationControler.Vibrate();
+
             gameobject.GetComponent<CanvasGroup>().DOFade(0.4f, 0);
                        
             this.stayHine = gameobject;

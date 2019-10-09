@@ -150,7 +150,7 @@ namespace ETModel
                 {
                     HineTriggerEnter2D(this.hine1, p);
 
-                    Log.Info("手机震动");
+                    Log.Info("震动");
 
                     VibrationControler.Vibrate();
                 });
@@ -173,11 +173,11 @@ namespace ETModel
                 {
                     HineTriggerEnter2D(this.hine2, p);
 
-                    Log.Info("手机震动");
+                    Log.Info("震动");
 
                     VibrationControler.Vibrate();
-                    
-                   
+
+
                 });
 
                 this.hine2.GetComponent<UIColliderTrigger>().RegistOnTriggerExit2D((p) =>
@@ -251,10 +251,10 @@ namespace ETModel
 
             this.zhuzi.transform.DOScale(Vector3.one * 1.1f, 0.15f);
 
-            Log.Info("手机震动0.5秒");
+            Log.Info("震动");
 
             VibrationControler.Vibrate();
-            
+
         }
         void reset()
         {

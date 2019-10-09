@@ -455,6 +455,10 @@ namespace ETModel
         /// </summary>
         async void ShootButtonClick()
         {
+            Log.Info("Υπ¶―");
+
+            VibrationControler.Vibrate();
+
             this.Shoot();
 
             this.ChildShootState();
