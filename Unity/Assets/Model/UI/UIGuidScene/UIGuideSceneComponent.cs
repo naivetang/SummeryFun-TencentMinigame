@@ -515,7 +515,7 @@ namespace ETModel
         {
             UIBase com = UIFactory.Create<UIBookComponent>(ViewLayer.UIPopupLayer, UIType.UIBook).Result;
             
-            com.GetComponent<UIBookComponent>().AddImageGo(this.drawsence2);
+            com.GetComponent<UIBookComponent>().AddImageGo(this.drawsence2, 1);
 
             
             this.Close();

@@ -48,6 +48,9 @@ namespace ETModel
 
         private bool isNewAcc;
 
+        private readonly string ACCOUNT = "ACCOUNT";
+        private readonly string PASSWORD = "ACCOUNT";
+
         public void Awake()
         {
             isNewAcc = true;
@@ -83,6 +86,8 @@ namespace ETModel
             this.Init();
             
             this.AddListener();
+            
+            this.InitUserNameAndPASSWORD();
         }
 
         void Init()
@@ -173,8 +178,24 @@ namespace ETModel
                 Log.Info("更新进度失败：" + rsp.Error);
             }
         }
-        
-        
+
+        void InitUserNameAndPASSWORD()
+        {
+            string account = PlayerPrefs.GetString(this.ACCOUNT, "");
+            string password = PlayerPrefs.GetString(this.PASSWORD, "");
+
+            this.userName.text = account;
+
+            this.passWord.text = password;
+        }
+
+        void SetUserNameAndPASSWORD()
+        {
+            PlayerPrefs.SetString(this.ACCOUNT, this.userName.text);
+            PlayerPrefs.GetString(this.PASSWORD, this.passWord.text);
+        }
+
+
         /// <summary>
         /// 回忆
         /// </summary>
@@ -261,9 +282,10 @@ namespace ETModel
 
         async void LoginButOnClick()
         {
+            // UIFactory.Create<UIPigSceneComponent>(ViewLayer.UIPopupLayer, UIType.UIPigScene).Coroutine();
+            // return;
 
-
-           //UIFactory.Create<UIPigSceneComponent>(ViewLayer.UIPopupLayer, UIType.UIPigScene);
+            //UIFactory.Create<UIPigSceneComponent>(ViewLayer.UIPopupLayer, UIType.UIPigScene);
             Log.Debug("login click");
             
             Log.Debug("用户名：" + this.userName.text);
@@ -278,10 +300,10 @@ namespace ETModel
                 this.loginCom.SetActive(false);
                 this.startCom.SetActive(true);
                 SetAlpha(this.startButton);
-                this.userName.text = "";
-                this.passWord.text = "";
 
                 this.Schedule();
+                
+                this.SetUserNameAndPASSWORD();
 
                 isNewAcc = false;
                 //UIFactory.Create<UIShaddockSceneComponent>(ViewLayer.UIPopupLayer, UIType.UIShaddockScene).Coroutine();

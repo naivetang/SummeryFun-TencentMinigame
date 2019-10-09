@@ -108,13 +108,16 @@ namespace ETModel
 
         void Addlistener()
         {
-            this.pictures.GetComponent<UIPointHandler>().RegisterPointDown(this.PointDown);
-            this.pictures.GetComponent<UIPointHandler>().RegisterPointUp(this.PointUp);
+            this.pictures.GetComponent<UIPointHandler>().RegisterPointDown(this.PicturesrPointDown);
+            this.pictures.GetComponent<UIPointHandler>().RegisterPointUp(this.PicturesrPointUp);
+            
+            this.context.GetComponent<UIPointHandler>().RegisterPointDown(this.ContextPointDown);
+            this.context.GetComponent<UIPointHandler>().RegisterPointUp(this.ContextPointUp);
         }
 
         private CancellationTokenSource cancellation = new CancellationTokenSource();
 
-        void PointDown(PointerEventData p)
+        void PicturesrPointDown(PointerEventData p)
         {
             if (this.currentPage == 0)
                 return;
@@ -128,7 +131,7 @@ namespace ETModel
             this.bookText.gameObject.GetComponent<CanvasGroup>().DOFade(1, 0.1f).SetEase(Ease.InExpo);
         }
 
-        void PointUp(PointerEventData p)
+        void PicturesrPointUp(PointerEventData p)
         {
             if (this.currentPage == 0)
                 return;
@@ -138,26 +141,29 @@ namespace ETModel
             this.bookText.gameObject.GetComponent<CanvasGroup>().DOFade(0, 0.3f).SetEase(Ease.OutExpo);
         }
 
-
-        async ETVoid PointDown(CancellationToken token)
+        void ContextPointDown(PointerEventData p)
         {
-            TimerComponent timer = Game.Scene.GetComponent<TimerComponent>();
+            if (this.currentPage == 0)
+                return;
 
-            while (true)
-            {
-                
-                
-                await timer.WaitAsync((long) (0.1f * 1000), token);
-                
-            }
+            this.context.GetComponent<CanvasGroup>().DOFade(0.1f, 0.1f).SetEase(Ease.OutExpo);
+
+            this.bookText.Show(this.currentPage);
+
+            this.bookText.gameObject.GetComponent<CanvasGroup>().alpha = 0f;
+
+            this.bookText.gameObject.GetComponent<CanvasGroup>().DOFade(1, 0.1f).SetEase(Ease.InExpo);
         }
 
-        async ETVoid PointUp()
+        void ContextPointUp(PointerEventData p)
         {
-            TimerComponent timer = Game.Scene.GetComponent<TimerComponent>();
+            if (this.currentPage == 0)
+                return;
+
+            this.context.GetComponent<CanvasGroup>().DOFade(1f, 0.3f).SetEase(Ease.InExpo);
+
+            this.bookText.gameObject.GetComponent<CanvasGroup>().DOFade(0, 0.3f).SetEase(Ease.OutExpo);
         }
-
-
 
         void Opened()
         {
@@ -351,7 +357,7 @@ namespace ETModel
         }
        
 
-        public void AddImageGo(GameObject image)
+        public void AddImageGo(GameObject image, int index)
         {
             
             this.image = image;
@@ -360,6 +366,8 @@ namespace ETModel
                 Log.Error("image is null");
                 return;
             }
+
+            this.currentPage = index;
             
             image.transform.SetParent(this.context.transform);
             
