@@ -7856,7 +7856,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 7.3, y: 0}
+  m_Offset: {x: 7.3, y: -67.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -7867,7 +7867,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 205.19, y: 234.97}
+  m_Size: {x: 205.19, y: 109.03}
   m_EdgeRadius: 0
 --- !u!1 &2836623784519851772
 GameObject:
@@ -8181,9 +8181,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15, y: 0}
+  m_AnchoredPosition: {x: 15, y: -63.595398}
   m_SizeDelta: {x: 198, y: 231}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.49999994, y: 0.2246952}
 --- !u!222 &5008193767929410030
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10208,9 +10208,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 19, y: 35}
+  m_AnchoredPosition: {x: 19, y: -39.734375}
   m_SizeDelta: {x: 393, y: 325}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.49999997, y: 0.2700483}
 --- !u!222 &7483069043789823679
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14745,7 +14745,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 20.2, y: -2.4}
+  m_Offset: {x: 13.9, y: -2.4}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -14756,7 +14756,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 366.83, y: 187.2}
+  m_Size: {x: 350.46, y: 187.2}
   m_EdgeRadius: 0
 --- !u!1 &6112104219299974093
 GameObject:
@@ -21731,6 +21731,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3532781360102286606}
     m_Modifications:
+    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 251
+      objectReference: {fileID: 0}
     - target: {fileID: 986684182952096226, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_Name
@@ -21856,16 +21861,6 @@ PrefabInstance:
       propertyPath: data.Array.data[1].gameObject
       value: 
       objectReference: {fileID: 7225461829400346242}
-    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -37
-      objectReference: {fileID: 0}
-    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 47
-      objectReference: {fileID: 0}
     - target: {fileID: 2072915454867577536, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -21921,11 +21916,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 251
-      objectReference: {fileID: 0}
     - target: {fileID: 7151740085634641264, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -21976,6 +21966,16 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 250
       objectReference: {fileID: 0}
+    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -37
+      objectReference: {fileID: 0}
+    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 47
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caff69c3476453a47975a1e144634f57, type: 3}
 --- !u!1 &7225461829400346242 stripped
@@ -22009,6 +22009,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4607369183223622642}
     m_Modifications:
+    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 251
+      objectReference: {fileID: 0}
     - target: {fileID: 986684182952096226, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_Name
@@ -22134,16 +22139,6 @@ PrefabInstance:
       propertyPath: data.Array.data[1].gameObject
       value: 
       objectReference: {fileID: 8070541370981152690}
-    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -37
-      objectReference: {fileID: 0}
-    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 47
-      objectReference: {fileID: 0}
     - target: {fileID: 2072915454867577536, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -22199,11 +22194,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 251
-      objectReference: {fileID: 0}
     - target: {fileID: 7151740085634641264, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -22253,6 +22243,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingOrder
       value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -37
+      objectReference: {fileID: 0}
+    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 47
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caff69c3476453a47975a1e144634f57, type: 3}
@@ -22432,6 +22432,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7933377560310793180}
     m_Modifications:
+    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 251
+      objectReference: {fileID: 0}
     - target: {fileID: 986684182952096226, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_Name
@@ -22557,16 +22562,6 @@ PrefabInstance:
       propertyPath: data.Array.data[1].gameObject
       value: 
       objectReference: {fileID: 8893188842150358352}
-    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -37
-      objectReference: {fileID: 0}
-    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 47
-      objectReference: {fileID: 0}
     - target: {fileID: 2072915454867577536, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -22622,11 +22617,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 251
-      objectReference: {fileID: 0}
     - target: {fileID: 7151740085634641264, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -22676,6 +22666,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingOrder
       value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -37
+      objectReference: {fileID: 0}
+    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 47
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caff69c3476453a47975a1e144634f57, type: 3}
@@ -22857,6 +22857,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3946176065243594411}
     m_Modifications:
+    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 251
+      objectReference: {fileID: 0}
     - target: {fileID: 986684182952096226, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_Name
@@ -22982,16 +22987,6 @@ PrefabInstance:
       propertyPath: data.Array.data[1].gameObject
       value: 
       objectReference: {fileID: 4747971218547248687}
-    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -37
-      objectReference: {fileID: 0}
-    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 47
-      objectReference: {fileID: 0}
     - target: {fileID: 2072915454867577536, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -23047,11 +23042,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 251
-      objectReference: {fileID: 0}
     - target: {fileID: 7151740085634641264, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -23102,6 +23092,16 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 250
       objectReference: {fileID: 0}
+    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -37
+      objectReference: {fileID: 0}
+    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 47
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caff69c3476453a47975a1e144634f57, type: 3}
 --- !u!1 &7488371450835011527 stripped
@@ -23135,6 +23135,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 64723556524170939}
     m_Modifications:
+    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 251
+      objectReference: {fileID: 0}
     - target: {fileID: 986684182952096226, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_Name
@@ -23315,11 +23320,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 251
-      objectReference: {fileID: 0}
     - target: {fileID: 7151740085634641264, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -23403,6 +23403,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6455109411153210830}
     m_Modifications:
+    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 251
+      objectReference: {fileID: 0}
     - target: {fileID: 986684182952096226, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_Name
@@ -23528,16 +23533,6 @@ PrefabInstance:
       propertyPath: data.Array.data[1].gameObject
       value: 
       objectReference: {fileID: 5057963283889583421}
-    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -37
-      objectReference: {fileID: 0}
-    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 47
-      objectReference: {fileID: 0}
     - target: {fileID: 2072915454867577536, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -23593,11 +23588,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 251
-      objectReference: {fileID: 0}
     - target: {fileID: 7151740085634641264, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -23648,6 +23638,16 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 250
       objectReference: {fileID: 0}
+    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -37
+      objectReference: {fileID: 0}
+    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 47
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caff69c3476453a47975a1e144634f57, type: 3}
 --- !u!1 &6933672387993926869 stripped
@@ -23681,6 +23681,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8351171951459622069}
     m_Modifications:
+    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 251
+      objectReference: {fileID: 0}
     - target: {fileID: 986684182952096226, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_Name
@@ -23806,16 +23811,6 @@ PrefabInstance:
       propertyPath: data.Array.data[1].gameObject
       value: 
       objectReference: {fileID: 5958390786764503605}
-    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -37
-      objectReference: {fileID: 0}
-    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 47
-      objectReference: {fileID: 0}
     - target: {fileID: 2072915454867577536, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -23871,11 +23866,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 251
-      objectReference: {fileID: 0}
     - target: {fileID: 7151740085634641264, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -23926,6 +23916,16 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 250
       objectReference: {fileID: 0}
+    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -37
+      objectReference: {fileID: 0}
+    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 47
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caff69c3476453a47975a1e144634f57, type: 3}
 --- !u!1 &8410560643177247709 stripped
@@ -23959,6 +23959,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1328673069903961733}
     m_Modifications:
+    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 251
+      objectReference: {fileID: 0}
     - target: {fileID: 986684182952096226, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_Name
@@ -24084,16 +24089,6 @@ PrefabInstance:
       propertyPath: data.Array.data[1].gameObject
       value: 
       objectReference: {fileID: 6148584334160406706}
-    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -37
-      objectReference: {fileID: 0}
-    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 47
-      objectReference: {fileID: 0}
     - target: {fileID: 2072915454867577536, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -24149,11 +24144,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 251
-      objectReference: {fileID: 0}
     - target: {fileID: 7151740085634641264, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -24204,6 +24194,16 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 250
       objectReference: {fileID: 0}
+    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -37
+      objectReference: {fileID: 0}
+    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 47
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caff69c3476453a47975a1e144634f57, type: 3}
 --- !u!1 &4153326152599133363 stripped
@@ -24237,6 +24237,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8696311554662181713}
     m_Modifications:
+    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 251
+      objectReference: {fileID: 0}
     - target: {fileID: 986684182952096226, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_Name
@@ -24362,16 +24367,6 @@ PrefabInstance:
       propertyPath: data.Array.data[1].gameObject
       value: 
       objectReference: {fileID: 6562246301018702789}
-    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -37
-      objectReference: {fileID: 0}
-    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 47
-      objectReference: {fileID: 0}
     - target: {fileID: 2072915454867577536, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -24427,11 +24422,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 251
-      objectReference: {fileID: 0}
     - target: {fileID: 7151740085634641264, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -24482,6 +24472,16 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 250
       objectReference: {fileID: 0}
+    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -37
+      objectReference: {fileID: 0}
+    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 47
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caff69c3476453a47975a1e144634f57, type: 3}
 --- !u!1 &6562246301018702789 stripped
@@ -24515,11 +24515,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 64723556524170939}
     m_Modifications:
-    - target: {fileID: 542034429461790173, guid: d99c9d49e6676964995b14a83cf7705e,
-        type: 3}
-      propertyPath: m_Name
-      value: DialogPrompt
-      objectReference: {fileID: 0}
     - target: {fileID: 542034429461790114, guid: d99c9d49e6676964995b14a83cf7705e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -24640,6 +24635,11 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 4271146693052019981}
+    - target: {fileID: 542034429461790173, guid: d99c9d49e6676964995b14a83cf7705e,
+        type: 3}
+      propertyPath: m_Name
+      value: DialogPrompt
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d99c9d49e6676964995b14a83cf7705e, type: 3}
 --- !u!114 &4271146693052019981 stripped
@@ -24685,11 +24685,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8657680858489036586}
     m_Modifications:
-    - target: {fileID: 542034429461790173, guid: d99c9d49e6676964995b14a83cf7705e,
-        type: 3}
-      propertyPath: m_Name
-      value: DialogPrompt
-      objectReference: {fileID: 0}
     - target: {fileID: 542034429461790114, guid: d99c9d49e6676964995b14a83cf7705e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -24800,6 +24795,11 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 5155816744354733933}
+    - target: {fileID: 542034429461790173, guid: d99c9d49e6676964995b14a83cf7705e,
+        type: 3}
+      propertyPath: m_Name
+      value: DialogPrompt
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d99c9d49e6676964995b14a83cf7705e, type: 3}
 --- !u!114 &5155816744354733935 stripped
@@ -24845,6 +24845,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8227664771624743269}
     m_Modifications:
+    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 251
+      objectReference: {fileID: 0}
     - target: {fileID: 986684182952096226, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_Name
@@ -24970,16 +24975,6 @@ PrefabInstance:
       propertyPath: data.Array.data[1].gameObject
       value: 
       objectReference: {fileID: 2511437321362718911}
-    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -37
-      objectReference: {fileID: 0}
-    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 47
-      objectReference: {fileID: 0}
     - target: {fileID: 2072915454867577536, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -25035,11 +25030,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 251
-      objectReference: {fileID: 0}
     - target: {fileID: 7151740085634641264, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -25089,6 +25079,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingOrder
       value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -37
+      objectReference: {fileID: 0}
+    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 47
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caff69c3476453a47975a1e144634f57, type: 3}
@@ -25248,6 +25248,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6603699020795161699}
     m_Modifications:
+    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 251
+      objectReference: {fileID: 0}
     - target: {fileID: 986684182952096226, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_Name
@@ -25373,16 +25378,6 @@ PrefabInstance:
       propertyPath: data.Array.data[1].gameObject
       value: 
       objectReference: {fileID: 2799933313179421792}
-    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -37
-      objectReference: {fileID: 0}
-    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 47
-      objectReference: {fileID: 0}
     - target: {fileID: 2072915454867577536, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -25438,11 +25433,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 251
-      objectReference: {fileID: 0}
     - target: {fileID: 7151740085634641264, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -25493,6 +25483,16 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 250
       objectReference: {fileID: 0}
+    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -37
+      objectReference: {fileID: 0}
+    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 47
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caff69c3476453a47975a1e144634f57, type: 3}
 --- !u!1 &59523167700157832 stripped
@@ -25526,6 +25526,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 847796015347696308}
     m_Modifications:
+    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 251
+      objectReference: {fileID: 0}
     - target: {fileID: 986684182952096226, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_Name
@@ -25651,16 +25656,6 @@ PrefabInstance:
       propertyPath: data.Array.data[1].gameObject
       value: 
       objectReference: {fileID: 3121049314562006173}
-    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -37
-      objectReference: {fileID: 0}
-    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 47
-      objectReference: {fileID: 0}
     - target: {fileID: 2072915454867577536, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -25716,11 +25711,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 251
-      objectReference: {fileID: 0}
     - target: {fileID: 7151740085634641264, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -25771,6 +25761,16 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 250
       objectReference: {fileID: 0}
+    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -37
+      objectReference: {fileID: 0}
+    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 47
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caff69c3476453a47975a1e144634f57, type: 3}
 --- !u!1 &3121049314562006173 stripped
@@ -25804,11 +25804,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6716872218602420193}
     m_Modifications:
-    - target: {fileID: 542034429461790173, guid: d99c9d49e6676964995b14a83cf7705e,
-        type: 3}
-      propertyPath: m_Name
-      value: DialogPrompt
-      objectReference: {fileID: 0}
     - target: {fileID: 542034429461790114, guid: d99c9d49e6676964995b14a83cf7705e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -25919,6 +25914,11 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 6189939806502378285}
+    - target: {fileID: 542034429461790173, guid: d99c9d49e6676964995b14a83cf7705e,
+        type: 3}
+      propertyPath: m_Name
+      value: DialogPrompt
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d99c9d49e6676964995b14a83cf7705e, type: 3}
 --- !u!1 &6189939805232710368 stripped
@@ -26174,6 +26174,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 717660742361864971}
     m_Modifications:
+    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 251
+      objectReference: {fileID: 0}
     - target: {fileID: 986684182952096226, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_Name
@@ -26299,16 +26304,6 @@ PrefabInstance:
       propertyPath: data.Array.data[1].gameObject
       value: 
       objectReference: {fileID: 4178389201533117991}
-    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -37
-      objectReference: {fileID: 0}
-    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 47
-      objectReference: {fileID: 0}
     - target: {fileID: 2072915454867577536, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -26364,11 +26359,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 251
-      objectReference: {fileID: 0}
     - target: {fileID: 7151740085634641264, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -26419,6 +26409,16 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 250
       objectReference: {fileID: 0}
+    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -37
+      objectReference: {fileID: 0}
+    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 47
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caff69c3476453a47975a1e144634f57, type: 3}
 --- !u!1 &6128029197020353062 stripped
@@ -26452,6 +26452,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 64723556524170939}
     m_Modifications:
+    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 250
+      objectReference: {fileID: 0}
     - target: {fileID: 986684182952096226, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_Name
@@ -26632,11 +26637,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 250
-      objectReference: {fileID: 0}
     - target: {fileID: 7151740085634641264, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -26710,6 +26710,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6439752861335720069}
     m_Modifications:
+    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 251
+      objectReference: {fileID: 0}
     - target: {fileID: 986684182952096226, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_Name
@@ -26835,16 +26840,6 @@ PrefabInstance:
       propertyPath: data.Array.data[1].gameObject
       value: 
       objectReference: {fileID: 4528152176482577750}
-    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -37
-      objectReference: {fileID: 0}
-    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 47
-      objectReference: {fileID: 0}
     - target: {fileID: 2072915454867577536, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -26900,11 +26895,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 251
-      objectReference: {fileID: 0}
     - target: {fileID: 7151740085634641264, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -26955,6 +26945,16 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 250
       objectReference: {fileID: 0}
+    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -37
+      objectReference: {fileID: 0}
+    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 47
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caff69c3476453a47975a1e144634f57, type: 3}
 --- !u!1 &4528152176482577750 stripped
@@ -26988,11 +26988,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6258905367198546639}
     m_Modifications:
-    - target: {fileID: 542034429461790173, guid: d99c9d49e6676964995b14a83cf7705e,
-        type: 3}
-      propertyPath: m_Name
-      value: DialogPrompt
-      objectReference: {fileID: 0}
     - target: {fileID: 542034429461790114, guid: d99c9d49e6676964995b14a83cf7705e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -27103,6 +27098,11 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 7482143054260217532}
+    - target: {fileID: 542034429461790173, guid: d99c9d49e6676964995b14a83cf7705e,
+        type: 3}
+      propertyPath: m_Name
+      value: DialogPrompt
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d99c9d49e6676964995b14a83cf7705e, type: 3}
 --- !u!224 &7482143054260217533 stripped
@@ -27148,6 +27148,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6029564845984719017}
     m_Modifications:
+    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 251
+      objectReference: {fileID: 0}
     - target: {fileID: 986684182952096226, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_Name
@@ -27273,16 +27278,6 @@ PrefabInstance:
       propertyPath: data.Array.data[1].gameObject
       value: 
       objectReference: {fileID: 135113923947488776}
-    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -37
-      objectReference: {fileID: 0}
-    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 47
-      objectReference: {fileID: 0}
     - target: {fileID: 2072915454867577536, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -27338,11 +27333,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 251
-      objectReference: {fileID: 0}
     - target: {fileID: 7151740085634641264, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -27393,6 +27383,16 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 250
       objectReference: {fileID: 0}
+    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -37
+      objectReference: {fileID: 0}
+    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 47
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caff69c3476453a47975a1e144634f57, type: 3}
 --- !u!1 &135113923947488776 stripped
@@ -27426,11 +27426,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8243186520206198356}
     m_Modifications:
-    - target: {fileID: 542034429461790173, guid: d99c9d49e6676964995b14a83cf7705e,
-        type: 3}
-      propertyPath: m_Name
-      value: DialogPrompt
-      objectReference: {fileID: 0}
     - target: {fileID: 542034429461790114, guid: d99c9d49e6676964995b14a83cf7705e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -27541,6 +27536,11 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 7163039741364134692}
+    - target: {fileID: 542034429461790173, guid: d99c9d49e6676964995b14a83cf7705e,
+        type: 3}
+      propertyPath: m_Name
+      value: DialogPrompt
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d99c9d49e6676964995b14a83cf7705e, type: 3}
 --- !u!114 &7163039741364134694 stripped
@@ -27586,11 +27586,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3286902782345397023}
     m_Modifications:
-    - target: {fileID: 542034429461790173, guid: d99c9d49e6676964995b14a83cf7705e,
-        type: 3}
-      propertyPath: m_Name
-      value: DialogPrompt
-      objectReference: {fileID: 0}
     - target: {fileID: 542034429461790114, guid: d99c9d49e6676964995b14a83cf7705e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -27701,6 +27696,11 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 7678674326923655957}
+    - target: {fileID: 542034429461790173, guid: d99c9d49e6676964995b14a83cf7705e,
+        type: 3}
+      propertyPath: m_Name
+      value: DialogPrompt
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d99c9d49e6676964995b14a83cf7705e, type: 3}
 --- !u!1 &7678674325651563224 stripped
@@ -27746,11 +27746,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8351171951459622069}
     m_Modifications:
-    - target: {fileID: 542034429461790173, guid: d99c9d49e6676964995b14a83cf7705e,
-        type: 3}
-      propertyPath: m_Name
-      value: DialogPrompt
-      objectReference: {fileID: 0}
     - target: {fileID: 542034429461790114, guid: d99c9d49e6676964995b14a83cf7705e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -27861,6 +27856,11 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 7661792274039712073}
+    - target: {fileID: 542034429461790173, guid: d99c9d49e6676964995b14a83cf7705e,
+        type: 3}
+      propertyPath: m_Name
+      value: DialogPrompt
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d99c9d49e6676964995b14a83cf7705e, type: 3}
 --- !u!114 &7661792274039712075 stripped
@@ -27906,11 +27906,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8696311554662181713}
     m_Modifications:
-    - target: {fileID: 542034429461790173, guid: d99c9d49e6676964995b14a83cf7705e,
-        type: 3}
-      propertyPath: m_Name
-      value: DialogPrompt
-      objectReference: {fileID: 0}
     - target: {fileID: 542034429461790114, guid: d99c9d49e6676964995b14a83cf7705e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28021,6 +28016,11 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 7552529456985616845}
+    - target: {fileID: 542034429461790173, guid: d99c9d49e6676964995b14a83cf7705e,
+        type: 3}
+      propertyPath: m_Name
+      value: DialogPrompt
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d99c9d49e6676964995b14a83cf7705e, type: 3}
 --- !u!114 &7552529456985616847 stripped
@@ -28066,6 +28066,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4020172479843704453}
     m_Modifications:
+    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 251
+      objectReference: {fileID: 0}
     - target: {fileID: 986684182952096226, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_Name
@@ -28191,16 +28196,6 @@ PrefabInstance:
       propertyPath: data.Array.data[1].gameObject
       value: 
       objectReference: {fileID: 1053613684448985305}
-    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -37
-      objectReference: {fileID: 0}
-    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 47
-      objectReference: {fileID: 0}
     - target: {fileID: 2072915454867577536, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -28256,11 +28251,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 251
-      objectReference: {fileID: 0}
     - target: {fileID: 7151740085634641264, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -28311,6 +28301,16 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 250
       objectReference: {fileID: 0}
+    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -37
+      objectReference: {fileID: 0}
+    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 47
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caff69c3476453a47975a1e144634f57, type: 3}
 --- !u!1 &1053613684448985305 stripped
@@ -28344,11 +28344,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6029564845984719017}
     m_Modifications:
-    - target: {fileID: 542034429461790173, guid: d99c9d49e6676964995b14a83cf7705e,
-        type: 3}
-      propertyPath: m_Name
-      value: DialogPrompt
-      objectReference: {fileID: 0}
     - target: {fileID: 542034429461790114, guid: d99c9d49e6676964995b14a83cf7705e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28459,6 +28454,11 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 8637439161164618528}
+    - target: {fileID: 542034429461790173, guid: d99c9d49e6676964995b14a83cf7705e,
+        type: 3}
+      propertyPath: m_Name
+      value: DialogPrompt
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d99c9d49e6676964995b14a83cf7705e, type: 3}
 --- !u!1 &8637439160425005805 stripped
@@ -28504,11 +28504,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6455109411153210830}
     m_Modifications:
-    - target: {fileID: 542034429461790173, guid: d99c9d49e6676964995b14a83cf7705e,
-        type: 3}
-      propertyPath: m_Name
-      value: DialogPrompt
-      objectReference: {fileID: 0}
     - target: {fileID: 542034429461790114, guid: d99c9d49e6676964995b14a83cf7705e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28619,6 +28614,11 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 8600514872574281895}
+    - target: {fileID: 542034429461790173, guid: d99c9d49e6676964995b14a83cf7705e,
+        type: 3}
+      propertyPath: m_Name
+      value: DialogPrompt
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d99c9d49e6676964995b14a83cf7705e, type: 3}
 --- !u!1 &8600514873982226794 stripped
@@ -28664,6 +28664,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6716872218602420193}
     m_Modifications:
+    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 251
+      objectReference: {fileID: 0}
     - target: {fileID: 986684182952096226, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_Name
@@ -28789,16 +28794,6 @@ PrefabInstance:
       propertyPath: data.Array.data[1].gameObject
       value: 
       objectReference: {fileID: 1333655926752729290}
-    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -37
-      objectReference: {fileID: 0}
-    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 47
-      objectReference: {fileID: 0}
     - target: {fileID: 2072915454867577536, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -28854,11 +28849,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 251
-      objectReference: {fileID: 0}
     - target: {fileID: 7151740085634641264, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -28909,6 +28899,16 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 250
       objectReference: {fileID: 0}
+    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -37
+      objectReference: {fileID: 0}
+    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 47
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caff69c3476453a47975a1e144634f57, type: 3}
 --- !u!1 &3785904947997692194 stripped
@@ -28942,11 +28942,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4607369183223622642}
     m_Modifications:
-    - target: {fileID: 542034429461790173, guid: d99c9d49e6676964995b14a83cf7705e,
-        type: 3}
-      propertyPath: m_Name
-      value: DialogPrompt
-      objectReference: {fileID: 0}
     - target: {fileID: 542034429461790114, guid: d99c9d49e6676964995b14a83cf7705e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -29057,6 +29052,11 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 8380600316566648671}
+    - target: {fileID: 542034429461790173, guid: d99c9d49e6676964995b14a83cf7705e,
+        type: 3}
+      propertyPath: m_Name
+      value: DialogPrompt
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d99c9d49e6676964995b14a83cf7705e, type: 3}
 --- !u!1 &8380600315821862546 stripped
@@ -29102,6 +29102,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5356819118011286194}
     m_Modifications:
+    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 251
+      objectReference: {fileID: 0}
     - target: {fileID: 986684182952096226, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_Name
@@ -29227,16 +29232,6 @@ PrefabInstance:
       propertyPath: data.Array.data[1].gameObject
       value: 
       objectReference: {fileID: 1551317585683832594}
-    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -37
-      objectReference: {fileID: 0}
-    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 47
-      objectReference: {fileID: 0}
     - target: {fileID: 2072915454867577536, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -29292,11 +29287,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 251
-      objectReference: {fileID: 0}
     - target: {fileID: 7151740085634641264, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -29347,6 +29337,16 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 250
       objectReference: {fileID: 0}
+    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -37
+      objectReference: {fileID: 0}
+    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 47
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caff69c3476453a47975a1e144634f57, type: 3}
 --- !u!1 &8750740222765640467 stripped
@@ -29380,11 +29380,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4020172479843704453}
     m_Modifications:
-    - target: {fileID: 542034429461790173, guid: d99c9d49e6676964995b14a83cf7705e,
-        type: 3}
-      propertyPath: m_Name
-      value: DialogPrompt
-      objectReference: {fileID: 0}
     - target: {fileID: 542034429461790114, guid: d99c9d49e6676964995b14a83cf7705e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -29495,6 +29490,11 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 8241877269857670952}
+    - target: {fileID: 542034429461790173, guid: d99c9d49e6676964995b14a83cf7705e,
+        type: 3}
+      propertyPath: m_Name
+      value: DialogPrompt
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d99c9d49e6676964995b14a83cf7705e, type: 3}
 --- !u!224 &8241877269857670953 stripped
@@ -29540,6 +29540,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8243186520206198356}
     m_Modifications:
+    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 251
+      objectReference: {fileID: 0}
     - target: {fileID: 986684182952096226, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_Name
@@ -29665,16 +29670,6 @@ PrefabInstance:
       propertyPath: data.Array.data[1].gameObject
       value: 
       objectReference: {fileID: 1976153118586945952}
-    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -37
-      objectReference: {fileID: 0}
-    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 47
-      objectReference: {fileID: 0}
     - target: {fileID: 2072915454867577536, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -29730,11 +29725,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 251
-      objectReference: {fileID: 0}
     - target: {fileID: 7151740085634641264, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -29784,6 +29774,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingOrder
       value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -37
+      objectReference: {fileID: 0}
+    - target: {fileID: 6003070449058835355, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 47
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caff69c3476453a47975a1e144634f57, type: 3}
