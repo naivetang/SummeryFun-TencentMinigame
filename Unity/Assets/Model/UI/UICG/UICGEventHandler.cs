@@ -124,7 +124,7 @@ namespace ETModel
     {
         public override void Run()
         {
-            Game.Scene.GetComponent<ResourcesComponent>().LoadBundle(UIType.UICG.StringToAB());
+            //Game.Scene.GetComponent<ResourcesComponent>().LoadBundle(UIType.UICG.StringToAB());
 
             UIFactory.Create<UICGComponent>(ViewLayer.UIBgLayer, UIType.UICG).Coroutine();
         }

@@ -216,6 +216,7 @@ namespace ETModel
         void InitBeforeList()
         {
             // 只能预加载CG之后的prefab
+            RegistBeforeLoadList(UIType.UICG);
             RegistBeforeLoadList(UIType.UIMap);
             RegistBeforeLoadList(UIType.UIMain);
             RegistBeforeLoadList(UIType.UIGuideScene);
@@ -262,14 +263,38 @@ namespace ETModel
         /// <summary>
         /// 是否已经被预加载
         /// </summary>
-        /// <param name="assetBundleName"></param>
+        /// <param name="prefabName"></param>
         /// <returns></returns>
-        public bool hasBeforeLoad(string assetBundleName)
+        public bool hasBeforeLoad(string prefabName)
         {
             if (Define.LoadFromRes)
                 return false;
-            
-            return this.beforeLoadList.Contains(assetBundleName);
+
+            if (beforeLoadList.Contains(prefabName))
+            {
+                 bool r = this.AwaitLoad(prefabName.StringToAB()).Result;
+                 return r;
+            }
+
+            return false;
+            //return this.beforeLoadList.Contains(assetBundleName);
+        }
+
+        async ETTask<bool> AwaitLoad(string assetBundleName)
+        {
+            TimerComponent timer = Game.Scene.GetComponent<TimerComponent>();
+
+            while (true)
+            {
+                await timer.WaitAsync((long) (0.4f) * 1000);
+
+                if (this.bundles.ContainsKey(assetBundleName))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         public UnityEngine.Object GetAsset(string bundleName, string prefab)
