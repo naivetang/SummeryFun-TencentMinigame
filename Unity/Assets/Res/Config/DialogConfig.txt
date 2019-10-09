@@ -18,7 +18,7 @@
 {"Id":2033,"NextId":2034,"RoleId":-1,"Text":"我送你回家好不好","ShowTime":3}
 {"Id":2034,"NextId":2035,"RoleId":1004,"Text":"（哼~哼~）","ShowTime":3}
 {"Id":2035,"NextId":2036,"RoleId":-1,"Text":"哎你别跑啊，回来~","ShowTime":3}
-{"Id":2036,"NextId":-1,"RoleId":-1,"Text":"（看来得有些什么吃的诱引它才行）","ShowTime":3}
+{"Id":2036,"NextId":-1,"RoleId":-1,"Text":"（看来得有些什么<color=#de5449>吃的诱引它</color>才行）","ShowTime":3}
 {"Id":2040,"NextId":2041,"RoleId":1006,"Text":"老李，看你这步棋要咋走嘛。","ShowTime":3}
 {"Id":2041,"NextId":2042,"RoleId":1007,"Text":"用羊角士顶他马啊！","ShowTime":3}
 {"Id":2042,"NextId":2043,"RoleId":1008,"Text":"净瞎说，羊角士别不住马脚","ShowTime":3}

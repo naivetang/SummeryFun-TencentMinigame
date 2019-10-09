@@ -117,11 +117,13 @@ namespace ETModel
 
                             this._animation.skeletonDataAsset = this._rightSkeletonData;
 
-                            this._animation.AnimationState.SetAnimation(this._trackIndex, this._walkAnimation, true);
+                            
 
                             isRight(true);
 
                             this._animation.Initialize(true);
+
+                            this._animation.AnimationState.SetAnimation(this._trackIndex, this._walkAnimation, true);
 
                             this.dir = MoveDir.Right;
                         }
@@ -134,11 +136,11 @@ namespace ETModel
 
                             this._animation.skeletonDataAsset = this._leftSkeletonData;
 
-                            this._animation.AnimationState.SetAnimation(this._trackIndex, this._walkAnimation, true);
-
                             isRight(false);
 
                             this._animation.Initialize(true);
+
+                            this._animation.AnimationState.SetAnimation(this._trackIndex, this._walkAnimation, true);
 
                             this.dir = MoveDir.Left;
                         }
@@ -158,11 +160,11 @@ namespace ETModel
 
                             this._animation.skeletonDataAsset = this._upSkeletonData;
 
-                            this._animation.AnimationState.SetAnimation(this._trackIndex, this._walkAnimation, true);
-
                             isRight(false);
 
                             this._animation.Initialize(true);
+
+                            this._animation.AnimationState.SetAnimation(this._trackIndex, this._walkAnimation, true);
 
                             this.dir = MoveDir.Up;
                         }
@@ -175,11 +177,11 @@ namespace ETModel
 
                             this._animation.skeletonDataAsset = this._downSkeletonData;
 
-                            this._animation.AnimationState.SetAnimation(this._trackIndex, this._walkAnimation, true);
-
                             isRight(false);
 
                             this._animation.Initialize(true);
+
+                            this._animation.AnimationState.SetAnimation(this._trackIndex, this._walkAnimation, true);
 
                             this.dir = MoveDir.Down;
                         }
