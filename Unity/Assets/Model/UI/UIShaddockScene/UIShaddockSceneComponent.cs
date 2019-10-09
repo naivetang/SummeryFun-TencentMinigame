@@ -767,25 +767,25 @@ namespace ETModel
             
             this.drageStick.transform.localEulerAngles = angle;
             
-            Log.Info("杆的角度:" + angle.z);
+            //Log.Info("杆的角度:" + angle.z);
 
-            float minScalX = 0.85f;
-            float maxScalX = 1f;
-
-            Vector3 scal = Vector3.one;
-
-            if (angle.z > 60)
-            {
-                scal.x = minScalX;
-            }
-            else if(angle.z < 34f)
-            {
-                scal.x = maxScalX;
-            }
-            else
-            {
-                scal.x = minScalX + (maxScalX - minScalX) / (60f - 34f) * (60f - angle.z);
-            }
+             float minScalX = 0.85f;
+             float maxScalX = 1f;
+            
+             Vector3 scal = Vector3.one;
+            
+             if (angle.z > 60)
+             {
+                 scal.x = minScalX;
+             }
+             else if(angle.z < 34f)
+             {
+                 scal.x = maxScalX;
+             }
+             else
+             {
+                 scal.x = minScalX + (maxScalX - minScalX) / (60f - 34f) * (60f - angle.z);
+             }
 
             this.drageStick.transform.localScale = scal;
 
