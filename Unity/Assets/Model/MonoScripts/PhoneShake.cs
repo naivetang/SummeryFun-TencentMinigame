@@ -7,7 +7,7 @@ namespace ETModel
     {
         void OnEnable()
         {
-            Handheld.Vibrate();
+            VibrationControler.Vibrate();
         }
         
     }

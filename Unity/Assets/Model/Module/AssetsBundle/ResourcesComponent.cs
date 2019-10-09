@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -216,9 +217,11 @@ namespace ETModel
         void InitBeforeList()
         {
             // 只能预加载CG之后的prefab
+            
             RegistBeforeLoadList(UIType.UICG);
             RegistBeforeLoadList(UIType.UIMap);
             RegistBeforeLoadList(UIType.UIMain);
+            RegistBeforeLoadList(UIType.UIBook);
             RegistBeforeLoadList(UIType.UIGuideScene);
             RegistBeforeLoadList(UIType.UIShaddockScene);
             RegistBeforeLoadList(UIType.UIBirdCatchScene);
@@ -265,19 +268,20 @@ namespace ETModel
         /// </summary>
         /// <param name="prefabName"></param>
         /// <returns></returns>
-        public bool hasBeforeLoad(string prefabName)
+        public async ETTask<bool> hasBeforeLoad(string prefabName)
         {
             if (Define.LoadFromRes)
                 return false;
 
+            
             if (beforeLoadList.Contains(prefabName))
             {
-                 bool r = this.AwaitLoad(prefabName.StringToAB()).Result;
-                 return r;
-            }
+                 var t = await this.AwaitLoad(prefabName.StringToAB().ToLower());
+                
+                 return true;
 
+            }
             return false;
-            //return this.beforeLoadList.Contains(assetBundleName);
         }
 
         async ETTask<bool> AwaitLoad(string assetBundleName)
@@ -286,15 +290,18 @@ namespace ETModel
 
             while (true)
             {
-                await timer.WaitAsync((long) (0.4f) * 1000);
-
-                if (this.bundles.ContainsKey(assetBundleName))
+                ABInfo ab;
+                if (this.bundles.TryGetValue(assetBundleName, out ab))
                 {
-                    return true;
+                    break;
                 }
+
+                await timer.WaitAsync((long)(0.4f * 1000));
             }
 
-            return false;
+            return true;
+
+            //return true;
         }
 
         public UnityEngine.Object GetAsset(string bundleName, string prefab)

@@ -72,7 +72,7 @@ namespace ETModel
 
         async ETVoid CollectToBook()
         {
-            UIBase com = UIFactory.Create<UIBookComponent>(ViewLayer.UIPopupLayer, UIType.UIBook).Result;
+            UIBase com = await UIFactory.Create<UIBookComponent>(ViewLayer.UIPopupLayer, UIType.UIBook);
 
             com.GetComponent<UIBookComponent>().AddImageGo(this.drawscene2, 10);
 

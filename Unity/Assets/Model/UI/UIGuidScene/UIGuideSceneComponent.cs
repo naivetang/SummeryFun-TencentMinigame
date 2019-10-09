@@ -152,7 +152,7 @@ namespace ETModel
 
                     Log.Info("手机震动");
 
-                    Handheld.Vibrate();
+                    VibrationControler.Vibrate();
                 });
 
                 this.hine1.GetComponent<UIColliderTrigger>().RegistOnTriggerExit2D((p) =>
@@ -175,7 +175,9 @@ namespace ETModel
 
                     Log.Info("手机震动");
 
-                    Handheld.Vibrate();
+                    VibrationControler.Vibrate();
+                    
+                   
                 });
 
                 this.hine2.GetComponent<UIColliderTrigger>().RegistOnTriggerExit2D((p) =>
@@ -251,7 +253,7 @@ namespace ETModel
 
             Log.Info("手机震动0.5秒");
 
-            Handheld.Vibrate();
+            VibrationControler.Vibrate();
             
         }
         void reset()
@@ -513,7 +515,7 @@ namespace ETModel
 
         async ETVoid CollectToBook()
         {
-            UIBase com = UIFactory.Create<UIBookComponent>(ViewLayer.UIPopupLayer, UIType.UIBook).Result;
+            UIBase com =  await UIFactory.Create<UIBookComponent>(ViewLayer.UIPopupLayer, UIType.UIBook);
             
             com.GetComponent<UIBookComponent>().AddImageGo(this.drawsence2, 1);
 

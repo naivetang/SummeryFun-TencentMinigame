@@ -45,6 +45,8 @@ namespace ETModel
 
         private TaskQueryRsp taskQueryRsp;
 
+        private GameObject AboutPage;
+
 
         private bool isNewAcc;
 
@@ -66,6 +68,10 @@ namespace ETModel
             this.setButton = rc.Get<GameObject>("setting").GetComponent<Button>();
 
             this.loginCom = rc.Get<GameObject>("LoginCom");
+            
+            this.AboutPage = rc.Get<GameObject>("AboutPage");
+            
+            this.AboutPage.SetActive(false);
 
             this.userName = rc.Get<GameObject>("Name").GetComponent<InputField>();
 
@@ -217,17 +223,23 @@ namespace ETModel
 
             else
             {
-                UIFactory.Create<UIMapComponent, GameObject, TaskQueryRsp>(ViewLayer.UIMainLayer, UIType.UIMap, null, this.taskQueryRsp).Coroutine();
-                
-                UIFactory.Create<UIMainComponent>(ViewLayer.UIFixedLayer, UIType.UIMain).Coroutine();
-                
-                Game.EventSystem.Run(EventIdType.ShowJoystic);
-                this.Close();
+                RecallLoad().Coroutine();
             }
             
         }
         
-        
+        async ETVoid RecallLoad()
+        {
+            await UIFactory.Create<UIMapComponent, GameObject, TaskQueryRsp>(ViewLayer.UIMainLayer, UIType.UIMap, null, this.taskQueryRsp);
+
+            await UIFactory.Create<UIMainComponent>(ViewLayer.UIFixedLayer, UIType.UIMain);
+
+            Game.EventSystem.Run(EventIdType.ShowJoystic);
+
+            this.Close();
+        }
+
+
 
         void SettingButOnClick()
         {
@@ -235,6 +247,7 @@ namespace ETModel
             
             SetAlpha(this.setButton);
             
+            this.AboutPage.gameObject.SetActive(true);
         }
 
         async void RegistBtnOnClick()

@@ -3,11 +3,11 @@ namespace ETModel
     [Event(EventIdType.OpenBook)]
     public class UIBookEventHandler : AEvent<int>
     {
-        public override void Run(int index)
+        public override async void Run(int index)
         {
             //Game.Scene.GetComponent<UIComponent>().
             
-            UIBase com = UIFactory.Create<UIBookComponent>(ViewLayer.UIPopupLayer, UIType.UIBook).Result;
+            UIBase com = await UIFactory.Create<UIBookComponent>(ViewLayer.UIPopupLayer, UIType.UIBook);
             
             com.GetComponent<UIBookComponent>().ShowPicture(index);
 

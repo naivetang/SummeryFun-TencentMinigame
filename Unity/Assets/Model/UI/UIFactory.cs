@@ -15,9 +15,13 @@ namespace ETModel
 
             ResourcesComponent resourcesComponent = Game.Scene.GetComponent<ResourcesComponent>();
             
-            if(!resourcesComponent.hasBeforeLoad(prefabName))
+
+            var b = await resourcesComponent.hasBeforeLoad(prefabName);
+
+            if (!b)
                 resourcesComponent.LoadBundle(prefabName.StringToAB());
-            
+
+
             GameObject bundleGameObject = (GameObject)resourcesComponent.GetAsset(prefabName.StringToAB(), prefabName);
             
             GameObject gameObject = UnityEngine.Object.Instantiate(bundleGameObject);
@@ -37,7 +41,9 @@ namespace ETModel
 
             ResourcesComponent resourcesComponent = Game.Scene.GetComponent<ResourcesComponent>();
 
-            if (!resourcesComponent.hasBeforeLoad(prefabName))
+            var b = await resourcesComponent.hasBeforeLoad(prefabName);
+
+            if (!b)
                 resourcesComponent.LoadBundle(prefabName.StringToAB());
 
             GameObject bundleGameObject = (GameObject)resourcesComponent.GetAsset(prefabName.StringToAB(), prefabName);
@@ -68,14 +74,16 @@ namespace ETModel
             //stopwatch.Start();
 
 
-            if (!resourcesComponent.hasBeforeLoad(prefabName))
+            var b = await resourcesComponent.hasBeforeLoad(prefabName);
+
+            if (!b)
                 resourcesComponent.LoadBundle(prefabName.StringToAB());
-            
-            
+
+
             //stopwatch.Stop();
-            
+
             //Log.Info($"加载{prefabName}资源所用时间(毫秒)：{stopwatch.ElapsedMilliseconds}");
-            
+
             //stopwatch.Restart();
 
             GameObject bundleGameObject = (GameObject)resourcesComponent.GetAsset(prefabName.StringToAB(), prefabName);

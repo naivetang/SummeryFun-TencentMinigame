@@ -44,7 +44,7 @@ namespace ETModel
         {
             
             
-             UIBase b = UIFactory.Create<UIMapComponent, GameObject, TaskQueryRsp>(ViewLayer.UIMainLayer, UIType.UIMap, a, null).Result;
+             UIFactory.Create<UIMapComponent, GameObject, TaskQueryRsp>(ViewLayer.UIMainLayer, UIType.UIMap, a, null).Coroutine();
 
              // Transform player = Game.Scene.GetComponent<UnitComponent>().MyUnit.GameObject.transform;
              //
