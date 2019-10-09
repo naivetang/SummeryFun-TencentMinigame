@@ -16,6 +16,8 @@ namespace ETModel
 
         void Start()
         {
+            Log.Info("对话组起始ID：" + dialogId);
+            
             if (this.dialogBtn != null)
             {
                 this.dialogBtn.gameObject.SetActive(false);

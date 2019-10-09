@@ -56,6 +56,12 @@ namespace ETModel
             
         }
 
+        /// <summary>
+        /// player等于空就是回忆，taskQueryRsp等于空就是开始
+        /// </summary>
+        /// <param name="player"></param>
+        /// <param name="taskQueryRsp"></param>
+        /// <returns></returns>
         async ETVoid AsyncAwake(GameObject player, TaskQueryRsp taskQueryRsp)
         {
             Vector3 oldPos = this.GetParent<UIBase>().GameObject.transform.position;
@@ -111,9 +117,6 @@ namespace ETModel
 
             
 
-
-            
-
             this.cancel = new CancellationTokenSource();
 
 
@@ -163,6 +166,59 @@ namespace ETModel
             _canFllowPigCom = ComponentFactory.Create<CanFllowPigComponent, GameObject>(fllowPig);
 
             this.InitPlayer();
+
+            await timer.WaitAsync((long)(0.2f) * 1000);
+
+            IConfig[] configs = Game.Scene.GetComponent<ConfigComponent>().GetAll(typeof (TriggerAreaConfig));
+
+
+            
+            List<TriggerAreaConfig > triggerConfigs = new List<TriggerAreaConfig>();
+
+            foreach (IConfig config in configs)
+            {
+                triggerConfigs.Add(config as TriggerAreaConfig);
+            }
+            
+
+
+            foreach (int doneTask in taskQueryRsp.DoneTasks)
+            {
+                if (doneTask < 0 || doneTask >= UIBookComponent.hadOpenPage.Count)
+                    continue;
+
+
+                var c = FindTriggerByBookIndex(triggerConfigs, doneTask);
+
+                if (c == null)
+                {
+                    Log.Warning("不存在BookIndex：" + doneTask);
+                    continue;
+                }
+                
+                Game.EventSystem.Run(EventIdType.CompleteTask, (int)c.Id);
+            }
+
+        }
+
+
+        TriggerAreaConfig FindTriggerByBookIndex(List<TriggerAreaConfig> arr, int bookIndex)
+        {
+            if (arr == null)
+            {
+                Log.Error("arr is null");
+                return null;
+            }
+
+            foreach (TriggerAreaConfig config in arr)
+            {
+                if (config.BookIndex.Equals(bookIndex))
+                {
+                    return config;
+                }
+            }
+
+            return null;
         }
 
         int SortRule(UIAutoSetDepth a, UIAutoSetDepth b)

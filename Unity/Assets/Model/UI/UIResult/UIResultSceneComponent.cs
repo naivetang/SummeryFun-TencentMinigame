@@ -126,6 +126,8 @@ namespace ETModel
             await ETTask.CompletedTask;
 
             TimerComponent timerComponent = Game.Scene.GetComponent<TimerComponent>();
+            
+            UIStartComponent.UpdateTask(null,0f,0f);
 
 
             await timerComponent.WaitAsync((long)(1 * 1000));

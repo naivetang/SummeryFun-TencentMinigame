@@ -138,7 +138,8 @@ namespace ETModel
         public static void UpdateTask(List<int> finish, double posx, double posy)
         {
             TaskUpdateReq req = new TaskUpdateReq();
-            
+
+
             req.FinishedTaskIds = new RepeatedField<int>();
 
             if (finish != null)
@@ -153,7 +154,24 @@ namespace ETModel
             
             req.PositionY = posy;
             
-            SessionComponent.Instance.Session.Send(req);
+            UpdateTask(req).Coroutine();
+            
+            
+        }
+
+
+        static async ETVoid UpdateTask(TaskUpdateReq req)
+        {
+            TaskUpdateRsp rsp = (TaskUpdateRsp) await SessionComponent.Instance.Session.Call(req);
+
+            if (rsp.Error == (int)TaskUpdateRsp.Types.ErrorCode.Succeed)
+            {
+                Log.Info("更新进度成功");
+            }
+            else
+            {
+                Log.Info("更新进度失败：" + rsp.Error);
+            }
         }
         
         
