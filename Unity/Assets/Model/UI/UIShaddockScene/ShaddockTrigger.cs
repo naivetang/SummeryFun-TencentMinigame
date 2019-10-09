@@ -144,7 +144,7 @@ namespace ETModel
                 {
                     middleDialog.GetComponent<DialogTextCtl>().SetText("  掉进去了！  ", 2f, false);
 
-                    rightDialog.GetComponent<DialogTextCtl>().SetText("  打这边的！  ", 2f, false);
+                    rightDialog.GetComponent<DialogTextCtl>().SetText("  <color=#de5449>打这边的！</color>  ", 2f, false);
 
                     AudioSource.PlayClipAtPoint(dropAudio, this.gameObject.transform.localPosition);
                                        

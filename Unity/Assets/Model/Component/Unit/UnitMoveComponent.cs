@@ -43,7 +43,7 @@ namespace ETModel
         [SerializeField]
         private MoveDir _moveDir = MoveDir.Stop;
 
-        private float _moveSpeed = 60f;
+        private float _moveSpeed = 75f;
 
         private Transform _playerTransform;
         

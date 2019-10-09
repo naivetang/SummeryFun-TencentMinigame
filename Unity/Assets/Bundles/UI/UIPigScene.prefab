@@ -1055,7 +1055,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1148,7 +1148,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u6A58\u67DA\u59D4\u8EAB\u7389\u76D8\u4E2D\uFF0C\u8C5A\u8C55\u5386\u5E74\u5180\u89C1\u98DF"
+  m_Text: "\u6A58\u67DA\u59D4\u8EAB<color=#de5449>\u7389\u76D8</color>\u4E2D\uFF0C\u8C5A\u8C55\u5386\u5E74\u5180\u89C1\u98DF"
 --- !u!1 &6193439620437258900
 GameObject:
   m_ObjectHideFlags: 0
@@ -1563,7 +1563,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1741,7 +1741,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   delay: 0
-  duration: 1
+  duration: 4
   easeType: 6
   easeCurve:
     serializedVersion: 2
@@ -1859,7 +1859,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2065,11 +2065,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.41658974
       objectReference: {fileID: 0}
-    - target: {fileID: 1457098370337053513, guid: df73797af48c85447a1f1d757974d78e,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1036912365260484276, guid: df73797af48c85447a1f1d757974d78e,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -2109,6 +2104,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.x
       value: 0.53645325
+      objectReference: {fileID: 0}
+    - target: {fileID: 1457098370337053513, guid: df73797af48c85447a1f1d757974d78e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3639789238422000621, guid: df73797af48c85447a1f1d757974d78e,
         type: 3}
