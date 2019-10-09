@@ -112,7 +112,7 @@ namespace ETModel
 
         async ETVoid CloseAll()
         {
-            UIFactory.Create<UIStartComponent>(ViewLayer.UIPopupLayer, UIType.UIStart).Coroutine();
+            //UIFactory.Create<UIStartComponent>(ViewLayer.UIPopupLayer, UIType.UIStart).Coroutine();
 
             Game.Scene.GetComponent<UIComponent>().RemoveUI(UIType.UIResultScene);
 
@@ -124,6 +124,17 @@ namespace ETModel
             Game.Scene.GetComponent<UIComponent>().RemoveUI(UIType.UIResultScene);
 
             await ETTask.CompletedTask;
+
+            TimerComponent timerComponent = Game.Scene.GetComponent<TimerComponent>();
+
+
+            await timerComponent.WaitAsync((long)(1 * 1000));
+
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#elif UNITY_STANDALONE_WIN
+            Application.Quit();
+#endif
 
         }
         //public override void Dispose()
