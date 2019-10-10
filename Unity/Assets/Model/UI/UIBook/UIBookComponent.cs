@@ -143,6 +143,9 @@ namespace ETModel
 
         void ContextPointDown(PointerEventData p)
         {
+            
+            //Log.Error("ContextPointDown");
+            
             if (this.currentPage == 0)
                 return;
 
@@ -157,6 +160,9 @@ namespace ETModel
 
         void ContextPointUp(PointerEventData p)
         {
+
+            //Log.Error("ContextPointUp");
+
             if (this.currentPage == 0)
                 return;
 
