@@ -310,7 +310,7 @@ namespace ETModel
 
         async void LoginButOnClick()
         {
-            // UIFactory.Create<UIPigSceneComponent>(ViewLayer.UIPopupLayer, UIType.UIPigScene).Coroutine();
+            // UIFactory.Create<UIShaddockSceneComponent>(ViewLayer.UIPopupLayer, UIType.UIShaddockScene).Coroutine();
             // return;
 
             //UIFactory.Create<UIPigSceneComponent>(ViewLayer.UIPopupLayer, UIType.UIPigScene);

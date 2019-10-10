@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -34,6 +35,13 @@ namespace ETModel
         public void Awake(GameObject go)
         {
 
+            if (this.dialogClose != null)
+            {
+                this.dialogClose.Cancel();
+                this.dialogClose.Dispose();
+                this.dialogClose = null;
+            }
+
             this.GameObject = go;
 
             btn = this.GameObject.GetComponent<UINextButton>();
@@ -61,6 +69,9 @@ namespace ETModel
             lastDialogId = (int)obj[0];
 
             currentDialogId = (int)obj[1];
+            
+            Log.Info("上一个:" + this.lastDialogId);
+            Log.Info("当前:" + this.currentDialogId);
 
             this.GameObject.SetActive(true);
             
@@ -116,6 +127,8 @@ namespace ETModel
             this.CheckDialogBtn();
         }
 
+        private CancellationTokenSource dialogClose = null;
+
         void CheckDialogBtn()
         {
             if (this.currentDialogId == -1)
@@ -124,19 +137,34 @@ namespace ETModel
                 
                 Game.EventSystem.Run(EventIdType.CompleteDialog, this.lastDialogId);
 
-                this.Wait3SAutoHide().Coroutine();
+
+                if (this.dialogClose != null)
+                {
+                    this.dialogClose.Cancel();
+                    
+                    this.dialogClose.Dispose();
+
+                    this.dialogClose = null;
+                }
+
+                this.dialogClose = new CancellationTokenSource();
+
+                this.Wait3SAutoHide(this.dialogClose.Token).Coroutine();
             }
         }
 
 
-        async ETVoid Wait3SAutoHide()
+        async ETVoid Wait3SAutoHide(CancellationToken token )
         {
             TimerComponent timer = Game.Scene.GetComponent<TimerComponent>();
 
-            await timer.WaitAsync(3 * 1000);
+            await timer.WaitAsync(3 * 1000, token);
 
             if (!this.IsDisposed && this.btn.gameObject.activeInHierarchy)
             {
+                
+                Log.Info("关闭");
+                
                 this.btn.gameObject.SetActive(false);
             }
         }
@@ -178,8 +206,20 @@ namespace ETModel
             // 离开对话区域
             else if (state.Equals("Exit"))
             {
+                Log.Info("退出对话区域，id ： " + dialogId);
 
-                this.GameObject.SetActive(false);
+                if (dialogClose != null)
+                {
+                    this.dialogClose.Cancel();
+                    
+                    this.dialogClose.Dispose();
+
+                    this.dialogClose = null;
+
+                    this.GameObject.SetActive(false);
+                }
+                
+                
                 
                 return;
                 
