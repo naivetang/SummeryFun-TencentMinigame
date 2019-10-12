@@ -73,7 +73,7 @@ namespace ETModel
 
         public void Awake()
         {
-            hadShow = false;
+            hadShow = true;
 
             ReferenceCollector rc = this.GetParent<UIBase>().GameObject.GetComponent<ReferenceCollector>();
 
@@ -144,7 +144,11 @@ namespace ETModel
         {
             TimerComponent timer = Game.Scene.GetComponent<TimerComponent>();
 
-            await timer.WaitAsync(3 * 1000, token);
+            await timer.WaitAsync(1 * 1000);
+
+            hadShow = false;
+
+            await timer.WaitAsync(2 * 1000, token);
 
             if (this.IsDisposed || this.tishiDialog.activeSelf || this.hadShow)
                 return;

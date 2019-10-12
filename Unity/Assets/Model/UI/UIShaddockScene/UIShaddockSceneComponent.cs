@@ -125,7 +125,7 @@ namespace ETModel
         public void Awake()
         {
 
-            this.hadShow = false;
+            this.hadShow = true;
             
             // if(Game.Scene.GetComponent<UnitComponent>().MyUnit != null)
             //     Game.Scene.GetComponent<UnitComponent>().MyUnit.RemoveComponent<UnitCameraFollowComponent>();
@@ -198,7 +198,11 @@ namespace ETModel
         {
             TimerComponent timer = Game.Scene.GetComponent<TimerComponent>();
 
-            await timer.WaitAsync(3 * 1000, token);
+            await timer.WaitAsync((long)(1*1000));
+
+            hadShow = false;
+
+            await timer.WaitAsync(2 * 1000, token);
             
             if (this.IsDisposed || this.tishiDialog.activeSelf || this.hadShow)
                 return;
@@ -230,7 +234,7 @@ namespace ETModel
                 this.tishiDialog.SetActive(false);
             }
         }
-        
+
 
         public void Update()
         {
@@ -244,7 +248,7 @@ namespace ETModel
                 CheckClick();
             }
         }
-        
+
         public void CheckClick()
         {
 #if UNITY_EDITOR

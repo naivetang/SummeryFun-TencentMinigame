@@ -47,7 +47,7 @@ namespace ETModel
         {
             this.xiaomiao = go;
 
-            hadShow = false;
+            hadShow = true;
 
             bind = this.xiaomiao.GetComponent<UIGuideXiaomiaoBind>();
             
@@ -119,7 +119,12 @@ namespace ETModel
         {
             TimerComponent timer = Game.Scene.GetComponent<TimerComponent>();
 
-            await timer.WaitAsync((long) (this.bind.waitTimeToPrompt * 1000), token);
+
+            await timer.WaitAsync((long) (1f) * 1000);
+
+            hadShow = false;
+
+            await timer.WaitAsync((long) (this.bind.waitTimeToPrompt-1 * 1000), token);
 
             if (this.IsDisposed)
                 return;

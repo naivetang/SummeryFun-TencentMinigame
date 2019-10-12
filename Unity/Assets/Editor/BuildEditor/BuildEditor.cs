@@ -55,7 +55,7 @@ namespace ETEditor
 			switch (buildType)
 			{
 				case BuildType.Development:
-					this.buildOptions = BuildOptions.Development  | BuildOptions.ConnectWithProfiler | BuildOptions.AllowDebugging/* | BuildOptions.AutoRunPlayer*/;
+					this.buildOptions = BuildOptions.Development  /*| BuildOptions.ConnectWithProfiler | BuildOptions.AllowDebugging | BuildOptions.AutoRunPlayer*/;
 					break;
 				case BuildType.Release:
 					this.buildOptions = BuildOptions.None;
