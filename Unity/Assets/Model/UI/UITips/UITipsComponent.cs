@@ -67,6 +67,15 @@ namespace ETModel
             base.Dispose();
             
             this.RemoveListener();
+
+
+            Unit player = Game.Scene.GetComponent<UnitComponent>().MyUnit;
+
+
+            if (player != null && player.GetComponent<UnitCameraFollowComponent>() == null)
+            {
+                player.AddComponent<UnitCameraFollowComponent>();
+            }
         }
     }
 }

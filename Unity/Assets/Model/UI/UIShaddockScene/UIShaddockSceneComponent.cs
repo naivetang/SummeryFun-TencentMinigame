@@ -968,8 +968,6 @@ namespace ETModel
         public override void Dispose()
         {
             base.Dispose();
-            
-            Game.Scene.GetComponent<UnitComponent>().MyUnit.AddComponent<UnitCameraFollowComponent>();
 
             this.RemoveListener();
             
@@ -978,8 +976,14 @@ namespace ETModel
             this.middleChild?.Dispose();
             
             this.rightChild?.Dispose();
-            
-            
+
+            Unit player = Game.Scene.GetComponent<UnitComponent>().MyUnit;
+
+
+            if (player != null && player.GetComponent<UnitCameraFollowComponent>() == null)
+            {
+                player.AddComponent<UnitCameraFollowComponent>();
+            }
         }
 
         #region ×ó±ßÐ¡ÄÐº¢Âß¼­

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -22,7 +23,7 @@ namespace ETModel
 
         public override void Update(UnitMoveComponent self)
         {
-           // self.Update();
+            self.Update();
         }
     }
 
@@ -46,10 +47,14 @@ namespace ETModel
         private float _moveSpeed = 75f;
 
         private Transform _playerTransform;
-        
+
+        private Rigidbody2D rigidbody2D;
+
         public void Awake()
         {
             this._playerTransform = this.Parent.GameObject.transform;
+
+            this.rigidbody2D = this._playerTransform.GetComponent<Rigidbody2D>();
             
             AddListener();
         }
@@ -83,8 +88,9 @@ namespace ETModel
         //     }
         // }
 
-        public void FixedUpdate()
+        public void Update()
         {
+            return;
             switch (_moveDir)
             {
                 case MoveDir.Up:
@@ -115,6 +121,69 @@ namespace ETModel
                 case MoveDir.Stop:
                     break;
             }
+
+            // if (Input.GetMouseButtonDown(0))
+            // {
+            //     this.RemoveListener();
+            // }
+        }
+
+        public void FixedUpdate()
+        {
+            
+            Vector2 endpos = _playerTransform.transform.position;
+
+            switch (_moveDir)
+            {
+                case MoveDir.Up:
+
+                    endpos.y += this._moveSpeed * Time.deltaTime;
+                    
+                    break;
+                case MoveDir.Down:
+                    endpos.y -= this._moveSpeed * Time.deltaTime;
+                    
+                    break;
+                case MoveDir.Left:
+
+
+                    endpos.x -= this._moveSpeed * Time.deltaTime;
+                    
+                    break;
+                case MoveDir.Right:
+
+                    endpos.x += this._moveSpeed * Time.deltaTime;
+                    
+                    break;
+                case MoveDir.LeftUp:
+
+                    endpos += new Vector2(-this._moveSpeed * Time.deltaTime * Mathf.Sin(45f), this._moveSpeed * Time.deltaTime * Mathf.Sin(45f));
+
+                    //_playerTransform.Translate(new Vector3(-this._moveSpeed * Time.deltaTime * Mathf.Sin(45f), this._moveSpeed * Time.deltaTime * Mathf.Sin(45f), 0));
+                    break;
+                case MoveDir.RightUp:
+
+                    endpos += new Vector2(this._moveSpeed * Time.deltaTime * Mathf.Sin(45f), this._moveSpeed * Time.deltaTime * Mathf.Sin(45f));
+
+                    //_playerTransform.Translate(new Vector3(this._moveSpeed * Time.deltaTime * Mathf.Sin(45f), this._moveSpeed * Time.deltaTime * Mathf.Sin(45f), 0));
+                    break;
+                case MoveDir.LeftDown:
+
+                    endpos += new Vector2(-this._moveSpeed * Time.deltaTime * Mathf.Sin(45f), -this._moveSpeed * Time.deltaTime * Mathf.Sin(45f));
+
+                    //_playerTransform.Translate(new Vector3(-this._moveSpeed * Time.deltaTime * Mathf.Sin(45f), -this._moveSpeed * Time.deltaTime * Mathf.Sin(45f), 0));
+                    break;
+                case MoveDir.RightDown:
+
+                    endpos += new Vector2(this._moveSpeed * Time.deltaTime * Mathf.Sin(45f), -this._moveSpeed * Time.deltaTime * Mathf.Sin(45f));
+
+                    //_playerTransform.Translate(new Vector3(this._moveSpeed * Time.deltaTime * Mathf.Sin(45f), -this._moveSpeed * Time.deltaTime * Mathf.Sin(45f), 0));
+                    break;
+                case MoveDir.Stop:
+                    break;
+            }
+
+            rigidbody2D.MovePosition(endpos);
 
             // if (Input.GetMouseButtonDown(0))
             // {

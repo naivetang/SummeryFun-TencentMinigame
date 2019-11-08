@@ -75,7 +75,11 @@ namespace ETModel
 
             this.userName = rc.Get<GameObject>("Name").GetComponent<InputField>();
 
+            this.userName.text = "";
+
             this.passWord = rc.Get<GameObject>("Password").GetComponent<InputField>();
+
+            this.passWord.text = "";
             
             this.loginButton = rc.Get<GameObject>("LoginBtn").GetComponent<Button>();
             
@@ -319,7 +323,7 @@ namespace ETModel
             Log.Debug("用户名：" + this.userName.text);
             Log.Debug("密码：" + this.passWord.text);
 
-            if (this.userName.text.Equals("root") && this.passWord.text.Equals("root"))
+            if ((this.userName.text.Equals("root") && this.passWord.text.Equals("root") )|| (this.userName.text.Equals("") && this.passWord.text.Equals("")))
             {
                 Log.Info("login succeed");
                 this.loginCom.SetActive(false);

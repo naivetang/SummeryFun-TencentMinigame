@@ -641,9 +641,15 @@ namespace ETModel
             
             this.xiaomiaoComponent.Dispose();
 
-            Game.Scene.GetComponent<UnitComponent>().MyUnit.AddComponent<UnitCameraFollowComponent>();
-
             this.RemoveListener();
+
+            Unit player = Game.Scene.GetComponent<UnitComponent>().MyUnit;
+
+
+            if (player != null && player.GetComponent<UnitCameraFollowComponent>() == null)
+            {
+                player.AddComponent<UnitCameraFollowComponent>();
+            }
         }
     }
 }

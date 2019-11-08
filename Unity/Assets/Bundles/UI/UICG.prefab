@@ -1749,6 +1749,21 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4927090200772756234, guid: f086cf120917fc74e8977df5b69387fe,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 42.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 4927090200772756234, guid: f086cf120917fc74e8977df5b69387fe,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -52.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4927090200772756234, guid: f086cf120917fc74e8977df5b69387fe,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 81.3
+      objectReference: {fileID: 0}
     - target: {fileID: 7531098712662581914, guid: f086cf120917fc74e8977df5b69387fe,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2051,11 +2066,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 251
-      objectReference: {fileID: 0}
     - target: {fileID: 3585937882436825901, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2220,6 +2230,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.x
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 861139011326792277, guid: caff69c3476453a47975a1e144634f57,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 251
       objectReference: {fileID: 0}
     - target: {fileID: 7151740085634641264, guid: caff69c3476453a47975a1e144634f57,
         type: 3}
