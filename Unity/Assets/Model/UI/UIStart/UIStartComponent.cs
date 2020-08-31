@@ -205,7 +205,7 @@ namespace ETModel
         void SetUserNameAndPASSWORD()
         {
             PlayerPrefs.SetString(this.ACCOUNT, this.userName.text);
-            PlayerPrefs.GetString(this.PASSWORD, this.passWord.text);
+            PlayerPrefs.SetString(this.PASSWORD, this.passWord.text);
         }
 
 
@@ -329,7 +329,7 @@ namespace ETModel
                 this.loginCom.SetActive(false);
                 this.startCom.SetActive(true);
                 SetAlpha(this.startButton);
-
+                this.SetUserNameAndPASSWORD();
                 SessionComponent.Instance = null;
                 
                 return;
